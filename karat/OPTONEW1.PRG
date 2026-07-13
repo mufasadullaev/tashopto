@@ -1,0 +1,11235 @@
+*®á«¥¤­¨¥ ¨§¬¥­¥­¨ï ¡ë«¨ ¢­¥á¥­ë 20.12.2005  ‘“…‚‰ ƒ.ˆ.  
+*®á«¥¤­¨¥ ¨§¬¥­¥­¨ï ¡ë«¨ ¢­¥á¥­ë 20.10.2005  ‘“…‚‰ ƒ.ˆ.  
+DO INDEX
+set safety off
+set function 9 to "do optonew1;"
+set function 10 to "quit;"
+set talk off
+set scoreboard off
+set status off
+set confirm on
+set bell off
+set escape on
+on escape return
+set procedure to OPTOnew1
+set menu on
+win="ÛÛÛÛÛÛÛÛÛ"
+win1="ÉÍ»º¼ÍÈº"
+te="H ¦¬¨â¥ Enter..."
+be="Enter - ¯à®¤®«¦¨âì, Esc - ¢ëå®¤"
+re="F1+n áâà¥«ª¨ Esc PgUp PgDn Enter ^End ^PgUp ^PgDn Home End Ins Del ^Home ^Y Bcks"
+public l,dd,mm,gg,idd,imm,igg,ekkol,starr,sta,prizn
+dime ggg(11,19),pd(23),f(23),summ(4,4),pp(26),pt(26),q(26),ak(26),v(26),v9(26)
+dimension a(13),b(13),c(13),d(13),e(13),g(13),sss(13),star(51)
+*set color to w+//b
+set color to w+//bg
+clear
+! pcxview.exe tashgres.pcx /q
+clear
+@ 0,0,24,79  box "°"
+@ 1,1,23,78  box win1
+*set color to gr+*//b
+set color to gr+//b
+@ 0,35 say "’ è’‘"
+*do FLAG2
+*do STARR
+set color to R
+sta=1
+set color to w+//b
+@ 1,20,23,60  box win1+" "
+do while .t.
+set color to gr+//b
+@ 2,26 say     "…€’ˆ‚›… ‡€„€—ˆ „‹Ÿ ’"
+set color to w+//b
+@ 3,26 say  "                              "
+set color to gr+/b
+@ 4,26 say  "      … † … „  … ‚  :     "
+set color to w+//b
+@ 5,26 prompt "…¦¥¤­¥¢­ë© à áç¥â ¯® ¢ åâ ¬"
+*@ 6,26 prompt "‘¢®¤­ë© à áç¥â ¯® ¢ åâ ¬"
+@ 6,26 prompt "¥à¥¦®£¨ â®¯«¨¢ "
+@ 7,26 prompt "‚ëà ¡®âª  í«¥ªâà®í­¥à£¨¨"
+@ 8,26 say  "                              "
+set color to gr+/b
+@ 9,26 say  "  … † …  … „ … ‹ œ  :    "
+set color to w+//b
+@ 10,26 prompt "‘¢®¤­ë© à áç¥â ¯® ¢ åâ ¬"
+set color to gr+/b
+@ 11,26 say  "                              "
+@ 12,26 say  " ‚ Š–… Œ…‘Ÿ–€ ¨ ¯® § ¯à®áã: "
+set color to w+//b
+@ 13,26 prompt  "€ªâ ¯® ¢ëà ¡®âª¥ í«¥ªâà®í­¥à£¨¨"
+*@ 9,30 prompt  "€ªâ. ‡ ¬¥­  § ¢®¤áª®£® N áç¥âç¨ª "
+@ 14,26 prompt " áç¥â ¤«ï á¥«¥ªâ®à "
+*@ 13,30 prompt "‘¥«¥ªâ®à. ‡ ¬¥­  ¯®ª § ­. §  ¬¥áïæ"
+* 14,30 prompt "€ªâ ¨­¢¥­â à¨§ æ¨¨ ®áâ âª®¢ ¬ §ãâ "
+set color to w+//b
+@ 15,26 say  "                              "
+set color to gr+/b
+*@ 14,30 prompt " áç¥â à áå®¤  £ § "
+set color to r+//b
+@ 16,26 prompt "……•„ € ‚›‰ Œ…‘Ÿ–"
+@ 17,26 say  "                              "
+*set color to w+//b
+set color to gr+/b
+@ 18,26 say  "    Œ …  …  …•„ˆŒ‘’ˆ: " 
+set color to w+//b
+@ 19,26 prompt "Šˆ‚€ˆ… „€›• € „ˆ‘Š…’“"
+@ 20,26 prompt  "’…•‹ƒˆ—…‘Š€Ÿ ˆ‘’“Š–ˆŸ"
+@ 21,26 prompt "‘«ã¦¥¡­ë¥ äã­ªæ¨¨"
+@ 22,26 prompt "HELP"
+*set color to w+//b
+save screen to ww
+do STARRING
+*set color to w/b
+if starr=300
+do SKY
+sta=sta+1
+if sta>7
+sta=1
+endif
+restore screen from ww
+loop
+endif
+restore screen from ww
+set color to w+//b
+menu to pa
+save screen to skr
+! hyundai.com
+do case
+case pa=0
+exit
+case pa=1
+do BAXTA
+case pa=2
+do PEREJEG
+case pa=3
+do WYRABOTKA
+case pa=4
+do O2GOL
+case pa=5
+do AKT
+case pa=6
+do SELEKTOR
+*case pa=5
+*do AKTNS   && â ª ª ª ®­  ¢ª«îç¥­  ¢ SEMES
+case pa=7
+do WYMES
+do SEMES
+*case pa=10
+*do MAZUT
+*case pa=9
+*do GRP
+case pa=8
+do COPDATA
+case pa=9
+do TEXNOLOG
+case pa=10
+     @ 17,26 clear to 21,62
+     inmn0=0
+     @ 17,26 to 21,62 double
+     @ 18,30 prompt "¥à¥¨­¤¥ªá æ¨ï ¡ § ¤ ­­ëå"
+     menu to inmn0
+     do case
+        case inmn0=0
+             rest screen from ww
+        case inmn0=1
+             do index
+     endcase
+case pa=11
+do HELP
+endcase
+restore screen from skr
+! nloff.com
+sele 1
+use
+sele 2
+use
+sele 3
+use
+sele 4
+use
+sele 5
+use
+sele 6
+use
+sele 7
+use
+sele 8
+use
+sele 9
+use
+enddo
+set color to
+set status on
+close all
+clear all
+@ 20,5 say "F9  - ‡€“‘Š ƒ€ŒŒ›"
+@ 21,5 say "F10 - Š…– €’›"
+do copyr    && ‘âà å®¢®ç­®¥ ª®¯¨à®¢ ­¨¥  12.06.02 ƒã«ï
+return
+procedure TEXNOLOG
+save screen to w
+p2 = 1
+do while .t.
+@ 5,48,8,58 box win1+ " "
+@ 6,50 prompt "ªà ­"
+@ 7,50 prompt "à¨­â¥à"
+menu to p2
+if p2=0
+exit
+endif
+save screen to ww
+do case
+case p2=1
+! scroll.exe opto.txt
+case p2=2
+! type opto.txt > prn
+endcase
+restore screen from ww
+enddo
+restore screen from w
+return
+
+procedure BAXTA
+use
+close all
+dime mnb(12),ml1(48),mpw(48),mps(48),wyr(12,3),esn(12,3),nsi(210)
+dime mkl1(12),mkl2(12),mkf1(12),mkf2(12),mkf3(12),mkf4(12)
+dime mwrmn8(3),mwrmn9(3),mwrmn10(3),mpris(12),mtcb(3),mwrmn11(3)
+dime nnb(36),ntext1(36),ntim(36),ndro(36),npwd(36),ntpw(36),ntk(36),ntop(36),ntpp(36)
+dime npop(36),ntug(36),nthw(36),no2(36),ntn(36)
+dime cif10(10,4),cif1(10,4),cif2(10,4),cif3(10,4),cif4(10,4),cif5(10,4)
+dime cif6(10,4),cif7(10,4),cif8(10,4),cif9(10,4),cif11(10,4),cif12(10,4)
+dime mraz(8),mdwa(8),mtri(8),mche(8),mpat(8),mshe(8),wah(3)
+dime ksut1(36),ksut2(36),ksut3(36),ksut4(36)
+dime eksut1(36),eksut2(36),eksut3(36),eksut4(36),eksut5(36)
+dime eksut6(36),eksut7(36),eksut8(36),snz(36)
+dime sut2(2500),gres(9,4),gkbt(13,4),data1(480)
+otz=1                               
+@ 7,24,9,43 box win1+" "
+@ 8,26 prompt " €‘—"
+@ 8,37 prompt " COPY"
+menu to otz
+if otz=0
+return
+endif
+if otz = 2
+do BAXCOP
+return
+endif
+do while .t.
+select 1
+use baxta1 index baxta1
+go top
+select 3
+use baxta2 index baxta2
+go top
+select 7
+use baxta3 index baxta3
+go top
+select 6
+use baxta0
+go top
+i=1
+do while ! eof()
+mraz(i)=raz
+mdwa(i)=dwa
+mtri(i)=tri
+mche(i)=che
+mpat(i)=pat
+mshe(i)=she
+i=i+1
+skip
+enddo
+data1=0
+sut2=0
+ksut4=0
+ksut3=0
+ksut2=0
+ksut1=0
+ntn=0
+no2=0
+nthw=0
+ntug=0
+npop=0
+ntpp=0
+ntop=0
+ntk=0
+ntpw=0
+npwd=0
+ndro=0
+ntim=0
+nnb=0
+mtcb=0
+mpris=0
+mwrmn11=0
+mwrmn10=0
+mwrmn9=0
+mwrmn8=0
+mkf4=0
+mkf3=0
+mkf2=0
+mkf1=0
+mkl2=0
+mkl1=0
+nsi=0
+esn=0
+wyr=0
+mps=0
+mpw=0
+murp=0
+murm=0
+cif1=0
+cif2=0
+cif3=0
+cif4=0
+cif5=0
+cif6=0
+cif7=0
+cif8=0
+cif9=0
+cif10=0
+cif11=0
+cif12=0
+gres=0
+gkbt=0
+eksut1=0
+eksut2=0
+eksut3=0
+eksut4=0
+eksut5=0
+eksut6=0
+eksut7=0
+eksut8=0
+idd=1
+imm=1
+*igg=95
+igg=1995
+save screen to grpgrp
+@ 7,26,11,62 box win1+" "
+@ 8,27 prompt "‘Œ’…’œ ƒ€”ˆŠ ‚€•’"
+@ 9,27 prompt "…„€Š’ˆ‚€’œ ˆ‘•„›… „€›…"
+@ 10,27 prompt "…—€’œ ‚›•„›• ”Œ"
+menu to ma
+do case
+case ma=0
+exit
+case ma=1
+do SEEBAX
+case ma=2
+do CLERR
+case ma=3
+@ 11,26,13,62 box win1+" "
+ekz=0
+@ 12,27 say "Š®«¨ç¥áâ¢® íª§¥¬¯«ïà®¢: "  get ekz picture '9'
+read
+
+if ekz=0
+   loop
+endif
+
+sele 1
+use
+sele 3
+use
+sele 6
+use
+sele 7
+use
+
+I=1
+DO WHILE I<=EKZ
+   ! type baxta.pec > prn
+   I=I+1
+ENDDO
+
+return
+endcase
+restore screen from grpgrp
+enddo
+return
+
+procedure CLERR
+clear
+@ 13,38,16,77 box win1+" "
+@ 14,40 say "“ª ¦¨â¥ ¤ âã: „„,ŒŒ,ƒƒƒƒ"
+@ 14,64 get idd pict "999"
+@ 14,68 get imm pict "999"
+@ 14,72 get igg pict "9999"
+read
+if year(date())#igg
+   wait "˜ˆŠ€,¯à®¢¥àìâ¥ £®¤ !!!"
+*   @ 15,5 say "˜ˆŠ€,¯à®¢¥àìâ¥ £®¤ !!!"
+   return
+endif
+l=readkey()
+if l=12
+return
+endif
+otz=1
+@ 15,43 say "…‚ë©  ¨«¨  ‚’®à­ë© à áç¥â?"
+@ 15,43 prompt "…‚"
+@ 15,56 prompt "‚’"
+menu to otz
+if otz=0
+return
+endif
+ddd=idd+imm*100
+ddd1=imm+idd*100   && ¤«ï  à¦¨¢ 
+if otz=1
+i=1
+do while i<=8
+if mshe(i)=ddd
+@ 16,38,20,77 box win1+" "
+@ 17,39 say "‡  íâã ¤ âã ¡ë« ¯¥à¢ë© à áç¥â"
+@ 18,40 say "áâ ¢¨âì ¤ âã: „„,ŒŒ,ƒƒƒƒ"
+@ 18,64 say idd pict "999"
+@ 18,68 say imm pict "999"
+@ 18,72 say igg pict "9999"
+ozz=1
+@ 19,43 say "˜ˆŠ€  ¨«¨  ‚’®à­ë© à áç¥â?"
+@ 19,43 prompt "˜ˆŠ€"
+@ 19,56 prompt "‚’"
+menu to ozz
+if ozz=0
+return
+endif
+if ozz=1
+return
+endif
+if ozz=2
+otz=2
+endif
+exit
+endif
+i=i+1
+enddo
+endif
+if otz=1.or.otz=2
+i=1
+do while i<=8
+if mpat(i)=1
+if i=1
+i=9
+exit
+endif
+exit
+endif
+i=i+1
+enddo
+if  round(mshe(i-1),-2)=imm*100
+if ddd>=mshe(i-1)+2
+@ 10,40,13,77 box win1+" "
+@ 11,53 say "¥¢¥à­ ï ¤ â "
+@ 12,47 say " àãè¨âáï £à ä¨ª ¢ åâ"
+read
+l=readkey()
+return
+endif
+if otz=2
+if ddd=mshe(i-1)+1
+@ 10,40,13,77 box win1+" "
+@ 11,49 say "¥¢¥à­ë© ¢ë¡®à à áç¥â "
+@ 12,46 say " àãè¨âáï ­ à áâ îé ï áã¬¬ "
+read
+l=readkey()
+return
+endif
+endif
+else
+if idd#1
+if otz=1
+@ 10,40,13,77 box win1+" "
+@ 11,53 say "¥¢¥à­ ï ¤ â "
+@ 12,47 say " àãè¨âáï £à ä¨ª ¢ åâ"
+read
+l=readkey()
+return
+endif
+endif
+endif
+if idd=1
+@ 10,40,13,77 box win1+" "
+ooo=1
+@ 11,53 say "Œ¥­ïâì ¬¥áïæ"
+@ 12,53 prompt "„€"
+@ 12,62 prompt "…’"
+menu to ooo
+if ooo=0
+return
+endif
+if ooo=2
+return
+endif
+if ooo=1
+if otz=2
+if ddd=mshe(i-1)+1
+@ 10,40,13,77 box win1+" "
+@ 11,49 say "¥¢¥à­ë© ¢ë¡®à à áç¥â "
+@ 12,46 say " àãè¨âáï ­ à áâ îé ï áã¬¬ "
+read
+l=readkey()
+return
+endif
+endif
+endif
+endif
+endif
+*if ozz=2
+*otz=2
+*endif
+data=idd+imm*100+igg*10000
+select 3
+
+go top
+*skip            && ¨á¯à ¢¨âì ‹ˆ‡€
+min=nome
+go bott
+max=nome
+go top
+do while ! eof()
+
+if nome=data
+   fff=data
+   do while .t.
+      do FILTER
+      do FILTER1
+      do FILTER2
+      clear
+      men=2
+      @13,20 say "à®¤®«¦ âì à¥¤ ªâ¨à®¢ ­¨¥ (ESC-¢ëå®¤ ¡¥§ à áç¥â )"
+      @14,30 prompt "„€"
+      @14,43 prompt "…’"
+      menu to men
+      if men=0
+         return
+      endif
+       if men=1
+          loop
+       endif
+        if men=2
+           exit
+        endif
+   enddo
+clear
+
+@ 13,20 say "†¤¨â¥! ˆ¤¥â ®¡à ¡®âª  ¨­ä®à¬ æ¨¨"
+exit
+endif
+skip
+enddo
+if data<min
+   clear
+   @ 5,15 say "ˆ‘•„›• „€›• ‡€ ’ —ˆ‘‹ …’"
+   @ 6,15 say "€†Œˆ’… ‹“ Š‹€‚ˆ˜“"
+   i=inkey(0)
+   return
+endif
+if data>max
+   fff=min
+   do while .t.
+   do FILTER
+   do FILTER1
+   do FILTER2
+   clear
+   men=2
+   @ 13,20 say "à®¤®«¦ âì à¥¤ ªâ¨à®¢ ­¨¥ (ESC-¢ëå®¤ ¡¥§ à áç¥â )"
+   @ 14,30 prompt "„€"
+   @ 14,43 prompt "…’"
+   menu to men
+   if men=0
+      return
+   endif
+    if men=1
+       loop
+    endif
+     if men=2
+        exit
+     endif
+   enddo
+clear
+@ 13,20 say "†¤¨â¥! ˆ¤¥â ®¡à ¡®âª  ¨­ä®à¬ æ¨¨"
+endif
+select 2
+use wyrab2
+go top
+i=1
+do while ! eof()
+nsi(i)=ks
+i=i+1
+skip
+enddo
+select 4
+use baxta4
+go top
+i=1
+do while ! eof()
+mkl1(i)=kl1
+mkl2(i)=kl2
+mkf1(i)=kf1
+mkf2(i)=kf2
+mkf3(i)=kf3
+mkf4(i)=kf4
+i=i+1
+skip
+enddo
+select 5
+use baxta5
+go top
+sz1=z1
+select 8
+use baxta50
+if otz=1
+i=1
+do while i<=8
+   if mpat(i)=1
+      exit
+   endif
+   i=i+1
+enddo
+j=i
+mpat(j)=0
+mshe(j)=ddd
+select 6
+go top
+skip j-1
+repl pat with mpat(j),she with mshe(j)
+wah(1)=mraz(j)
+wah(2)=mdwa(j)
+wah(3)=mtri(j)
+j=j+1
+if j=9
+j=1
+endif
+mpat(j)=1
+go top
+skip j-1
+repl pat with mpat(j)
+endif
+if otz=2
+select 8
+go top
+i=1
+do while ! eof()
+sut2(i)=mmdds
+if sut2(i)=ddd
+sut2(i)=0
+repl mmdds with sut2(i)
+endif
+i=i+1
+skip
+enddo
+i=1
+do while i<=8
+if mshe(i)=ddd
+wah(1)=mraz(i)
+wah(2)=mdwa(i)
+wah(3)=mtri(i)
+exit
+endif
+i=i+1
+enddo
+endif
+i=1
+do while i<13
+mnb(i)=i
+i=i+1
+enddo
+i=1
+do while (i<=12)
+c=nsi(mnb(i))*0.001
+j=1
+k=0
+do while (j<=3)
+wyr(i,j)=0
+d=100000
+if (mpw(i*4-j)#mpw(i*4-k))
+wyr(i,j)=(mpw(i*4-j)-mpw(i*4-k))
+endif
+if (mpw(i*4-k)>mpw(i*4-j))
+wyr(i,j)=wyr(i,j)+d
+endif
+wyr(i,j)=wyr(i,j)*c
+k=k+1
+if k=3
+exit
+endif
+j=j+1
+enddo
+i=i+1
+enddo
+i=1
+do while (i<=12)
+c=nsi(mnb(i)+12)*0.001
+j=1
+k=0
+do while (j<=3)
+esn(i,j)=0
+*d=1000000
+*9999
+*?'j='+str(j)
+*? 'mps(j*4-j)='+str(mps(j*4-j))
+*?'k='+str(k)
+*? 'mps(j*4-k)='+str(mps(j*4-k))
+*wait "before"
+*9999
+d=1000000
+if (mps(i*4-j)#mps(i*4-k))
+esn(i,j)=(mps(i*4-j)-mps(i*4-k))
+endif
+if (mps(i*4-k)>mps(i*4-j))
+esn(i,j)=esn(i,j)+d
+endif
+esn(i,j)=esn(i,j)*c
+k=k+1
+if k=3
+exit
+endif
+j=j+1
+*9999
+*?'j='+str(j)
+*?'d='+str(d)
+*?'c='+str(c)
+*? 'mps(j*4-j)='+str(mps(j*4-j))
+*?'k='+str(k)
+*? 'mps(j*4-k)='+str(mps(j*4-k))
+*wait "after"
+*9999
+enddo
+i=i+1
+enddo
+prom=0
+nnz=sz1
+if sz1#2
+nnz=sz1+1
+endif
+j=1
+i=1
+kol=0
+do while i<=3
+if ntim(i)=0
+cif1(2,j)=0
+j=j+1
+i=i+1
+loop
+endif
+eksut8(i)=wyr(nnb(i),j)/ntim(i)
+cif1(1,j)=ntn(i)
+prom=prom+eksut8(i)
+cif1(2,j)=eksut8(i)
+cif1(2,j)=round(cif1(2,j),0)
+do SCHET
+cif1(3,4)=cif1(3,4)+eksut1(i)
+cif1(4,4)=cif1(4,4)+eksut2(i)
+cif1(5,4)=cif1(5,4)+eksut3(i)
+cif1(6,4)=cif1(6,4)+eksut4(i)
+cif1(7,4)=cif1(7,4)+eksut5(i)
+cif1(8,4)=cif1(8,4)+eksut6(i)
+cif1(9,4)=cif1(9,4)+eksut7(i)
+cif1(3,j)=eksut1(i)
+cif1(3,j)=round(cif1(3,j),0)
+cif1(4,j)=eksut2(i)
+cif1(4,j)=round(cif1(4,j),0)
+cif1(5,j)=eksut3(i)
+cif1(5,j)=round(cif1(5,j),0)
+cif1(6,j)=eksut4(i)
+cif1(6,j)=round(cif1(6,j),0)
+cif1(7,j)=eksut5(i)
+cif1(7,j)=round(cif1(7,j),0)
+cif1(8,j)=eksut6(i)
+cif1(8,j)=round(cif1(8,j),0)
+cif1(9,j)=eksut7(i)
+cif1(9,j)=round(cif1(9,j),0)
+do ZAMBAX
+nnz=nnz+1
+if nnz=2501
+nnz=2
+endif
+j=j+1
+i=i+1
+kol=kol+1
+enddo
+cif1(2,4)=0
+if kol#0
+cif1(2,4)=prom/kol
+cif1(2,4)=round(cif1(2,4),0)
+endif
+cif1(3,4)=round(cif1(3,4),0)
+cif1(4,4)=round(cif1(4,4),0)
+cif1(5,4)=round(cif1(5,4),0)
+cif1(6,4)=round(cif1(6,4),0)
+cif1(7,4)=round(cif1(7,4),0)
+cif1(8,4)=round(cif1(8,4),0)
+cif1(9,4)=round(cif1(9,4),0)
+prom=0
+j=1
+i=4
+kol=0
+do while i<7
+if ntim(i)=0
+cif2(2,j)=0
+j=j+1
+i=i+1
+loop
+endif
+eksut8(i)=wyr(nnb(i),j)/ntim(i)
+cif2(1,j)=ntn(i)
+prom=prom+eksut8(i)
+cif2(2,j)=eksut8(i)
+cif2(2,j)=round(cif2(2,j),0)
+do SCHET
+cif2(3,4)=cif2(3,4)+eksut1(i)
+cif2(4,4)=cif2(4,4)+eksut2(i)
+cif2(5,4)=cif2(5,4)+eksut3(i)
+cif2(6,4)=cif2(6,4)+eksut4(i)
+cif2(7,4)=cif2(7,4)+eksut5(i)
+cif2(8,4)=cif2(8,4)+eksut6(i)
+cif2(9,4)=cif2(9,4)+eksut7(i)
+cif2(3,j)=eksut1(i)
+cif2(3,j)=round(cif2(3,j),0)
+cif2(4,j)=eksut2(i)
+cif2(4,j)=round(cif2(4,j),0)
+cif2(5,j)=eksut3(i)
+cif2(5,j)=round(cif2(5,j),0)
+cif2(6,j)=eksut4(i)
+cif2(6,j)=round(cif2(6,j),0)
+cif2(7,j)=eksut5(i)
+cif2(7,j)=round(cif2(7,j),0)
+cif2(8,j)=eksut6(i)
+cif2(8,j)=round(cif2(8,j),0)
+cif2(9,j)=eksut7(i)
+cif2(9,j)=round(cif2(9,j),0)
+do ZAMBAX
+nnz=nnz+1
+if nnz=2501
+nnz=2
+endif
+j=j+1
+i=i+1
+kol=kol+1
+enddo
+cif2(2,4)=0
+if kol#0
+cif2(2,4)=prom/kol
+cif2(2,4)=round(cif2(2,4),0)
+endif
+cif2(3,4)=round(cif2(3,4),0)
+cif2(4,4)=round(cif2(4,4),0)
+cif2(5,4)=round(cif2(5,4),0)
+cif2(6,4)=round(cif2(6,4),0)
+cif2(7,4)=round(cif2(7,4),0)
+cif2(8,4)=round(cif2(8,4),0)
+cif2(9,4)=round(cif2(9,4),0)
+prom=0
+j=1
+i=7
+kol=0
+do while i<10
+if ntim(i)=0
+cif3(2,j)=0
+j=j+1
+i=i+1
+loop
+endif
+eksut8(i)=wyr(nnb(i),j)/ntim(i)
+*?wyr(nnb(i),j)
+cif3(1,j)=ntn(i)
+*?cif3(1,j)
+prom=prom+eksut8(i)
+*?prom
+cif3(2,j)=eksut8(i)
+cif3(2,j)=round(cif3(2,j),0)
+do SCHET
+cif3(3,4)=cif3(3,4)+eksut1(i)
+cif3(4,4)=cif3(4,4)+eksut2(i)
+cif3(5,4)=cif3(5,4)+eksut3(i)
+cif3(6,4)=cif3(6,4)+eksut4(i)
+cif3(7,4)=cif3(7,4)+eksut5(i)
+cif3(8,4)=cif3(8,4)+eksut6(i)
+cif3(9,4)=cif3(9,4)+eksut7(i)
+cif3(3,j)=eksut1(i)
+cif3(3,j)=round(cif3(3,j),0)
+cif3(4,j)=eksut2(i)
+cif3(4,j)=round(cif3(4,j),0)
+cif3(5,j)=eksut3(i)
+cif3(5,j)=round(cif3(5,j),0)
+cif3(6,j)=eksut4(i)
+cif3(6,j)=round(cif3(6,j),0)
+cif3(7,j)=eksut5(i)
+cif3(7,j)=round(cif3(7,j),0)
+cif3(8,j)=eksut6(i)
+cif3(8,j)=round(cif3(8,j),0)
+cif3(9,j)=eksut7(i)
+cif3(9,j)=round(cif3(9,j),0)
+do ZAMBAX
+nnz=nnz+1
+if nnz=2501
+nnz=2
+endif
+j=j+1
+i=i+1
+kol=kol+1
+enddo
+cif3(2,4)=0
+if kol#0
+cif3(2,4)=prom/kol
+cif3(2,4)=round(cif3(2,4),0)
+endif
+cif3(3,4)=round(cif3(3,4),0)
+cif3(4,4)=round(cif3(4,4),0)
+cif3(5,4)=round(cif3(5,4),0)
+cif3(6,4)=round(cif3(6,4),0)
+cif3(7,4)=round(cif3(7,4),0)
+cif3(8,4)=round(cif3(8,4),0)
+cif3(9,4)=round(cif3(9,4),0)
+prom=0
+set talk off
+set echo off
+set step off
+j=1
+i=10
+kol=0
+do while i<13
+if ntim(i)=0
+cif4(2,j)=0
+j=j+1
+i=i+1
+loop
+endif
+eksut8(i)=wyr(nnb(i),j)/ntim(i)
+cif4(1,j)=ntn(i)
+prom=prom+eksut8(i)
+cif4(2,j)=eksut8(i)
+cif4(2,j)=round(cif4(2,j),0)
+do SCHET
+cif4(3,4)=cif4(3,4)+eksut1(i)
+cif4(4,4)=cif4(4,4)+eksut2(i)
+cif4(5,4)=cif4(5,4)+eksut3(i)
+cif4(6,4)=cif4(6,4)+eksut4(i)
+cif4(7,4)=cif4(7,4)+eksut5(i)
+cif4(8,4)=cif4(8,4)+eksut6(i)
+cif4(9,4)=cif4(9,4)+eksut7(i)
+cif4(3,j)=eksut1(i)
+cif4(3,j)=round(cif4(3,j),0)
+cif4(4,j)=eksut2(i)
+cif4(4,j)=round(cif4(4,j),0)
+cif4(5,j)=eksut3(i)
+cif4(5,j)=round(cif4(5,j),0)
+cif4(6,j)=eksut4(i)
+cif4(6,j)=round(cif4(6,j),0)
+cif4(7,j)=eksut5(i)
+cif4(7,j)=round(cif4(7,j),0)
+cif4(8,j)=eksut6(i)
+cif4(8,j)=round(cif4(8,j),0)
+cif4(9,j)=eksut7(i)
+cif4(9,j)=round(cif4(9,j),0)
+do ZAMBAX
+nnz=nnz+1
+if nnz=2501
+nnz=2
+endif
+j=j+1
+i=i+1
+kol=kol+1
+enddo
+cif4(2,4)=0
+if kol#0
+cif4(2,4)=prom/kol
+cif4(2,4)=round(cif4(2,4),0)
+endif
+cif4(3,4)=round(cif4(3,4),0)
+cif4(4,4)=round(cif4(4,4),0)
+cif4(5,4)=round(cif4(5,4),0)
+cif4(6,4)=round(cif4(6,4),0)
+cif4(7,4)=round(cif4(7,4),0)
+cif4(8,4)=round(cif4(8,4),0)
+cif4(9,4)=round(cif4(9,4),0)
+prom=0
+j=1
+i=13
+kol=0
+do while i<16
+if ntim(i)=0
+cif5(2,j)=0
+j=j+1
+i=i+1
+loop
+endif
+eksut8(i)=wyr(nnb(i),j)/ntim(i)
+cif5(1,j)=ntn(i)
+prom=prom+eksut8(i)
+cif5(2,j)=eksut8(i)
+cif5(2,j)=round(cif5(2,j),0)
+do SCHET
+cif5(3,4)=cif5(3,4)+eksut1(i)
+cif5(4,4)=cif5(4,4)+eksut2(i)
+cif5(5,4)=cif5(5,4)+eksut3(i)
+cif5(6,4)=cif5(6,4)+eksut4(i)
+cif5(7,4)=cif5(7,4)+eksut5(i)
+cif5(8,4)=cif5(8,4)+eksut6(i)
+cif5(9,4)=cif5(9,4)+eksut7(i)
+cif5(3,j)=eksut1(i)
+cif5(3,j)=round(cif5(3,j),0)
+cif5(4,j)=eksut2(i)
+cif5(4,j)=round(cif5(4,j),0)
+cif5(5,j)=eksut3(i)
+cif5(5,j)=round(cif5(5,j),0)
+cif5(6,j)=eksut4(i)
+cif5(6,j)=round(cif5(6,j),0)
+cif5(7,j)=eksut5(i)
+cif5(7,j)=round(cif5(7,j),0)
+cif5(8,j)=eksut6(i)
+cif5(8,j)=round(cif5(8,j),0)
+cif5(9,j)=eksut7(i)
+cif5(9,j)=round(cif5(9,j),0)
+do ZAMBAX
+nnz=nnz+1
+if nnz=2501
+nnz=2
+endif
+j=j+1
+i=i+1
+kol=kol+1
+enddo
+cif5(2,4)=0
+if kol#0
+cif5(2,4)=prom/kol
+cif5(2,4)=round(cif5(2,4),0)
+endif
+cif5(3,4)=round(cif5(3,4),0)
+cif5(4,4)=round(cif5(4,4),0)
+cif5(5,4)=round(cif5(5,4),0)
+cif5(6,4)=round(cif5(6,4),0)
+cif5(7,4)=round(cif5(7,4),0)
+cif5(8,4)=round(cif5(8,4),0)
+cif5(9,4)=round(cif5(9,4),0)
+prom=0
+j=1
+i=16
+kol=0
+do while i<19
+if ntim(i)=0
+cif6(2,j)=0
+j=j+1
+i=i+1
+loop
+endif
+eksut8(i)=wyr(nnb(i),j)/ntim(i)
+cif6(1,j)=ntn(i)
+prom=prom+eksut8(i)
+cif6(2,j)=eksut8(i)
+cif6(2,j)=round(cif6(2,j),0)
+do SCHET
+cif6(3,4)=cif6(3,4)+eksut1(i)
+cif6(4,4)=cif6(4,4)+eksut2(i)
+cif6(5,4)=cif6(5,4)+eksut3(i)
+cif6(6,4)=cif6(6,4)+eksut4(i)
+cif6(7,4)=cif6(7,4)+eksut5(i)
+cif6(8,4)=cif6(8,4)+eksut6(i)
+cif6(9,4)=cif6(9,4)+eksut7(i)
+cif6(3,j)=eksut1(i)
+cif6(3,j)=round(cif6(3,j),0)
+cif6(4,j)=eksut2(i)
+cif6(4,j)=round(cif6(4,j),0)
+cif6(5,j)=eksut3(i)
+cif6(5,j)=round(cif6(5,j),0)
+cif6(6,j)=eksut4(i)
+cif6(6,j)=round(cif6(6,j),0)
+cif6(7,j)=eksut5(i)
+cif6(7,j)=round(cif6(7,j),0)
+cif6(8,j)=eksut6(i)
+cif6(8,j)=round(cif6(8,j),0)
+cif6(9,j)=eksut7(i)
+cif6(9,j)=round(cif6(9,j),0)
+do ZAMBAX
+nnz=nnz+1
+if nnz=2501
+nnz=2
+endif
+j=j+1
+i=i+1
+kol=kol+1
+enddo
+cif6(2,4)=0
+if kol#0
+cif6(2,4)=prom/kol
+cif6(2,4)=round(cif6(2,4),0)
+endif
+cif6(3,4)=round(cif6(3,4),0)
+cif6(4,4)=round(cif6(4,4),0)
+cif6(5,4)=round(cif6(5,4),0)
+cif6(6,4)=round(cif6(6,4),0)
+cif6(7,4)=round(cif6(7,4),0)
+cif6(8,4)=round(cif6(8,4),0)
+cif6(9,4)=round(cif6(9,4),0)
+prom=0
+j=1
+i=19
+kol=0
+do while i<22
+if ntim(i)=0
+cif7(2,j)=0
+j=j+1
+i=i+1
+loop
+endif
+eksut8(i)=wyr(nnb(i),j)/ntim(i)
+cif7(1,j)=ntn(i)
+prom=prom+eksut8(i)
+cif7(2,j)=eksut8(i)
+cif7(2,j)=round(cif7(2,j),0)
+do SCHET
+cif7(3,4)=cif7(3,4)+eksut1(i)
+cif7(4,4)=cif7(4,4)+eksut2(i)
+cif7(5,4)=cif7(5,4)+eksut3(i)
+cif7(6,4)=cif7(6,4)+eksut4(i)
+cif7(7,4)=cif7(7,4)+eksut5(i)
+
+cif7(8,4)=cif7(8,4)+eksut6(i)
+cif7(9,4)=cif7(9,4)+eksut7(i)
+cif7(3,j)=eksut1(i)
+cif7(3,j)=round(cif7(3,j),0)
+cif7(4,j)=eksut2(i)
+cif7(4,j)=round(cif7(4,j),0)
+cif7(5,j)=eksut3(i)
+cif7(5,j)=round(cif7(5,j),0)
+cif7(6,j)=eksut4(i)
+cif7(6,j)=round(cif7(6,j),0)
+cif7(7,j)=eksut5(i)
+cif7(7,j)=round(cif7(7,j),0)
+cif7(8,j)=eksut6(i)
+cif7(8,j)=round(cif7(8,j),0)
+cif7(9,j)=eksut7(i)
+cif7(9,j)=round(cif7(9,j),0)
+do ZAMBAX
+nnz=nnz+1
+if nnz=2501
+nnz=2
+endif
+j=j+1
+i=i+1
+kol=kol+1
+enddo
+cif7(2,4)=0
+if kol#0
+cif7(2,4)=prom/kol
+cif7(2,4)=round(cif7(2,4),0)
+endif
+cif7(3,4)=round(cif7(3,4),0)
+cif7(4,4)=round(cif7(4,4),0)
+cif7(5,4)=round(cif7(5,4),0)
+cif7(6,4)=round(cif7(6,4),0)
+cif7(7,4)=round(cif7(7,4),0)
+cif7(8,4)=round(cif7(8,4),0)
+cif7(9,4)=round(cif7(9,4),0)
+prom=0
+j=1
+i=22
+kol=0
+do while i<25
+if ntim(i)=0
+cif8(2,j)=0
+j=j+1
+i=i+1
+loop
+endif
+eksut8(i)=wyr(nnb(i),j)/ntim(i)
+cif8(1,j)=ntn(i)
+prom=prom+eksut8(i)
+cif8(2,j)=eksut8(i)
+cif8(2,j)=round(cif8(2,j),0)
+do SCHET1
+rr=mkf1(nnb(i))*ntim(i)+mkf2(nnb(i))*wyr(nnb(i),j)+0.5*mwrmn8(j)
+do SCHET2
+cif8(3,4)=cif8(3,4)+eksut1(i)
+cif8(4,4)=cif8(4,4)+eksut2(i)
+cif8(5,4)=cif8(5,4)+eksut3(i)
+cif8(6,4)=cif8(6,4)+eksut4(i)
+cif8(7,4)=cif8(7,4)+eksut5(i)
+cif8(8,4)=cif8(8,4)+eksut6(i)
+cif8(9,4)=cif8(9,4)+eksut7(i)
+cif8(3,j)=eksut1(i)
+cif8(3,j)=round(cif8(3,j),0)
+cif8(4,j)=eksut2(i)
+cif8(4,j)=round(cif8(4,j),0)
+cif8(5,j)=eksut3(i)
+cif8(5,j)=round(cif8(5,j),0)
+cif8(6,j)=eksut4(i)
+cif8(6,j)=round(cif8(6,j),0)
+cif8(7,j)=eksut5(i)
+cif8(7,j)=round(cif8(7,j),0)
+cif8(8,j)=eksut6(i)
+cif8(8,j)=round(cif8(8,j),0)
+cif8(9,j)=eksut7(i)
+cif8(9,j)=round(cif8(9,j),0)
+do ZAMBAX
+nnz=nnz+1
+if nnz=2501
+nnz=2
+endif
+j=j+1
+i=i+1
+kol=kol+1
+enddo
+cif8(2,4)=0
+if kol#0
+cif8(2,4)=prom/kol
+cif8(2,4)=round(cif8(2,4),0)
+endif
+cif8(3,4)=round(cif8(3,4),0)
+cif8(4,4)=round(cif8(4,4),0)
+cif8(5,4)=round(cif8(5,4),0)
+cif8(6,4)=round(cif8(6,4),0)
+cif8(7,4)=round(cif8(7,4),0)
+cif8(8,4)=round(cif8(8,4),0)
+cif8(9,4)=round(cif8(9,4),0)
+prom=0
+j=1
+i=25
+kol=0
+do while i<28
+if ntim(i)=0
+cif9(2,j)=0
+j=j+1
+i=i+1
+loop
+endif
+eksut8(i)=wyr(nnb(i),j)/ntim(i)
+cif9(1,j)=ntn(i)
+prom=prom+eksut8(i)
+cif9(2,j)=eksut8(i)
+cif9(2,j)=round(cif9(2,j),0)
+do SCHET1
+rr=mkf1(nnb(i))*ntim(i)+mkf2(nnb(i))*wyr(nnb(i),j)+0.5*mwrmn9(j)
+do SCHET2
+cif9(3,4)=cif9(3,4)+eksut1(i)
+cif9(4,4)=cif9(4,4)+eksut2(i)
+cif9(5,4)=cif9(5,4)+eksut3(i)
+cif9(6,4)=cif9(6,4)+eksut4(i)
+cif9(7,4)=cif9(7,4)+eksut5(i)
+cif9(8,4)=cif9(8,4)+eksut6(i)
+cif9(9,4)=cif9(9,4)+eksut7(i)
+cif9(3,j)=eksut1(i)
+cif9(3,j)=round(cif9(3,j),0)
+cif9(4,j)=eksut2(i)
+cif9(4,j)=round(cif9(4,j),0)
+cif9(5,j)=eksut3(i)
+cif9(5,j)=round(cif9(5,j),0)
+cif9(6,j)=eksut4(i)
+cif9(6,j)=round(cif9(6,j),0)
+cif9(7,j)=eksut5(i)
+cif9(7,j)=round(cif9(7,j),0)
+cif9(8,j)=eksut6(i)
+cif9(8,j)=round(cif9(8,j),0)
+cif9(9,j)=eksut7(i)
+cif9(9,j)=round(cif9(9,j),0)
+do ZAMBAX
+nnz=nnz+1
+if nnz=2501
+nnz=2
+endif
+j=j+1
+i=i+1
+kol=kol+1
+enddo
+cif9(2,4)=0
+if kol#0
+cif9(2,4)=prom/kol
+cif9(2,4)=round(cif9(2,4),0)
+endif
+cif9(3,4)=round(cif9(3,4),0)
+cif9(4,4)=round(cif9(4,4),0)
+cif9(5,4)=round(cif9(5,4),0)
+cif9(6,4)=round(cif9(6,4),0)
+cif9(7,4)=round(cif9(7,4),0)
+cif9(8,4)=round(cif9(8,4),0)
+cif9(9,4)=round(cif9(9,4),0)
+prom=0
+j=1
+i=28
+kol=0
+do while i<31
+if ntim(i)=0
+cif10(2,j)=0
+j=j+1
+i=i+1
+loop
+endif
+eksut8(i)=wyr(nnb(i),j)/ntim(i)
+cif10(1,j)=ntn(i)
+prom=prom+eksut8(i)
+cif10(2,j)=eksut8(i)
+cif10(2,j)=round(cif10(2,j),0)
+do SCHET1
+rr=mkf1(nnb(i))*ntim(i)+mkf2(nnb(i))*wyr(nnb(i),j)+0.5*mwrmn10(j)
+do SCHET2
+cif10(3,4)=cif10(3,4)+eksut1(i)
+cif10(4,4)=cif10(4,4)+eksut2(i)
+cif10(5,4)=cif10(5,4)+eksut3(i)
+cif10(6,4)=cif10(6,4)+eksut4(i)
+cif10(7,4)=cif10(7,4)+eksut5(i)
+cif10(8,4)=cif10(8,4)+eksut6(i)
+cif10(9,4)=cif10(9,4)+eksut7(i)
+cif10(3,j)=eksut1(i)
+cif10(3,j)=round(cif10(3,j),0)
+cif10(4,j)=eksut2(i)
+cif10(4,j)=round(cif10(4,j),0)
+cif10(5,j)=eksut3(i)
+cif10(5,j)=round(cif10(5,j),0)
+cif10(6,j)=eksut4(i)
+cif10(6,j)=round(cif10(6,j),0)
+cif10(7,j)=eksut5(i)
+cif10(7,j)=round(cif10(7,j),0)
+cif10(8,j)=eksut6(i)
+cif10(8,j)=round(cif10(8,j),0)
+cif10(9,j)=eksut7(i)
+cif10(9,j)=round(cif10(9,j),0)
+do ZAMBAX
+nnz=nnz+1
+if nnz=2501
+nnz=2
+endif
+j=j+1
+i=i+1
+kol=kol+1
+enddo
+cif10(2,4)=0
+if kol#0
+cif10(2,4)=prom/kol
+cif10(2,4)=round(cif10(2,4),0)
+endif
+cif10(3,4)=round(cif10(3,4),0)
+cif10(4,4)=round(cif10(4,4),0)
+cif10(5,4)=round(cif10(5,4),0)
+cif10(6,4)=round(cif10(6,4),0)
+cif10(7,4)=round(cif10(7,4),0)
+cif10(8,4)=round(cif10(8,4),0)
+cif10(9,4)=round(cif10(9,4),0)
+prom=0
+j=1
+i=31
+kol=0
+do while i<34
+if ntim(i)=0
+cif11(2,j)=0
+j=j+1
+i=i+1
+loop
+endif
+eksut8(i)=wyr(nnb(i),j)/ntim(i)
+cif11(1,j)=ntn(i)
+prom=prom+eksut8(i)
+cif11(2,j)=eksut8(i)
+cif11(2,j)=round(cif11(2,j),0)
+do SCHET1
+rr=mkf1(nnb(i))*ntim(i)+mkf2(nnb(i))*wyr(nnb(i),j)+0.5*mwrmn11(j)
+do SCHET2
+cif11(3,4)=cif11(3,4)+eksut1(i)
+cif11(4,4)=cif11(4,4)+eksut2(i)
+cif11(5,4)=cif11(5,4)+eksut3(i)
+cif11(6,4)=cif11(6,4)+eksut4(i)
+cif11(7,4)=cif11(7,4)+eksut5(i)
+cif11(8,4)=cif11(8,4)+eksut6(i)
+cif11(9,4)=cif11(9,4)+eksut7(i)
+cif11(3,j)=eksut1(i)
+cif11(3,j)=round(cif11(3,j),0)
+cif11(4,j)=eksut2(i)
+cif11(4,j)=round(cif11(4,j),0)
+cif11(5,j)=eksut3(i)
+cif11(5,j)=round(cif11(5,j),0)
+cif11(6,j)=eksut4(i)
+cif11(6,j)=round(cif11(6,j),0)
+cif11(7,j)=eksut5(i)
+cif11(7,j)=round(cif11(7,j),0)
+cif11(8,j)=eksut6(i)
+cif11(8,j)=round(cif11(8,j),0)
+cif11(9,j)=eksut7(i)
+cif11(9,j)=round(cif11(9,j),0)
+do ZAMBAX
+nnz=nnz+1
+if nnz=2501
+nnz=2
+endif
+j=j+1
+i=i+1
+kol=kol+1
+enddo
+cif11(2,4)=0
+if kol#0
+cif11(2,4)=prom/kol
+cif11(2,4)=round(cif11(2,4),0)
+endif
+cif11(3,4)=round(cif11(3,4),0)
+cif11(4,4)=round(cif11(4,4),0)
+cif11(5,4)=round(cif11(5,4),0)
+cif11(6,4)=round(cif11(6,4),0)
+cif11(7,4)=round(cif11(7,4),0)
+cif11(8,4)=round(cif11(8,4),0)
+cif11(9,4)=round(cif11(9,4),0)
+prom=0
+j=1
+i=34
+kol=0
+do while i<=36
+if ntim(i)=0
+cif12(2,j)=0
+j=j+1
+i=i+1
+loop
+endif
+eksut8(i)=wyr(nnb(i),j)/ntim(i)
+cif12(1,j)=ntn(i)
+prom=prom+eksut8(i)
+cif12(2,j)=eksut8(i)
+cif12(2,j)=round(cif12(2,j),0)
+do SCHET
+cif12(3,4)=cif12(3,4)+eksut1(i)
+cif12(4,4)=cif12(4,4)+eksut2(i)
+cif12(5,4)=cif12(5,4)+eksut3(i)
+cif12(6,4)=cif12(6,4)+eksut4(i)
+cif12(7,4)=cif12(7,4)+eksut5(i)
+cif12(8,4)=cif12(8,4)+eksut6(i)
+cif12(9,4)=cif12(9,4)+eksut7(i)
+cif12(3,j)=eksut1(i)
+cif12(3,j)=round(cif12(3,j),0)
+cif12(4,j)=eksut2(i)
+cif12(4,j)=round(cif12(4,j),0)
+cif12(5,j)=eksut3(i)
+cif12(5,j)=round(cif12(5,j),0)
+cif12(6,j)=eksut4(i)
+cif12(6,j)=round(cif12(6,j),0)
+cif12(7,j)=eksut5(i)
+cif12(7,j)=round(cif12(7,j),0)
+cif12(8,j)=eksut6(i)
+cif12(8,j)=round(cif12(8,j),0)
+cif12(9,j)=eksut7(i)
+cif12(9,j)=round(cif12(9,j),0)
+do ZAMBAX
+nnz=nnz+1
+if nnz=2501
+nnz=2
+endif
+j=j+1
+i=i+1
+kol=kol+1
+enddo
+nnz=nnz-1
+cif12(2,4)=0
+if kol#0
+cif12(2,4)=prom/kol
+cif12(2,4)=round(cif12(2,4),0)
+endif
+cif12(3,4)=round(cif12(3,4),0)
+cif12(4,4)=round(cif12(4,4),0)
+cif12(5,4)=round(cif12(5,4),0)
+cif12(6,4)=round(cif12(6,4),0)
+cif12(7,4)=round(cif12(7,4),0)
+cif12(8,4)=round(cif12(8,4),0)
+cif12(9,4)=round(cif12(9,4),0)
+select 5
+repl z1 with nnz
+j=1
+do while j<=4
+i=3
+do while i<=9
+cif1(10,j)=cif1(10,j)+cif1(i,j)
+cif2(10,j)=cif2(10,j)+cif2(i,j)
+cif3(10,j)=cif3(10,j)+cif3(i,j)
+cif4(10,j)=cif4(10,j)+cif4(i,j)
+cif5(10,j)=cif5(10,j)+cif5(i,j)
+cif6(10,j)=cif6(10,j)+cif6(i,j)
+cif7(10,j)=cif7(10,j)+cif7(i,j)
+cif8(10,j)=cif8(10,j)+cif8(i,j)
+cif9(10,j)=cif9(10,j)+cif9(i,j)
+cif10(10,j)=cif10(10,j)+cif10(i,j)
+cif11(10,j)=cif11(10,j)+cif11(i,j)
+cif12(10,j)=cif12(10,j)+cif12(i,j)
+i=i+1
+enddo
+j=j+1
+enddo
+j=1
+do while j<=4
+i=3
+do while i<=10
+gres(i-1,j)=cif1(i,j)+cif2(i,j)+cif3(i,j)+cif4(i,j)+cif5(i,j)+cif6(i,j)+cif7(i,j)+cif8(i,j)+cif9(i,j)+cif10(i,j)+cif11(i,j)+cif12(i,j)
+i=i+1
+enddo
+j=j+1
+enddo
+j=1
+do while j<=3
+kol=0
+if cif1(2,j)#0
+gkbt(1,j)=cif1(10,j)/wyr(1,j)
+kol=kol+1
+endif
+if cif2(2,j)#0
+gkbt(2,j)=cif2(10,j)/wyr(2,j)
+kol=kol+1
+endif
+if cif3(2,j)#0
+gkbt(3,j)=cif3(10,j)/wyr(3,j)
+kol=kol+1
+endif
+if cif4(2,j)#0
+gkbt(4,j)=cif4(10,j)/wyr(4,j)
+kol=kol+1
+endif
+if cif5(2,j)#0
+gkbt(5,j)=cif5(10,j)/wyr(5,j)
+kol=kol+1
+endif
+if cif6(2,j)#0
+gkbt(6,j)=cif6(10,j)/wyr(6,j)
+kol=kol+1
+endif
+if cif7(2,j)#0
+gkbt(7,j)=cif7(10,j)/wyr(7,j)
+kol=kol+1
+endif
+if cif8(2,j)#0
+gkbt(8,j)=cif8(10,j)/wyr(8,j)
+kol=kol+1
+endif
+if cif9(2,j)#0
+gkbt(9,j)=cif9(10,j)/wyr(9,j)
+kol=kol+1
+endif
+if cif10(2,j)#0
+gkbt(10,j)=cif10(10,j)/wyr(10,j)
+kol=kol+1
+endif
+if cif11(2,j)#0
+gkbt(11,j)=cif11(10,j)/wyr(11,j)
+kol=kol+1
+endif
+if cif12(2,j)#0
+gkbt(12,j)=cif12(10,j)/wyr(12,j)
+kol=kol+1
+endif
+gres(1,j)=cif1(2,j)+cif2(2,j)+cif3(2,j)+cif4(2,j)+cif5(2,j)+cif6(2,j)+cif7(2,j)+cif8(2,j)+cif9(2,j)+cif10(2,j)+cif11(2,j)+cif12(2,j)
+gkbt(13,j)=gkbt(1,j)+gkbt(2,j)+gkbt(3,j)+gkbt(4,j)+gkbt(5,j)+gkbt(6,j)+gkbt(7,j)+gkbt(8,j)+gkbt(9,j)+gkbt(10,j)+gkbt(11,j)+gkbt(12,j)
+if kol#0
+gres(1,j)=gres(1,j)/kol
+gkbt(13,j)=gkbt(13,j)/kol
+endif
+gres(1,4)=gres(1,4)+gres(1,j)
+j=j+1
+enddo
+gres(1,4)=gres(1,4)/3
+i=1
+do while i<=13
+kol=0
+j=1
+do while j<=3
+if gkbt(i,j)#0
+kol=kol+1
+gkbt(i,4)=gkbt(i,4)+gkbt(i,j)
+endif
+j=j+1
+enddo
+if kol#0
+gkbt(i,4)=gkbt(i,4)/kol
+endif
+i=i+1
+enddo
+*datag=1900+igg
+datag=igg
+*****110804
+*if ddd#0.and.men=2
+* DO ARHIV
+*endif
+*wait "ARHIV"
+*****110804
+set printer to baxta.pec
+set device to print
+str=prow()+5
+@ str,0 say "ˆ‚– ’˜„ˆ‘                     €€‹ˆ‡ €‘•„€ ’‹ˆ‚€ (‚  Šƒ “.’.)  ‘Œ…€Œ, ‚€•’€Œ ˆ ‹Š€Œ ‡€ "
+@ str,101 say idd pict "99"
+@ str,103 say "."
+@ str,106 say imm pict "99"
+@ str,108 say "."
+@ str,111 say datag pict "9999"
+@ str,115 say " ƒ."
+str=str+1
+@ str,0 say "=================================================================================================================================="
+str=str+1
+@ str,0 say "‹Š              1        2        3        4        5        6        7        8        9       10       11       12   ‘’€–ˆˆ"
+str=str+2
+j=1
+do while j<=4
+i=1
+str=str+1
+do SMENA
+str=str+2
+if j#4
+do MB
+endif
+str=str+2
+i=2
+do NAGR
+str=str+1
+i=3
+do PUG
+str=str+1
+i=4
+do WAK
+str=str+1
+i=5
+do DOP
+str=str+1
+i=6
+do TOP
+str=str+1
+i=7
+do TPP
+str=str+1
+i=8
+do SN
+str=str+1
+i=9
+do TPW
+str=str+1
+i=10
+do WSEGO
+str=str+1
+do GKBT
+str=str+1
+j=j+1
+enddo
+str=str+1
+@ str,0 say "=================================================================================================================================="
+str=str+1
+@ str,3 say "‘€‚Š€  “„…‹œŒ“ €‘•„“ ’‹ˆ‚€:    ‹€ € Œ…‘Ÿ–:"
+@ str,69 say murp pict "999.99"
+@ str,76 say "ƒ/Š‚’—"
+str=str+1
+@ str,44 say "”€Š’ ‘ €—€‹€ Œ…‘Ÿ–€:"
+@ str,69 say murm pict "999.99"
+@ str,76 say "ƒ/Š‚’—"
+@ str,92 say "…€’ ‚Œ"
+@ str,0 say " "
+str=str+2
+set device to screen
+set printer to
+sele 1
+use
+sele 3
+use
+sele 6
+use
+sele 7
+use
+! type baxta.pec>prn
+return
+procedure ARHIV
+***11082004
+* Š®¯¨à®¢ ­¨¥ ä ©«®¢ (ª®â®àë¥ ­¥®¡å®¤¨¬ë ¢ á«ãç ¥ ®è¨¡ª¨)
+* á â¥ªãé¥£® ª â «®£  ¢ \DBF á à áè¨à¥­¨¥¬ .DD(ç¨á«®)
+* ¤«ï  àå¨¢ æ¨¨
+imf0='C:\karat\optonov1\DBF\baxta0.'+ltrim(str(idd))    
+copy file baxta0.dbf to &imf0 
+imf1='C:\karat\optonov1\DBF\baxta1.'+ltrim(str(idd))    
+copy file baxta1.dbf to &imf1 
+imf2='C:\karat\optonov1\DBF\baxta2.'+ltrim(str(idd))    
+copy file baxta2.dbf to &imf2 
+imf3='C:\karat\optonov1\DBF\baxta3.'+ltrim(str(idd))    
+copy file baxta3.dbf to &imf3 
+imf4='C:\karat\optonov1\DBF\baxta4.'+ltrim(str(idd))    
+copy file baxta4.dbf to &imf4 
+imf5='C:\karat\optonov1\DBF\wyrab2.'+ltrim(str(idd))    
+copy file wyrab2.dbf to &imf5 
+imf6='C:\karat\optonov1\DBF\baxta5.'+ltrim(str(idd))    
+copy file baxta5.dbf to &imf6 
+imf7='C:\karat\optonov1\DBF\baxta50.'+ltrim(str(idd))    
+copy file baxta50.dbf to &imf7 
+wait
+* ‘®§¤ ­¨¥ ª®¬ ­¤­®£® ä ©«  ¤«ï  àå¨¢ æ¨¨
+set device to print
+if ! file ('baxta.bat')
+  set printer to 'baxta.bat'
+else
+ if ! file ('baxta1.bat')
+   set printer to 'baxta1.bat'
+ else
+   set printer to 'baxta2.bat'
+ endif
+endif
+set print on
+imarx='C:\KARAT\OPTONOV1\DBF\'+'bax'+ltrim(str(ddd1))    
+? 'arj a &imarx &imf0 -e'    
+? 'arj a &imarx &imf1 -e'    
+? 'arj a &imarx &imf2 -e'    
+? 'arj a &imarx &imf3 -e'    
+? 'arj a &imarx &imf4 -e'    
+? 'arj a &imarx &imf5 -e'    
+? 'arj a &imarx &imf6 -e'    
+? 'arj a &imarx &imf7 -e'    
+set device to screen
+set printer to
+set print off
+***11082004
+return
+procedure SMENA
+if j#4
+@ str,11 say j pict "99"
+@ str,13 say "-‘Œ…€     ‚€•’€"
+if wah(j)=1
+@ str,32 say "€"
+endif
+if wah(j)=2
+@ str,32 say ""
+endif
+if wah(j)=3
+@ str,32 say "‚"
+endif
+if wah(j)=4
+@ str,32 say "ƒ"
+endif
+endif
+if j=4
+@ str,11 say "‡€ ‘“’Šˆ"
+endif
+return
+procedure MB
+@ str,7 say "Œ"
+@ str,14 say cif1(i,j) pict "99999"
+@ str,23 say cif2(i,j) pict "99999"
+@ str,32 say cif3(i,j) pict "99999"
+@ str,41 say cif4(i,j) pict "99999"
+@ str,50 say cif5(i,j) pict "99999"
+@ str,59 say cif6(i,j) pict "99999"
+@ str,68 say cif7(i,j) pict "99999"
+@ str,77 say cif8(i,j) pict "99999"
+@ str,86 say cif9(i,j) pict "99999"
+@ str,95 say cif10(i,j) pict "99999"
+@ str,104 say cif11(i,j) pict "99999"
+@ str,113 say cif12(i,j) pict "99999"
+return
+procedure NAGR
+@ str,0 say "€ƒ“‡Š€"
+@ str,14 say cif1(i,j) pict "99999"
+@ str,23 say cif2(i,j) pict "99999"
+@ str,32 say cif3(i,j) pict "99999"
+@ str,41 say cif4(i,j) pict "99999"
+@ str,50 say cif5(i,j) pict "99999"
+@ str,59 say cif6(i,j) pict "99999"
+@ str,68 say cif7(i,j) pict "99999"
+@ str,77 say cif8(i,j) pict "99999"
+@ str,86 say cif9(i,j) pict "99999"
+@ str,95 say cif10(i,j) pict "99999"
+@ str,104 say cif11(i,j) pict "99999"
+@ str,113 say cif12(i,j) pict "99999"
+@ str,124 say gres(i-1,j) pict "999999"
+return
+procedure PUG
+@ str,0 say "“ƒ"
+@ str,14 say cif1(i,j) pict "999999"
+@ str,23 say cif2(i,j) pict "999999"
+@ str,32 say cif3(i,j) pict "999999"
+@ str,41 say cif4(i,j) pict "999999"
+@ str,50 say cif5(i,j) pict "999999"
+@ str,59 say cif6(i,j) pict "999999"
+@ str,68 say cif7(i,j) pict "999999"
+@ str,77 say cif8(i,j) pict "999999"
+@ str,86 say cif9(i,j) pict "999999"
+@ str,95 say cif10(i,j) pict "999999"
+@ str,104 say cif11(i,j) pict "999999"
+@ str,113 say cif12(i,j) pict "999999"
+@ str,124 say gres(i-1,j) pict "999999"
+return
+procedure WAK
+@ str,0 say "‚€Š"
+@ str,14 say cif1(i,j) pict "99999"
+@ str,23 say cif2(i,j) pict "99999"
+@ str,32 say cif3(i,j) pict "99999"
+@ str,41 say cif4(i,j) pict "99999"
+@ str,50 say cif5(i,j) pict "99999"
+@ str,59 say cif6(i,j) pict "99999"
+@ str,68 say cif7(i,j) pict "99999"
+@ str,77 say cif8(i,j) pict "99999"
+@ str,86 say cif9(i,j) pict "99999"
+@ str,95 say cif10(i,j) pict "99999"
+@ str,104 say cif11(i,j) pict "99999"
+@ str,113 say cif12(i,j) pict "99999"
+@ str,124 say gres(i-1,j) pict "999999"
+return
+procedure DOP
+@ str,0 say "„"
+@ str,14 say cif1(i,j) pict "99999"
+@ str,23 say cif2(i,j) pict "99999"
+@ str,32 say cif3(i,j) pict "99999"
+@ str,41 say cif4(i,j) pict "99999"
+@ str,50 say cif5(i,j) pict "99999"
+@ str,59 say cif6(i,j) pict "99999"
+@ str,68 say cif7(i,j) pict "99999"
+@ str,77 say cif8(i,j) pict "99999"
+@ str,86 say cif9(i,j) pict "99999"
+@ str,95 say cif10(i,j) pict "99999"
+@ str,104 say cif11(i,j) pict "99999"
+@ str,113 say cif12(i,j) pict "99999"
+@ str,124 say gres(i-1,j) pict "999999"
+return
+procedure TOP
+@ str,0 say "’"
+@ str,14 say cif1(i,j) pict "99999"
+@ str,23 say cif2(i,j) pict "99999"
+@ str,32 say cif3(i,j) pict "99999"
+@ str,41 say cif4(i,j) pict "99999"
+@ str,50 say cif5(i,j) pict "99999"
+@ str,59 say cif6(i,j) pict "99999"
+@ str,68 say cif7(i,j) pict "99999"
+@ str,77 say cif8(i,j) pict "99999"
+@ str,86 say cif9(i,j) pict "99999"
+@ str,95 say cif10(i,j) pict "99999"
+@ str,104 say cif11(i,j) pict "99999"
+@ str,113 say cif12(i,j) pict "99999"
+@ str,124 say gres(i-1,j) pict "999999"
+return
+procedure TPP
+@ str,0 say "’"
+@ str,14 say cif1(i,j) pict "99999"
+@ str,23 say cif2(i,j) pict "99999"
+@ str,32 say cif3(i,j) pict "99999"
+@ str,41 say cif4(i,j) pict "99999"
+@ str,50 say cif5(i,j) pict "99999"
+@ str,59 say cif6(i,j) pict "99999"
+@ str,68 say cif7(i,j) pict "99999"
+@ str,77 say cif8(i,j) pict "99999"
+@ str,86 say cif9(i,j) pict "99999"
+@ str,95 say cif10(i,j) pict "99999"
+@ str,104 say cif11(i,j) pict "99999"
+@ str,113 say cif12(i,j) pict "99999"
+@ str,124 say gres(i-1,j) pict "999999"
+return
+procedure SN
+@ str,0 say "‘H"
+@ str,13 say cif1(i,j) pict "999999"
+@ str,22 say cif2(i,j) pict "999999"
+@ str,31 say cif3(i,j) pict "999999"
+@ str,40 say cif4(i,j) pict "999999"
+@ str,49 say cif5(i,j) pict "999999"
+@ str,58 say cif6(i,j) pict "999999"
+@ str,67 say cif7(i,j) pict "999999"
+@ str,76 say cif8(i,j) pict "999999"
+@ str,85 say cif9(i,j) pict "999999"
+@ str,94 say cif10(i,j) pict "999999"
+@ str,103 say cif11(i,j) pict "999999"
+@ str,112 say cif12(i,j) pict "999999"
+@ str,123 say gres(i-1,j) pict "9999999"
+return
+procedure TPW
+@ str,0 say "’‚"
+@ str,14 say cif1(i,j) pict "99999"
+@ str,23 say cif2(i,j) pict "99999"
+@ str,32 say cif3(i,j) pict "99999"
+@ str,41 say cif4(i,j) pict "99999"
+@ str,50 say cif5(i,j) pict "99999"
+@ str,59 say cif6(i,j) pict "99999"
+@ str,68 say cif7(i,j) pict "99999"
+@ str,77 say cif8(i,j) pict "99999"
+@ str,86 say cif9(i,j) pict "99999"
+@ str,95 say cif10(i,j) pict "99999"
+@ str,104 say cif11(i,j) pict "99999"
+@ str,113 say cif12(i,j) pict "99999"
+@ str,124 say gres(i-1,j) pict "999999"
+return
+procedure WSEGO
+@ str,0 say "‚‘…ƒ"
+@ str,13 say cif1(i,j) pict "999999"
+@ str,22 say cif2(i,j) pict "999999"
+@ str,31 say cif3(i,j) pict "999999"
+@ str,40 say cif4(i,j) pict "999999"
+@ str,49 say cif5(i,j) pict "999999"
+@ str,58 say cif6(i,j) pict "999999"
+@ str,67 say cif7(i,j) pict "999999"
+@ str,76 say cif8(i,j) pict "999999"
+@ str,85 say cif9(i,j) pict "999999"
+@ str,94 say cif10(i,j) pict "999999"
+@ str,103 say cif11(i,j) pict "999999"
+@ str,112 say cif12(i,j) pict "999999"
+@ str,123 say gres(i-1,j) pict "9999999"
+return
+procedure GKBT
+@ str,0 say "ƒ/Š‚’—"
+@ str,14 say gkbt(1,j) pict "999.99"
+@ str,23 say gkbt(2,j) pict "999.99"
+@ str,32 say gkbt(3,j) pict "999.99"
+@ str,41 say gkbt(4,j) pict "999.99"
+@ str,50 say gkbt(5,j) pict "999.99"
+@ str,59 say gkbt(6,j) pict "999.99"
+@ str,68 say gkbt(7,j) pict "999.99"
+@ str,77 say gkbt(8,j) pict "999.99"
+@ str,86 say gkbt(9,j) pict "999.99"
+@ str,95 say gkbt(10,j) pict "999.99"
+@ str,104 say gkbt(11,j) pict "999.99"
+@ str,113 say gkbt(12,j) pict "999.99"
+@ str,124 say gkbt(13,j) pict "999.99"
+return
+procedure SCHET
+wy=wyr(nnb(i),j)
+*?"Schet"
+*?wy
+*wait
+na=eksut8(i)
+ksut1(i)=nnb(i)
+ksut2(i)=idd+imm*100
+ksut3(i)=wah(j)
+ksut4(i)=ntn(i)
+rrn=5.15+0.0083*na+0.022*(15.0-nthw(i))
+rrf=0
+if na#0
+rrf=mpris(nnb(i))*0.01*sqrt(160.0/na)
+endif
+rrf=rrf+(21.0-0.1*no2(i))/(21.0-no2(i))
+rrf=(rrf*3.5+0.6)*(ntug(i)-nthw(i))*0.01
+eksut1(i)=3.5*(rrf-rrn)*wy
+rr=mtcb(j)+0.07*na+(20+na)/(mtcb(j)+17)
+eksut2(i)=0.68*wy*(ntk(i)-rr)
+eksut3(i)=0.0
+if npop(i)<126.0
+
+if na>=80.0 .and. na<=117.0
+eksut3(i)= 0.148*(na-80.0)*wy
+endif
+
+if na>117.0 .and. na<=160.0
+eksut3(i)= 0.127*(160.0-na)*wy
+endif
+
+endif
+eksut4(i)=0
+* if ntop(i)<540.0
+eksut4(i)=-0.07*wy*(ntop(i)-540.0)
+* endif
+if na>80.0.and.na<115.0
+rr=530.0+0.429*(na-80.0)
+endif
+if (na>=115.0)
+rr=540.0
+endif
+eksut5(i)=0
+if ntpp(i)<540
+eksut5(i)=-0.056*wy*(ntpp(i)-rr)
+endif
+rr=mkf1(nnb(i))*ntim(i)+mkf2(nnb(i))*wy
+*?"rr="
+*?rr
+*?"esn="
+*?esn(nnb(i),j)
+*?"nnb="
+*?nnb(i)
+
+eksut6(i)=(esn(nnb(i),j)-rr)*350.0
+*?"eksut6="
+*?eksut6(i)
+*wait
+*9999
+if npwd(i)=0
+eksut7(i)=(2.98+0.0276*(na-80.0))*wy
+endif
+if npwd(i)#0
+rr=mkl2(nnb(i))+0.3*(na-150.0)
+if na<150.0
+rr=170.0+mkl1(nnb(i))*na
+endif
+if na>=160
+rr=mkl2(nnb(i))+3.0+0.2*(na-150.0)
+endif
+eksut7(i)=-0.066*(ntpw(i)-rr+0.05*ndro(i))*wy
+*?rr
+*wait "rr"
+endif
+return
+procedure SCHET1
+wy=wyr(nnb(i),j)
+na=eksut8(i)
+ksut1(i)=nnb(i)
+ksut2(i)=idd+imm*100
+ksut3(i)=wah(j)
+ksut4(i)=ntn(i)
+rrn=5.15+0.0083*na+0.022*(15.0-nthw(i))
+rrf=0
+if na#0
+rrf=mpris(nnb(i))*0.01*sqrt(160.0/na)
+endif
+rrf=rrf+(21.0-0.1*no2(i))/(21.0-no2(i))
+rrf=(rrf*3.5+0.6)*(ntug(i)-nthw(i))*0.01
+eksut1(i)=3.5*(rrf-rrn)*wy
+rr=mtcb(j)+0.07*na+(20+na)/(mtcb(j)+17)
+eksut2(i)=0.68*wy*(ntk(i)-rr)
+eksut3(i)=0.0
+if npop(i)<126.0
+
+if na>=80.0 .and. na<=117.0
+eksut3(i)= 0.148*(na-80.0)*wy
+endif
+
+if na>117.0 .and. na<=160.0
+eksut3(i)= 0.127*(160.0-na)*wy
+endif
+
+endif
+eksut4(i)=0
+* if ntop(i)<540.0
+eksut4(i)=-0.07*wy*(ntop(i)-540.0)
+* endif
+if na>80.0.and.na<115.0
+rr=530.0+0.429*(na-80.0)
+endif
+if (na>=115.0)
+rr=540.0
+endif
+eksut5(i)=0
+if ntpp(i)<540
+eksut5(i)=-0.056*wy*(ntpp(i)-rr)
+endif
+return
+procedure SCHET2
+*?"nnb="
+*?nnb(i)
+*?"esn="
+*?esn(nnb(i),j)
+*?"rr="
+*?rr
+*?"eksut6="
+*?eksut6(i)
+*wait "schet2"
+eksut6(i)=(esn(nnb(i),j)-rr)*350.0
+if npwd(i)=0
+eksut7(i)=(2.98+0.0276*(eksut8(i)-80.0))*wyr(nnb(i),j)
+endif
+if npwd(i)#0
+rr=mkl2(nnb(i))+0.3*(eksut8(i)-150.0)
+if eksut8(i)<150.0
+rr=170.0+mkl1(nnb(i))*eksut8(i)
+endif
+if eksut8(i)>=160
+rr=mkl2(nnb(i))+3.0+0.2*(eksut8(i)-150.0)
+endif
+eksut7(i)=-0.066*(ntpw(i)-rr+0.05*ndro(i))*wyr(nnb(i),j)
+endif
+return
+
+procedure ZAMBAX
+select 8
+*INDEX ON NZ TO BAXTA52
+*SET INDEX TO BAXTA52
+go top
+if nnz#2
+skip nnz-2
+endif
+*do while ! eof()
+*if mmdds#0.and.round(mmdds/100,0)=imm
+*skip
+*else
+*exit
+*endif
+*if nnz=2500
+*nnz=2
+*go top
+*endif
+*enddo
+repl nz with nnz
+repl nbb with ksut1(i)
+repl mmdds with ksut2(i)
+repl wns with ksut3(i)
+repl tnn with ksut4(i)
+repl ppug with eksut1(i)
+repl pwak with eksut2(i)
+repl pdop with eksut3(i)
+repl ptop with eksut4(i)
+repl ptpp with eksut5(i)
+repl psn with eksut6(i)
+repl ptpw with eksut7(i)
+repl snnb with eksut8(i)
+*alex="y"
+*@ 20,10 say nnz pict "9999"
+*@ 20,20 say nz pict "9999"
+*@ 21,10 get alex pict""
+*read
+return
+
+procedure SEEBAX
+set device to screen
+clear
+@ 0,0 say  "ÉÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍËÍÍÍÍÍÍÍ»"
+@ 1,0 say  "º1 ‘Œ…€ º2 ‘Œ…€ º3 ‘Œ…€ º’„.‚€•’€ºˆ‡€Šº ŒŒ.„„ º"
+@ 2,0 say  "ÌÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍ¹"
+j=1
+do while j<=8
+@ j+2,0 say "º        º        º        º         º       º       º"
+@ j+2,5 say mraz(j) pict "9"
+@ j+2,14 say mdwa(j) pict "9"
+@ j+2,23 say mtri(j) pict "9"
+@ j+2,32 say mche(j) pict "9"
+@ j+2,41 say mpat(j) pict "9"
+@ j+2,47 say mshe(j) pict "9999"
+j=j+1
+enddo
+@ 11,0 say "ÈÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍ¼"
+@ 13,1 say "Œˆ’…! •à ­ïâáï â®«ìª® ¨áå®¤­ë¥ ¤ ­­ë¥ §  ç¨á«  ãª § ­­ë¥ ¢ áâ®«¡æ¥ ŒŒ.„„"
+@ 14,3 say "€†Œˆ’… ‹“ Š‹€‚ˆ˜“"
+l=inkey(0)
+return
+procedure FILTER
+select 1
+go top
+set filter to nome=fff
+
+do REDISH
+go top
+
+i=1
+clear
+**set step on
+do while ! eof()
+repl nome with data
+ml1(i)=L1
+mpw(i)=pw
+mps(i)=ps
+i=i+1
+skip
+**set step off
+enddo
+
+set filter to
+return
+
+procedure FILTER1
+select 3
+go top
+seek fff
+do RED1ISH
+murp=urp
+murm=urm
+mtext01=text01
+mwrmn8(1)=wrmn11
+mwrmn8(2)=wrmn12
+mwrmn8(3)=wrmn13
+mtext02=text02
+mwrmn9(1)=wrmn21
+mwrmn9(2)=wrmn22
+mwrmn9(3)=wrmn23
+mtext03=text03
+mwrmn10(1)=wrmn31
+mwrmn10(2)=wrmn32
+mwrmn10(3)=wrmn33
+mpris(1)=pris1
+mpris(2)=pris2
+mpris(3)=pris3
+mpris(4)=pris4
+mpris(5)=pris5
+mpris(6)=pris6
+mpris(7)=pris7
+mpris(8)=pris8
+mpris(9)=pris9
+mpris(10)=pris10
+mpris(11)=pris11
+mpris(12)=pris12
+mtcb(1)=tcb1
+mtcb(2)=tcb2
+mtcb(3)=tcb3
+mwrmn11(1)=wrmn14
+mwrmn11(2)=wrmn24
+mwrmn11(3)=wrmn34
+repl nome with data
+if idd=1
+go top
+do while ! eof()
+repl urp with murp
+repl pris1 with mpris(1)
+repl pris2 with mpris(2)
+repl pris3 with mpris(3)
+repl pris4 with mpris(4)
+repl pris5 with mpris(5)
+repl pris6 with mpris(6)
+repl pris7 with mpris(7)
+repl pris8 with mpris(8)
+repl pris9 with mpris(9)
+repl pris10 with mpris(10)
+repl pris11 with mpris(11)
+repl pris12 with mpris(12)
+skip
+enddo
+endif
+return
+
+procedure FILTER2
+select 7
+go top
+set filter to nome=fff
+do RED2ISH
+go top
+i=1
+do while ! eof()
+repl nome with data
+nnb(i)=nb
+ntext1(i)=text1
+ntim(i)=tim
+ndro(i)=dro
+npwd(i)=pwd
+ntpw(i)=tpw
+ntk(i)=tk
+ntop(i)=top
+ntpp(i)=tpp
+npop(i)=pop
+ntug(i)=tug
+nthw(i)=thw
+no2(i)=o2
+ntn(i)=tn
+i=i+1
+skip
+enddo
+set filter to
+return
+procedure REDISH
+set device to screen
+clear
+@ 0,0 say  "ÉÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»"
+@ 1,0 say  "º        º        ºŠ€‡€ˆŸ ‘—…’—ˆŠ‚º"
+@ 2,0 say  "ºN ‹Š€ º ‘Œ…€  ÌÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍ¹"
+@ 3,0 say  "º        º        º  ‚›€.  º   ‘..  º"
+@ 4,0 say  "ÌÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍ¹"
+@ 23,0 say "ÈÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍ¼"
+kol=5
+@ 24,0 say re pict ""
+go top
+mini=nomer
+go bott
+
+maxi=nomer
+go top
+do BAXEKR
+go top
+kol=5
+do while .t.
+*set talk on
+*set echo on
+*set step on
+@ kol,20 get pw pict "999999.9"
+*@ kol,32 get ps pict "999.9"
+@ kol,31 get ps pict "9999.99"  && 05.10.04
+read
+l=readkey()
+@ kol,20 say pw pict "999999.9"
+*@ kol,32 say ps pict "999.9"
+@ kol,31 say ps pict "9999.99"  && 05.10.04
+if l=12
+exit
+endif
+if l=6
+if nomer = mini
+loop
+endif
+i=0
+do while ! bof()
+skip -1
+i=i+1
+if i = 18
+exit
+endif
+enddo
+nom=nomer
+kol=5
+do BAXEKR
+seek nom
+kol=5
+loop
+endif
+if l=7
+if nomer = maxi
+loop
+endif
+i=0
+do while ! eof()
+skip
+i=i+1
+if i = 18
+exit
+endif
+enddo
+if i<18
+seek maxi
+endif
+nom=nomer
+kol=5
+do BAXEKR
+seek nom
+kol=5
+loop
+endif
+if l = 4
+if nomer=mini
+loop
+endif
+skip -1
+nom=nomer
+if kol>5
+kol = kol - 1
+loop
+else
+kol=5
+do BAXEKR
+seek nom
+kol=5
+endif
+loop
+endif
+if l=5.or.l=270.or.l=15
+if nomer = maxi
+loop
+endif
+*if kol < 22
+*kol=kol+1
+*else
+*kol=5
+*do BAXEKR
+*kol=5
+*endif
+skip
+nom=nomer
+if kol < 22
+kol=kol+1
+loop
+else
+kol=5
+do BAXEKR
+seek nom
+kol=5
+endif
+loop
+endif
+enddo
+return
+procedure RED1ISH
+clear
+@ 0,6 say "-“„…‹œ›‰ €‘•„ ’‹ˆ‚€ (‹€ € Œ…‘Ÿ–)"
+@ 1,6 say "-“„…‹œ›‰ €‘•„ ’‹ˆ‚€ (‘ €—€‹€ Œ…‘Ÿ–€)"
+@ 3,0 say "‚…ŒŸ €’› Œ€‡“’›• €‘‘‚:"
+@ 4,0 say "‘Œ…€   N4   N5   N6   N7"
+@ 9,38 say "ˆ‘‘›"
+@ 10,16 say "’…Œ…€’“€ –ˆŠ“‹ˆ“™…‰ ‚„›"
+do while .t.
+@ 0,0 get urp pict "999.99"
+@ 1,0 get urm pict "999.99"
+@ 5,0 say text01 pict ""
+@ 5,9 get wrmn11 pict "9"
+@ 5,14 get wrmn21 pict "9"
+@ 5,19 get wrmn31 pict "9"
+@ 5,24 get wrmn14 pict "9"
+@ 6,0 say text02 pict""
+@ 6,9 get wrmn12 pict "9"
+@ 6,14 get wrmn22 pict "9"
+@ 6,19 get wrmn32 pict "9"
+@ 6,24 get wrmn24 pict "9"
+@ 7,0 say text03 pict ""
+@ 7,9 get wrmn13 pict "9"
+@ 7,14 get wrmn23 pict "9"
+@ 7,19 get wrmn33 pict "9"
+@ 7,24 get wrmn34 pict "9"
+@ 9,0 get pris1 pict "99"
+@ 9,3 get pris2 pict "99"
+@ 9,6 get pris3 pict "99"
+@ 9,9 get pris4 pict "99"
+@ 9,12 get pris5 pict "99"
+@ 9,15 get pris6 pict "99"
+@ 9,18 get pris7 pict "99"
+@ 9,21 get pris8 pict "99"
+@ 9,24 get pris9 pict "99"
+@ 9,27 get pris10 pict "99"
+@ 9,30 get pris11 pict "99"
+@ 9,33 get pris12 pict "99"
+@ 10,0 get tcb1 pict "99.9"
+@ 10,5 get tcb2 pict "99.9"
+@ 10,10 get tcb3 pict "99.9"
+read
+l=readkey()
+@ 12,2 say "˜ˆ‹ˆ‘œ? …’-€†Œˆ’… ESC"
+if l=12
+exit
+endif
+if l=15
+loop
+endif
+enddo
+return
+procedure RED2ISH
+set device to screen
+clear
+@ 0,0 say  "ÉÍÍÍÍËÍÍÍÍÍËÍÍÍËÍÍÍËÍÍÍËÍÍÍËÍÍÍÍËÍÍÍËÍÍÍËÍÍÍËÍÍÍËÍÍÍËÍÍÍËÍÍÍÍÍÍÍ»"
+@ 1,0 say  "ºN ‹º‘Œ…€º — º„º‚„º’‚º’Š  º’º’Š‹ºº’“•º’•‚º2 º ’€.N º"
+@ 2,0 say  "ÌÍÍÍÍÎÍÍÍÍÍÎÍÍÍÎÍÍÍÎÍÍÍÎÍÍÍÎÍÍÍÍÎÍÍÍÎÍÍÍÎÍÍÍÎÍÍÍÎÍÍÍÎÍÍÍÎÍÍÍÍÍÍÍ¹"
+@ 23,0 say "ÈÍÍÍÍÊÍÍÍÍÍÊÍÍÍÊÍÍÍÊÍÍÍÊÍÍÍÊÍÍÍÍÊÍÍÍÊÍÍÍÊÍÍÍÊÍÍÍÊÍÍÍÊÍÍÍÊÍÍÍÍÍÍÍ¼"
+kol=3
+@ 24,0 say re pict ""
+go top
+mini=nomer
+go bott
+maxi=nomer
+go top
+do BAXEKR1
+go top
+kol=3
+do while .t.
+*@ kol,1 say nomer pict "99"
+@ kol,2 say nb pict "99"
+@ kol,6 say text1 pict ""
+@ kol,13 get tim pict "9"
+@ kol,16 get dro pict "99"
+@ kol,21 get pwd pict "9"
+@ kol,24 get tpw pict "999"
+@ kol,28 get tk pict "99.9"
+@ kol,33 get top pict "999"
+@ kol,37 get tpp pict "999"
+@ kol,41 get pop pict "999"
+@ kol,45 get tug pict "999"
+@ kol,49 get thw pict "99"
+@ kol,53 get o2 pict "9.9"
+@ kol,57 get tn pict "99999"
+read
+l=readkey()
+*@ kol,1 say nomer pict "99"
+@ kol,2 say nb pict "99"
+@ kol,6 say text1 pict ""
+@ kol,13 say tim pict "9"
+@ kol,16 say dro pict "99"
+@ kol,21 say pwd pict "9"
+@ kol,24 say tpw pict "999"
+@ kol,28 say tk pict "99.9"
+@ kol,33 say top pict "999"
+@ kol,37 say tpp pict "999"
+@ kol,41 say pop pict "999"
+@ kol,45 say tug pict "999"
+@ kol,49 say thw pict "99"
+@ kol,53 say o2 pict "9.9"
+@ kol,57 say tn pict "99999"
+if l=12
+exit
+endif
+if l=6
+if nomer = mini
+loop
+endif
+i=0
+do while ! bof()
+skip -1
+i=i+1
+if i = 20
+exit
+endif
+enddo
+nom=nomer
+kol=3
+do BAXEKR1
+seek nom
+kol=3
+loop
+endif
+if l=7
+if nomer = maxi
+loop
+endif
+i=0
+do while ! eof()
+skip
+i=i+1
+if i = 20
+exit
+endif
+enddo
+if i<20
+seek maxi
+endif
+nom=nomer
+kol=3
+do BAXEKR1
+seek nom
+kol=3
+loop
+endif
+if l = 4
+if nomer=mini
+loop
+endif
+skip -1
+nom=nomer
+if kol>3
+kol = kol - 1
+loop
+else
+kol=3
+do BAXEKR1
+seek nom
+kol=3
+endif
+loop
+endif
+if l=5.or.l=270.or.l=15
+if nomer = maxi
+loop
+endif
+skip
+nom=nomer
+if kol < 22
+kol=kol+1
+loop
+else
+kol=3
+do BAXEKR1
+seek nom
+kol=3
+endif
+loop
+endif
+enddo
+return
+procedure BAXEKR
+@ kol,0 clear to 22,79
+do while ! eof()
+@ kol,0 say "º"
+*@ kol,4 say nomer pict "99"
+*@ kol,8 say "º"
+@ kol,4 say nb pict "99"
+@ kol,9 say "º"
+@ kol,12 say l1 pict "99"
+@ kol,18 say "º"
+@ kol,20 say pw pict "999999.9"
+@ kol,29 say "º"
+*@ kol,32 say ps pict "999.9"
+@ kol,31 say ps pict "9999.99"   && 05.10.04
+@ kol,38 say "º"
+if kol=22
+exit
+endif
+kol = kol + 1
+skip
+enddo
+do while kol<23
+@ kol,0  say "º"
+@ kol,9  say "º"
+@ kol,18 say "º"
+@ kol,29 say "º"
+@ kol,38 say "º"
+*@ kol,46 say "º"
+kol=kol+1
+enddo
+set talk off
+set echo off
+set step off
+
+return
+procedure BAXEKR1
+@ kol,0 clear to 22,79
+do while ! eof()
+@ kol,0 say "º"
+*@ kol,1 say nomer pict "99"
+*@ kol,4 say "º"
+@ kol,2 say nb pict "99"
+@ kol,5 say "º"
+@ kol,6 say text1 pict ""
+@ kol,11 say "º"
+@ kol,13 say tim pict "9"
+@ kol,15 say "º"
+@ kol,16 say dro pict "99"
+@ kol,19 say "º"
+@ kol,21 say pwd pict "9"
+@ kol,23 say "º"
+@ kol,24 say tpw pict "999"
+@ kol,27 say "º"
+@ kol,28 say tk pict "99.9"
+@ kol,32 say "º"
+@ kol,33 say top pict "999"
+@ kol,36 say "º"
+@ kol,37 say tpp pict "999"
+@ kol,40 say "º"
+@ kol,41 say pop pict "999"
+@ kol,44 say "º"
+@ kol,45 say tug pict "999"
+@ kol,48 say "º"
+@ kol,49 say thw pict "99"
+@ kol,52 say "º"
+@ kol,53 say o2 pict "9.9"
+@ kol,56 say "º"
+@ kol,57 say tn pict "99999"
+@ kol,64 say "º"
+if kol=22
+exit
+endif
+kol = kol + 1
+skip
+enddo
+do while kol<23
+@ kol,0 say "º"
+*@ kol,4 say "º"
+@ kol,5 say "º"
+@ kol,11 say "º"
+@ kol,15 say "º"
+@ kol,19 say "º"
+@ kol,23 say "º"
+@ kol,27 say "º"
+@ kol,32 say "º"
+@ kol,36 say "º"
+@ kol,40 say "º"
+@ kol,44 say "º"
+@ kol,48 say "º"
+@ kol,52 say "º"
+@ kol,56 say "º"
+@ kol,64 say "º"
+kol=kol+1
+enddo
+return
+****************
+procedure O2GOL
+****************
+dime rmw(9,4),rmb(12,9),wyrw(4),wyrb(12),nagw(4),nagb(12),gres(9)
+dime kolb(12),kolw(4),old1(2),old(8),oldd1(2),oldd(8)
+do while .t.
+idd=1
+imm=1
+igg=1995
+iid=1
+iim=1
+iig=1995
+rmw=0
+rmb=0
+wyrw=0
+wyrb=0
+nagw=0
+nagb=0
+gres=0
+kolb=0
+kolw=0
+ib=0
+iw=0
+grw=0
+grn=0
+old1=0
+old=0
+oldd1=0
+oldd=0
+pap = 0
+@ 8,6,11,75 box win1+" "
+@ 9,7 say "„ ©â¥ ­ ç «ì­ãî ¨ ª®­¥ç­ãî ¤ âã à áç¥â  ¢ ä®à¬ â¥ ƒƒƒƒŒŒ„„ ƒƒƒƒŒŒ„„"
+@ 10,25 get igg pict "9999"
+@ 10,30 get imm pict "999"
+@ 10,34 get idd pict "999"
+@ 10,41 get iig pict "9999"
+@ 10,46 get iim pict "999"
+@ 10,50 get iid pict "999"
+read
+l=readkey()
+if l=12
+return
+endif
+@ 11,22,15,57 box win1+" "
+@ 12,34 say "† „ ˆ ’ … !"
+@ 13,33 say "ˆ„…’ €’Š€"
+@ 14,34 say "ˆ”Œ€–ˆˆ"
+min=0
+max=0
+min=idd+imm*100
+max=iid+iim*100
+*?min
+*?max
+*wait
+*datag=1900+iig
+datag=iig
+select 1
+use baxta5
+repl npd with idd
+repl npm with imm
+repl kpd with iid
+repl kpm2 with iim
+repl ggg with igg
+repl nmmdd with min
+repl kmmdd with max
+
+use
+select 2
+use baxta50
+go top
+*11111
+k=0
+
+do while ! eof()
+if mmdds>=min.and.mmdds<=max
+*? 'baxta50'
+ib=nbb
+iw=wns
+rmw(1,iw)=rmw(1,iw)+ppug/1000
+rmw(2,iw)=rmw(2,iw)+pwak/1000
+rmw(3,iw)=rmw(3,iw)+pdop/1000
+rmw(4,iw)=rmw(4,iw)+ptop/1000
+rmw(5,iw)=rmw(5,iw)+ptpp/1000
+rmw(6,iw)=rmw(6,iw)+psn/1000
+rmw(7,iw)=rmw(7,iw)+ptpw/1000
+rmb(ib,1)=rmb(ib,1)+ppug/1000
+rmb(ib,2)=rmb(ib,2)+pwak/1000
+rmb(ib,3)=rmb(ib,3)+pdop/1000
+rmb(ib,4)=rmb(ib,4)+ptop/1000
+rmb(ib,5)=rmb(ib,5)+ptpp/1000
+rmb(ib,6)=rmb(ib,6)+psn/1000
+rmb(ib,7)=rmb(ib,7)+ptpw/1000
+nagw(iw)=nagw(iw)+snnb
+nagb(ib)=nagb(ib)+snnb
+wyrw(iw)=wyrw(iw)+snnb*8
+wyrb(ib)=wyrb(ib)+snnb*8
+kolw(iw)=kolw(iw)+1
+kolb(ib)=kolb(ib)+1
+skip
+else
+k=k+1
+*?'baxta50 else'
+skip
+endif
+enddo
+
+if k=2499
+clear
+@ 10,20 say "ˆ­ä®à¬ æ¨¨ §  ãª § ­­ë© ¯¥à¨®¤ ­¥ áãé¥áâ¢ã¥â!!!"
+@ 12,24 say " ¦¬¨â¥ «î¡ãî ª« ¢¨èã."
+l=inkey(0)
+return
+endif
+i=1
+
+do while i<=4
+grw=grw+wyrw(i)
+grw=round(grw,0)
+if kolw(i)#0
+nagw(i)=nagw(i)/kolw(i)
+endif
+grn=grn+round(nagw(i),0)
+i=i+1
+enddo
+
+grn=grn/4
+i=1
+do while i<=4
+j=1
+do while j<=7
+rmw(8,i)=rmw(8,i)+rmw(j,i)
+gres(j)=gres(j)+rmw(j,i)
+j=j+1
+enddo
+gres(8)=gres(8)+rmw(8,i)
+if wyrw#0
+rmw(9,i)=(rmw(8,i)*1000)/wyrw(i)
+endif
+gres(9)=gres(9)+rmw(9,i)/4
+i=i+1
+enddo
+
+i=1
+do while i<=12
+if kolb(i)#0
+nagb(i)=nagb(i)/kolb(i)
+endif
+j=1
+do while j<=7
+rmb(i,8)=rmb(i,8)+rmb(i,j)
+j=j+1
+enddo
+if wyrb(i)#0
+rmb(i,9)=(rmb(i,8)*1000)/wyrb(i)
+endif
+i=i+1
+enddo
+i=1
+do while i<=12
+nagb(i)=round(nagb(i),0)
+wyrb(i)=round(wyrb(i),0)
+i=i+1
+enddo
+
+i=1
+do while i<=4
+nagw(i)=round(nagw(i),0)
+wyrw(i)=round(wyrw(i),0)
+i=i+1
+enddo
+
+use
+set printer to baxta1.pec
+set device to print
+str=prow()+1
+@ str,0 say "ˆ‚– ’ è’‘                       €€‹ˆ‡ €‘•„€ ’‹ˆ‚€ (‚  ’ “.’.)  ‹Š€Œ "
+str=str+1
+@ str,39 say "‘"
+@ str,41 say idd pict "99"
+@ str,43 say "."
+@ str,45 say imm pict "99"
+@ str,47 say "."
+@ str,49 say "„"
+@ str,52 say iid pict "99"
+@ str,54 say "."
+@ str,56 say imm pict "99"
+@ str,58 say "."
+@ str,60 say datag pict "9999"
+@ str,65 say " ƒ."
+str=str+1
+@ str,0 say "=================================================================================================================================="
+str=str+1
+@ str,13 say "‹Š           1       2       3       4       5       6       7       8       9      10      11      12   ‘’€–ˆˆ"
+str=str+2
+@ str,0 say "‚›€’Š€ (Œ‚’—)"
+i=1
+j=23
+do while i<=12
+@ str,j say wyrb(i) pict "9999999"
+i=i+1
+j=j+8
+enddo
+@ str,122 say grw pict "9999999"
+str=str+1
+@ str,0 say "€ƒ“‡Š€ (Œ‚’)"
+i=1
+j=27
+do while i<=12
+@ str,j say nagb(i) pict "999"
+i=i+1
+j=j+8
+enddo
+*@ str,125 say grn pict "999"
+@ str,126 say grn pict "999"       &&ˆ‘.8.01.98ƒ
+str=str+1
+@ str,0 say "“ƒ"
+i=1
+j=24
+do while i<=12
+@ str,j say rmb(i,1) pict "9999.99"
+i=i+1
+j=j+8
+enddo
+*@ str,121 say gres(1) pict "9999.99"
+@ str,122 say gres(1) pict "99999.99"     &&ˆ‘ 08.01.98ƒ
+str=str+1
+@ str,0 say "‚€Š"
+i=1
+j=22
+do while i<=12
+@ str,j say rmb(i,2) pict "99999.99"
+i=i+1
+j=j+8
+enddo
+*@ str,121 say gres(2) pict "9999.99"
+@ str,122 say gres(2) pict "99999.99"  &&ˆ‘ 08.01.98ƒ
+str=str+1
+@ str,0 say "„"
+i=1
+j=24
+do while i<=12
+@ str,j say rmb(i,3) pict "999.99"
+i=i+1
+j=j+8
+enddo
+*@ str,121 say gres(3) pict "9999.99"
+@ str,122 say gres(3) pict "99999.99"     &&08.01.98ƒ
+str=str+1
+@ str,0 say "’"
+i=1
+j=24
+do while i<=12
+@ str,j say rmb(i,4) pict "999.99"
+i=i+1
+j=j+8
+enddo
+*@ str,121 say gres(4) pict "9999.99"
+@ str,122 say gres(4) pict "99999.99"    && 8.01.98
+str=str+1
+@ str,0 say "’"
+i=1
+j=24
+do while i<=12
+@ str,j say rmb(i,5) pict "999.99"
+i=i+1
+j=j+8
+enddo
+*@ str,121 say gres(5) pict "9999.99"
+@ str,122 say gres(5) pict "99999.99"     &&  8.01.98
+str=str+1
+@ str,0 say "‘H"
+i=1
+j=24
+do while i<=12
+@ str,j say rmb(i,6) pict "9999.99"
+i=i+1
+j=j+8
+enddo
+*@ str,121 say gres(6) pict "9999.99"
+@ str,122 say gres(6) pict "99999.99"      && 8.01.98
+str=str+1
+@ str,0 say "’‚"
+i=1
+j=24
+do while i<=12
+@ str,j say rmb(i,7) pict "9999.99"
+i=i+1
+j=j+8
+enddo
+*@ str,121 say gres(7) pict "9999.99"
+@ str,122 say gres(7) pict "99999.99"        && 8.01.98
+str=str+1
+@ str,4 say "‚‘…ƒ"
+i=1
+j=24
+do while i<=12
+@ str,j say rmb(i,8) pict "9999.99"
+i=i+1
+j=j+8
+enddo
+*@ str,121 say gres(8) pict "9999.99"
+@ str,122 say gres(8) pict "99999.99"     && 8.01.98
+str=str+1
+@ str,4 say "ƒ/Š‚’—"
+i=1
+j=24
+do while i<=12
+@ str,j say rmb(i,9) pict "999.99"
+i=i+1
+j=j+8
+enddo
+*@ str,121 say gres(9) pict "9999.99"
+@ str,122 say gres(9) pict "99999.99"      && 8.01.98
+str=str+1
+@ str,0 say "=================================================================================================================================="
+str=str+3
+@ str,0 say "ˆ‚– ’ è’‘                       €€‹ˆ‡ €‘•„€ ’‹ˆ‚€ (‚  ’ “.’.)  ‚€•’€Œ"
+str=str+1
+@ str,39 say "‘"
+@ str,41 say idd pict "99"
+@ str,43 say "."
+@ str,45 say imm pict "99"
+@ str,47 say "."
+@ str,49 say "„"
+@ str,52 say iid pict "99"
+@ str,54 say "."
+@ str,56 say imm pict "99"
+@ str,58 say "."
+@ str,60 say datag pict "9999"
+@ str,65 say " ƒ."
+str=str+1
+@ str,0 say "=================================================================================================================================="
+str=str+1
+@ str,13 say "‚€•’€                 €                              ‚                ƒ           ‘’€–ˆˆ"
+str=str+2
+@ str,0 say "‚›€’Š€ (Œ‚’—)"
+i=1
+j=32
+do while i<=4
+@ str,j say wyrw(i) pict "999999"
+i=i+1
+j=j+16
+enddo
+@ str,97 say grw pict "9999999"
+str=str+1
+@ str,0 say "€ƒ“‡Š€ (Œ‚’)"
+i=1
+j=35
+do while i<=4
+@ str,j say nagw(i) pict "999"
+i=i+1
+j=j+16
+enddo
+@ str,100 say grn pict "999"
+str=str+1
+@ str,0 say "“ƒ"
+i=1
+j=31
+do while i<=4
+@ str,j say rmw(1,i) pict "9999.99"
+i=i+1
+j=j+16
+enddo
+@ str,96 say gres(1) pict "99999.99"
+str=str+1
+@ str,0 say "‚€Š"
+i=1
+j=31
+do while i<=4
+@ str,j say rmw(2,i) pict "9999.99"
+i=i+1
+j=j+16
+enddo
+@ str,96 say gres(2) pict "99999.99"
+str=str+1
+@ str,0 say "„"
+i=1
+j=31
+do while i<=4
+@ str,j say rmw(3,i) pict "9999.99"
+i=i+1
+j=j+16
+enddo
+@ str,96 say gres(3) pict "99999.99"
+str=str+1
+@ str,0 say "’"
+i=1
+j=31
+do while i<=4
+@ str,j say rmw(4,i) pict "9999.99"
+i=i+1
+j=j+16
+enddo
+@ str,96 say gres(4) pict "99999.99"
+str=str+1
+@ str,0 say "’"
+i=1
+j=31
+do while i<=4
+@ str,j say rmw(5,i) pict "9999.99"
+i=i+1
+j=j+16
+enddo
+@ str,96 say gres(5) pict "99999.99"
+str=str+1
+@ str,0 say "‘H"
+i=1
+j=31
+do while i<=4
+@ str,j say rmw(6,i) pict "9999.99"
+i=i+1
+j=j+16
+enddo
+@ str,96 say gres(6) pict "99999.99"
+str=str+1
+@ str,0 say "’‚"
+i=1
+j=31
+do while i<=4
+@ str,j say rmw(7,i) pict "9999.99"
+i=i+1
+j=j+16
+enddo
+@ str,96 say gres(7) pict "99999.99"
+str=str+1
+@ str,4 say "‚‘…ƒ"
+i=1
+j=31
+do while i<=4
+@ str,j say rmw(8,i) pict "9999.99"
+i=i+1
+j=j+16
+enddo
+@ str,96 say gres(8) pict "99999.99"
+str=str+1
+@ str,4 say "ƒ/Š‚’—"
+i=1
+j=31
+do while i<=4
+@ str,j say rmw(9,i) pict "9999.99"
+i=i+1
+j=j+16
+enddo
+@ str,96 say gres(9) pict "99999.99"
+str=str+1
+@ str,0 say "=================================================================================================================================="
+str=str+3
+@ str,20 say "…€’ ‚Œ"
+str=str+1
+@ str,0 say " "
+set device to screen
+set printer to
+*! type baxta1.pec > prn
+! del baxta50.idx
+
+select 3
+use baxta50
+*index on str(tnn)+str(nbb) to baxta50
+index on str(nbb)+str(tnn) to baxta50
+use baxta50 index baxta50
+go top
+set filter to mmdds>=min.and.mmdds<=max
+*****
+  IF EOF()
+     @ 20,5 say '‡  ¤ ­­ë© ¯¥à¨®¤ ­¥â ¤ ­­ëå ¢ ä ©«¥ BAXTA50'
+     RETURN
+  ENDIF     
+*****
+set printer to baxta2.pec
+set device to print
+PRIZN=0
+DO WHILE .T.        && 24.05.2005
+PRIZN=PRIZN+1 
+IF PRIZN=3
+   EXIT
+ENDIF
+str=prow()+1
+IF PRIZN=2
+  @ str,0 say " "
+  str=str+1
+  @ str,0 say " "
+  str=str+1
+  @ str,0 say " "
+  str=str+1
+ENDIF
+@ str,41 say "…‡“‹œ’€’› €‘—…’€ ……†ƒ€ / ŠŒˆˆ (-) ’‹ˆ‚€"
+str=str+1
+@ str,41 say "                Œ€˜ˆˆ‘’€Œ"
+IF PRIZN=1
+   @STR,73 SAY "Š’–1"
+ELSE
+   @STR,73 SAY "Š’–2"
+ENDIF
+str=str+1
+@ str,41 say "     ‡€ …ˆ„ ‘"
+@ str,58 say idd pict "99"
+@ str,60 say "."
+@ str,61 say imm pict "99"
+@ str,63 say "."
+@ str,65 say ""
+@ str,68 say iid pict "99"
+@ str,70 say "."
+@ str,71 say imm pict "99"
+@ str,73 say "."
+@ str,75 say datag pict "9999"
+@ str,81 say " ƒ„€"
+str=str+1
+@ str,0 say "ˆ‚– ’˜„ˆ‘"
+str=str+1
+@ str,0 say "===================================================================================================================================="
+str=str+1
+@ str,0 say "Œ€˜-‘’ :Œ… : Š‹-‚: ‚›€’Š€:€ƒ“‡Š€:          …  … †  ƒ /  Š    Œ ˆ Ÿ (-)  ’   ‹ ˆ ‚ € . ’.“.’.             :“„…‹œ."
+str=str+1
+@ str,0 say "       :      :       :‹.…ƒˆˆ:        :=================================================================================:       "
+str=str+1
+@ str,0 say " ‹Š€ :‹Š€ :  ‘Œ… :   Œ‚’—   :   Œ‚’  :   “ƒ   :   ‚€Š   :   „   :   ’   :   ’   :   ‘    :   ’‚   :   ‚‘…ƒ   :ƒ/Š‚’—"
+str=str+1
+@ str,0 say "===================================================================================================================================="
+str=str+1
+IF PRIZN=1
+  go top
+ENDIF
+z=0
+
+do while ! eof()
+old1(1)=tnn
+old1(2)=nbb
+old(1)=ppug
+old(2)=pwak
+old(3)=pdop
+old(4)=ptop
+old(5)=ptpp
+old(6)=psn
+old(7)=ptpw
+old(8)=snnb
+skip
+oldd1(1)=tnn
+oldd1(2)=nbb
+skip -1
+z=z+1
+if oldd1(1)=old1(1).and.oldd1(2)=old1(2)
+i=1
+
+do while i<=8
+oldd(i)=oldd(i)+old(i)
+i=i+1
+enddo
+
+skip
+loop
+endif
+if oldd1(1)=old1(1).and.oldd1(2)#old1(2)
+i=1
+
+do while i<=8
+oldd(i)=oldd(i)+old(i)
+i=i+1
+enddo
+
+wyr=0
+oldd(8)=oldd(8)/z
+wyr=oldd(8)*8*z
+i=1
+
+do while i<=7
+oldd(i)=oldd(i)*0.001
+i=i+1
+enddo
+
+ssum=0
+i=1
+
+do while i<=7
+ssum=ssum+oldd(i)
+i=i+1
+enddo
+
+ud=0
+ud=ssum*1000/wyr
+@ str,0 say old1(1) pict "99999"
+@ str,10 say old1(2) pict "99"
+@ str,18 say z pict "99"
+@ str,24 say wyr pict "99999.9"
+@ str,34 say oldd(8) pict "9999.99"
+@ str,45 say oldd(1) pict "999.99"
+@ str,55 say oldd(2) pict "999.99"
+@ str,65 say oldd(3) pict "999.99"
+@ str,75 say oldd(4) pict "999.99"
+@ str,85 say oldd(5) pict "999.99"
+@ str,95 say oldd(6) pict "999.99"
+@ str,105 say oldd(7) pict "999.99"
+@ str,115 say ssum pict "9999.99"
+@ str,126 say ud pict "999.99"
+str=str+1
+z=0
+old1=0
+old=0
+oldd1=0
+oldd=0
+skip
+loop
+endif
+if oldd1(1)#old1(1)
+i=1
+
+do while i<=8
+oldd(i)=oldd(i)+old(i)
+i=i+1
+enddo
+
+wyr=0
+oldd(8)=oldd(8)/z
+wyr=oldd(8)*8*z
+i=1
+
+do while i<=7
+oldd(i)=oldd(i)*0.001
+i=i+1
+enddo
+
+ssum=0
+i=1
+do while i<=7
+ssum=ssum+oldd(i)
+i=i+1
+enddo
+
+ud=0
+ud=ssum*1000/wyr
+@ str,0 say old1(1) pict "99999"
+@ str,10 say old1(2) pict "99"
+@ str,18 say z pict "99"
+@ str,24 say wyr pict "99999.9"
+@ str,34 say oldd(8) pict "9999.99"
+@ str,45 say oldd(1) pict "999.99"
+@ str,55 say oldd(2) pict "999.99"
+@ str,65 say oldd(3) pict "999.99"
+@ str,75 say oldd(4) pict "999.99"
+@ str,85 say oldd(5) pict "999.99"
+@ str,95 say oldd(6) pict "999.99"
+@ str,105 say oldd(7) pict "999.99"
+@ str,115 say ssum pict "9999.99"
+@ str,126 say ud pict "999.99"
+str=str+1
+@ str,0 say "------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+z=0
+old1=0
+old=0
+oldd1=0
+oldd=0
+skip     
+IF NBB>6.and.PRIZN=1
+   EXIT
+ENDIF
+loop
+endif
+enddo
+ENDDO
+@ str,0 say " "
+set device to screen
+set printer to
+set filter to
+use
+*! type baxta2.pec > prn
+@ 11,22,14,57 box win1+" "
+@ 12,23 prompt "…—€’œ Š’‹œHƒ Š‡…Œ‹Ÿ€"
+@ 13,27 prompt "…—€’œ 7 ‚›•„›• ”Œ"
+menu to ma
+do case
+case ma=0
+exit
+case ma=1
+pap=2
+*clear
+@ 11,22,14,57 box win1+" "
+@ 12,23 say "…—€’€’œ ……†ƒˆ  Œ€˜ˆˆ‘’€Œ?"
+@ 13,27 prompt "„€"
+@ 13,35 prompt "…’"
+menu to pap
+! type baxta1.pec > prn
+if pap=1
+! type baxta2.pec > prn
+endif
+return
+case ma=2
+clear
+@ 5,5 say "„ƒ’‚œ’… ˆ’… Š …—€’ˆ 7 Š‡Œ‹Ÿ‚"
+@ 12,3 say "€†Œˆ’… ‹“ Š‹€‚ˆ˜“"
+l=inkey(0)
+if pap=1
+! type baxta1.pec > prn
+! type baxta2.pec > prn
+! type baxta1.pec > prn
+! type baxta2.pec > prn
+! type baxta1.pec > prn
+! type baxta2.pec > prn
+! type baxta1.pec > prn
+! type baxta2.pec > prn
+! type baxta1.pec > prn
+! type baxta2.pec > prn
+! type baxta1.pec > prn
+! type baxta2.pec > prn
+! type baxta1.pec > prn
+! type baxta2.pec > prn
+   else
+      pap1 = 7
+      do while pap1 > 0
+         ! type baxta1.pec > prn
+         pap1 = pap1-1
+      enddo
+endif
+return
+endcase
+enddo
+return
+
+procedure AKTPE
+use
+close all
+clear
+@ 10,15 say "„ƒ’‚œ’… ˆ’… Š …—€’ˆ 2 Š‡Œ‹Ÿ‚"
+@ 12,15 say "      €†Œˆ’… ‹“ Š‹€‚ˆ˜“"
+l=inkey(0)
+! type akt.pec > prn
+! type akt.pec > prn
+*! type akt.pec > prn
+use
+close all
+return
+
+procedure AKT
+dime num(12),nn(12),nk(12),nen(12),me(12)
+me(1)="   Ÿ‚€ "
+me(2)="  ”…‚€‹ "
+me(3)="    Œ€’ "
+me(4)="   €…‹ "
+me(5)="      Œ€ "
+me(6)="     ˆ "
+me(7)="     ˆ‹ "
+me(8)="  €‚ƒ“‘’ "
+me(9)=" ‘…’Ÿ "
+me(10)="  Š’Ÿ "
+me(11)="  Ÿ "
+me(12)="  „…Š€ "
+godd=""
+w1=0
+w2=0
+k1=0
+k2=0
+rezw=0
+poter=0
+hozn=0
+gradir=0
+prof=0
+wyr0=0
+sobn0=0
+sobn1=0
+otp=0
+sin1=0
+sin2=0
+sin3=0
+sin4=0
+sum1=0
+sum2=0
+zam=1
+idd=1
+imm=1
+irr=0
+*igg=96
+igg=1996
+kwd=0
+save screen to ww
+use
+close all
+i=1
+do while i<13
+num(i)=0
+nn(i)=0
+nk(i)=0
+nen(i)=0
+i=i+1
+enddo
+clear
+@ 12,20,16,58 box win1+" "
+@ 13,25 prompt " áç¥â  ªâ  ¯® ¢ëà ¡®âª¥"
+@ 14,25 prompt "¥ç âì 2 íª§¥¬¯«ïà®¢"
+@ 15,25 prompt "Š®àà¥ªâ¨à®¢ª  ­ ç.¯®ª § ­¨©"
+menu to otz
+do case
+case otz=0.or.otz>3
+   restore screen from ww
+   return
+case otz=2
+   do AKTPE
+   restore screen from ww
+   return
+case otz=3
+   do AKTKOR
+   restore screen from ww
+   return
+endcase
+set color to w+//b
+@ 16,30,21,68 box win1+" "
+@ 17,32 say "“ª ¦¨â¥ ¤ âã (¤¥­ì ¬¥á-æ £®¤ ): "
+@ 18,40 say "â  1  1  1996£."
+@ 18,43 get idd pict "99"
+@ 18,46 get imm pict "99"
+@ 18,50 get igg pict "9999"
+read
+l=readkey()
+if l=12
+close all
+return
+endif
+clear
+**************
+do wyr4sel
+**************
+select 6
+use akt2.dbf
+select 2
+use akt1.dbf
+go top
+skip 12
+do SHAKT0
+@ 6,37 get zak2 pict "999999999"
+@ 8,37 get zak21 pict "999999999"
+@ 10,37 get zak22 pict "999999999"
+@ 12,37 get zak3 pict "999999999"
+@ 14,37 get zak4 pict "999999999"
+read
+rezw=zak2
+poter=zak21
+hozn=zak22
+gradir=zak3
+prof=zak4
+otz=1
+@ 16,15 say "€’€ ‹Š‚ ‚ …†ˆŒ… ‘ˆ•HHƒ ŠŒ…‘€’€."
+@ 18,25 say " H…’     „€ "
+@ 18,25 prompt " …’ "
+@ 18,33 prompt " „€ "
+menu to otz
+if otz=0
+  return
+endif
+if otz=2
+   do REZERW
+endif
+do VVSIS          &&  ¬¥¦á¨á. ¯à¨¥¬
+do VVSIS1         && ¯¥à¥¤ ç 
+clear
+otz=1
+@ 10,15 say "‡€Œ…€ ‘—…’—ˆŠ‚  Œ…†‘ˆ‘’…Œ›Œ ……’Š€Œ."
+@ 12,25 say " …’     „€ "
+@ 12,25 prompt "…’ "
+@ 12,33 prompt " „€ "
+menu to otz
+if otz=0
+  return
+endif
+if otz=2
+   do ZAMS
+endif
+clear
+set printer to akt.pec
+set device to print
+str=prow()+2
+do SHAK2
+select 1
+use wyrab2.dbf
+select 2
+use akt1.dbf
+select 3
+use wyrab33.dbf
+select 4
+use wyrab4.dbf
+sum1=0.00    && 05.01.2005    && áã¬¬  ¢ëà ¡. ¨«¨ á­ ¯® ¡«®ª ¬
+sum2=0.00           && áã¬¬  ¯® ¡«. ¢ à¥¦. á¨­å.ª®¬¯.
+i=13
+j=13
+m=25
+do LST12          && á­
+i=188
+j=188
+m=192
+do LST12          && âà ­áä.
+
+
+str=str+2
+@ str,52 say sum1 pict "999999999"
+str=str+2
+@ str,7 say "…‡…‚›‰ ‚‡“„ˆ’…‹œ"
+@ str,52 say rezw pict "99999999"
+str=str+2
+@ str,7 say "’…ˆ"
+@ str,52 say poter pict "99999999"
+str=str+1
+@ str,7 say "•‡.“†„›"
+@ str,52 say hozn pict "99999999"
+str=str+1
+*@ str,7 say "’- ƒ€„ˆ…"           && ¨á¯à 29-04-96
+*@ str,52 say gradir pict "99999999"
+*str=str+1
+@ str,7 say "”ˆ‹€Š’ˆ‰"
+@ str,52 say prof pict "99999999"
+*sum1=sum1+rezw+poter+hozn+gradir+prof
+sum1=sum1+rezw+poter+hozn+prof
+str=str+2
+@ str,7 say "‘‘’‚…›… “†„›"
+@ str,52 say sum1 pict "99999999"
+sobn0=sum1                 &&  ¯®«­ë¥ á­
+if num(1)>0
+   do SINXK
+endif
+*str=str+10
+str=str+5
+i=1
+j=1
+m=13
+sum1=0
+
+*str=str+22
+str=str+12
+@ str,0 say " "
+str=str+1
+
+do SHAK1
+do LST12
+str=str+2
+@ str,50 say sum1 pict "99999999999"
+str=str+2
+@ str,7 say "…‡…‚›‰ ‚‡“„ˆ’…‹œ"
+@ str,52 say rezw pict "99999999"
+str=str+2
+sum1=sum1+rezw
+@ str,7 say "‚›€’Š€"
+@ str,52 say sum1 pict "99999999999"
+str=str+1
+@ str,7 say "‘‘’‚…›… “†„›"
+@ str,52 say sobn0 pict "999999999"
+sum1=sum1-sobn0
+str=str+2
+@ str,7 say "’“‘Š"
+@ str,52 say sum1 pict "99999999999"
+
+*str=str+22
+str=str+12
+@ str,0 say " "
+str=str+1
+
+*str=str+15
+str=str+5
+@ str,0 say "ˆ‚– ’˜„ˆ‘"
+str=str+3
+@ str,30 say "3. Œ…†‘ˆ‘’…Œ›…  ……’Šˆ."
+str=str+2
+@ str,0 say "------------------------------------------------------------------"
+str=str+1
+@ str,0 say "       !                       ˆ…Œ                             !"
+j=1
+do MSIS
+@ str,0 say "------------------------------------------------------------------"
+str=str+1
+@ str,0 say "       !                      ’ „ € — €                         !"
+j=2
+do MSIS
+set device to screen
+set printer to
+clear
+set color to w+//b
+@ 0,0,24,79  box "°"
+@ 15,17 say "…—€’œ Š’‹œƒ Š‡…Œ‹Ÿ€"
+! type akt.pec>prn
+restore screen from ww
+return
+procedure LST12
+sin1=0.00     && 05.01.2005
+sin2=0.00
+sin3=0.00  
+select 2            && akt1
+go top
+if i>24
+   skip 24
+      else
+         skip i-1
+endif
+select 3            && wyr33
+go top
+select 4            && wyr4
+go top
+skip i-j
+select 1            &&wyr2
+go top
+skip i-1
+do while i<m
+   w1=mim           && §­ ç áç ­  ­ ç «® ¬¥áïæ 
+   k1=ks            && ª®íä áç¥âç¨ª 
+   select 4
+   do case
+      case i<13
+         w2=ego2     && ª®­ ¯®ª § ­¨ï áç ¢ëà ¡®âª¨
+         sin3=10e5
+      case i>12.and.i<188
+         w2=ego3     && ª®­ ¯®ª-ï áç á­
+         sin3=10e4
+      case i>187
+         w2=ego4     && ª®­ ¯®ª-ï áç âà ­áä-à®¢
+         sin3=10e4
+   endcase
+   skip
+   select 2
+   k2=zak1           && ­®¬¥à áç¥âç¨ª 
+   skip
+   sin1=w2-w1        && à §­®áâì
+   if sin1<0
+      sin1=sin1+sin3
+   endif
+   sin2=k1*sin1
+   sum1=sum1+sin2
+   do PEAK1
+   select 3
+   go top
+   set filter to ak0=i
+   lld=0
+   count to lld
+   if lld>0
+      go top
+*******  ¤«ï § ¬¥­ë ¡®«¥¥ 1-£® à § 
+     Do while .not. eof()
+*******
+      w1=ak2
+      w2=ak3
+      k1=ak1
+      k2=ak5
+      sin1=w2-w1
+      sin2=k1*sin1
+      sum1=sum1+sin2+ak4
+      @ str,6 say "*"
+      do PEAK1
+*******  ¤«ï § ¬¥­ë ¡®«¥¥ 1-£® à § 
+      skip
+     Enddo
+*******
+   endif
+   set filter to
+   i=i+1
+   select 1
+   skip
+enddo
+return
+procedure REZERW
+clear
+@ 1,15 say "€’€ ‹Š‚ ‚ …†ˆŒ… ‘ˆ•ƒ ŠŒ…‘€’€."
+@ 3,15 say  "ÉÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍ»"
+@ 4,15 say  "º  N ¡«®ª  º / ­ ç. º / ª®­ .º / ¬¨¬® º"
+@ 5,15 say  "ÌÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍ¹"
+kol=6
+do while kol<18
+   @ kol,15 say  "º          º          º          º          º"
+   kol=kol+1
+enddo
+@ 18,15 say "ÈÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍ¼"
+kol=6
+mini=1
+maxi=12
+i=1
+do while .t.
+   @ kol,18 get num(i) pict "999"
+   @ kol,28 get nn(i) pict "999999"
+   @ kol,39 get nk(i) pict "999999"
+   @ kol,50 get nen(i) pict "999999"
+read
+l = readkey()
+   @ kol,18 say num(i) pict "999"
+   @ kol,28 say nn(i) pict "999999"
+   @ kol,39 say nk(i) pict "999999"
+   @ kol,50 say nen(i) pict "999999"
+if l = 12       &&  esc
+ exit
+endif
+if l=5.or.l=270.or.l=15    && ãá.end,enter,áâà¥«ª  ¢­.
+   if i = maxi
+      loop
+   endif
+   kol=kol+1
+   i=i+1
+   loop
+endif
+if l = 4                      &&    áâà¥«ª  ¢¢.
+   if i = mini
+      loop
+   endif
+   i=i-1
+   kol=kol-1
+endif
+enddo
+return
+procedure SHAKT0
+ @ 5,10 say  "ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍÍ»"
+ @ 6,10 say  "º  …‡…‚›‰ ‚‡“„ˆ’…‹œ º           º"
+ @ 7,10 say  "ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÍ¹"
+ @ 8,10 say  "º  ’…ˆ                º           º "
+ @ 9,10 say  "ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÍ¹"
+@ 10,10 say  "º  •‡.“†„›             º           º "
+@ 11,10 say  "ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÍ¹"
+@ 12,10 say  "º  ’- ƒ€„ˆ…           º           º "
+@ 13,10 say  "ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÍ¹"
+@ 14,10 say  "º  ”ˆ‹€Š’ˆ‰         º           º "
+@ 15,10 say  "ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÍ¼"
+@ 6,37 say zak2 pict "999999999"
+@ 8,37 say zak21 pict "999999999"
+@ 10,37 say zak22 pict "999999999"
+@ 12,37 say zak3 pict "999999999"
+@ 14,37 say zak4 pict "999999999"
+return
+procedure SHAK1
+@ str,45 say "“’‚…†„€"
+str=str+1
+@ str,35 say "ƒ‹€‚›‰  ˆ†……  ’˜„ˆ‘"
+str=str+1
+@ str,35 say "__________ Œ.•. ‘€Œ€’‚"
+str=str+1
+@ str,35 say "________________       £."
+str=str+2
+@ str,30 say "€ Š ’ "
+str=str+2
+@ str,0 say "£. ’€˜Š…’           N _____  ®â                     £."
+@ str,33 say idd pict "99"
+@ str,36 say me(imm) pict ""
+@ str,44 say "Ÿ"
+@ str,48 say igg pict "9999"
+str=str+1
+@ str,18 say "Œë, ­¨¦¥¯®¤¯¨á ¢è¨¥áï :"
+str=str+1
+@ str,18 say ".ƒ. …–…Šˆ - ­ ç «ì­¨ª ’,"
+str=str+1
+@ str,18 say ".‘. •€˜ˆŒ‚  - ­ ç «ì­¨ª í«. æ¥å ,"
+str=str+1
+@ str,18 say "á®áâ ¢¨«¨ ­ áâ®ïé¨©  ªâ ® â®¬,çâ® ¢            á.£."
+if imm=1
+   irr=12
+     else
+       irr=imm-1
+endif
+@ str,54 say me(irr) pict ""
+@ str,62 say "…"
+str=str+3
+@ str,20 say "1. ‚›€’€ ‹…Š’…ƒˆˆ"
+do SHAK11
+return
+procedure SHAK2
+@ str,0 say "ˆ‚– ’˜„ˆ‘"
+str=str+3
+@ str,20 say "2. ˆ‡€‘•„‚€ ‹…Š’…ƒˆˆ"
+str=str+1
+@ str,25 say "€ ‘‘’‚…›… “†„›."
+str=str+1
+do SHAK11
+return
+procedure SHAK11
+str=str+1
+@ str,0 say "------------------------------------------------------------------"
+str=str+1
+@ str,0 say "  NN  !   N   !  K  !         !          !            !  /­¥à£¨ï!"
+str=str+1
+@ str,0 say "¡«®ª®¢! áç¥âç !áç¥âç!        !    Š    !   €‡‘’œ !    (ª¢â)  !"
+str=str+1
+@ str,0 say "------------------------------------------------------------------"
+str=str+1
+return
+* ¯¥ç âì ¢ëà ¡. á­. âà ­á.
+procedure PEAK1
+ii=0
+if i>12
+   ii=i-12
+      else
+         ii=i
+endif
+   do case
+      case i=188
+   @ str,0 say "’‘-20"
+      case i=189
+   @ str,0 say "’‘-30"
+      case i=190
+   @ str,0 say "3’-€"
+      case i=191
+   @ str,0 say "3’-"
+      case i<187
+   @ str,2 say ii pict "999"
+   endcase
+@ str,8 say k2 pict "999999"
+@ str,13 say k1 pict "999999"
+@ str,20 say w1 pict "9999999.99"
+@ str,31 say w2 pict "9999999.99"
+@ str,44 say sin1 pict "9999999.99"
+@ str,57 say sin2 pict "999999999"
+str=str+1
+return
+* ¢¢®¤ ¯® ¬¥¦á¨áâ. ¯¥à¥â®ª ¬
+*¯à¨¥¬
+procedure VVSIS
+clear
+@ 1,15 say "‚‚„ „€›•  Œ…†‘ˆ‘’…Œ›Œ ……’Š€Œ."
+@ 2,15 say  "ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»"
+@ 3,15 say  "º            ˆ … Œ             º"
+@ 4,15 say  "ÌÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍ¹"
+@ 5,15 say  "º N áç¥âç. º / ­ ç. º / ª®­. º"
+@ 6,15 say  "ÌÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍ¹"
+kol=7
+do while kol<13
+   @ kol,15 say  "º          º          º          º"
+   kol=kol+1
+enddo
+@ 13,15 say  "ÌÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍ¹"
+@ 14,15 say  "º           ’ „ € — €           º"
+@ 15,15 say  "ÌÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍ¹"
+kol=16
+do while kol<22
+   @ kol,15 say  "º          º          º          º"
+   kol=kol+1
+enddo
+@ 22,15 say "ÈÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍ¼"
+kol=7
+mini=1
+maxi=5
+i=1
+select 2
+use akt1.dbf
+go top
+do while i<6
+   @ kol,17 say zak2 pict "99999999"
+   @ kol,28 say zak21 pict "99999999"
+   @ kol,39 say zak22 pict "99999999"
+   i=i+1
+   skip
+   kol=kol+1
+enddo
+go top
+kol=16
+i=1
+do while i<6
+   @ kol,17 say zak4 pict "99999999"
+   @ kol,28 say zak41 pict "99999999"
+   @ kol,39 say zak42 pict "99999999"
+   i=i+1
+   skip
+   kol=kol+1
+enddo
+kol=7
+i=1
+go top
+do while .t.
+   @ kol,17 say zak2 pict "99999999"
+   @ kol,28 get zak21 pict "99999999"
+   @ kol,39 get zak22 pict "99999999"
+read
+l = readkey()
+   @ kol,17 say zak2 pict "99999999"
+   @ kol,28 say zak21 pict "99999999"
+   @ kol,39 say zak22 pict "99999999"
+if l = 12       &&  esc
+ exit
+endif
+if l=5.or.l=270.or.l=15    && ãá.end,enter,áâà¥«ª  ¢­.
+   if i = maxi
+      loop
+   endif
+   kol=kol+1
+   i=i+1
+   skip
+   loop
+endif
+if l = 4                      &&    áâà¥«ª  ¢¢.
+   if i = mini
+      loop
+   endif
+   i=i-1
+   kol=kol-1
+   skip -1
+endif
+enddo
+return
+* ¯¥à¥¤ ç 
+procedure VVSIS1
+mini=1
+maxi=5
+kol=16
+go top
+i=1
+do while .t.
+   @ kol,17 say zak4 pict "99999999"
+   @ kol,28 get zak41 pict "99999999"
+   @ kol,39 get zak42 pict "99999999"
+read
+l = readkey()
+   @ kol,17 say zak4 pict "99999999"
+   @ kol,28 say zak41 pict "99999999"
+   @ kol,39 say zak42 pict "99999999"
+if l = 12       &&  esc
+ exit
+endif
+if l=5.or.l=270.or.l=15    && ãá.end,enter,áâà¥«ª  ¢­.
+   if i = maxi
+      loop
+   endif
+   kol=kol+1
+   i=i+1
+   skip
+   loop
+endif
+if l = 4                      &&    áâà¥«ª  ¢¢.
+   if i = mini
+      loop
+   endif
+   i=i-1
+   kol=kol-1
+   skip -1
+endif
+enddo
+return
+* § ¬¥­  ¯® ¬¥¦á¨á. ¯¥à¥â.
+procedure ZAMS
+clear
+@ 1,15 say "‡€Œ…H€ ‘—…’—ˆŠ‚  Œ…†‘ˆ‘’…ŒH›Œ ……’Š€Œ"
+@ 5,0 say  "ÉÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍÍÍÍ»"
+@ 6,0 say  "º‘’€›‰ ‘—.º ‚›‰ ‘—.º Š”. ‘—.º / ­ ç. º / ª®­.  º/ ¬¨¬® ª¢â.º"
+@ 7,0 say  "ÌÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÍÍÍ¹"
+kwd=8
+do while kwd<18
+   @ kwd,0 say  "º          º          º          º          º           º             º"
+   kwd=kwd+1
+enddo
+@ 18,0 say "ÈÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÍÍÍ¼"
+kwd=8
+*************************
+@ 19,4 say '…á«¨ ¯® áç¥âç¨ªã § ¬¥­  ã¦¥ ¡ë« ,â® § ¯¨áì ¯® ¤ ­­®© § ¬¥­¥ '
+@ 20,4 say '¢ë¤ ¥âáï ­  íªà ­ ¤«ï ª®àà¥ªâ¨à®¢ª¨, ¯®á«¥ ª®àà¥ªâ¨à®¢ª¨ â¥ªã-'
+@ 21,4 say 'é¥© áâà®ª¨ ¢ë¤ ¥âáï ­®¢ ï áâà®ª  ¤«ï á«¥¤ãîé¥© § ¬¥­ë '
+@ 22,4 say '„«ï ¢ëå®¤  ¨§ ¯ãáâ®© áâà®ª¨ ­ ¦¬¨â¥ <Esc> '  
+*************************
+do while .t.
+   k1=0
+   @ 2,0 say "‚¢¥¤¨â¥ ­®¬¥à § ¬¥­ï¥¬®£® áç¥âç¨ª  («¨¡® ESC - ¢ëå®¤)"
+   @ 2,57 get k1 pict "99999999"
+   read
+   @ 4,0 say "                                                          "
+   l = readkey()
+   if l=12
+      return
+   endif
+   if k1=0
+      loop
+   endif
+   select 2
+   go top
+   set filter to zak2=k1
+   lld=0
+   count to lld
+   if lld=0
+      go top
+      set filter to zak4=k1
+      lld=0
+      count to lld
+      if lld=0
+         set color to gr+*//b
+         @ 4,10 say "‘—…’—ˆŠ ‘ ’€ŠˆŒ Œ…Œ … ‘“™…‘’‚“…’."
+         set color to w+//b
+         loop
+      endif
+   endif
+   set filter to
+   select 6
+   go top
+   set filter to mss1=k1
+   lld=0
+   count to lld
+   if lld=0
+      append blank
+      repl mss1 with k1
+      repl mss2 with 0
+      repl mss3 with 0
+      repl mss4 with 0
+      repl mss5 with 0
+      repl mss6 with 0
+         else
+            go top
+******* 29.05.2000    ¤«ï ¢¢®¤  § ¬¥­ë áç¥âç. ¢ â¥ç¥­¨¨ ¬¥áïæ  ¡®«¥¥ 1-£® à § 
+ Do while .not. eof()
+   @ kwd,2 get mss1 pict "99999999"
+   @ kwd,12 get mss2 pict "99999999"
+   @ kwd,24 get mss3 pict "99999999"
+   @ kwd,35 get mss4 pict "99999999"
+   @ kwd,46 get mss5 pict "99999999"
+   @ kwd,57 get mss6 pict "99999999"
+    read
+   if mss2=0.and.mss3=0.and.mss4=0.and.mss5=0.and.mss6=0
+      dele
+      pack
+   endif
+    kwd=kwd+1
+   skip
+ Enddo
+      append blank
+      repl mss1 with k1
+      repl mss2 with 0
+      repl mss3 with 0
+      repl mss4 with 0
+      repl mss5 with 0
+      repl mss6 with 0
+*******
+   endif
+*    kwd=kwd+1
+
+   @ kwd,2 say mss1 pict "99999999"
+   @ kwd,12 get mss2 pict "99999999"
+   @ kwd,24 get mss3 pict "99999999"
+   @ kwd,35 get mss4 pict "99999999"
+   @ kwd,46 get mss5 pict "99999999"
+   @ kwd,57 get mss6 pict "99999999"
+   read
+   if mss2=0.and.mss3=0.and.mss4=0.and.mss5=0.and.mss6=0
+      dele
+      pack
+   endif
+   skip
+   kwd=kwd+1
+   set filter to
+   select 2
+enddo
+return    
+* à áç¥â ¨ ¯¥ç âì ¯® ¬¥¦á¨á. ¯¥à¥â®ª ¬
+procedure MSIS
+str=str+1
+@ str,0 say "¯®âà¥- !----------------------------------------------------------"
+str=str+1
+@ str,0 say "¡¨â¥«ì !    N   !   K   !        !        !          ! /­¥à£¨ï !"
+str=str+1
+@ str,0 say "       ! áç¥âç. ! áç¥âç.!       !   Š   ! €‡‘’œ ! (âëá.ª¢â) !"
+str=str+1
+@ str,0 say "------------------------------------------------------------------"
+str=str+1
+select 2
+go top
+sum1=0
+sum2=0
+i=1
+do while i<6
+   select 2
+   do case
+      case i=1
+         @ str,0 say "‹-2-—"
+      case i=2
+         @ str,0 say "‹-2-„"
+      case i=3
+         @ str,0 say "‹-501"
+      case i=4
+         @ str,0 say "‹-522"
+      case i=5
+         @ str,0 say "‚-220"
+   endcase
+   if j=1
+      sum2=zak2
+      w1=zak22-zak21
+      sin1=zak3*w1/1000
+      else
+         sum2=zak4
+         w1=zak42-zak41
+         sin1=zak5*w1/1000
+   endif
+         sum1=sum1+sin1
+   if j=1
+      @ str,9 say zak2 pict "99999999"
+      @ str,17 say zak3 pict "9999999"
+      @ str,25 say zak21 pict "99999999"
+      @ str,34 say zak22 pict "99999999"
+      else
+         @ str,9 say zak4 pict "99999999"
+         @ str,17 say zak5 pict "9999999"
+         @ str,25 say zak41 pict "99999999"
+         @ str,34 say zak42 pict "99999999"
+   endif
+   @ str,45 say w1 pict "99999999"
+   @ str,56 say sin1 pict "99999999"
+   i=i+1
+   skip
+   str=str+1
+select 6
+go top
+set filter to mss1=sum2
+lld=0
+count to lld
+if lld>0
+   go top
+******* 29.05.2000    ¤«ï § ¬¥­ë áç¥âç. ¢ â¥ç¥­¨¨ ¬¥áïæ  ¡®«¥¥ 1-£® à § 
+    Do while .not. eof()
+*******
+   w1=mss5-mss4
+   sin1=(mss3*w1+mss6)/1000
+   sum1=sum1+sin1
+   @ str,8 say "*"
+   @ str,9 say mss2 pict "99999999"
+   @ str,17 say mss3 pict "9999999"
+   @ str,25 say mss4 pict "99999999"
+   @ str,34 say mss5 pict "99999999"
+   @ str,45 say w1 pict "99999999"
+   @ str,56 say sin1 pict "99999999"
+   str=str+1
+******* 29.05.2000    ¤«ï § ¬¥­ë áç¥âç. ¢ â¥ç¥­¨¨ ¬¥áïæ  ¡®«¥¥ 1-£® à § 
+      skip
+    Enddo
+*******
+endif
+set filter to
+enddo
+str=str+1
+*@ str,0 say "ˆ ’  ƒ "
+*@ str,56 say sum1 pict "999999999"
+str=str+4
+if j=2
+   @ str,22 say "€—€‹œHˆŠ ’"
+   @ str,52 say " .ƒ. …–…Šˆ"
+   str=str+2
+   @ str,22 say "€—€‹œHˆŠ ‹–…•€"
+   @ str,52 say " .‘. •€˜ˆŒ‚"
+   str=str+1
+   @ str,0 say ""
+   str=str+1
+   @ str,0 say ""
+   str=str+1
+   @ str,0 say ""
+   str=str+1
+   @ str,0 say ""
+   str=str+1
+   @ str,0 say ""
+   str=str+1
+   @ str,0 say ""
+endif
+return
+* ¯¥ç âì ¯® à¥¦¨¬ã á¨­å.ª®¬¯.
+procedure SINXK
+str=str+2
+@ str,7 say "€’€ ‚ …†ˆŒ… ‘ˆ•ƒ ŠŒ…‘€’€"
+i=1
+sum2=0
+do SHAK11
+do while .t.
+   if num(i)=0
+      exit()
+   endif
+   select 2
+   go top
+   skip i+12
+   ks2=zak1
+   select 1
+   go top
+   ks1=num(i)
+   skip ks1+12
+   ks1=ks
+   w1=nk(i)-nn(i)
+   sin1=(ks1*w1+nen(i))
+   sum2=sum2+sin1
+   @ str,1 say num(i) pict "999"
+   @ str,6 say ks2 pict "99999999"
+   @ str,15 say ks1 pict "99999"
+   @ str,22 say nn(i) pict "9999999"
+   @ str,31 say nk(i) pict "9999999"
+   @ str,39 say w1 pict "99999999"
+   @ str,49 say sin1 pict "999999999"
+   i=i+1
+   str=str+1
+enddo
+sum1=sum1-sum2
+@ str,0 say "--------------------------------------------------------------"
+str=str+1
+@ str,0 say "‚‘…ƒ  ‘ˆ•›Œ ŠŒ…‘€’€Œ"
+@ str,49 say sum2 pict "999999999"
+str=str+5
+return
+
+procedure AKTNS
+* § ¬¥­  áç¥âç¨ª®¢ ¤«ï à áç¥â   ªâ 
+sk1=0
+w1=0
+w2=0
+*save screen to ww
+*use
+*close all
+clear
+@ 9,15 say " 3. AKTNS  "
+@ 10,15 say "‡€Œ…€ ‡€‚„‘Šˆ• Œ…‚ ‘—…’—ˆŠ‚ Œ…†‘ˆ‘’…Œ›• "
+@ 12,15 say "   ……’Š‚ „‹Ÿ €‘—…’‚ €Š’‚  ‚›€’Š…"
+wait " ¦¬¨â¥ «î¡ãî ª« ¢¨èã ..."
+*otz=1                     &&   10.10.2002
+*@ 14,26 prompt " „€"      &&
+*@ 14,37 prompt "…’"      &&
+*menu to otz               &&
+*if otz=2.or.otz=0         &&
+*  return
+*endif
+select 1
+use akt1.dbf
+select 2
+use akt2.dbf
+if file('akt2.idx')
+   delete file akt2.idx
+endif
+index on mss1 to akt2
+go top
+
+Do while ! eof()
+   select 2     && Akt2
+*?wait "1"
+   ks1=mss1
+********************* 
+  Do while ks1=mss1    && ¥á«¨ ¡ë«® ­¥áª®«ìª® § ¬¥­ ¯® áç¥âç¨ªã  29.05.2000
+*?wait "2"
+   w1=mss2             && ¯®á«¥¤­¥© § ¬¥­®© áç¨â ¥âáï ¯®á«¥¤­ïï § ¯¨áì ¯®
+   w2=mss3             && ¯®àï¤ªã
+   skip 
+   if eof()
+      exit
+   endif
+   if ks1#mss1
+      skip -1            && çâ®¡ë ­¥ ¯à®¯ãáâ¨âì § ¯¨áì
+      exit
+   endif
+  Enddo
+*********************
+   select 1    && Akt1
+   go top
+   set filter to zak2=ks1
+   lld=0
+   count to lld
+   if lld=0
+      go top
+      set filter to zak4=ks1
+      lld=0
+      count to lld
+      if lld=0
+         clear
+         @ 10,20 say "˜ˆŠ€ ‚ „€›•  ‘—…’—ˆŠ€Œ"
+         @ 11,20 say "   Œ…†‘ˆ‘’…Œ›• ……’Š‚"
+         @ 12,20 say ks1 pict "99999999"
+         @ 13,20 say " ­ ¦¬¨â¥ «î¡ãî ª« ¢¨èã..."
+         read
+         close all
+         return
+         else
+            i=2
+      endif
+      else
+         i=1
+   endif
+   go top
+   if i=1
+      repl zak2 with w1      && ¯® ¢ëà ¡®âª¥  29.05.2000
+      repl zak3 with w2
+         else
+      repl zak4 with w1      && ¯® ¬¥¦á¨áâ.¯¥à¥â®ª ¬   29.05.2000
+      repl zak5 with w2
+   endif
+
+select 2     && Akt2
+  if eof()
+     exit
+  endif
+    skip
+Enddo
+ select 2
+ use akt2.dbf
+ go top
+ dele all
+ pack
+return
+
+procedure AKTKOR
+sele 1
+use wyrab2 index wyrab2
+clear
+@ 1,15 say "Š…Š’ˆ‚Š€ „€›•  ‘‘’‚…›Œ “†„€Œ."
+@ 2,15 say  "ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»"
+@ 3,15 say  "º        ‘‘’‚…›…  “†„›          º"
+@ 4,15 say  "ÌÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍÍÍÍ¹"
+@ 5,15 say  "ºN áç¥âç. º   / ­ ç. º   / ª®­.  º"
+@ 6,15 say  "ÌÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÍÍÍ¹"
+kol=7
+do while kol<19
+   @ kol,15 say  "º         º            º             º"
+   kol=kol+1
+enddo
+@ 19,15 say "ÈÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÍÍÍ¼"
+kol=7
+mini=1
+maxi=12
+i=1
+go top
+skip 12
+do while i<13
+   @ kol,17 say noms pict "999"
+   @ kol,27 say mim pict "9999999.99"
+   @ kol,40 say mik pict "9999999.99"
+   i=i+1
+   skip
+   kol=kol+1
+enddo
+kol=7
+i=1
+go top
+skip 12
+do while .t.
+   @ kol,17 say noms pict "999"
+   @ kol,27 get mim pict "9999999.99"
+   @ kol,40 get mik pict "9999999.99"
+read
+l = readkey()
+   @ kol,17 say noms pict "999"
+   @ kol,27 say mim pict "9999999.99"
+   @ kol,40 say mik pict "9999999.99"
+if l = 12       &&  esc
+ exit
+endif
+if l=5.or.l=270.or.l=15    && ãá.end,enter,áâà¥«ª  ¢­.
+   if i = maxi
+      loop
+   endif
+   kol=kol+1
+   i=i+1
+   skip
+   loop
+endif
+if l = 4                      &&    áâà¥«ª  ¢¢.
+   if i = mini
+      loop
+   endif
+   i=i-1
+   kol=kol-1
+   skip -1
+endif
+enddo
+return
+
+procedure WYRABOTKA
+dimension liz(16),tr(4)
+ddd=0
+prom=0.0
+ss1=0.0
+ss2=0.0
+w1=0.0
+w2=0.0
+w3=0.0
+w4=0.0
+ks0=0.0
+ks1=0.0
+ks2=0.0
+ks3=0.0
+sw=0.0
+ssn=0.0
+sti=0.0
+bb1=0.0
+bb2=0.0
+bb3=0.0
+bb4=0.0
+bb5=0.0
+kk1=0.0
+kk2=0.0
+kk3=0.0
+kk4=0.0
+kk5=0.0
+kk6=0.0
+zw0=0.0
+nom=0.0
+yy="Y"
+save screen to ww
+use
+close all
+otz=1
+@ 11,24,13,55 box win1+" "
+@ 12,26 prompt " €‘—"
+@ 12,37 prompt " COPY"
+@ 12,47 prompt " …—€’œ"
+menu to otz
+if otz=0
+return
+endif
+**** 27.05.04
+if otz = 3
+   kolekz=0
+   @ 14,26 say "Š®«¨ç¥áâ¢® íª§¥¬¯«ïà®¢?" get kolekz picture "9"
+   read
+   if kolekz=0
+      return
+   endif
+   ikol=0
+   if file ('wyrab.pec')
+      do while ikol<kolekz
+       ! type wyrab.pec > prn
+         ikol=ikol+1
+      enddo
+      return
+   else
+      wait "¥â ä ©«  WYRAB.PEC, ­ ¦¬¨â¥ ENTER ..."
+      return
+   endif
+endif
+if otz = 2
+do WYRCOP
+return
+endif
+select 1
+use wyrab1 index wyrab1
+go top
+skip 8
+idd=trns
+imm=trks
+skip
+igg=trns
+zam=1
+@ 16,20,21,58 box win1+" "
+@ 17,22 say "“ª ¦¨â¥ ¤ âã: „„,ŒŒ,ƒƒƒƒ"
+@ 17,46 get idd pict "999"
+@ 17,50 get imm pict "999"
+@ 17,54 get igg pict "9999"
+read
+********
+save screen to ww
+   if idd=1
+@ 18,8,23,73 box win1+" "
+
+      @ 19,10 say "“¢ ¦ ¥¬ë© ¯®«ì§®¢ â¥«ì!!! ‚› ­ ¡à «¨ ¯¥à¢®¥ ç¨á«® ¬¥áïæ ,"
+      @ 20,10 say "¯¥à¥¤ íâ¨¬ ç¨á«®¬ ‚› ¤®«¦­ë ¡ë«¨ § ¯ãáâ¨âì ¢ £« ¢­®¬ ¬¥­î"
+      @ 21,10 say "à¥¦¨¬ '¥à¥å®¤ ­  ­®¢ë© ¬¥áïæ'.‚› § ¯ãáâ¨«¨ ¥£®?" 
+      chvn=0
+      @ 22,30 prom "„€" 
+      @ 22,38 prom "H…’" 
+      menu to chvn
+      do case
+         case chvn=2.or.chvn=0
+              rest screen from ww
+              return
+      endcase
+   endif
+********
+              rest screen from ww
+l=readkey()
+if l=12
+   close all
+   return
+endif
+repl trns with igg
+skip -1
+repl trns with idd
+repl trks with idd
+i=1
+do while i<16
+   liz(i)=0
+   i=i+1
+enddo
+otz=1
+@ 18,26 say " €‘—¥â ¨«¨ ……à áç¥â  ?"
+@ 18,26 prompt " €‘—"
+@ 18,37 prompt " ……"
+menu to otz
+if otz=0
+  return
+endif
+select 1
+use wyrab1 index wyrab1
+sk=0
+if otz=1
+set console on
+
+   select 1
+   i=1
+*   if idd=1
+ *     do while ! eof
+*         pks=round(pks,0)
+*         skip
+*      enddo
+*    endif
+    go top
+
+
+   do while i < 13
+
+      if idd>1
+         sk=timk+tim
+         repl tim with sk
+      endif
+      repl pnw with pkw
+      repl pns with pks
+      repl trns with trks
+      skip
+      i=i+1
+   enddo
+   select 3
+   use wyrab3.dbf
+   if li0 > 0
+      select 2
+      use wyrab2 index wyrab2
+      select 4
+      use wyrab33.dbf
+      select 5
+      use akt1.dbf
+      select 3
+      go top
+      do while li0 > 0
+         w1=li0    &&­®¬¥à áç¥âç¨ª 
+         w2=li1    &&ª®íä. áç¥âç¨ª 
+         ks1=li2   &&­ ç «ì­®¥ ¯®ª §.
+         ks2=li4   &&í­¥à£¨ï ¬¨¬®
+         ks4=li6   && ª®­. ¯®ª §.§ ¬¥­¥­­®£® áç¥â.
+         w4=li5    &&§ ¢®¤.­®¬¥à áç¥â.
+         kk6=li3   &&ª®­¥ç­®¥ § ¬¥­¥­­®£®
+         select 2
+         go top
+         skip w1-1
+         nom=ks
+         ks3=mim
+         repl ks with w2
+         repl mim with ks1
+         select 5            && ¤«ï  ªâ 
+         go top
+         if w1<25
+            skip w1-1
+            else
+               i=w1-163       && âà ­áä®à¬ â®àë
+               skip i-1       && ¨§¬.30.04.97
+*suspe                         && § ¬¥­  áç.âà ­áä
+         endif
+            zw0=zak1          &&áâ àë© ­®¬¥à
+            repl zak1 with w4
+         select 4
+         go bott
+         append blank            && § ¬¥­¥­­ë¥
+         repl ak0 with w1
+         repl ak1 with nom
+         repl ak2 with ks3
+         repl ak3 with ks4
+         repl ak4 with ks2
+         repl ak5 with zw0
+         select 3
+         repl li0 with 0
+         repl li1 with 0
+         repl li2 with 0
+         repl li3 with 0
+         repl li4 with 0
+         repl li5 with 0
+         repl li6 with 0
+         skip
+         select 1
+         go top
+         if w1 < 13
+            skip w1-1
+            repl pnw with kk6
+            repl pkw with kk6
+               else
+                  if w1 > 12 .and. w1 < 25
+                    skip w1-13
+                     repl pns with kk6
+                     repl pks with kk6
+                  endif
+           endif
+         go top
+*suspe
+         if w1 > 24
+            skip i-25
+            repl trns with kk6
+            repl trks with kk6
+         endif
+         select 3
+      enddo
+   endif
+select 3
+go top
+dele all
+pack
+endif
+*save screen to wyrwyr
+do while .t.
+*set talk on
+*set echo on
+*set step on
+   select 1
+   go top
+   do REDWYR
+*restore screen from wyrwyr
+select 3
+use wyrab3.dbf
+do ZAMENA
+clear
+men=2
+@ 13,20 say "à®¤®«¦ âì à¥¤ ªâ¨à®¢ ­¨¥ (ESC-¢ëå®¤ ¡¥§ à áç¥â )"
+@ 14,30 prompt "„€"
+@ 14,43 prompt "…’"
+menu to men
+if men=0
+return
+endif
+if men=1
+loop
+endif
+if men=2
+exit
+endif
+enddo
+**** ­ ç «® ¯¥ç â¨
+set printer to wyrab.pec
+set device to print
+clear
+go top
+select 2
+use wyrab2 index wyrab2
+i=1
+do while i<25
+   v(i)=ks
+   skip
+   i=i+1
+enddo
+go top
+skip 187
+tr(1)=ks
+skip
+tr(2)=ks
+skip
+tr(3)=ks
+skip
+tr(4)=ks
+go top
+@ 0,0,24,79  box "°"
+****set device to print
+str=prow()+2
+do SHWYR
+sum1=0
+sum2=0
+sum3=0.0
+i=1
+select 1
+go top
+do while .not. eof()
+   zw1=0
+   zw2=0
+   select 1
+   t1=timk
+   w1=pnw
+   w2=pkw
+   s1=pns
+   s2=pks
+   if t1=0
+      ss1=v(i)
+      ss2=v(i+12)
+      kk1=0.0
+      kk2=0.0
+      kk3=0.0
+      kk4=0.0
+      kk5=0.0
+*      kk1=w2-w1
+   endif
+   do RASCH
+   do PECH
+   i=i+1
+   skip
+enddo
+sum4=0
+select 1
+go top
+i=1
+@ str,0 say ":"
+@ str,130 say ":"
+str=str+1
+@ str,0 say ":"
+@ str,2 say "’‘-20"
+do TRANS
+@ str,0 say ":"
+@ str,2 say "’‘-30"
+do TRANS
+@ str,0 say ":"
+@ str,2 say "3’-€"
+do TRANS
+@ str,0 say ":"
+@ str,2 say "3’-"
+do TRANS
+select 1
+sum5=sum3+sum4        && á­+âà ­á.
+ks0=sum2-sum5        && ®â¯ãáª §  áãâª¨
+ks1=sum2/sum1
+ks2=sum3/sum1
+ks3=sum5*100/sum2
+bb1=sum2+0.05
+bb2=ks1+0.05
+bb3=sum5+0.05
+bb4=ks2+0.05
+bb5=ks3+0.005
+@ str,0 say ":"
+@ str,130 say ":"
+str=str+1
+@ str,0 say ":"
+@ str,20 say "§  áãâª¨:"
+@ str,55 say sum1 pict "9999"
+@ str,64 say bb1 pict "999999.9"
+@ str,80 say bb2 pict "9999.9"
+@ str,95 say bb3 pict "999999.9"
+@ str,114 say bb4 pict "999.9"
+@ str,124 say bb5 pict "99.99"
+@ str,130 say ":"
+str=str+1
+bb1=ks0+0.005
+@ str,0 say ":"
+@ str,20 say "®â¯ãáª:"
+@ str,40 say bb1 pict "99999999.99"
+@ str,130 say ":"
+str=str+1
+@ str,0 say ":"
+@ str,130 say ":"
+str=str+1
+@ str,0 say ":"
+@ str,130 say ":"
+str=str+1
+*­ à áâ îé¨¥
+select 1
+ks0=trns+sum1         &&¢à¥¬ï
+repl trks with ks0
+skip
+ks1=trns+sum2         &&¢ëà ¡®âª 
+repl trks with ks1
+skip
+ks2=trns+sum5         &&á­+âà ­á.
+repl trks with ks2
+skip
+ks3=trns+sum4         &&âà ­á.
+repl trks with ks3
+w1=ks1/ks0
+w2=(ks2-ks3)/ks0
+w3=ks2*100/ks1
+w4=ks1-ks2
+ks1=ks1+0.05
+w1=w1+0.05
+ks2=ks2+0.05
+w2=w2+0.05
+w3=w3+0.005
+@ str,0 say ":"
+@ str,20 say "á ­ ç «  ¬¥áïæ :"
+@ str,55 say ks0 pict "99999"
+@ str,64 say ks1 pict "9999999.9"
+@ str,80 say w1 pict "9999.9"
+@ str,95 say ks2 pict "999999.9"
+@ str,114 say w2 pict "99.9"
+@ str,124 say w3 pict "99.99"
+@ str,130 say ":"
+str=str+1
+w4=w4+0.005
+@ str,0 say ":"
+ @ str,20 say "®â¯ãáª:"
+@ str,40 say w4 pict "99999999.99"
+@ str,130 say ":"
+str=str+1
+@ str,0 say ":"
+@ str,130 say ":"
+str=str+1
+@ str,0 say ":"
+@ str,130 say ":"
+str=str+1
+@ str,0 say "-----------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say " "
+str=str+1
+set printer to
+set device to screen
+clear
+select 1
+go top
+skip 8
+replace trns with idd
+replace trks with imm
+skip
+replace trns with igg
+   use
+   close all
+ set device to print
+ ! type wyrab.pec > prn
+ set device to screen
+return
+* ¤ ­­ë¥ ¤«ï á¥«¥ªâ®à  ¨  ªâ 
+
+*** 07.11.2000  íâ  ç áâì ¯à®£à ¬¬ë ¢ë¤¥«¥­  ª ª ¯®¤¯à®£à ¬¬ 
+*** WYR4SEL ¨ ¢ë§ë¢ ¥âáï ¢ ¯à®£à ¬¬¥ 
+*** SELEKTOR
+ 
+***@ 10,20 say "‡€Œˆ’œ „€›… „‹Ÿ ‘…‹…Š’€ ?"
+***otz=1
+***@ 11,26 say " …’    „€ ?"
+***@ 11,26 prompt " …’ "
+***@ 11,33 prompt " „€ "
+***menu to otz
+***if otz=0 .or. otz=1
+***   restore screen from ww
+***   use
+***   close all
+***   return
+***endif
+***@ 12,20 say "‚› ‘„…‹€‹ˆ `SEMES` „‹Ÿ ‘…‹…Š’€ ?"
+***otz=2
+***@ 13,26 say " …’    „€ ?"
+***@ 13,26 prompt "…’ "
+***@ 13,33 prompt " „€ "
+***menu to otz
+***if otz = 2
+***   select 4
+***   use wyrab4.dbf
+***   go top
+***   dele all
+***   pack
+***   select 1
+***   go top
+***   select 2
+***   i=1
+***   do while i<13
+***      select 1
+***      sum1=timk+tim
+***      sum2=pkw
+***      sum3=pks
+*      sum3=round(sum3,0)
+***      skip
+***      select 4
+***      go bott
+***      append blank
+***      repl ego1 with sum1
+***      repl ego2 with sum2
+***      repl ego3 with sum3
+***      do HRAN
+***      i=i+12
+***      do HRAN
+***      i=i-12
+***      i=i+1
+***   enddo
+***   i=0
+***   j=188
+***   select 4
+***   go top
+***   select 1
+***   go top
+***   do while i<4
+***      sum1=trks
+***      select 4
+***      repl ego4 with sum1
+***      i=i+j
+***      do HRAN
+***      select 4
+***      i=i-j
+***      skip
+***      select 1
+***      skip
+***      i=i+1
+***   enddo
+***endif
+***restore screen from ww
+***close all
+***use
+***return
+
+procedure HRAN     
+select 3
+go top
+lld=0
+count to lld
+if lld=0
+   return
+endif
+go top
+lld=0
+set filter to li0 = i
+count to lld
+if lld>0
+   go top
+   sum1=li3
+   select 4
+   if i<13
+      repl ego2 with sum1
+   endif
+   if i>12 .and. i<188
+      repl ego3 with sum1
+   endif
+   if i>187
+      repl ego4 with sum1
+   endif
+endif
+set filter to
+return
+procedure RASCH
+zw1=0
+zw2=0
+j=0
+ss1=0.0
+ss2=0.0
+ss3=0.0
+ss1=v(i)
+ss3=w2-w1
+if ss3<0
+   ss3=ss3+10e5
+endif
+*¢ëà ¡®âª 
+   kk1=ss1*ss3*0.001
+   zkk1=0
+   if zam=2
+      zkk=i
+      select 3
+      go top
+      lld=0
+      set filter to li0=zkk
+      count to lld
+      if lld>0
+         go top
+         ss3=li3-li2
+         if ss3<0
+            ss3=ss3+10e5
+         endif
+         zw0=li1
+         zkk1=(zw0*ss3+li4)*0.001
+   *      zkk1=zkk1+li4
+         prom=w2
+         w1=li2
+         w2=li3
+         zw1=1
+         repl li6 with prom
+      select 1
+*      repl pkw with w2
+      endif
+      set filter to
+   endif
+   kk1=zkk1+kk1
+if t1 > 0
+   kk2=kk1/t1
+   else
+      kk2=kk1
+endif
+*á®¡áâ.­.
+ss2=v(i+12)
+ss3=s2-s1
+if ss3<0
+   ss3=ss3+10e4
+endif
+kk3=ss2*ss3*0.001
+zkk1=0
+if zam=2
+   zkk=i+12
+   select 3
+   go top
+   lld=0
+   set filter to li0=zkk
+   count to lld
+   if lld>0
+      go top
+      ss3=li3-li2
+      if ss3<0
+         ss3=ss3+10e4
+      endif
+      zw0=li1
+      zkk1=(zw0*ss3+li4)*0.001
+*      zkk1=zkk1+li4
+      prom=s2
+      s1=li2
+      s2=li3
+      zw2=1
+      repl li6 with prom
+      select 1
+*      repl pks with s2
+   endif
+   set filter to
+endif
+kk3=kk3+zkk1
+if t1 > 0
+   kk4=kk3/t1
+   kk5=kk3/kk1*100
+endif
+sum1=sum1+t1
+sum2=sum2+kk1
+sum3=sum3+kk3
+select 1
+return
+procedure PECH
+bb1=kk1+0.05       &&  £¥­¥à â®à
+bb2=kk2+0.05
+bb3=kk3+0.05       &&  á­
+bb4=kk4+0.05
+bb5=kk5+0.005
+@ str,0 say ":"
+@ str,2 say i pict "999"
+@ str,6 say ss1 pict "99999"
+if zw1>0
+   @ str,10 say "*"
+endif
+*@ str,12 say w1 pict "9999999"
+*@ str,20 say w2 pict "9999999"
+@ str,12 say w1 pict "999999.9" && 01.112004
+@ str,21 say w2 pict "999999.9" &&
+@ str,29 say ss2 pict "99999"
+if zw2>0
+   @ str,34 say "*"
+endif
+*@ str,35 say s1 pict "9999999.9"
+*@ str,45 say s2 pict "9999999.9"
+@ str,35 say s1 pict "999999.99"
+@ str,45 say s2 pict "999999.99"
+@ str,56 say t1 pict "999"
+@ str,64 say bb1 pict "99999.9"
+@ str,80 say bb2 pict "9999.9"
+@ str,96 say bb3 pict "9999.9"
+@ str,115 say bb4 pict "99.9"
+@ str,124 say bb5 pict "999.99"
+@ str,130 say ":"
+str=str+1
+return
+procedure TRANS
+zw1=0
+trtr2=0
+trtr3=0
+select 1
+go top
+skip i-1
+trtr2=trns
+trtr3=trks
+ks0=tr(i)*(trtr3-trtr2)*0.001
+zkk1=0
+if zam=2
+   zkk=i+187
+   select 3
+   use wyrab3.dbf
+   go top
+   set filter to li0=zkk
+   lld=0
+   count to lld
+   if lld>0
+      go top
+      zkk1=li1*(li3-li2)
+      zkk1=(zkk1+li4)*0.001
+      prom=trtr3
+      trtr2=li2
+      trtr3=li3
+      repl li6 with prom
+      zw1=1
+   endif
+   set filter to
+endif
+select 1
+ks0=ks0+zkk1
+bb1=ks0+0.05
+@ str,30 say tr(i) pict "9999"
+if zw1>0
+   @ str,34 say "*"
+endif
+*@ str,37 say trtr2 pict "9999999"
+@ str,36 say trtr2 pict "99999.99"
+*@ str,47 say trtr3 pict "9999999"
+@ str,47 say trtr3 pict "99999.99"
+
+@ str,95 say bb1 pict "99999.9"
+@ str,130 say ":"
+skip
+str=str+1
+sum4=sum4+ks0         && ¢á¥£® ¯® âà ­á.
+i=i+1
+return
+procedure ZAMENA
+nn=0
+nn1=0.0
+nn2=0.0
+nn3=0.0
+nn4=0.0
+nn5=0
+clear
+   @ 10,25 say " ‡€Œ…€ ‘—…’—ˆŠ‚ ?    …’   „€ "
+   @ 10,47 prompt " …’ "
+   @ 10,53 prompt " „€ "
+   menu to zam
+if zam=1
+  return
+endif
+select 3
+go top
+clear
+@ 0,25 say "‡€Œ…€ ‘—…’—ˆŠ‚."
+@ 1,0 say  "ÉÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍÍ»"
+@ 2,0 say  "º  N º Š”-’  º / ­ ç. º / ª®­ .º/ ¬¨¬® ª¢â.º‡€‚„.Œ…º"
+@ 3,0 say  "ÌÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÍ¹"
+gam=4
+do while gam < 16
+   @ gam,0 say  "º    º         º          º          º             º           º "
+   gam=gam+1
+enddo
+@ gam,0 say "ÈÍÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÍ¼"
+********
+gam=4
+i=1
+zw1=0
+go top
+mini=1
+maxi=12
+ do while .not. eof()
+   @ gam,2 say li0 pict "999"
+   @ gam,7 say li1 pict "999999"
+   @ gam,17 say li2 pict "999999.99"
+   @ gam,28 say li3 pict "999999.99"
+   @ gam,39 say li4 pict "999999.99"
+   @ gam,53 say li5 pict "99999999"
+   skip
+   gam=gam+1
+ enddo
+*******
+gam=4
+i=1
+zw1=0
+go top
+mini=1
+maxi=12
+do while .t.
+   @ gam,2 get li0 pict "999"
+   @ gam,7 get li1 pict "999999"
+   @ gam,17 get li2 pict "999999.99"
+   @ gam,28 get li3 pict "999999.99"
+   @ gam,39 get li4 pict "999999.99"
+   @ gam,53 get li5 pict "99999999"
+   read
+l = readkey()
+   @ gam,2 say li0 pict "999"
+   @ gam,7 say li1 pict "999999"
+   @ gam,17 say li2 pict "999999.99"
+   @ gam,28 say li3 pict "999999.99"
+   @ gam,39 say li4 pict "999999.99"
+   @ gam,53 say li5 pict "99999999"
+if l = 12       &&  esc
+ exit
+endif
+if l=5.or.l=270.or.l=15    && ãá.end,enter,áâà¥«ª  ¢­.
+if i = maxi
+   loop
+endif
+skip
+gam=gam+1
+i=i+1
+loop
+endif
+if l = 4                      &&    áâà¥«ª  ¢¢.
+if i = mini
+loop
+endif
+skip -1
+gam=gam-1
+i=i-1
+endif
+enddo
+return
+procedure SHWYR
+@ str,0 say " ˆ ‚ –    ’ è ’‘ "
+@ str,104 say "„€’€"
+@ str,109 say idd pict "99"
+@ str,111 say "."
+@ str,113 say imm pict "99"
+@ str,115 say "."
+@ str,117 say igg pict "9999"
+*@ str,119 say "."
+str=str+1
+@ str,27 say "€‘—…’ ‚›€’Šˆ ‹…Š’…ƒˆˆ ˆ ’…‹…ˆŸ …… € ‘‘’‚…›… “†„›."
+str=str+2
+@ str,0 say "-----------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "¡«®ª;|  ƒ …  …  € ’     |  ‘ — … ’ — ˆ Š ˆ  ‘.H.  |®âà.|       ƒ …  …  € ’         |    ‘ — … ’ — ˆ Š ˆ    ‘.H.    |      |"
+str=str+1
+@ str,0 say "¬¥å -|----------------------|-------------------------|    |-------------------------------|-------------------------------|  %   |"
+str=str+1
+@ str,0 say "­¨§¬ | Š‘— |    H  |   Š  | Š‘— |     H  |    Š   |—€‘.| ’›‘Ÿ— Š‚’.—€‘.|       Œ‚’     | ’›‘Ÿ— Š‚’.—€‘.|        Œ‚’    |      |"
+str=str+1
+@ str,0 say "-----------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+return
+procedure REDWYR
+clear
+@ 0,0 say  "ÉÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍ»"
+@ 1,0 say  "º  N º / ­ ç.º / ª®­.º/ ‘ ­.º / ‘ ª. º’€.—€‘›º "
+@ 2,0 say  "ÌÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍ¹"
+@ 15,0 say "ÌÍÍÍÍÊÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍ¹"
+@ 20,0 say "ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼"
+kol=3
+@ 24,0 say re pict ""
+mini=1
+maxi=12
+go top
+do WYREKR
+go top
+kol = 3
+i=1
+do while .t.
+*@ kol,17 get pkw pict "9999999"
+@ kol,17 get pkw pict "999999.9" && 01112004
+*@ kol,37 get pks pict "999999.99"
+@ kol,36 get pks pict "999999.99"
+@ kol,52 get timk pict "99"
+read
+l = readkey()
+*@ kol,17 say pkw pict "9999999"
+@ kol,17 say pkw pict "999999.9" && 01112004
+*@ kol,37 say pks pict "999999.99"
+@ kol,36 say pks pict "999999.99"
+@ kol,52 say timk pict "99"
+if l = 12       &&  esc
+ exit
+endif
+if l = 36         && f1+
+nom=nomer
+nm=0
+lll=0
+do while .t.
+l=inkey(0)
+if l<45 .or.l>57 .or. l=46 .or. l=47
+exit
+endif
+if l=45
+lll=1
+else
+nm=nm*10+l-48
+endif
+enddo
+if lll=1
+nm=0-nm
+endif
+if nm < mini .or. nm > maxi
+loop
+endif
+seek nm
+if ! found()
+seek nom
+loop
+endif
+kol=3
+do WYREKR
+seek nm
+kol=3
+loop
+endif
+if l = 4                      &&    áâà¥«ª  ¢¢.
+if nomer = mini
+loop
+endif
+skip -1
+nom=nomer
+nm=kol-1
+if kol > 3
+kol = kol - 1
+loop
+else
+kol=3
+do WYREKR
+seek nom
+kol=nm
+endif
+loop
+endif
+if l=34                    &&  ãá.PgUp
+if nomer = mini
+loop
+endif
+seek mini
+kol=3
+do WYREKR
+seek mini
+kol=3
+loop
+endif
+if l=35                    &&  ãá.PgDn
+if nomer = maxi
+loop
+endif
+go top
+kol=3
+do WYREKR
+seek maxi
+kol=14
+loop
+endif
+if l=6                     &&    PgUp
+if nomer = mini
+loop
+endif
+kol=3
+go top
+do WYREKR
+go top
+kol=3
+loop
+endif
+if l=7                     &&   PgDn
+if nomer = maxi
+loop
+endif
+go top
+kol=3
+do WYREKR
+seek maxi
+kol=14
+loop
+endif
+if l=5.or.l=270.or.l=15    && ãá.end,enter,áâà¥«ª  ¢­.
+if nomer = maxi
+   loop
+endif
+skip
+kol=kol+1
+loop
+endif
+enddo
+do TRAEK
+return
+procedure REPLW
+go top
+kol = 3
+i=1
+do while ! eof()
+@ kol,17 get qq1 pict "9999999"
+@ kol,37 get qq2 pict "999999.9"
+@ kol,52 get qq3 pict "99"
+read
+repl pkw with qq1
+repl pks with qq2
+repl timk with qq3
+skip
+kol=kol+1
+enddo
+procedure WYREKR
+@ kol,0 clear to 14,79
+@ 16,0 clear to 20,79
+i=1
+*select 1
+*go top
+do while ! eof()
+@ kol,0 say "º"
+@ kol,2 say nomer pict "99"
+@ kol,5 say "º"
+*@ kol,7 say pnw pict "999999"
+@ kol,7 say pnw pict "999999.9" && 01112004
+@ kol,15 say "º"
+*@ kol,17 say pkw pict "999999"
+@ kol,17 say pkw pict "999999.9" && 01112004
+@ kol,25 say "º"
+*@ kol,27 say pns pict "999999.9"
+@ kol,26 say pns pict "999999.99"
+@ kol,35 say "º"
+*@ kol,37 say pks pict "999999.9"
+@ kol,36 say pks pict "999999.99"
+@ kol,47 say "º"
+@ kol,52 say timk pict "99"
+@ kol,58 say "º"
+i=i+1
+if kol>13
+exit
+endif
+kol = kol + 1
+skip
+enddo
+return
+procedure TRAEK
+kol=16
+nm=kol
+@ kol,0 say "º"
+@ kol,1 say "’-›"
+@ kol,8 say " / ­."
+@ kol,15 say "º"
+@ kol,17 say " / ª."
+@ kol,58 say "º"
+kol=kol+1
+@ kol,0 say "ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹"
+kol=kol+1
+@ kol,2 say "’‘-20"
+kol = kol + 1
+@ kol,2 say "’‘-30"
+kol = kol + 1
+@ kol,2 say "3’-€"
+kol = kol + 1
+@ kol,2 say "3’-‚"
+kol=kol+1
+kol = nm
+go top
+i=1
+kol=18
+do while .t.
+@ kol,0  say "º"
+@ kol,8 say trns pict "9999.99"
+@ kol,15 say "º"
+@ kol,17 say trks pict "9999.99"
+@ kol,58 say "º"
+kol=kol+1
+skip
+i=i+1
+if i>4
+   exit
+endif
+enddo
+@ 22,0 say "ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼"
+kol=18
+go top
+mini=1
+maxi=4
+do while .t.
+@ kol,17 get trks pict "9999.99"
+read
+l = readkey()
+@ kol,17 say trks pict "9999.99"
+if l = 12       &&  esc
+ exit
+endif
+if l=5.or.l=270.or.l=15    && ãá.end,enter,áâà¥«ª  ¢­.
+if nomer = maxi
+   loop
+endif
+skip
+kol=kol+1
+loop
+endif
+if l = 4                      &&    áâà¥«ª  ¢¢.
+if nomer = mini
+loop
+endif
+skip -1
+kol=kol-1
+endif
+enddo
+return
+
+procedure BAXCOP
+@ 10,40,12,50 box win1+ " "
+@ 11,42 prompt " A "
+@ 11,46 prompt " B "
+menu to p2
+do case
+case p2=1
+! copy a:\baxta*.* .
+case p2=2
+! copy b:\baxta*.* .
+endcase
+return
+
+procedure WYRCOP
+@ 13,40,15,50 box win1+ " "
+@ 14,42 prompt " A "
+@ 14,46 prompt " B "
+menu to p2
+do case
+case p2=1
+! copy a:\wyrab*.* .
+case p2=2
+! copy b:\wyrab*.* .
+endcase
+return
+
+procedure WYMES
+clear
+otz=2
+prizn=0        && à¨§­ ª ¤«ï § ¯ãáª  ¯à®£à ¬¬ WYMES, SEMES, AKTNS
+
+@ 6,20 say "‚› § ¯ãáâ¨«¨ ¯à®£à ¬¬ã ……•„€ € ‚›‰ Œ…‘Ÿ–!!!"
+@ 7,18 say "’“ ƒ€ŒŒ“ ­ã¦­® § ¯ãáª âì â®«ìª® ®¤¨­ à §, ¯¥à¥¤ "
+@ 8,18 say "à áç¥â®¬ ‚›€’Šˆ ‹.…ƒˆˆ §  1-¥ ç¨á«® ¬¥áïæ "
+@ 10,20 say "1.WYMES"
+@ 11,20 say "„ƒ’‚ˆ’œ €‡“ Š €‘—…’“ ‡€ ‚›‰ Œ…‘Ÿ– ?"
+@ 12,26 say " …’          „€ "
+@ 12,26 prompt " …’ "
+@ 12,38 prompt " „€ "
+menu to otz
+if otz=1.or.otz=0
+return
+endif
+clear
+use
+close all
+@ 10,20 say "„ƒ’‚Š€ €‡› Š €‘—…’“ ‡€ ‚›‰ Œ…‘Ÿ– ."
+@ 12,20 say "      H ¦¬¨â¥ «î¡ãî ª« ¢¨èã..."
+l=inkey(0)
+if l=27
+return
+endif
+prizn=1             && à¨§­ ª
+select 1
+use wyrab1 index wyrab1
+go top
+i=1
+skip 4
+do while .t.
+repl trns with 0
+repl trks with 0
+i=i+1
+if i>4
+exit()
+endif
+skip
+enddo
+go top
+do while ! eof()
+repl tim with 0
+skip
+enddo
+*select 3
+*use wyrab33.dbf
+*go top
+*dele all
+*pack
+close all
+use
+return
+
+procedure SELEKTOR
+save screen to ww
+use
+close all
+dime mexm(192),ka(13),ta(13),kaa(13),kab(13),tda(13),tdb(13)
+dime dkai(13)
+dime timek(13),wyrk(13),snuk(14),trk(4)
+dime abmex(96)       && a+b
+dime mexan(8),ydi(13),stan(21),stanb(13),stanp(13)
+prizn = 0
+ttt=0
+now0=0
+now1=0
+now2=0
+now3=0
+now4=0
+now5=0
+cel1=0
+xx1=0
+xx2=0
+xx3=0
+dime liz(15)
+zam=1
+idd=1
+imm=1
+igg=1995
+* § ¬¥­  ­ ç «ì­ëå ¯® ¬¥å-¬
+@ 16,18,21,60 box win1+" "
+otz=1
+@ 18,26 say " €‘—¥â ¨«¨ ˆ‘ ¢«¥­¨¥ ­ ç.¯®ª.?"
+@ 18,26 prompt " €‘—"
+@ 18,37 prompt " ˆ‘"
+menu to otz
+if otz=0
+  return
+endif
+if otz = 2
+   select 1
+   use sel1 index sel1
+   prizn = 77
+   do REDSEL1
+   prizn = 0
+   restore screen from ww
+   use
+   close all
+   return
+endif
+
+
+******* 07.11.2000
+
+   do WYR4SEL     && ¯à®£à ¬¬   á®§¤ ­  ¤«ï  ¢â®¬ â¨ç¥áª®£® § ¯®¬¨­ ­¨ï
+                  && ¤ ­­ëå ¯® ¯à®£à ¬¬¥ WYRABOTKA ¤«ï à áç¥â  á¥«¥ªâ®à 
+******* 07.11.2000
+
+otz = 1
+@ 16,18,21,60 box win1+" "
+@ 17,20 say "“ª ¦¨â¥ ¤ âã: ¯® „„,ŒŒ,ƒƒƒƒ"
+@ 17,47 get idd pict "999"
+@ 17,51 get imm pict "999"
+@ 17,55 get igg pict "9999"
+read
+l=readkey()
+if l=12
+   close all
+   return
+endif
+otz=1
+@ 18,26 say " €‘—¥â ¨«¨ ……à áç¥â  ?"
+@ 18,26 prompt " €‘—"
+@ 18,37 prompt " ……"
+menu to otz
+if otz=0
+  return
+endif
+i=1
+do while i<16
+   liz(i)=0
+   i=i+1
+enddo
+select 1
+use sel1 index sel1
+select 2
+use sel2 index sel2
+select 3
+use sel3 index sel3
+select 5
+use wyrab2 index wyrab2
+select 6
+use wyrab33.dbf
+select 4
+use wyrab4.dbf
+if otz = 1
+   do SELSCH
+**********************
+*111111111
+endif
+do while .t.
+   do REDSEL1
+   do REDSEL2
+   do SELZAM
+
+  sele 2
+  go top
+Do while .not. eof()
+   if zap1=0.and.zap2=0.and.zap3=0.0.and.zap4=0.0.and.zap5=0.0    &&
+      dele                                                        && ®ç¨áâª  ®â ¯ãáâëå
+   endif                                                          && § ¯¨á¥©
+      skip                                                        &&  18.05.2000
+Enddo                                                             &&  
+     pack
+     reindex
+
+*suspe
+   clear
+   otz=1
+   @ 10,20 say "„‹†ˆ’œ …„€Š’ˆ‚€ˆ… ? "
+   @ 11,24 prompt " …’ "
+   @ 11,33 prompt " „€ "
+   menu to otz
+      if otz=0
+         return
+      endif
+      if otz=2
+         loop
+      endif
+      if otz=1
+         exit
+      endif
+enddo
+clear
+@ 10,20 say "†„ˆ’…. ˆ„…’ €’Š€ ˆ”Œ€–ˆˆ..."
+select 1
+use sel1 index sel12
+do SELZAK      && ª®­¥ç­ë¥ ¤«ï à áç¥â 
+save screen to wyrwyr
+set printer to sel.pec
+set device to print
+str=prow()+2
+
+*set talk on
+*set echo on
+*set step on
+
+do SELWYR      && à áç¥â ¢ëà ¡®âª¨,á­
+set talk off
+set echo off
+set step off
+do SELMEX      && à áç¥â ¯® ¬¥å-¬ ¬
+do SELSTA      && à áç¥â ¯® ®¡é¥áâ.
+set device to screen
+set printer to
+clear
+@ 10,30 say "„ƒ’‚œ’… ˆ’…!!!"
+@ 12,30 say "H ¦¬¨â¥ «î¡ãî ª« ¢¨èã!"
+read
+! type sel.pec > prn
+clear
+otz=2
+   @ 10,20 say "…—€’€’œ ˆ‘•„›… „€›… ?"
+   @ 11,24 prompt " …’ "
+   @ 11,33 prompt " „€ "
+   menu to otz
+      if otz=2
+         set printer to sel1.pec
+         set device to print
+         str=prow()+2
+         do SELISX
+         set device to screen
+         set printer to
+         ! type sel1.pec > prn
+      endif
+restore screen from ww
+return
+
+procedure SELZAK        && ª®­.¢ëà ¡®âª¨ ,á­,âà ­á.
+select 4    && WYRAB4
+go top
+i=1
+gg=0
+do while ! eof()
+   timek(i)=ego1
+   wyrk(i)=ego2
+   snuk(i)=ego3
+   ttt=timek(i)
+*   gg=gg+timek(i)
+   gg=gg+ttt
+   if i<5
+      trk(i)=ego4
+   endif
+   skip
+   i=i+1
+enddo
+timek(13)=gg
+select 5    && WYRAB2
+go top
+i=1
+do while i<13
+   repl mik with wyrk(i)
+   skip
+   i=i+1
+enddo
+i=1
+do while i<13
+   repl mik with snuk(i)
+   skip
+   i=i+1
+enddo
+i=1
+skip 163
+do while i<5
+   repl mik with trk(i)
+   skip
+   i=i+1
+enddo
+return
+
+* à áç¥â 1-© ä®à¬ë
+procedure SELWYR
+
+i=1
+do while i < 146
+   mexm(i)=0.000
+   i=i+1
+enddo
+i=1
+do while i < 14
+   wyrk(i)=0.000
+   i=i+1
+enddo
+i=1
+do while i < 15
+   snuk(i)=0.000
+   i=i+1
+enddo
+i=1
+do while i < 5
+   trk(i)=0.000
+   i=i+1
+enddo
+i=1
+do while i < 22
+   stan(i)=0.000
+   i=i+1
+enddo
+i=1
+do while i < 14
+   stanb(i)=0.000
+   i=i+1
+enddo
+set console on
+*? '¯¥à¥¤ selkor'
+do SELKOR      && ª®àà¥ªâ¨à®¢ª  ¯® § ¬¥­ ¬ áç¥âç¨ª®¢
+*? '¯®á«¥ selkor'
+select 1
+use sel1 index sel12      && sel1 idx sel12 ç áâ¨ç­ë© à áç¥â ¯® ¬¥å-¬
+go top
+select 5          && wyrab2.dbf
+go top
+skip 24
+i=1
+gg=ks
+*set talk on
+*set echo on
+*set step on
+do while i < 145
+   select 1
+   now1=sek
+   now2=sen
+   now5=now1-now2
+   if now5 < 0
+      now5=now5+10e4
+   endif
+   mexm(i)=mexm(i)+(gg*0.001*now5)
+   i=i+1
+   skip
+   select 5
+   skip
+   gg=ks
+enddo
+select 5       && wyrab2.dbf
+go top
+i=1
+wyrk(13)=0.00
+do while i<13
+   now5=mik-mim
+   if now5 < 0
+      now5=now5+10e5
+   endif
+   wyrk(i)=wyrk(i)+(ks*now5*0.001)
+   wyrk(13)=wyrk(13)+wyrk(i)     && ¢ëà-ª 
+   i=i+1
+   skip
+enddo
+i=1
+snuk(13)=0.00
+do while i<13
+   now5=mik-mim
+   if now5 < 0
+      now5=now5+10e4
+   endif
+   snuk(i)=snuk(i)+(ks*now5*0.001)
+   snuk(13)=snuk(13)+snuk(i)     && á­
+   i=i+1
+   skip
+enddo
+skip 163
+i=1
+snuk(14)=snuk(13)
+do while i<5
+   now5=mik-mim
+   if now5 < 0
+      now5=now5+10e4
+   endif
+   trk(i)=trk(i)+(ks*now5*0.001)
+   snuk(14)=snuk(14)+trk(i)      && á­+âà
+   i=i+1
+   skip
+enddo
+*à áç¥â ¯® ®¡é¥áâ.¬¥å-¬
+i=1
+sele 3
+go top
+do while ! eof()
+   now1=nsb
+   now2=nblok
+   now3=kon-nac
+   if now3 < 0
+      now3=now3+10e4
+   endif
+   sele 5
+   seek now1
+   now4=ks
+*?i
+*?stan(i)
+*wait 'sele 3'
+   stan(i)=stan(i)+(now4*now3*0.001)
+*?i
+*?stan(i)
+*wait 'sele 3'
+   stanb(now2)=stanb(now2)+stan(i)
+   if i < 18
+      stanb(13)=stanb(13)+stan(i)
+   endif
+   i=i+1
+   sele 3
+   skip
+enddo
+i=1
+gg=0
+jj=0.00
+jjj=0
+now1=0.00
+now2=0.00
+do while i<13
+   xx1=i+24
+   xx2=i+48
+   xx3=i+72
+   tda(i)=mexm(xx1)+mexm(xx2)+mexm(xx3)
+   xx1=i+36
+   xx2=i+60
+   xx3=i+84
+   tdb(i)=mexm(xx1)+mexm(xx2)+mexm(xx3)
+   jj=jj+tda(i)
+   jjj=jjj+tdb(i)
+   kaa(i)=tda(i)+mexm(i)
+   now1=now1+kaa(i)
+   xx1=i+12
+   kab(i)=tdb(i)+mexm(xx1)
+   now2=now2+kab(i)
+   ka(i)=kaa(i)+kab(i)
+   gg=gg+ka(i)
+   i=i+1
+enddo
+tda(13)=jj
+tdb(13)=jjj
+kaa(13)=now1
+kab(13)=now2
+ka(13)=gg
+@ str,0 say "ˆ‚– ’˜„ˆ‘      ’…•ˆŠ-ŠŒˆ—…‘Šˆ… Š€‡€’…‹ˆ …ƒ‹Š‚ ‡€ …ˆ„ ‘  01.  .           .  .    ."
+@ str,79 say imm pict "99"
+@ str,82 say igg pict "9999"
+@ str,93 say idd pict "99"
+@ str,96 say imm pict "99"
+@ str,99 say igg pict "9999"
+str=str+2
+@ str,0 say "-------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "            !       1        2        3        4        5        6        7        8        9        10       11       12!  ‘’€–ˆˆ"
+str=str+1
+@ str,0 say "-------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "‚›€. /H ! "
+@ str,121 say "!"
+str=str+1
+@ str,0 say "  âëá.ª¢â.ç !"
+i=1
+jjj=13
+do while i<13
+   @ str,jjj say wyrk(i) pict "999999.9"
+   jjj=jjj+9
+   i=i+1
+enddo
+@ str,121 say "!"
+@ str,122 say wyrk(i) pict "9999999.9"
+str=str+1
+@ str,0 say "------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "/ € ‘.. ! "
+@ str,121 say "!"
+str=str+1
+@ str,0 say "  âëá.ª¢â.ç !"
+i=1
+jjj=13
+do while i<13
+   now1=round(snuk(i),1)
+   @ str,jjj say now1 pict "999999.9"
+   jjj=jjj+9
+   i=i+1
+enddo
+@ str,121 say "!"
+now1=round(snuk(14),1)
+@ str,122 say now1 pict "9999999.9"
+str=str+1
+@ str,0 say "  ¯à®æ¥­â®¢ !"
+i=1
+jjj=17
+do while i<13
+   if wyrk(i) # 0
+      gg=(snuk(i)/wyrk(i))*100.
+      gg=round(gg,1)
+      else
+         gg=0.00
+   endif
+   @ str,jjj say gg pict "99.9"
+   jjj=jjj+9
+   i=i+1
+enddo
+   if wyrk(13) # 0
+      gg=(snuk(14)/wyrk(13))*100.
+      gg=round(gg,1)
+      else
+         gg=0.00
+   endif
+@ str,121 say "!"
+@ str,122 say gg pict "9999999.9"
+str=str+1
+@ str,0 say "------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "—€‘‚ €’›!"
+i=1
+jjj=17
+gg=0.00
+do while i<13
+   @ str,jjj say timek(i) pict "9999"
+   gg=gg+timek(i)
+   jjj=jjj+9
+   i=i+1
+enddo
+timek(13)=gg
+@ str,121 say "!"
+@ str,122 say gg pict "99999"
+str=str+1
+@ str,0 say "------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "H€ƒ“‡Š€,¬¢â!"
+i=1
+jjj=16
+gg=0.00
+do while i # 13
+   if timek(i) > 0
+      gg=wyrk(i)/timek(i)
+      else
+         gg=0.00
+   endif
+   dkai(i)=gg
+   gg=round(gg,1)
+   @ str,jjj say gg pict "999.9"
+   jjj=jjj+9
+   i=i+1
+enddo
+@ str,121 say "!"
+if timek(i) # 0
+   gg=wyrk(i)/timek(i)
+   else
+      gg=0.00
+endif
+dkai(i)=gg
+gg=round(gg,1)
+@ str,122 say gg pict "999.9"
+str=str+1
+@ str,0 say "------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "‘.€ƒ“‡Š€ !"
+@ str,121 say "!"
+str=str+1
+@ str,0 say "Š.€.:   â/ç !"
+i=1
+jjj=16
+gg=0.00
+do while i<13
+   gg=3.2*dkai(i)
+   gg=round(gg,1)
+   @ str,jjj say gg pict "999.9"
+   jjj=jjj+9
+   i=i+1
+enddo
+@ str,121 say "!"
+gg=3.2*dkai(i)
+gg=round(gg,1)
+@ str,122 say gg pict "999.9"
+str=str+1
+@ str,0 say "     £ª «/ç !"
+i=1
+jjj=16
+gg=0.00
+do while i<13
+   gg=2.22*dkai(i)
+   gg=round(gg,1)
+   @ str,jjj say gg pict "999.9"
+   jjj=jjj+9
+   i=i+1
+enddo
+@ str,121 say "!"
+gg=2.22*dkai(i)
+gg=round(gg,1)
+@ str,122 say gg pict "999.9"
+str=str+1
+@ str,0 say "------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "/ ‘. ’.€.!"
+@ str,121 say "!"
+str=str+1
+@ str,0 say "  âëá.ª¢â.ç !"
+i=1
+jjj=15
+do while i<13
+   gg=snuk(i)-ka(i)
+   ta(i)=gg
+   gg=round(gg,1)
+   @ str,jjj say gg pict "9999.9"
+   jjj=jjj+9
+   i=i+1
+enddo
+@ str,121 say "!"
+gg=snuk(14)-ka(13)
+ta(13)=gg
+gg=round(gg,1)
+@ str,122 say gg pict "99999.9"
+str=str+1
+@ str,0 say "  ¯à®æ¥­â®¢ !"
+i=1
+jjj=17
+do while i<13
+   if wyrk(i) # 0
+      gg=(ta(i)/wyrk(i))*100.
+      gg=round(gg,1)
+      else
+         gg=0.0
+   endif
+   @ str,jjj say gg pict "99.9"
+   jjj=jjj+9
+   i=i+1
+enddo
+if wyrk(13) # 0
+   gg=(ta(13)/wyrk(13))*100.
+   gg=round(gg,1)
+   else
+      gg=0.0
+endif
+@ str,121 say "!"
+@ str,122 say gg pict "9999999.9"
+str=str+1
+@ str,0 say "------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "/ ­  ‘.. !"
+@ str,121 say "!"
+str=str+1
+@ str,0 say "™. â.ª¢.ç.!"
+i=1
+jjj=14
+gg=0
+do while i<13
+   gg=snuk(i)-stanb(i)+(stanb(13)*wyrk(i))/wyrk(13)
+   stanp(i)=gg
+   gg=round(gg,1)
+   @ str,jjj say gg pict "99999.9"
+   jjj=jjj+9
+   i=i+1
+enddo
+@ str,121 say "!"
+stanp(13)=snuk(14)
+gg=round(snuk(14),1)
+@ str,122 say gg pict "999999.9"
+str=str+1
+@ str,0 say "Œ…•. ¯à®æ¥­.!"
+i=1
+jjj=16
+gg=0
+do while i<13
+   if wyrk(i) # 0
+      gg=stanp(i)*100/wyrk(i)
+      gg=round(gg,1)
+      else
+         gg=0.0
+   endif
+   @ str,jjj say gg pict "999.9"
+   jjj=jjj+9
+   i=i+1
+enddo
+@ str,121 say "!"
+gg=stanp(13)*100/wyrk(13)
+gg=round(gg,1)
+@ str,122 say gg pict "99999.9"
+str=str+1
+@ str,0 say "---------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+str=str+1
+return
+
+procedure SELKOR              && ª®àà¥ªâ¨à®¢ª  ¯®ª §. ¯® § ¬¥­¥
+*set console on
+*@ 20,2 say '111111'
+select 2
+count to lid            &&  ¥á«¨ ä ©« ¯ãáâ®©,  18.05.2000
+if  lid=0               &&
+    sele 4
+    count to lid
+    if lid=0
+       return              &&
+    endif
+endif                   &&
+sele 2
+go top
+do while ! eof()
+   j=zap1
+   jj=zap4-zap3
+   if jj<0
+      jj=jj+100000.
+   endif
+   jjj=(zap2*jj+zap5)*0.001
+   do case
+      case j<169
+         i=j-24
+
+***************
+*set console on
+*?dbf()
+*?i
+*wait
+**************
+         mexm(i)=mexm(i)+jjj
+      case j>168.and.j<188
+         i=j-168
+         if i>14
+            i=i+1
+         endif
+         stan(i)=stan(i)+jjj
+set console on
+*?i
+*?stan(i)
+*wait 
+     case j=192
+         stan(15)=stan(15)+jjj
+   endcase
+   skip
+enddo
+*SET TALK ON
+*SET STEP ON
+*SET ECHO ON
+select 6
+
+go top
+do while ! eof()
+   jjj=ak0
+   jj=ak3-ak2
+   if jj<0
+      if jjj>12
+         jj=jj+100000.
+            else
+               jj=jj+1000000.
+      endif
+   endif
+   gg=(ak1*jj+ak4)*0.001
+   do case
+      case jjj<13
+*         wyrk(jjj)=gg              && à áç¥â ¯® ¢ëà ¡®âª¥
+         wyrk(jjj)=wyrk(jjj)+gg     && ¨§¬¥­¥­ 3.02.2003 ¢ á¢ï§¨ 
+                                    && á ­¥áª®«ìª¨¬¨ § ¬¥­ ¬¨ ¯®
+                                    && ®¤­®¬ã ¨ â®¬ã ¦¥ áç¥âç¨ªã. ƒã«ï.
+
+      case jjj>12.and.jjj<25
+         i=jjj-12
+*         snuk(i)=gg
+         snuk(i)=snuk(i)+gg         && 27052005
+*?snuk(i)
+*wait
+      case jjj>187
+         i=jjj-187
+*         trk(i)=gg
+         trk(i)=trk(i)+gg           && 27052005
+
+      endcase
+skip
+enddo
+
+sele 7
+
+*set talk on
+*set echo on
+*set step on
+
+use sel4.dbf
+go top
+lld=0
+count to lld
+if lld>0
+   go top
+   do while ! eof()
+      now1=nsbm
+      now2=wyrm
+      do case
+         case now1<169
+            i=now1-24
+            mexm(i)=mexm(i)+now2
+         case now1=192
+            stan(15)=stan(15)+now2
+         case now1>168.and.now1<183
+            i=now1-168
+            stan(i)=stan(i)+now2
+
+
+     case now1>182.and.now1<188
+            i=now1-167
+            stan(i)=stan(i)+now2
+ 
+      endcase
+      skip
+   enddo
+set talk off
+set echo off
+set step off
+endif
+return
+*FFFFF
+*   à áç¥â ¯® ¬¥å-¬ ¬
+procedure SELMEX
+mexan(1) = " H"
+mexan(2) = " „‘ "
+mexan(3) = " „‚ "
+mexan(4) = " ‚ƒ„"
+mexan(5) = " ŠH "
+mexan(6) = " –H "
+mexan(7) = " ’„ "
+mexan(8) = " Š€ "
+j=145
+i=1
+do while i<13
+   mexm(j)=tda(i)
+   i=i+1
+   j=j+1
+enddo
+i=1
+do while i<13
+   mexm(j)=tdb(i)
+   i=i+1
+   j=j+1
+enddo
+i=1
+do while i<13
+   mexm(j)=kaa(i)
+   i=i+1
+   j=j+1
+enddo
+i=1
+do while i<13
+   mexm(j)=kab(i)
+   i=i+1
+   j=j+1
+enddo
+j=1
+gg=1
+now1=1
+do while j<9
+   i=1
+   do while i<13
+* abmex(96) ¬¥å-¬ë  +¢
+      abmex(gg)=mexm(now1)+mexm(now1+12)
+      i=i+1
+      gg=gg+1
+      now1=now1+1
+   enddo
+   j=j+1
+   now1=now1+12
+enddo
+l=1
+gg=1
+vse=1
+vsem=1
+do while gg<9
+@ str,0 say "ˆ‚– ’˜„ˆ‘        ’…‹…ˆ… ‹…Š’…ƒˆˆ Œ…•€ˆ‡Œ€Œˆ  ‘..  ‡€ …ˆ„ ‘  01.  .    .        .  .    ."
+@ str,81 say imm pict "99"
+@ str,84 say igg pict "9999"
+@ str,97 say idd pict "99"
+@ str,100 say imm pict "99"
+@ str,103 say igg pict "9999"
+str=str+2
+@ str,0 say "-------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "               !      1        2       3        4       5       6        7        8        9       10      11      12 !  ‘’€–ˆˆ"
+@ str,1 say mexan(vsem) pict ""
+vsem=vsem+1
+str=str+1
+@ str,0 say "----------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "/, âëá.ª¢â.ç !"
+@ str,123 say "!"
+str=str+1
+@ str,0 say "ƒàã¯¯  €       !"
+k=1
+do while k<3
+i=1
+jjj=18
+jj=0
+do while i<13
+   jj=jj+mexm(l)
+   now1=round(mexm(l),1)
+   @ str,jjj say now1 pict "9999.9"
+   jjj=jjj+9
+   i=i+1
+   l=l+1
+enddo
+if k=1
+   @ str,123 say "!"
+   now1=round(jj,1)
+   @ str,124 say now1 pict "99999.9"
+   str=str+1
+   @ str,0 say "ƒàã¯¯  ‚       !"
+endif
+k=k+1
+enddo
+@ str,123 say "!"
+now1=round(jj,1)
+@ str,124 say now1 pict "99999.9"
+str=str+1
+@ str,0 say "‚‘…ƒ          !"
+i=1
+jjj=18
+jj=0
+do while i<13
+   jj=jj+abmex(vse)
+   now1=round(abmex(vse),1)
+   @ str,jjj say now1 pict "9999.9"
+   jjj=jjj+9
+   i=i+1
+   vse=vse+1
+enddo
+@ str,123 say "!"
+now1=round(jj,1)
+@ str,124 say jj pict "99999.9"
+vse=vse-12
+str=str+1
+@ str,0 say "-------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "“¤.¯®â./,  % !"
+i=1
+jjj=18
+now4=0
+do while i<13
+   if wyrk(i) # 0
+      ydi(i)=abmex(vse)/wyrk(i)
+      else
+         ydi(i)=0.0
+   endif
+   now3=ydi(i)*100.
+   now3=round(now3,2)
+   @ str,jjj say now3 pict "99.99"
+   jjj=jjj+9
+   i=i+1
+   vse=vse+1
+enddo
+@ str,123 say "!"
+ydi(13)=jj/wyrk(13)
+now3=ydi(13)*100.
+now3=round(now3,2)
+@ str,125 say now3 pict "99.99"
+str=str+1
+@ str,0 say "------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "  ¯ à ª¢â.ç/â !"
+i=1
+jjj=18
+now4=0
+do while i<13
+   now3=(ydi(i)*1000.)/3.2
+   now3=round(now3,1)
+   @ str,jjj say now3 pict "99.9"
+   jjj=jjj+9
+   i=i+1
+enddo
+@ str,123 say "!"
+now3=(ydi(i)*1000.)/3.2
+now3=round(now3,1)
+@ str,125 say now3 pict "99.9"
+str=str+1
+@ str,0 say "------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "  ‚  ª¢â.ç/â !"
+i=1
+jjj=18
+do while i<13
+   now3=(ydi(i)*1000.)/3.232
+   now3=round(now3,1)
+   @ str,jjj say now3 pict "99.9"
+   jjj=jjj+9
+   i=i+1
+enddo
+@ str,123 say "!"
+now3=(ydi(i)*1000.)/3.232
+now3=round(now3,1)
+@ str,125 say now3 pict "99.9"
+str=str+1
+@ str,0 say "-------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say "Š¢â.ç á/ƒª «   !"
+i=1
+jjj=18
+do while i<13
+   now3=(ydi(i)*1000.)/2.22
+   now3=round(now3,1)
+   @ str,jjj say now3 pict "99.9"
+   jjj=jjj+9
+   i=i+1
+enddo
+@ str,123 say "!"
+now3=(ydi(i)*1000.)/2.22
+now3=round(now3,1)
+@ str,125 say now3 pict "99.9"
+str=str+1
+@ str,0 say "-------------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say " "
+str=str+1
+@ str,0 say " "
+str=str+1
+@ str,0 say " "
+str=str+1
+gg=gg+1
+enddo
+return
+
+*  à áç¥â 3-£® «¨áâ 
+procedure SELSTA
+str=str+1
+@ str,0 say " ˆ‚– ’˜„ˆ‘"
+str=str+1
+@ str,0 say "€‘—…’ €‘•„€ ‹…Š’…ƒˆˆ  ‹Š€Œ ˆ € ™…‘’€–ˆ›… “†„›"
+str=str+1
+@ str,10 say "‡€ …ˆ„ ‘     01.  .    .       .  .    ."
+@ str,29 say imm pict "99"
+@ str,32 say igg pict "9999"
+@ str,44 say idd pict "99"
+@ str,47 say imm pict "99"
+@ str,50 say igg pict "9999"
+str=str+3
+@ str,0 say "---------------------------------------------------------------------"
+str=str+1
+@ str,0 say "  Œ…   !    Š‘—   !        !    Š    !  ’›‘.Š‚’.—  !    %     ! "
+str=str+1
+@ str,0 say "  ‹Š€   !          !          !          !             !          ! "
+str=str+1
+@ str,0 say "---------------------------------------------------------------------"
+str=str+1
+select 3
+go top
+i=1
+j=1
+gg=0
+now1=0
+now2=0
+now5=0
+do while ! eof()
+   if gg # nblok
+      if gg # 0
+@ str,0 say "Œ…•.‹.   !          !          !          !             !          ! "
+         now2=snuk(gg)-now1
+         now3=round(now2,1)
+         @ str,46 say now3 pict "99999.9"
+      if wyrk(gg) # 0
+         now2=now2*100./wyrk(gg)
+         now3=round(now2,2)
+         else
+         now2=0.0
+      endif
+         @ str,56 say now3 pict "99999.99"
+         gg=nblok
+         now1=0
+         now2=0
+         str=str+1
+      endif
+      gg=nblok
+      @ str,0 say gg pict "99"
+@ str,10 say "!          !          !          !             !          ! "
+      str=str+1
+   endif
+   @ str,10 say "!          !          !          !             !          ! "
+   @ str,0 say naim pict ""
+   now3=nsb-1
+   select 5
+   go top
+   skip now3
+   now4=ks
+   select 3
+   now3=kon-nac
+   if now3 < 0
+      now3=now3+10e4
+   endif
+   now3=now4*now3*0.001
+   mexm(j)=now3
+   j=j+1
+   jjj=round(now3,1)
+   @ str,12 say now4 pict "9999"
+   @ str,23 say nac pict "999999"
+   @ str,34 say kon pict "999999"
+   @ str,45 say jjj pict "99999.9"
+   if wyrk(gg) # 0
+      jjj=now3*100./wyrk(gg)
+      jjj=round(jjj,2)
+      else
+         jjj=0.0
+   endif
+   @ str,60 say jjj pict "9.99"
+   str=str+1
+   now1=now1+now3
+   select 3
+   skip
+enddo
+@ str,0 say "Œ…•.‹.   !          !          !          !             !          ! "
+now2=snuk(gg)-now1
+@ str,46 say now2 pict "99999.9"
+if wyrk(gg) # 0
+   now2=now2*100./wyrk(gg)
+   now2=round(now2,2)
+   else
+      now2=0.0
+endif
+@ str,56 say now2 pict "99999.99"
+str=str+1
+@ str,0 say "---------------------------------------------------------------------"
+str=str+1
+now5=0
+now1=mexm(1)+mexm(2)+mexm(12)+mexm(16)
+now2=now1*100./wyrk(13)
+now5=now5+now2
+now1=round(now1,1)
+now2=round(now2,2)
+@ str,0 say " 1. •ˆŒ–…•"
+@ str,46 say now1 pict "99999.9"
+@ str,57 say now2 pict "99.99"
+str=str+1
+now1=mexm(7)+mexm(14)+mexm(10)+mexm(6)+mexm(11)+mexm(13)+mexm(17)
+now2=now1*100./wyrk(13)
+now5=now5+now2
+now1=round(now1,1)
+now2=round(now2,2)
+@ str,0 say " 2. Œ€‡“’•‡Ÿ‰‘’‚"
+@ str,46 say now1 pict "99999.9"
+@ str,57 say now2 pict "99.99"
+str=str+1
+now1=mexm(5)+mexm(8)
+now2=now1*100./wyrk(13)
+now5=now5+now2
+now1=round(now1,1)
+now2=round(now2,2)
+@ str,0 say " 3. ––"
+@ str,46 say now1 pict "99999.9"
+@ str,57 say now2 pict "99.99"
+str=str+1
+now1=mexm(18)+mexm(19)+mexm(20)+mexm(21)
+now2=now1*100./wyrk(13)
+now5=now5+now2
+now1=round(now1,1)
+now2=round(now2,2)
+@ str,0 say " 4. –…• ’…‹”ˆŠ€–ˆˆ"
+@ str,46 say now1 pict "99999.9"
+@ str,57 say now2 pict "99.99"
+str=str+1
+@ str,0 say " 5. –.. ƒ€„ˆˆ"
+@ str,46 say mexm(15) pict "99999.9"
+now2=mexm(15)*100./wyrk(13)
+now5=now5+now2
+now5=round(now5,2)
+@ str,57 say now2 pict "99.99"
+str=str+1
+@ str,0 say "---------------------------------------------------------------------"
+str=str+1
+@ str,57 say now5 pict "99.99"
+str=str+1
+@ str,0 say " "
+str=str+1
+@ str,0 say " "
+str=str+1
+@ str,0 say " "
+str=str+1
+@ str,0 say " "
+str=str+1
+@ str,0 say " "
+return
+
+procedure SELZAM
+*§ ¬¥­  áç¥âç¨ª®¢
+jjj=0
+gg=0
+gam=0
+nn=0
+nn1=0.0
+nn2=0.0
+nn3=0.0
+nn4=0.0
+nn5=0
+clear
+zam=1
+   @ 10,20 say " ‡€Œ…€ ‘—…’—ˆŠ‚ ?    …’   „€ "
+   @ 10,42 prompt " …’ "
+   @ 10,48 prompt " „€ "
+   menu to zam
+if zam=1.or.zam=0
+  return
+endif
+select 2
+go top
+i=1
+do SELEKRZ
+zw1=0
+go top
+mini=1
+lld=0
+count to lld
+if lld=0
+   append blank
+   repl zap with 1
+  maxi=1
+      else
+         go top
+         mini=zap
+         go bott
+         maxi=zap
+endif
+go top
+do while .t.
+   @ gam,2 get zap1 pict "999"
+   @ gam,7 get zap2 pict "999999"
+   @ gam,17 get zap3 pict "999999.9"
+   @ gam,28 get zap4 pict "999999.9"
+   @ gam,39 get zap5 pict "999999.9"
+   read
+l = readkey()
+   @ gam,2 say zap1 pict "999"
+   @ gam,7 say zap2 pict "999999"
+   @ gam,17 say zap3 pict "999999.9"
+   @ gam,28 say zap4 pict "999999.9"
+   @ gam,39 say zap5 pict "999999.9"
+if l = 12       &&  esc
+ exit
+endif
+if l=5.or.l=270.or.l=15    && ãá.end,enter,áâà¥«ª  ¢­.
+   if i = maxi
+      i=i+1
+      maxi=i
+      skip
+      append blank
+      repl zap with i
+      gam=gam+1
+      if gam>21
+         do SELEKRZ
+      endif
+      loop
+   endif
+   skip
+   gam=gam+1
+   i=i+1
+   if gam>21
+      do SELEKRZ
+   endif
+   loop
+endif
+if l = 4                      &&    áâà¥«ª  ¢¢.
+   if i = mini
+      loop
+   endif
+   skip -1
+   gam=gam-1
+   i=i-1
+   if gam<4 .and. i>17
+      skip -17
+      do SELEKRZ
+      skip 17
+      gam=21
+   endif
+   if gam<4
+      go top
+      i=1
+      do SELEKRZ
+      loop
+   endif
+endif
+if l = 33      && ãá.Home
+   if i=mini
+      dele
+      pack
+      if mini=maxi
+         append blank
+         repl zap with 1
+         mini=1
+         maxi=1
+       endif
+      do SELEKRZ
+      if mini < maxi
+         i=1
+         go top
+         do while ! eof()
+            repl zap with i
+            skip
+            i=i+1
+         enddo
+         go top
+         mini=1
+         maxi=i
+         i=1
+         gam=4
+      endif
+      loop
+   endif
+   jj=i-1
+   dele
+   pack
+   jjj=gam-1
+   i=i-1
+   if i<maxi
+      go top
+      seek i
+      do while ! eof()
+         skip
+         i=i+1
+         repl zap with i
+      enddo
+   endif
+      go bott
+      maxi=zap
+      go top
+      mini=zap
+      i=jj
+      jj=i/18
+      gg=int(jj)
+      jj=gg*18
+      skip jj
+      do SELEKRZ
+      go top
+      seek i
+      gam=jjj
+endif
+if l = 34      && ãá.PgUp
+   if i=mini
+      loop
+   endif
+   i=1
+   go top
+   do SELEKRZ
+   gam=4
+   loop
+endif
+if l = 35         && ãá.PgDn
+   if i=maxi
+      loop
+   endif
+   jjj=int(maxi/19)
+   gg=jjj*18
+   go top
+   skip gg
+   jjj=maxi-gg
+   do SELEKRZ
+   go bott
+   i=zap
+   gam=jjj+3
+   loop
+endif
+if l = 6    &&PgUp
+   if i=mini
+      loop
+   endif
+   if i<19
+      go top
+      i=1
+      gam=4
+      loop
+   endif
+   jjj=int(i/19)
+   gg=jjj-1
+   jjj=gg*18
+   go top
+   skip jjj
+   i=zap
+   do SELEKRZ
+   loop
+endif
+if l = 7       && PgDn
+   if i=maxi
+      loop
+   endif
+   jjj=int(i/19)
+   gg=18*(jjj+1)
+   if gg>maxi
+      go bott
+      jjj=zap-i
+      gam=gam+jjj
+      i=zap
+      loop
+   endif
+   go top
+   skip gg
+   i=zap
+   do SELEKRZ
+   loop
+endif
+enddo
+return
+
+procedure SELEKRZ
+clear
+@ 0,20 say "‡€Œ…€ ‘—…’—ˆŠ‚."
+@ 1,0 say  "ÉÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍ»"
+@ 2,0 say  "º  N º Š”-’  º / ­ ç. º / ª®­ .º / ¬¨¬® º"
+@ 3,0 say  "ÌÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍ¹"
+gam=4
+do while gam < 22
+   @ gam,0 say  "º    º         º          º          º          º "
+   gam=gam+1
+enddo
+@ gam,0 say "ÈÍÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍ¼"
+gam=4
+jj=0
+do while .not. eof()
+   @ gam,2 say zap1 pict "999"
+   @ gam,7 say zap2 pict "999999"
+   @ gam,17 say zap3 pict "999999.9"
+   @ gam,28 say zap4 pict "999999.9"
+   @ gam,39 say zap5 pict "999999.9"
+   gam=gam+1
+   skip
+   jj=jj+1
+   if gam>21
+      exit
+   endif
+enddo
+gam=4
+skip -jj
+@ 23,2 say "<Enter>,-„®¡ ¢«¥­¨¥ áâà®ª¨ , <Ctrl/Home>-“¤ «¥­¨¥ áâà®ª¨"    
+return
+
+procedure REDSEL1
+@ 0,0 say  "ÉÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍ» "
+@ 1,0 say  "º N ¡«®ª  º  á¥ªæ¨ï º áç¥âç¨ª º­ ç.¯®ª §.ºª®­.¯®ª §.º "
+@ 2,0 say  "ÌÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍ¹ "
+@ 23,0 say "ÈÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍ¼ "
+@ 24,0 say re pict ""
+select 1
+use sel1 index sel1
+kol=3
+mini=1
+maxi=18
+max=144
+go top
+j=1
+mm=1
+do SELEKR1
+kol = 3
+do while .t.
+if prizn = 77
+@ kol,32 get sen pict "9999999"
+   else
+@ kol,43 get sek pict "9999999"
+endif
+read
+l = readkey()
+if prizn = 77
+@ kol,32 say sen pict "9999999"
+   else
+@ kol,43 say sek pict "9999999"
+endif
+if l = 12
+exit
+endif
+if l = 36
+loop
+nom=abc
+nm=0
+lll=0
+do while .t.
+l=inkey(0)
+if l<45 .or.l>57 .or. l=46 .or. l=47
+exit
+endif
+if l=45
+lll=1
+else
+nm=nm*10+l-48
+endif
+enddo
+if lll=1
+nm=0-nm
+endif
+if nm < mini .or. nm > max
+loop
+endif
+seek nm
+if ! found()
+seek nom
+loop
+endif
+now1=(nm-1)/18
+cel1=int(now1)
+k=cel1
+j=cel1+1
+kol=3
+do SELEKR1
+seek nm
+kol=abc-k+3
+loop
+endif
+if l = 4    && áâà¥«ª  ¢¢.
+ if abc = mini
+  loop
+ endif
+ skip -1
+ nom=abc
+ if nom=18.or.nom=36.or.nom=54.or.nom=72.or.nom=90.or.nom=108.or.nom=126
+   j=j-1
+   do SELEKR1
+   kol=22
+   skip 17
+   loop
+ endif
+if kol > 3
+   kol = kol - 1
+      if kol=9.or.kol=16
+         kol=kol-1
+      endif
+   loop
+     else
+       kol=3
+       do SELEKR1
+       seek nom
+       kol=3
+endif
+loop
+endif
+if l=34
+   if abc = mini
+      loop
+   endif
+   go top
+   kol=3
+   j=1
+   do SELEKR1
+   kol=3
+   loop
+endif
+if l=35
+   if abc = max
+      loop
+   endif
+   go top
+   skip 126
+   kol=3
+   j=8
+   do SELEKR1
+   kol=3
+   loop
+endif
+if l=6
+   if abc = mini
+      loop
+   endif
+   if j=1
+      go top
+         else
+            j=j-1
+    endif
+   do SELEKR1
+   kol=3
+   loop
+endif
+if l=7
+   if abc = maxi
+      loop
+   endif
+   if j=8
+      go bott
+      kol=22
+      loop
+         else
+            j=j+1
+            do SELEKR1
+            kol=3
+            loop
+    endif
+endif
+if l=5.or.l=270.or.l=15
+   if abc=144
+      loop
+   endif
+ skip
+ if kol<23
+   kol=kol+1
+ endif
+ if kol=9.or.kol=16
+   kol=kol+1
+ endif
+ if abc=19.or.abc=37.or.abc=55.or.abc=73.or.abc=91.or.abc=109.or.abc=127
+   kol=3
+   j=j+1
+   do SELEKR1
+   kol=3
+ endif
+loop
+endif
+enddo
+return
+
+procedure SELEKR1
+@ 3,0 clear to 22,78
+@ 0,78 say chr(16)
+@ 2,78 say chr(16)
+@ 23,78 say chr(16)
+kol=3
+go top
+now1=(j-1)*18
+skip now1
+k=1
+do while k<4
+   i=1
+   @ kol,5  say blok pict "99"
+   @ kol,15  say bloka pict ""
+   do while i<7
+      @ kol,0  say "º"
+      @ kol,10 say "º"
+      @ kol,20 say "º"
+      @ kol,23 say imea pict ""
+      @ kol,30 say "º"
+      @ kol,32  say sen pict "9999999"
+      @ kol,41 say "º"
+      @ kol,43  say sek pict "9999999"
+      @ kol,52 say "º"
+      i=i+1
+      kol = kol + 1
+      skip
+   enddo
+ @ kol,0 say "ÌÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍ¹ "
+   kol=kol+1
+   k=k+1
+enddo
+@ 23,0 say "ÈÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍ¼ "
+skip -18
+return
+
+procedure REDSEL2
+public rn9,str
+rn9=0     && ­®¬¥à § ¯¨á¨ ¤«ï á«¥¤ãîé¥£® íªà ­   5.11.02
+str=0     && «¨áâ
+clear
+@ 0,10 say  "ÉÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍ» "
+@ 1,10 say  "º N ¯/¯  º ­ ¨¬-­¨¥º­ ç.¯®ª §.ºª®­.¯®ª §.º "
+@ 2,10 say  "ÌÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍ¹ "
+str=1
+select 3
+kol=3
+mini=1
+maxi=21
+go top
+mm=1
+do SELEKR2
+kol = 3
+DO WHILE .T.
+*wait
+*@ kol,42 say kon pict "9999999"
+@ kol,42 get kon pict "9999999"
+read
+l = readkey()
+@ kol,42 say kon pict "9999999"
+if l = 12
+   exit
+endif
+if l=5.or.l=270.or.l=15    && ãá.end,enter,áâà¥«ª  ¢­.
+ if str=2
+  if abcd = maxi
+    loop
+  endif
+ else
+  if recno()=rn9-1
+    loop
+   endif
+ endif
+  skip
+if recno()=rn9
+   loop
+endif
+  kol=kol+1
+  loop
+endif
+if l = 4                      &&    áâà¥«ª  ¢¢.
+ if str=1
+   if abcd = mini
+     loop
+   endif
+ else
+   if recno()=rn9
+     loop
+   endif
+ endif
+   skip -1
+   kol=kol-1
+endif
+if l = 6          && PgUp
+   go top
+   str=1
+   kol=3
+   clear
+   @ 0,10 say  "ÉÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍ» "
+   @ 1,10 say  "º N ¯/¯  º ­ ¨¬-­¨¥º­ ç.¯®ª §.ºª®­.¯®ª §.º "
+   @ 2,10 say  "ÌÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍ¹ "
+   do selekr2
+      loop
+endif
+if l = 7          && PgDn
+   kol=3  
+  if rn9=0
+*     go top
+     loop
+  endif
+  go rn9
+  str=2
+clear
+@ 0,10 say  "ÉÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍ» "
+@ 1,10 say  "º N ¯/¯  º ­ ¨¬-­¨¥º­ ç.¯®ª §.ºª®­.¯®ª §.º "
+@ 2,10 say  "ÌÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍ¹ "
+do selekr2 
+   loop
+endif
+ENDDO
+
+return
+
+procedure SELEKR2
+kol=3
+do while ! eof()
+      @ kol,10 say "º"
+      @ kol,14 say abcd pict "99"
+      @ kol,19 say "º"
+      @ kol,21 say naim pict ""
+      @ kol,29 say "º"
+      @ kol,31  say nac pict "9999999"
+      @ kol,40 say "º"
+      @ kol,42  say kon pict "9999999"
+      @ kol,51 say "º"
+      i=i+1
+      kol = kol + 1
+      skip
+    if kol=22
+      if ! eof()
+         rn9=recno()
+         go rn9
+      endif
+         exit
+    endif
+enddo
+@ kol,10 say "ÈÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍ¼ "
+if str=1
+   go top
+else
+   go rn9
+endif
+kol=3
+
+return
+
+
+
+*§ ¬¥­  ­ ç. ¯®ª. ã¦¥ § ¬¥­¥­­ëå áç¥âç¨ª®¢
+procedure SELSCH
+select 1
+use sel1 index sel12
+select 2
+use sel2 index sel2
+select 3
+use sel3 index sel3
+select 5
+use wyrab2 index wyrab2
+select 7
+use sel4.dbf
+sele 2
+go top
+lld=0
+count to lld
+if lld=0
+   return
+endif
+go top
+do while ! eof()
+   now1=zap1
+   now0=zap3
+   xx3=zap2
+   sele 5
+   go top
+   skip now1-1
+   now2=ks
+   repl mim with now0
+   repl ks with xx3
+   sele 1
+   seek now1
+   if .not. found()
+      sele 3
+      go top
+*      ttt=now1-168
+*      seek ttt
+      set filter to nsb = now1
+      lld = 0
+      go top
+      count to lld
+      if lld > 0
+      go top
+         xx1=nac
+         xx2=kon
+         repl nac with now0
+         repl kon with now0
+      endif
+      set filter to
+      else
+         xx1=sen
+         xx2=sek
+         repl sen with now0
+         repl sek with now0
+   endif
+   now3=xx2-xx1
+   if now3<0
+      now3=now3+10e4
+   endif
+   now4=now2*now3
+   sele 7
+   go bott
+   append blank
+   repl nsbm with now1
+   repl wyrm with now4/1000
+   sele 2
+   skip
+enddo
+sele 2
+go top
+dele all
+pack
+*suspe
+return
+
+procedure SELISX
+do SELSHA
+select 1
+use sel1 index sel1
+go top
+jj=1
+do while jj < 5
+i=1
+do while i < 13
+   select 1
+   @ str,0 say "!"
+   @ str,1 say abc pict "999"
+   @ str,4 say "!"
+   @ str,5 say blok pict "99"
+   @ str,9 say "!"
+   @ str,10 say bloka pict ""
+   @ str,15 say "!"
+   @ str,16 say ns pict "999"
+   @ str,21 say "!"
+   @ str,22 say imea pict ""
+   @ str,27 say "!"
+   @ str,28 say sen pict "999999"
+   @ str,35 say "!"
+   @ str,36 say sek pict "999999"
+   @ str,43 say "!"
+   skip 12
+   @ str,45 say "!"
+   @ str,46 say abc pict "999"
+   @ str,49 say "!"
+   @ str,50 say blok pict "99"
+   @ str,54 say "!"
+   @ str,55 say bloka pict ""
+   @ str,60 say "!"
+   @ str,61 say ns pict "999"
+   @ str,66 say "!"
+   @ str,67 say imea pict ""
+   @ str,72 say "!"
+   @ str,73 say sen pict "999999"
+   @ str,80 say "!"
+   @ str,81 say sek pict "999999"
+   @ str,88 say "!"
+   skip 12
+   @ str,90 say "!"
+   @ str,91 say abc pict "999"
+   @ str,94 say "!"
+   @ str,95 say blok pict "99"
+   @ str,99 say "!"
+   @ str,100 say bloka pict ""
+   @ str,105 say "!"
+   @ str,106 say ns pict "999"
+   @ str,111 say "!"
+   @ str,112 say imea pict ""
+   @ str,117 say "!"
+   @ str,118 say sen pict "999999"
+   @ str,125 say "!"
+   @ str,126 say sek pict "999999"
+   @ str,133 say "!"
+   str=str+1
+   skip -23
+   i=i+1
+enddo
+@ str,0 say "!---!----!-----!-----!-----!-------!-------!-!---!----!-----!-----!-----!-------!-------!-!---!----!-----!-----!-----!-------!-------!"
+str=str+1
+   skip 24
+   jj=jj+1
+enddo
+@ str,0 say "!---!----!-----!-----!-----!-------!-------!-!---!----!-----!-----!-----!-------!-------!-!---!----!-----!-----!-----!-------!-------!"
+str=str+1
+@ str,0 say " "
+str=str+1
+@ str,0 say " "
+str=str+1
+@ str,0 say " "
+str=str+1
+@ str,0 say " "
+str=str+1
+@ str,0 say " "
+str=str+1
+set device to screen
+return
+
+procedure SELSHA
+str=str+1
+@ str,0 say "ˆ‚– ’˜„ˆ‘          ˆ‘•„›… „€›…  Œ…•€ˆ‡Œ€Œ ‘..        ‡€ …ˆ„ ‘  01.  .    .          .  .    ."
+@ str,79 say imm pict "99"
+@ str,82 say igg pict "9999"
+@ str,97 say idd pict "99"
+@ str,100 say imm pict "99"
+@ str,103 say igg pict "9999"
+str=str+1
+@ str,0 say "!---!----!-----!-----!-----!-------!-------!-!---!----!-----!-----!-----!-------!-------!-!---!----!-----!-----!-----!-------!-------!"
+str=str+1
+@ str,0 say "!N/N!¡«®ª!á¥ª-ï!N áç.! ¨¬ï !­ ç.¯-¥!ª®­.¯-¥! !N/N!¡«®ª!á¥ª-ï!N áç.! ¨¬ï !­ ç.¯-¥!ª®­.¯-¥! !N/N!¡«®ª!á¥ª-ï!N áç.! ¨¬ï !­ ç.¯-¥!ª®­.¯-¥!"
+str=str+1
+@ str,0 say "!---!----!-----!-----!-----!-------!-------!-!---!----!-----!-----!-----!-------!-------!-!---!----!-----!-----!-----!-------!-------!"
+str=str+1
+return
+
+procedure SEMES
+if prizn=0        && â®â ¯à¨§­ ª ¯®«ãç ¥â §­ ç¥­¨¥ 1 ¨«¨ 0 ¢ WYMES
+   return
+endif
+save screen to ww
+   clear
+@ 8,20 say "2.SEMES"
+   otz=2
+   @ 9,20 say "‚› „…‰‘’‚ˆ’…‹œ •’ˆ’… Œ„ˆ”ˆ–ˆ‚€’œ €‡“  "
+   @ 10,28 say " „‹Ÿ €‘—…’€ ‘…‹…Š’€ ?!!! "
+   @ 11,24 prompt " …’ "
+   @ 11,33 prompt " „€ "
+   menu to otz
+      if otz=0.or.otz=1
+         return
+      endif
+   clear
+   @ 10,25 say "ˆ„…’ Œ„ˆ”ˆ–ˆŠ€–ˆŸ €‡›  „‹Ÿ ‘…‹…Š’€ !!! "
+   @ 11,25 say "                †„ˆ’…... "
+select 1
+use sel1 index sel12
+select 2
+use sel2 index sel2
+select 3
+use wyrab2 index wyrab2
+select 5
+use sel3 index sel3
+select 7
+use sel4.dbf
+select 1
+go top
+do while ! eof()
+   repl sen with sek
+   skip
+enddo
+sele 2
+go top
+lld=0
+count to lld
+if lld > 0
+   go top
+   do while ! eof()
+      now1=zap1      && N áç¥â.
+      now2=zap4      && ª®­.§­.
+      now3=zap2      &&  ª®íä.áç¥â.
+      sele 1
+      seek now1
+      if .not. found()
+         sele 2
+         skip
+         loop
+      endif
+      repl sen with now2
+      repl sek with now2
+      sele 3
+      go top
+      now1=now1-1
+      skip now1
+      repl ks with now3
+      repl mim with now2
+      sele 2
+      dele
+      pack
+   enddo
+
+endif
+sele 2
+go top
+lld=0
+count to lld
+if lld>0
+   go top
+   do while ! eof()
+      now1=zap1
+      now2=zap2
+      now3=zap4
+      sele 3
+      go top
+      skip now1-1
+      repl ks with now2
+      repl mim with now3
+      sele 5
+      set filter to nsb=now1
+      if .not. found()
+         clear
+         @ 15,25 say "˜ˆŠ€ ‚ ‡€Œ…… ‘—…’—ˆŠ‚ 3-£® ‹ˆ‘’€."
+         @ 16,25 say " ¦¬¨¨â¥ «î¡ãî ª« ¢¨èã"
+         read
+         skip
+         loop
+         set filter to
+      endif
+      go top
+      repl nac with now3
+      repl kon with now3
+      set filter to
+      sele 2
+      skip
+   enddo
+sele 2
+go top
+dele all
+pack
+endif
+sele 3
+go top
+skip 24
+sele 1
+go top
+do while ! eof()
+   now2=sek
+   sele 3
+   repl mim with now2
+   repl mik with now2
+   skip
+   sele 1
+   skip
+enddo
+select 5
+go top
+do while ! eof()
+   now1=nsb
+   now2=kon
+   repl nac with now2
+   sele 3
+   go top
+   skip now1-1
+   repl mim with now2
+   repl mik with now2
+   sele 5
+   skip
+enddo
+select 4
+use wyrab33.dbf
+go top
+dele all
+pack
+sele 7
+go top
+dele all
+pack
+
+select 3
+use wyrab2 index wyrab2
+go top
+select 7
+use wyrab4
+go top
+   ii=1
+   do while ii < 13
+      sele 7
+      xx1=ego2
+      skip
+      sele 3
+      repl mim with xx1
+      skip
+      ii=ii+1
+   enddo
+   select 7
+   use wyrab4
+   go top
+   ii=1
+   do while ii < 13
+      sele 7
+      xx1=ego3
+      skip
+      sele 3
+      repl mim with xx1
+      skip
+      ii=ii+1
+   enddo
+sele 7
+go top
+ii=1
+sele 3
+go top
+skip 187
+do while ii<5
+   sele 7
+   xx1=ego4
+   skip
+   sele 3
+   repl mim with xx1
+   skip
+   ii=ii+1
+enddo
+sele 1
+use akt2
+go top
+lld=0
+count to lld
+if lld > 0
+   do AKTNS     && …á«¨ ¡ë«  § ¬¥­  áç¥âç¨ª  ¯® €ªâã (­  «¨­¨ïå)
+endif
+restore screen from ww
+use
+close all
+prizn=0
+return
+
+procedure MAZUT
+dime s(15),dat(3),tim(2),w2(15),w1(15),t(15),ro(15),ur(15),rc(15)
+dime nbak(15),rmac(15),mac(15),mpr(15)
+nbak=0
+mpr=0
+s(1)=921.501
+s(2)=919.619
+s(3)=920.856
+s(4)=920.157
+s(5)=919.243
+s(6)=919.995
+s(7)=920.157
+s(8)=408.676
+s(9)=406.565
+s(10)=407.924
+s(11)=408.031
+s(12)=407.137
+s(13)=408.390
+s(14)=152.0
+s(15)=152.0
+prh=0
+@ 15,16,21,62 box win1+" "
+rr=1
+@ 16,18 prompt " à®áâ® à áç¥â "
+@ 16,36 prompt "  áç¥â á ª®àà¥ªâ¨à®¢ª®© "
+menu to rr
+do case
+case rr=0
+return
+case rr=2
+prh=1
+endcase
+dat(1)=1
+dat(2)=1
+dat(3)=1995
+tim(1)=12
+tim(2)=0
+s1=0
+s2=0
+@ 17,18 say "„ â  ¨­¢¥­â à¨§ æ¨¨: „„,ŒŒ,ƒƒƒƒ"
+@ 18,18 say "‚à¥¬ï ¨­¢¥­â à¨§ æ¨¨: —€‘,Œˆ"
+@ 19,23 say "ˆ•„           €‘•„"
+@ 17,51 get dat(1) pict "999"
+@ 17,55 get dat(2) pict "999"
+@ 17,59 get dat(3) pict "9999"
+@ 18,53 get tim(1) pict "999"
+@ 18,57 get tim(2) pict "999"
+@ 19,30 get s1 pict "999999"
+@ 19,47 get s2 pict "9999999"
+read
+l=readkey()
+if l=12
+return
+endif
+save screen to grpgrp
+use maz1 index maz1
+go top
+do REDMAZ
+restore screen from grpgrp
+ssum=0.0
+go top
+do while ! eof()
+j=nomer
+ur(j)=rur
+ro(j)=rro
+t(j)=rt
+w1(j)=rw1
+w2(j)=rw2
+rc(j)=s(j)/(100.0-w2(j))
+rmac(j)=rc(j)*ur(j)*(ro(j)-0.0006*(t(j)-20.0))*(100.0-w1(j))+0.5
+mac(j)=int(rmac(j))
+ssum=ssum+mac(j)
+skip
+enddo
+s3=ssum+s1+s2
+s4=s3
+nsum=ssum
+do PETMAZ
+if l=27.or.rr=1
+return
+endif
+prh=2
+rr=1
+@ 20,18 prompt " Š®àà¥ªâ¨à®¢ âì "
+@ 20,40 prompt " … ª®àà¥ªâ¨à®¢ âì "
+menu to rr
+if rr=0
+return
+endif
+if rr=2
+rr=0
+endif
+if rr=0
+ssum=nsum
+s3=s4
+do PETMAZ
+return
+endif
+set color to r+//b
+@ 24,25 say "ª®­ç â¥«ì­ë© ¢¥á ?   "
+@ 24,47 get s4 pict "99999999"
+read
+raz=s4-s3
+set color to w+//b
+@ 0,0,24,79  box "°"
+set color to r+//b
+@ 24,3 say "®¬¥à  ¡ ª®¢ ¡¥§ ¨§¬¥­¥­¨© ?"
+@ 24,32 get nbak(1) pict "99"
+@ 24,35 get nbak(2) pict "99"
+@ 24,38 get nbak(3) pict "99"
+@ 24,41 get nbak(4) pict "99"
+@ 24,44 get nbak(5) pict "99"
+@ 24,47 get nbak(6) pict "99"
+@ 24,50 get nbak(7) pict "99"
+@ 24,53 get nbak(8) pict "99"
+@ 24,56 get nbak(9) pict "99"
+@ 24,59 get nbak(10) pict "99"
+@ 24,62 get nbak(11) pict "99"
+@ 24,65 get nbak(12) pict "99"
+@ 24,68 get nbak(13) pict "99"
+@ 24,71 get nbak(14) pict "99"
+@ 24,74 get nbak(15) pict "99"
+read
+set color to w+//b
+@ 0,0,24,79  box "°"
+kol=0
+i=1
+do while i<16
+j=nbak(i)
+if j=0
+exit
+endif
+kol=kol+1
+mpr(j)=1
+i=i+1
+enddo
+kol=15-kol
+dov=raz/kol
+i=1
+do while i<16
+if mpr(i)=0
+rmac(i)=rmac(i)+dov
+endif
+mac(i)=int(rmac(i))
+i=i+1
+enddo
+rr=1
+@ 24,3 say "—â® ¨§¬¥­ïâì ?   "
+@ 24,21 prompt "   “à®¢¥­ì   "
+@ 24,35 prompt "  «®â­®áâì  "
+@ 24,49 prompt " ’¥¬¯¥à âãàa "
+@ 24,63 prompt "  ‚« ¦­®áâì  "
+menu to rr
+@ 0,0,24,79  box "°"
+do while .t.
+   i=1
+   do while i<16
+   if mpr(i)=0
+   do case
+   case rr=1.or.rr=0
+   ur(i)=rmac(i)/(rc(i)*(ro(i)-0.0006*(t(i)-20.0))*(100.0-w1(i)))
+   case rr=2
+   ro(i)=rmac(i)/(rc(i)*ur(i)*(100.0-w1(i)))+0.0006*(t(i)-20.0)
+   case rr=3
+   tt=(ro(i)-rmac(i)/(rc(i)*ur(i)*(100.0-w1(i))))/0.0006+20.0
+   case rr=4
+   w1(i)=100.0-rmac(i)/(rc(i)*ur(i)*(ro(i)-0.0006*(t(i)-20.0)))
+   endcase
+   endif
+   i=i+1
+   enddo
+   nsum=0
+   i=1
+   do while i<16
+   nsum=nsum+mac(i)
+   i=i+1
+   enddo
+   ns3=nsum+s1+s2
+   iraz=0
+   if ns3#s4
+      iraz=s4-ns3
+      if s1=0.and.s2=0
+         i=15
+         do while i>0
+            if mpr(i)=0
+               rmac(i)=rmac(i)+iraz
+               mac(i)=mac(i)+iraz
+               exit
+            endif
+            i=i-1
+         enddo
+         loop
+      endif
+      if s1#0.or.s2#0
+         if abs(s1)>=abs(s2)
+         s1=s1+iraz
+         endif
+         if abs(s1)<abs(s2)
+         s2=s2+iraz
+         endif
+      endif
+      exit
+   endif
+   exit
+enddo
+ssum=nsum
+s3=s4
+do PETMAZ
+return
+procedure PETMAZ
+koeff=1.0
+kolek=1
+@ 24,21 say " Š®«¨ç¥áâ¢® íª§¥¬¯«ïà®¢ ¯¥ç â¨ ?   "
+@ 24,55 get kolek pict "99"
+read
+l=readkey()
+if l=12.or.kolek<1
+return
+endif
+set device to print
+set printer to mazut.pec
+str=prow()+2
+if prh=0.or.prh=2
+@ str,0 say"ˆ‚– ’®è„ˆ‘"
+str=str+1
+@ str,44 say "“ ’ ‚ …  † „ € "
+str=str+1
+@ str,45 say "„¨à¥ªâ®à ’®è„ˆ‘"
+str=str+3
+@ str,52 say "‚.€. Ÿ„ƒ€‚"
+str=str+2
+@ str,43 say "'___'__________       £."
+str=str+3
+@ str,27 say "€ Š ’"
+str=str+2
+@ str,7 say "ˆ­¢¥­â à¨§ æ¨¨ ®áâ âª®¢ ¬ §ãâ  ¢ à¥§¥à¢ã à å ’’–"
+str=str+1
+@ str,17 say "­  24 ç á "
+@ str,30 say dat(1)-1 pict "99"
+@ str,32 say "."
+@ str,33 say dat(2) pict "99"
+@ str,35 say "."
+@ str,36 say dat(3) pict "9999"
+@ str,41 say "£®¤ ."
+str=str+2
+endif
+if prh=2
+@ str,9 say "‘®áâ ¢ ª®¬¨áá¨¨ :"
+str=str+2
+@ str,9 say "Œ.•. ‘€Œ€’‚           - £« ¢­ë© ¨­¦¥­¥à (¯à¥¤á¥¤ â¥«ì)"
+str=str+1
+@ str,9 say ".ƒ. …–…Šˆ         - ­ ç «ì­¨ª ’"
+str=str+1
+@ str,9 say "Œ.€. €•ˆŒ‚          - ­ ç «ì­¨ª Š’–"
+str=str+1
+@ str,9 say "€.ˆ. •€              - £« ¢­ë© ¡ãå£ «â¥à"
+str=str+2
+endif
+@ str,0 say "¥§ã«ìâ âë ¨­¢¥­â à¨§ æ¨¨ ­ "
+@ str,30 say tim(1) pict "99"
+@ str,32 say "-"
+@ str,33 say tim(2) pict "99"
+@ str,36 say "ç á®¢"
+@ str,42 say dat(1) pict "99"
+@ str,44 say "."
+@ str,45 say dat(2) pict "99"
+@ str,47 say "."
+@ str,48 say dat(3) pict "9999"
+@ str,53 say "£."
+str=str+1
+@ str,0 say "---------------------------------------------------------------"
+str=str+1
+@ str,0 say " áª« ¤|¡ ª| ¯«®é ¤ì |ãà®¢¥­ì|¯«®â­®áâì|â¥¬¯¥-|¢« ¦­®áâì|  ¬ áá "
+str=str+1
+@ str,0 say "      | N |®á­®¢ ­¨ï|¬ §ãâ  |¯à¨  20 C|à âãà |  ¢    % | ¬ §ãâ "
+str=str+1
+@ str,0 say "---------------------------------------------------------------"
+str=str+1
+@ str,0 say "7*10000"
+str=str+1
+j=1
+do while j<8
+@ str,8 say j pict "9"
+@ str,9 say  s(j) pict "99999.999"
+@ str,18 say ur(j) pict "999999.99"
+@ str,27 say ro(j) pict "99999.999"
+@ str,36 say  t(j) pict "9999999"
+@ str,45 say w1(j) pict "999.9"
+@ str,50 say w2(j) pict "999.9"
+@ str,55 say mac(j)*koeff pict"99999999"
+str=str+1
+j=j+1
+enddo
+@ str,0 say "6*50000"
+str=str+1
+i=1
+do while i<7
+j=i+7
+@ str,8 say i pict "9"
+@ str,9 say  s(j) pict "99999.999"
+@ str,18 say ur(j) pict "999999.99"
+@ str,27 say ro(j) pict "99999.999"
+@ str,36 say  t(j) pict "9999999"
+@ str,45 say w1(j) pict "999.9"
+@ str,50 say w2(j) pict "999.9"
+@ str,55 say mac(j)*koeff pict"99999999"
+str=str+1
+i=i+1
+enddo
+@ str,0 say "à. ª"
+str=str+1
+i=1
+do while i<3
+j=i+13
+@ str,8 say i pict "9"
+@ str,9 say  s(j) pict "99999.999"
+@ str,18 say ur(j) pict "999999.99"
+@ str,27 say ro(j) pict "99999.999"
+@ str,36 say  t(j) pict "9999999"
+@ str,45 say w1(j) pict "999.9"
+@ str,50 say w2(j) pict "999.9"
+@ str,55 say mac(j)*koeff pict"99999999"
+str=str+1
+i=i+1
+enddo
+@ str,0 say "---------------------------------------------------------------"
+str=str+2
+@ str,34 say "ˆ ’  ƒ  :"
+@ str,55 say ssum pict "99999999"
+str=str+2
+@ str,0 say "à¨å®¤ á"
+*@ str,9 say tim(1) pict "99"
+@ str,9 say "00"
+@ str,12 say "ç"
+@ str,14 say dat(1) pict "99"
+@ str,16 say "."
+@ str,17 say dat(2) pict "99"
+@ str,19 say "."
+@ str,20 say dat(3) pict "9999"
+@ str,25 say "£. ¤®"
+*@ str,29 say tim(2) pict "99"
+@ str,29 say tim(1) pict "99"
+@ str,32 say "ç"
+@ str,34 say tim(2) pict "99"
+@ str,37 say "¬¨­"
+@ str,41 say dat(1) pict "99"
+@ str,43 say "."
+@ str,44 say dat(2) pict "99"
+@ str,46 say "."
+@ str,47 say dat(3) pict "9999"
+@ str,52 say "£."
+@ str,55 say s1 pict "99999999"
+str=str+2
+@ str,0 say " áå®¤ á"
+*@ str,9 say tim(1) pict "99"
+@ str,9 say "00"
+@ str,12 say "ç"
+@ str,14 say dat(1) pict "99"
+@ str,16 say "."
+@ str,17 say dat(2) pict "99"
+@ str,19 say "."
+@ str,20 say dat(3) pict "9999"
+@ str,25 say "£. ¤®"
+@ str,29 say tim(1) pict "99"
+@ str,32 say "ç"
+@ str,34 say tim(2) pict "99"
+@ str,37 say "¬¨­"
+@ str,41 say dat(1) pict "99"
+@ str,43 say "."
+@ str,44 say dat(2) pict "99"
+@ str,46 say "."
+@ str,47 say dat(3) pict "9999"
+@ str,52 say "£."
+@ str,54 say s2 pict "99999999"
+str=str+2
+@ str,0 say "” ªâ¨ç¥áª¨© ®áâ â®ª ­   24 ç á "
+@ str,32 say dat(1)-1 pict "99"
+@ str,34 say "."
+@ str,35 say dat(2) pict "99"
+@ str,37 say "."
+@ str,38 say dat(3) pict "9999"
+@ str,43 say "£."
+@ str,55 say s3 pict "99999999"
+str=str+2
+if prh=0.or.prh=2
+@ str,0 say "Š­¨¦­ë© ®áâ â®ª ­       24 ç á "
+@ str,32 say dat(1)-1 pict "99"
+@ str,34 say "."
+@ str,35 say dat(2) pict "99"
+@ str,37 say "."
+@ str,38 say dat(3) pict "9999"
+@ str,43 say "£."
+@ str,55 say "........"
+str=str+2
+@ str,0 say "ˆ§«¨èª¨ (­¥¤®áâ ç )"
+@ str,55 say "........"
+str=str+3
+@ str,8 say "  „  ˆ ‘ ˆ :"
+str=str+10
+endif
+str=str+1
+@ str,0 say " "
+set device to screen
+set printer to
+i=0
+do while i<kolek
+! type mazut.pec>prn
+i=i+1
+enddo
+set color to w+//b
+@ 0,0,24,79  box "°"
+return
+procedure REDMAZ
+clear
+@ 0,0 say  "ÉÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍ»"
+@ 1,0 say  "º N º “‚…œ º‹’‘’œº ’…Œ-€ º ‚‹€†.‡ º ‚‹€†. º"
+@ 2,0 say  "ÌÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍ¹"
+@ 23,0 say "ÈÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍ¼"
+kol=3
+@ 24,0 say re pict ""
+go top
+mini=nomer
+go bott
+maxi=nomer
+go top
+do MAZEKR
+go top
+kol = 3
+do while .t.
+@ kol,7 get rur pict "999.99"
+@ kol,17 get rro pict "9.999"
+@ kol,27 get rt pict "999"
+@ kol,37 get rw1 pict "99.9"
+@ kol,47 get rw2 pict "99.9"
+read
+l = readkey()
+@ kol,7 say rur pict "999.99"
+@ kol,17 say rro pict "9.999"
+@ kol,27 say rt pict "999"
+@ kol,37 say rw1 pict "99.9"
+@ kol,47 say rw2 pict "99.9"
+if l = 12
+exit
+endif
+if l = 36
+nom=nomer
+nm=0
+lll=0
+do while .t.
+l=inkey(0)
+if l<45 .or.l>57 .or. l=46 .or. l=47
+exit
+endif
+if l=45
+lll=1
+else
+nm=nm*10+l-48
+endif
+enddo
+if lll=1
+nm=0-nm
+endif
+if nm < mini .or. nm > maxi
+loop
+endif
+seek nm
+if ! found()
+seek nom
+loop
+endif
+kol=3
+do MAZEKR
+seek nm
+kol=3
+loop
+endif
+if l = 4
+if nomer = mini
+loop
+endif
+skip -1
+nom=nomer
+if kol > 3
+kol = kol - 1
+loop
+else
+kol=3
+do MAZEKR
+seek nom
+kol=3
+endif
+loop
+endif
+if l=34
+if nomer = mini
+loop
+endif
+seek mini
+kol=3
+do MAZEKR
+seek mini
+kol=3
+loop
+endif
+if l=35
+if nomer = maxi
+loop
+endif
+seek maxi
+kol=3
+do MAZEKR
+seek maxi
+kol=3
+loop
+endif
+if l=6
+if nomer = mini
+loop
+endif
+i=0
+do while ! bof()
+skip -1
+i=i+1
+if i = 20
+exit
+endif
+enddo
+nom=nomer
+kol=3
+do MAZEKR
+seek nom
+kol=3
+loop
+endif
+if l=7
+if nomer = maxi
+loop
+endif
+i=0
+do while ! eof()
+skip
+i=i+1
+if i = 20
+exit
+endif
+enddo
+if i<20
+seek maxi
+endif
+nom=nomer
+kol=3
+do MAZEKR
+seek nom
+kol=3
+loop
+endif
+if l=5.or.l=270.or.l=15
+if nomer = 15
+loop
+endif
+if kol<22
+kol=kol+1
+priz=0
+else
+kol=3
+endif
+skip
+loop
+endif
+enddo
+return
+procedure MAZEKR
+@ kol,0 clear to 22,79
+do while ! eof()
+@ kol,0 say "º"
+@ kol,2 say nomer pict "99"
+@ kol,4 say "º"
+@ kol,7 say rur pict "999.99"
+@ kol,14 say "º"
+@ kol,17 say rro pict "9.999"
+@ kol,24 say "º"
+@ kol,27 say rt pict "999"
+@ kol,34 say "º"
+@ kol,37 say rw1 pict "99.9"
+@ kol,44 say "º"
+@ kol,47 say rw2 pict "99.9"
+@ kol,54 say "º"
+if kol=22
+exit
+endif
+kol = kol + 1
+skip
+enddo
+do while kol<23
+@ kol,0  say "º"
+@ kol,4  say "º"
+@ kol,14 say "º"
+@ kol,24 say "º"
+@ kol,34 say "º"
+@ kol,44 say "º"
+@ kol,54 say "º"
+kol=kol+1
+enddo
+return
+
+procedure GRP
+use
+close all
+baz1 = 0
+baz2 = 0
+baz3 = 0
+baz4 = 0
+select 2
+use grp2
+select 3
+use grp3 index grp3
+select 4
+use grp4 index grp4
+select 1
+use grp1
+go top
+i=1
+do while ! eof()
+ggg(1,i)=g1
+ggg(2,i)=g2
+ggg(3,i)=g3
+ggg(4,i)=g4
+ggg(5,i)=g5
+ggg(6,i)=g6
+ggg(7,i)=g7
+ggg(8,i)=g8
+ggg(9,i)=g9
+ggg(10,i)=g10
+ggg(11,i)=g11
+i=i+1
+skip
+enddo
+idd=1
+imm=1
+igg=95
+pl=0.0000
+r=0.0000
+summ=0
+liz = 1
+liz1 = 0
+liz2 = 0
+liz3 = 0
+liz4 = 0
+liz5 = 0
+liz6 = 0
+liz7 = 0
+*! delete grp1.pec
+do while .t.
+save screen to ww
+@ 16,20,20,58 box win1+" "
+liz = 1
+@ 18,22 prompt " €‘—…’ "
+@ 18,34 prompt " Š¥ªâ¨à®¢ª  ?"
+menu to liz
+if liz = 0
+ if liz4 > 0
+   @ 16,20,22,58 box win1+" "
+   @ 18,22 say "„ƒ’‚œ’… ˆ’… ,  ¦¬¨â¥ ENTER "
+   @ 19,22 say " ESC - ‚›•„ …‡ …—€’ˆ "
+   @ 20,22 say " à¨ á¡®¥ à á¯¥ç â ©â¥  GRP1.PEC !!!"
+   read
+   l=readkey()
+   if l=12
+     return
+   endif
+   ! type grp1.pec > prn
+  endif
+   use
+   close all
+   return
+endif
+@ 16,20,22,60 box win1+" "
+@ 17,22 say "“ª ¦¨â¥ ¤ âã: „„,ŒŒ,ƒƒƒƒ"
+@ 17,48 get idd pict "999"
+@ 17,52 get imm pict "999"
+@ 17,56 get igg pict "9999"
+read
+l=readkey()
+if l=12
+*grp
+exit
+endif
+liz1 =igg*10000+imm*100+idd         && £®¤,¬¥áïæ ¨ ¤¥­ì
+otz=1
+@ 18,26 say " áç¥â ¯®  ƒ  ¨«¨  ƒ‘  ?"
+@ 18,36 prompt " ƒ "
+@ 18,46 prompt " ƒ‘ "
+menu to otz
+if otz=0
+return
+endif
+igrp=1
+init=1
+do while .t.
+pp=0
+pt=0
+q=0
+pd=0
+@ 19,22 say "®¬¥à ƒ(ƒ‘)      ­®¬¥à ­¨âª¨     "
+@ 20,22 say "„ ¢«¥­¨¥          ¯«®â­®áâì         "
+@ 19,37 get igrp pict "999"
+@ 19,54 get init pict "999"
+@ 20,31 get pl pict "99999.9999"
+@ 20,50 get r pict "99.9999"
+read
+l=readkey()
+if l=12
+return
+endif
+liz2 = igrp*10+init           && ­®¬¥à £à¯ ¨ ­®¬¥à ­¨âª¨
+ddt=2
+@ 21,22 prompt " “­¨çâ®¦ âì ¤ ­­ë¥ "
+@ 21,42 prompt " ¥ ã­¨çâ®¦ âì "
+menu to ddt
+if ddt=0
+return
+endif
+if ddt=1
+sele 3            && use grp3 index grp3
+go top
+skip
+do while ! eof()
+dele
+skip
+enddo
+pack
+go top
+endif
+select 2          && use grp2
+go top
+i=1
+do while ! eof()
+f(i)=ff
+i=i+1
+skip
+enddo
+go top
+do case
+case igrp=1
+i=1
+do while ! eof()
+if otz=2
+pd(i)=dn2
+i=i+1
+skip
+loop
+endif
+if init=1
+pd(i)=pd11
+endif
+if init=2
+pd(i)=pd12
+endif
+if init=3
+pd(i)=pd13
+endif
+if init=4
+pd(i)=pd14
+endif
+i=i+1
+skip
+enddo
+case igrp=2
+i=1
+do while ! eof()
+if otz=2
+pd(i)=dn2
+i=i+1
+skip
+loop
+endif
+if init=1
+pd(i)=pd21
+endif
+if init=2
+pd(i)=pd22
+endif
+if init=3
+pd(i)=pd23
+endif
+if init=4
+pd(i)=pd24
+endif
+i=i+1
+skip
+enddo
+case igrp=3
+i=1
+do while ! eof()
+if init=1
+pd(i)=pd31
+endif
+if init=2
+pd(i)=pd32
+endif
+if init=3
+pd(i)=pd33
+endif
+if init=4
+pd(i)=pd34
+endif
+i=i+1
+skip
+enddo
+case igrp=4
+i=1
+do while ! eof()
+if init=1
+pd(i)=pd41
+endif
+if init=2
+pd(i)=pd42
+endif
+if init=3
+pd(i)=pd43
+endif
+if init=4
+pd(i)=pd44
+endif
+i=i+1
+skip
+enddo
+endcase
+save screen to grpgrp
+if liz = 2
+      @ 16,20,22,58 box win1+" "
+      @ 18,22 say "‚¢¥¤¨â¥ à áå®¤ £ §  ¤«ï à §¡à®á "
+      @ 19,22 say " 0 - ¯à®áâ® ª®àà¥ªâ¨à®¢ª  -"
+      @ 19,50 get liz5 pict "9999.99"
+      read
+   sele 4         && use grp4 index grp4
+*   seek liz1
+   set filter to mesgod = liz1 .and. nit = liz2
+   lld = 0
+   count to lld
+   if lld = 0
+      @ 16,20,22,58 box win1+" "
+      @ 18,22 say "…’ ¤ ­­ëå ¤«ï ª®àà¥ªà¨à®¢ª¨!!!"
+      @ 20,22 say " ¦¬¨â¥ «î¡ãî ª« ¢¨èã !"
+      read
+      restore screen from ww
+      return
+   endif
+   select 3
+   go top
+   dele all
+   pack
+   sele 4
+browse
+wait
+   go top
+   liz6 = 0
+   do while ! eof()
+      if liz5 # 0
+         liz6 = liz6+qq
+      endif
+      baz1 = nomer
+      baz2 = qq
+      baz3 = p
+      baz4 = t
+      select 3
+      append blank
+      repl nomer with baz1
+      repl qq with baz2
+      repl p with baz3
+      repl t with baz4
+      skip
+      select 4
+      skip
+   enddo
+*suspe
+   select 4
+   go top
+   dele all
+   pack
+endif
+if liz5 # 0
+   liz7 = liz5/liz6
+   select 3
+   go top
+   do while ! eof()
+     repl qq with round((qq+qq*liz7),1)
+     skip
+   enddo
+endif
+select 3
+go top
+do REDGRP
+go top
+restore screen from grpgrp
+set printer to grp.pec
+set device to print
+str=prow()+2
+@ str,0 say "ˆ‚–    ’®è„ˆ‘"
+@ str,45 say " € ‘ •  „   ƒ € ‡ €"
+if otz=1
+@ str,70 say "ƒ"
+else
+@ str,70 say "ƒ‘"
+endif
+@ str,74 say igrp pict "99"
+@ str,77 say "­¨âª "
+  if liz2=24                      && ¨§¬ 6.05.98£
+    @ str,84 say "2-®¤èª «ì­¨ª"  && ­  4 ­¨âª¥ 2 ƒ
+    else
+@ str,83 say init pict "99"
+  endif
+@ str,115 say "„ â "
+@ str,120 say idd pict "99"
+@ str,122 say "."
+@ str,123 say imm pict "99"
+@ str,125 say "."
+@ str,126 say igg pict "9999"
+str=str+2
+@ str,0 say " à®¬¥âà¨ç¥áª®¥ ¤ ¢«¥­¨¥"
+@ str,25 say pl pict "999.999"
+@ str,35 say "«®â­®áâì"
+@ str,45 say r pict "999.999"
+  if liz2=24                      && ¨§¬ 6.05.98£
+    @ str,84 say "KQ=1.055262"    && ­  4 ­¨âª¥ 2 ƒ
+  endif
+str=str+1
+@ str,122 say "’ëá.Œ‡"
+str=str+1
+@ str,0 say "— á       QD        P      T        PA      Xˆ       EPD       N        KT        KRE       KPT       KRO      „¥«ìK       Q  áç"
+str=str+1
+es=pd(2)**2
+*p2=pl/760.0000
+p2=pl*1.3595/1000       && ¨á¯à.1.03.98£
+sumc=0.0
+sumx=0.0
+sume=0.0
+suman=0.0
+sumd=0.0
+sums=0.0
+sumak9=0.0
+sumak1=0.0
+sumh=0.0
+sumv9=0.0
+do while ! eof()
+n=nomer
+pp(n)=p
+pt(n)=t
+q(n)=qq
+ak(n)=0
+v(n)=0
+c=0.0000
+c=p+p2
+x=1.29+0.704*(2575+(346.23-(273.15+t))**2)*c/1000000
+*e=1-(0.41+0.35*es)*qq**2/(pd(14)**2*c*x/1000000)  &&  KKK
+e=0.9887*(1-(0.41+0.35*es)*qq**2/(pd(14)**2*c*x/1000000))
+an=0.0000
+an=qq/pd(1)
+d=1.001
+if (t-51.8)<0
+d=0.9987
+if (t+14.9)>0
+j=23
+d=1.0012
+do while .t.
+j=j-1
+d=d-0.0001
+if (t-f(j))>0
+exit
+endif
+enddo
+endif
+endif
+* p6=30.168*(0.05993*(26.831-r)+(pd(6)-0.392*pd(7)))
+p6=30.168*(0.05993*(26.831-r)+(pd(6)+0.392*pd(7)))
+t2=88.25*(1.7591*(0.56364+r)-(pd(6)+1.681*pd(7)))
+t3=(t+273.15)/t2
+p3=c/p6
+am2=(0.5173*(1+r*(1.104-0.25*r)))*(t3*(1-0.1038*t3)+0.037)*(1+p3**2/30/(t3-1))/1000000
+ak1=sqrt(1/r)
+ak2=226.29/(175.91*(0.56364+r)-100*(pd(6)+1.681*pd(7)))
+*ak3=156.47/(5.993*(26.831-r)+100*(pd(6)-0.392*pd(7)))
+ak3=156.47/(5.993*(26.831-r)+100*(pd(6)+0.392*pd(7)))
+p4=p*ak3
+t4=ak2*(t+273.15)-273.15
+i1= -15
+do while i1<=35
+ai1=i1
+if (ai1-t4)>=0
+exit
+endif
+i1=i1+5
+enddo
+ai2=ai1-5
+ai3=t4-ai2
+ib1=2
+do while ib1<=20
+b1=ib1/2
+if (b1-p4)>=0
+exit
+endif
+ib1=ib1+1
+enddo
+b2=b1-0.5
+b11=p4-b2
+i1=ai1/5+4
+if (ai1-t4) <> 0
+ib=b1*2-1
+i2=ai2/5+4
+ib2=b2*2-1
+if i1<1
+i1=1
+endif
+if i2<1
+i2=1
+endif
+if ib<1
+ib=1
+endif
+if ib1<1
+ib1=1
+endif
+if ib2<1
+ib2=1
+endif
+b3=(ggg(i1,ib)-ggg(i2,ib))/5
+b3=b3*ai3+ggg(i2,ib)
+b4=(ggg(i1,ib2)-ggg(i2,ib2))/5
+b4=b4*ai3+ggg(i2,ib2)
+h=(b3-b4)*2*b11+b4
+else
+ib1=b1*2-1
+h=ggg(i1,ib1)
+endif
+*h=sqrt(1/h)      && KKKK
+h=0.9994*sqrt(1/h)
+ak9=0.0000
+ak9=sqrt(c/(t+273.1500))
+q2=pd(15)*an*e*d*ak9*ak1*h
+r1=0.0361*q2*r/(pd(4)*am2)
+c3=0.5959+0.0312*(pd(2)**1.05)-0.184*(es**2)
+c3=c3/sqrt(1-es)
+b4=0.0029*(pd(2)**1.25)/(sqrt(1-es))
+s1=b4*r1/(pd(13)*1000000)
+s2=c3*r1/(pd(13)*1000000)
+s3=s1/s2**1.75
+r2=r1*c3/(pd(13)*(1-s3*(1-s3*(1-s3)**1.75)**1.75))
+*s=(c3+b4*(1000000/r2)**0.75)/(c3+b4)    && KKKK
+s=0.9991*((c3+b4*(1000000/r2)**0.75)/(c3+b4))
+v9(n)=q2*s/1000
+  if liz2=24                      && ¨§¬ 6.05.98£
+    v9(n)=v9(n)*1.055262          && ­  4 ­¨âª¥ 2 ƒ
+  endif
+@ str,0 say n pict "99"                 &&  ç á
+@ str,3 say qq pict "9999999.99"        &&  QD
+@ str,14 say p pict "99999.99"          &&  P
+@ str,23 say t pict "9999.9"            &&  T
+@ str,31 say c pict "9999.999"           && PA
+@ str,39 say x pict "9999.999"          &&
+@ str,48 say e pict "9999.9999"         &&
+@ str,58 say an pict "999.9999"         &&
+@ str,67 say d pict "9999.9999"         &&
+@ str,77 say s pict "9999.9999"         &&
+@ str,87 say ak9 pict "9999.9999"       &&
+@ str,97 say ak1 pict "9999.9999"       &&
+@ str,107 say h pict "9999.9999"        &&
+@ str,117 say v9(n) pict "9999999.9999"
+str=str+1
+sumc=sumc+c
+sumx=sumx+x
+sume=sume+e
+suman=suman+an
+sumd=sumd+d
+sums=sums+s
+sumak9=sumak9+ak9
+sumak1=sumak1+ak1
+sumh=sumh+h
+sumv9=sumv9+v9(n)
+skip
+enddo
+n=26
+ccc=0
+v6=0.0
+q8=0.0
+av=0.0
+p8=0.0
+t8=0.0
+ak8=0.0
+i=1
+do while i<26
+if q(i)>0
+ccc=ccc+1
+v6=v6+v9(i)
+av=av+v(i)
+v(n)=av/ccc
+q8=q8+q(i)
+p8=p8+pp(i)
+t8=t8+pt(i)
+ak8=ak8+ak(i)
+endif
+i=i+1
+enddo
+ppp=p8/ccc
+ttt=t8/ccc
+ak(n)=ak8/ccc
+str=str+1
+@ str,0 say "Š®«¨ç¥áâ¢® £ §  ¯®âà¥¡«ï¥¬®£® §  áãâª¨"
+@ str,40 say v6 pict "9999999.9999"
+str=str+1
+c=sumc/ccc
+x=sumx/ccc
+e=sume/ccc
+an=suman/ccc
+d=sumd/ccc
+s=sums/ccc
+ak9=sumak9/ccc
+ak1=sumak1/ccc
+h=sumh/ccc
+summ(init,igrp)=v6
+@ str,0 say "‘"
+@ str,3 say q8 pict "9999999.99"
+@ str,14 say ppp pict "99999.99"
+@ str,23 say ttt pict "99999.9"
+@ str,30 say c pict "9999.999"
+@ str,39 say x pict "9999.999"
+@ str,48 say e pict "9999.9999"
+@ str,58 say an pict "999.9999"
+@ str,67 say d pict "9999.9999"
+@ str,77 say s pict "9999.9999"
+@ str,87 say ak9 pict "9999.9999"
+@ str,97 say ak1 pict "9999.9999"
+@ str,107 say h pict "9999.9999"
+c=ppp+p2
+x=1.29+0.704*(2575+(346.23-(273.15+ttt))**2)*c/1000000
+* e=1-(0.41+0.35*es)*(q8/ccc)**2/(pd(14)**2*c*x/1000000) &&  KKKK
+e=0.9887*(1-(0.41+0.35*es)*(q8/ccc)**2/(pd(14)**2*c*x/1000000))
+an=(q8/ccc)/pd(1)
+d=1.001
+if (ttt-51.8)<0
+d=0.9987
+if (ttt+14.9)>0
+j=23
+d=1.0012
+do while .t.
+j=j-1
+d=d-0.0001
+if (ttt-f(j))>0
+exit
+endif
+enddo
+endif
+endif
+* p6=30.168*(0.05993*(26.831-r)+(pd(6)-0.392*pd(7)))
+p6=30.168*(0.05993*(26.831-r)+(pd(6)+0.392*pd(7)))
+t2=88.25*(1.7591*(0.56364+r)-(pd(6)+1.681*pd(7)))
+t3=(ttt+273.15)/t2
+p3=c/p6
+am2=(0.5173*(1+r*(1.104-0.25*r)))*(t3*(1-0.1038*t3)+0.037)*(1+p3**2/30/(t3-1))/1000000
+ak1=sqrt(1/r)
+ak2=226.29/(175.91*(0.56364+r)-100*(pd(6)+1.681*pd(7)))
+* ak3=156.47/(5.993*(26.831-r)+100*(pd(6)-0.392*pd(7)))
+ak3=156.47/(5.993*(26.831-r)+100*(pd(6)+0.392*pd(7)))
+p4=ppp*ak3
+t4=ak2*(ttt+273.15)-273.15
+i1= -15
+do while i1<=35
+ai1=i1
+if (ai1-t4)>=0
+exit
+endif
+i1=i1+5
+enddo
+ai2=ai1-5
+ai3=t4-ai2
+ib1=2
+do while ib1<=20
+b1=ib1/2
+if (b1-p4)>=0
+exit
+endif
+ib1=ib1+1
+enddo
+b2=b1-0.5
+b11=p4-b2
+i1=ai1/5+4
+if (ai1-t4) <> 0
+ib=b1*2-1
+i2=ai2/5+4
+ib2=b2*2-1
+if i1<1
+i1=1
+endif
+if i2<1
+i2=1
+endif
+if ib<1
+ib=1
+endif
+if ib1<1
+ib1=1
+endif
+if ib2<1
+ib2=1
+endif
+b3=(ggg(i1,ib)-ggg(i2,ib))/5
+b3=b3*ai3+ggg(i2,ib)
+b4=(ggg(i1,ib2)-ggg(i2,ib2))/5
+b4=b4*ai3+ggg(i2,ib2)
+h=(b3-b4)*2*b11+b4
+else
+ib1=b1*2-1
+h=ggg(i1,ib1)
+endif
+*h=sqrt(1/h)         && KKKK
+h=0.9994*sqrt(1/h)
+ak9=sqrt(c/(ttt+273.15))
+q2=pd(15)*an*e*d*ak9*ak1*h
+r1=0.0361*q2*r/(pd(4)*am2)
+c3=0.5959+0.0312*(pd(2)**1.05)-0.184*(es**2)
+c3=c3/sqrt(1-es)
+b4=0.0029*(pd(2)**1.25)/(sqrt(1-es))
+s1=b4*r1/(pd(13)*1000000)
+s2=c3*r1/(pd(13)*1000000)
+s3=s1/s2**1.75
+r2=r1*c3/(pd(13)*(1-s3*(1-s3*(1-s3)**1.75)**1.75))
+*s=(c3+b4*(1000000/r2)**0.75)/(c3+b4)   &&  KKKK
+s=0.9991*((c3+b4*(1000000/r2)**0.75)/(c3+b4))
+sumv9=ccc*q2*s/1000
+  if liz2=24                      && ¨§¬ 6.05.98£
+    sumv9=sumv9*1.055262          && ­  4 ­¨âª¥ 2 ƒ
+  endif
+d8=(sumv9-v6)/v6*100
+@ str,117 say sumv9 pict "9999999.9999"
+str=str+1
+@ str,0 say "„¥«ìâ  ............"
+@ str,20 say d8 pict "9999.99"
+@ str,28 say "%"
+str=str+1
+set printer to
+set device to screen
+save screen to grpgrp
+if liz4 = 0
+   ! type grp.pec > grp1.pec
+   liz4 = 1
+   else
+*! type grp.pec > grp1.pec
+      ! copy grp1.pec + grp.pec
+endif
+*if liz = 1
+   set filter to
+   select 4         &&   use grp4 index grp4
+   go top
+   set filter to mesgod = liz1 .and. nit = liz2
+   go top
+   lld = 0
+   count to lld
+   if lld > 0
+      go top
+      dele all
+      pack
+   endif
+   set filter to
+   go bott
+   select 3         &&   use grp3 index grp3
+   go top
+   do while ! eof()
+      select 3
+      baz1 = nomer
+      baz2 = qq
+      baz3 = p
+      baz4 = t
+      select 4
+      append blank
+      repl nomer with baz1
+      repl qq with baz2
+      repl p with baz3
+      repl t with baz4
+      repl mesgod with liz1
+      repl nit with liz2
+      skip
+      select 3
+      skip
+   enddo
+*endif
+*suspe
+sele 3
+@ 18,18,20,60 box win1+" "
+y="Y"
+@ 19,28 say "„àã£ ï ­¨âª  (Y/N) ?    "
+@ 19,50 get y pict "@Y!"
+read
+restore screen from grpgrp
+if y # "Y"
+set printer to grp.pec
+set device to print
+str=prow()+2
+s5=0.0
+i=1
+do while i<5
+if summ(i,1) <> 0
+@ str,10 say summ(i,1) pict "9999999.9"
+str=str+1
+s5=s5+summ(i,1)
+endif
+i=i+1
+enddo
+if otz=1
+@ str,0 say "ƒ 1"
+else
+@ str,0 say "ƒC 1"
+endif
+@ str,10 say s5 pict "9999999.9"
+str=str+1
+s5=0.0
+i=1
+do while i<5
+if summ(i,2) <> 0
+@ str,10 say summ(i,2) pict "9999999.9"
+str=str+1
+s5=s5+summ(i,2)
+endif
+i=i+1
+enddo
+if otz=1
+@ str,0 say "ƒ 2"
+else
+@ str,0 say "ƒC 2"
+endif
+@ str,10 say s5 pict "9999999.9"
+str=str+1
+@ str,0 say " "
+summ=0
+set printer to
+! copy grp1.pec + grp.pec
+set device to screen
+exit
+endif
+enddo
+enddo
+restore screen from ww
+return
+procedure REDGRP
+clear
+@ 0,0 say  "ÉÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍ»"
+@ 1,0 say  "º  N º    Q    º    P    º    T    º"
+@ 2,0 say  "ÌÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍ¹"
+@ 23,0 say "ÈÍÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍ¼"
+kol=3
+@ 24,0 say re pict ""
+go top
+mini=nomer
+go bott
+maxi=nomer
+go top
+do GRPEKR
+go top
+kol = 3
+do while .t.
+@ kol,6 get qq pict "999.9999"
+@ kol,16 get p pict "999.9999"
+@ kol,26 get t pict "999.9999"
+read
+l = readkey()
+@ kol,6 say qq pict "999.9999"
+@ kol,16 say p pict "999.9999"
+@ kol,26 say t pict "999.9999"
+if l = 12
+exit
+endif
+if l = 33
+nm=kol
+if nomer > mini
+if kol>3
+nm=kol-1
+endif
+skip -1
+nom=nomer
+skip
+else
+skip
+nom=nomer
+skip -1
+endif
+dele
+pack
+go top
+mini=nomer
+go bott
+maxi=nomer
+seek nom
+kol=nm
+do GRPEKR
+seek nom
+kol=nm
+loop
+endif
+if l = 36
+nom=nomer
+nm=0
+lll=0
+do while .t.
+l=inkey(0)
+if l<45 .or.l>57 .or. l=46 .or. l=47
+exit
+endif
+if l=45
+lll=1
+else
+nm=nm*10+l-48
+endif
+enddo
+if lll=1
+nm=0-nm
+endif
+if nm < mini .or. nm > maxi
+loop
+endif
+seek nm
+if ! found()
+seek nom
+loop
+endif
+kol=3
+do GRPEKR
+seek nm
+kol=3
+loop
+endif
+if l = 4
+if nomer = mini
+loop
+endif
+skip -1
+nom=nomer
+if kol > 3
+kol = kol - 1
+loop
+else
+kol=3
+do GRPEKR
+seek nom
+kol=3
+endif
+loop
+endif
+if l=34
+if nomer = mini
+loop
+endif
+seek mini
+kol=3
+do GRPEKR
+seek mini
+kol=3
+loop
+endif
+if l=35
+if nomer = maxi
+loop
+endif
+seek maxi
+kol=3
+do GRPEKR
+seek maxi
+kol=3
+loop
+endif
+if l=6
+if nomer = mini
+loop
+endif
+i=0
+do while ! bof()
+skip -1
+i=i+1
+if i = 20
+exit
+endif
+enddo
+nom=nomer
+kol=3
+do GRPEKR
+seek nom
+kol=3
+loop
+endif
+if l=7
+if nomer = maxi
+loop
+endif
+i=0
+do while ! eof()
+skip
+i=i+1
+if i = 20
+exit
+endif
+enddo
+if i<20
+seek maxi
+endif
+nom=nomer
+kol=3
+do GRPEKR
+seek nom
+kol=3
+loop
+endif
+if l=5.or.l=270.or.l=15
+if nomer = maxi
+if kol < 22
+kol=kol+1
+else
+kol=3
+do GRPEKR
+kol=3
+endif
+n1=maxi+1
+@ kol,2 get n1 pict "99"
+read
+lll=readkey()
+if lll=12
+exit
+endif
+@ kol,2 say n1 pict "99"
+seek n1
+if found()
+kol=3
+do GRPEKR
+seek n1
+kol=3
+loop
+endif
+append blank
+replace nomer with n1
+if n1 < mini
+mini=n1
+endif
+if n1 > maxi
+maxi=n1
+endif
+if kol<22
+if n1=maxi
+loop
+else
+kol=3
+do GRPEKR
+kol=3
+seek n1
+loop
+endif
+else
+kol=3
+do GRPEKR
+kol=3
+seek n1
+loop
+endif
+endif
+skip
+nom=nomer
+if kol < 22
+kol=kol+1
+loop
+else
+kol=3
+do GRPEKR
+seek nom
+kol=3
+endif
+loop
+endif
+enddo
+return
+procedure GRPEKR
+@ kol,0 clear to 22,79
+do while ! eof()
+@ kol,0 say "º"
+@ kol,2 say nomer pict "99"
+@ kol,5 say "º"
+@ kol,6 say qq pict "999.9999"
+@ kol,15 say "º"
+@ kol,16 say p pict "999.9999"
+@ kol,25 say "º"
+@ kol,26 say t pict "999.9999"
+@ kol,35 say "º"
+if kol=22
+exit
+endif
+kol = kol + 1
+skip
+enddo
+do while kol<23
+@ kol,0  say "º"
+@ kol,5  say "º"
+@ kol,15 say "º"
+@ kol,25 say "º"
+@ kol,35 say "º"
+kol=kol+1
+enddo
+return
+
+procedure PEREJEG
+use
+close all
+n=0
+sele 4
+use pere4
+select 2
+use pere2 index pere2
+go bottom
+gg=int(nomer/10000)
+dd=nomer-gg*10000
+mm=int(dd/100)
+dd=dd-mm*100
+idd=dd
+imm=mm
+igg=gg
+go top
+count to l
+go top
+if l>56
+n=nomer
+dele
+pack
+endif
+go top
+select 1
+use pere1 index pere1
+go top
+if n>0
+set filter to nome=n
+dele all
+pack
+set filter to
+go top
+endif
+do while .t.
+@ 15,40,21,68 box win1+" "
+@ 16,42 prompt " áç¥â ¯¥à¥¦®£®¢ §  áãâª¨"
+@ 17,42 prompt "¥ç âì áãâ®ç­ëå ¯¥à¥¦®£®¢"
+@ 18,42 prompt "¥ç âì ­ à áâ îé¥£® ¨â®£ "
+@ 19,42 prompt "à®á¬®âà à áç¥â­ëå ¤ â"
+@ 20,42 prompt "¥ç âì ¡« ­ª  ¤«ï ¤ ­­ëå"
+menu to per
+save screen to per1
+do case
+case per=0
+use
+close all
+exit
+case per=1
+@ 23,20 say " “ª ¦¨â¥ ¤ âã: „„,ŒŒ,ƒƒƒƒ "
+@ 23,45 get dd pict "999"
+@ 23,50 get mm pict "999"
+@ 23,55 get gg pict "9999"
+read
+l=readkey()
+if l=12
+return
+endif
+do PERERED
+do PERERAS
+select 1
+use pere1 index pere1
+reind
+select 2
+use pere2 index pere2
+reind
+select 5
+use pere5 index pere5
+reind
+case per=2
+@ 23,20 say " “ª ¦¨â¥ ¤ âã: „„,ŒŒ,ƒƒƒƒ "
+@ 23,45 get dd pict "999"
+@ 23,50 get mm pict "999"
+@ 23,55 get gg pict "9999"
+read
+l=readkey()
+if l=12
+return
+endif
+do PEREPET1
+case per=3
+@ 23,5 say "‘ ª ª®£® ç¨á« : „„,ŒŒ,ƒƒƒƒ           ¯® ª ª®¥ ç¨á«®: „„,ŒŒ,ƒƒƒƒ            "
+@ 23,30 get dd pict "999"
+@ 23,34 get mm pict "999"
+@ 23,38 get gg pict "9999"
+@ 23,67 get idd pict "999"
+@ 23,71 get imm pict "999"
+@ 23,75 get igg pict "9999"
+read
+l=readkey()
+if l=12
+return
+endif
+do PEREPET2
+case per=4
+do PEREPET3
+case per=5
+do PEREPET4
+SET
+endcase
+restore screen from per1
+enddo
+select 1
+use
+select 2
+use
+select 3
+use
+select 4
+use
+select 5
+use
+close all
+return
+procedure PERERED
+dimension blo1(5,12),blo2(5,12)
+select 4
+go top
+n=gg*10000+mm*100+dd
+select 1
+go top
+set filter to nome=n
+go top
+count to l
+go top
+if l=0
+i=1
+do while i<17
+select 4
+rname=name
+skip
+select 1
+append blank
+repl nome with n
+repl nomer with i
+repl name with rname
+repl blok1 with 0
+repl blok2 with 0
+repl blok3 with 0
+repl blok4 with 0
+repl blok5 with 0
+repl blok6 with 0
+repl blok7 with 0
+repl blok8 with 0
+repl blok9 with 0
+repl blok10 with 0
+repl blok11 with 0
+repl blok12 with 0
+repl sblok with 0
+i=i+1
+enddo
+endif
+go top
+select 5
+use
+select 1
+! del pere5.dbf
+copy to pere5.dbf for nome=n while ! eof()
+select 5
+use pere5 index pere5
+reindex
+go top
+priz=1
+ekr=1
+kol=3
+do while .t.
+rkol=kol
+rnomr=nomer
+kol=3
+q=3
+do while q<rkol
+skip -1
+q=q+1
+enddo
+do case
+case ekr=1
+if priz=1
+do PEREKR11
+endif
+kol=rkol
+seek rnomr
+do PERGET11
+case ekr=2
+if priz=1
+do PEREKR12
+endif
+kol=rkol
+seek rnomr
+do PERGET12
+endcase
+priz=1
+if l = 12
+escq=nomer
+go top
+i=1
+do while i<6
+blo1(i,1)=blok1
+blo1(i,2)=blok2
+blo1(i,3)=blok3
+blo1(i,4)=blok4
+blo1(i,5)=blok5
+blo1(i,6)=blok6
+blo1(i,7)=blok7
+blo1(i,8)=blok8
+blo1(i,9)=blok9
+blo1(i,10)=blok10
+blo1(i,11)=blok11
+blo1(i,12)=blok12
+i=i+1
+skip
+enddo
+seek 8
+i=1
+do while i<6
+blo2(i,1)=blok1
+blo2(i,2)=blok2
+blo2(i,3)=blok3
+blo2(i,4)=blok4
+blo2(i,5)=blok5
+blo2(i,6)=blok6
+blo2(i,7)=blok7
+blo2(i,8)=blok8
+blo2(i,9)=blok9
+blo2(i,10)=blok10
+blo2(i,11)=blok11
+blo2(i,12)=blok12
+i=i+1
+skip
+enddo
+priz=0
+i=1
+do while i<6
+j=1
+do while j<12
+if (blo1(i,j)=0.and.blo2(i,j)#0).or.(blo1(i,j)#0.and.blo2(i,j)=0)
+priz=1
+exit
+endif
+j=j+1
+enddo
+if priz>0
+exit
+endif
+i=i+1
+enddo
+if priz>0
+@ 20,15 say "… ‚‘Ÿ ˆ”Œ€–ˆŸ ‡€…‘…€.  ¦¬¨â¥ «î¡ãî ª« ¢¨èã..."
+l=inkey(0)
+seek escq
+loop
+endif
+seek 7
+blo1(1,1)=blok1
+blo1(1,2)=blok2
+blo1(1,3)=blok3
+blo1(1,4)=blok4
+blo1(1,5)=blok5
+blo1(1,6)=blok6
+blo1(1,7)=blok7
+blo1(1,8)=blok8
+blo1(1,9)=blok9
+blo1(1,10)=blok10
+blo1(1,11)=blok11
+blo1(1,12)=blok12
+seek 14
+blo1(2,1)=blok1
+blo1(2,2)=blok2
+blo1(2,3)=blok3
+blo1(2,4)=blok4
+blo1(2,5)=blok5
+blo1(2,6)=blok6
+blo1(2,7)=blok7
+blo1(2,8)=blok8
+blo1(2,9)=blok9
+blo1(2,10)=blok10
+blo1(2,11)=blok11
+blo1(2,12)=blok12
+seek 15
+blo1(3,1)=blok1
+blo1(3,2)=blok2
+blo1(3,3)=blok3
+blo1(3,4)=blok4
+blo1(3,5)=blok5
+blo1(3,6)=blok6
+blo1(3,7)=blok7
+blo1(3,8)=blok8
+blo1(3,9)=blok9
+blo1(3,10)=blok10
+blo1(3,11)=blok11
+blo1(3,12)=blok12
+priz=0
+j=1
+do while j<12
+if (blo1(1,j)=0.and.blo1(2,j)=0.and.blo1(3,j)=0).or.(blo1(1,j)#0.and.blo1(2,j)#0.and.blo1(3,j)#0)
+j=j+1
+loop
+endif
+priz=1
+exit
+enddo
+if priz>0
+@ 20,15 say "… ‚‘Ÿ ˆ”Œ€–ˆŸ ‡€…‘…€.  ¦¬¨â¥ «î¡ãî ª« ¢¨èã..."
+l=inkey(0)
+seek escq
+loop
+endif
+seek 16
+if sblok=0
+@ 20,15 say "… ‚‘Ÿ ˆ”Œ€–ˆŸ ‡€…‘…€.  ¦¬¨â¥ «î¡ãî ª« ¢¨èã..."
+l=inkey(0)
+seek escq
+loop
+endif
+seek 6
+rblok1=sblok
+seek 13
+if (rblok1=0.and.sblok#0).or.(rblok1#0.and.sblok=0)
+@ 20,15 say "… ‚‘Ÿ ˆ”Œ€–ˆŸ ‡€…‘…€.  ¦¬¨â¥ «î¡ãî ª« ¢¨èã..."
+l=inkey(0)
+seek escq
+loop
+endif
+exit
+endif
+if l = 36
+@ 24,0 say"    ¡¥à¨â¥  XX (­®¬¥à áâà®ª¨)  ¨«¨ ¯à ¢ãî («¥¢ãî) áâà¥«ªã   ¨ ­ ¦¬¨â¥ Enter    "
+nom=nomer
+nm=0
+do while .t.
+l=inkey(0)
+if l=13.or.l=27.or.l=32
+exit
+endif
+if nm=0
+if l=4.or.l=2
+ekr=2
+exit
+endif
+if l=19.or.l=26
+ekr=1
+exit
+endif
+endif
+if l<48 .or.l>57
+loop
+endif
+nm=nm*10+l-48
+enddo
+@ 24,0 say re pict ""
+if l=2.or.l=4.or.l=19.or.l=26
+loop
+endif
+seek nm
+if ! found()
+seek nom
+priz=0
+loop
+endif
+loop
+endif
+if l = 4 && áâà.¢¢¥àå
+if nomer = 1
+priz=0
+loop
+endif
+skip -1
+nom=nomer
+if kol > 3
+kol = kol - 1
+priz=0
+loop
+endif
+endif
+if l=34 && Ctrl+PgUp
+if nomer = 1
+priz=0
+loop
+endif
+seek 1
+kol=3
+loop
+endif
+if l=35 && Ctrl+PgDn
+if nomer = 16
+priz=0
+loop
+endif
+seek 16
+kol=3
+loop
+endif
+if l=6 && PgUp
+if nomer = 1
+priz=0
+loop
+endif
+i=0
+do while ! bof()
+skip -1
+i=i+1
+if i = 20
+exit
+endif
+enddo
+nom=nomer
+kol=3
+loop
+endif
+if l=7 && PgDn
+if nomer = 16
+priz=0
+loop
+endif
+i=0
+do while ! eof()
+skip
+i=i+1
+if i = 20
+exit
+endif
+enddo
+if i<20
+seek 16
+endif
+nom=nomer
+kol=3
+loop
+endif
+if l=5.or.l=270.or.l=15 && áâà.¢­¨§ Ctrl+End Enter
+if nomer = 16
+loop
+endif
+if kol<22
+kol=kol+1
+priz=0
+else
+kol=3
+endif
+skip
+loop
+endif
+enddo
+select 1
+set filter to nome=n
+dele all
+pack
+set filter to
+select 5
+go top
+do while ! eof()
+n=nome
+i=nomer
+rname=name
+rblok1=blok1
+rblok2=blok2
+rblok3=blok3
+rblok4=blok4
+rblok5=blok5
+rblok6=blok6
+rblok7=blok7
+rblok8=blok8
+rblok9=blok9
+rblok10=blok10
+rblok11=blok11
+rblok12=blok12
+rsblok=sblok
+select 1
+append blank
+repl nome with n
+repl nomer with i
+repl name with rname
+repl blok1 with rblok1
+repl blok2 with rblok2
+repl blok3 with rblok3
+repl blok4 with rblok4
+repl blok5 with rblok5
+repl blok6 with rblok6
+repl blok7 with rblok7
+repl blok8 with rblok8
+repl blok9 with rblok9
+repl blok10 with rblok10
+repl blok11 with rblok11
+repl blok12 with rblok12
+repl sblok with rsblok
+select 5
+skip
+enddo
+use
+select 1
+return
+procedure PEREKR11
+clear
+@ 0,0 say  "ÉÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍ "
+@ 1,0 say  "ºŠ€‡€’…‹œº  1 ‹Š  º  2 ‹Š  º  3 ‹Š  º  4 ‹Š  º  5 ‹Š  º  6 ‹Š   "
+@ 2,0 say  "ÌÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍ "
+@ 23,0 say "ÈÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍ "
+@ 24,0 say re pict ""
+@ 0,78 say chr(16)
+@ 2,78 say chr(16)
+@ 23,78 say chr(16)
+do while ! eof()
+@ kol,0  say "º"
+@ kol,1  say name pict ""
+@ kol,11 say "º"
+@ kol,12 say blok1 pict "999999.999"
+@ kol,22 say "º"
+@ kol,23 say blok2 pict "999999.999"
+@ kol,33 say "º"
+@ kol,34 say blok3 pict "999999.999"
+@ kol,44 say "º"
+@ kol,45 say blok4 pict "999999.999"
+@ kol,55 say "º"
+@ kol,56 say blok5 pict "999999.999"
+@ kol,66 say "º"
+@ kol,67 say blok6 pict "999999.999"
+set color to gr+//b
+@ kol,78 say nomer pict "99"
+set color to w+//b
+kol = kol + 1
+skip
+enddo
+do while kol<23
+@ kol,0  say "º"
+@ kol,11 say "º"
+@ kol,22 say "º"
+@ kol,33 say "º"
+@ kol,44 say "º"
+@ kol,55 say "º"
+@ kol,66 say "º"
+kol=kol+1
+enddo
+return
+procedure PERGET11
+@ kol,12 get blok1 pict "999999.999"
+@ kol,23 get blok2 pict "999999.999"
+@ kol,34 get blok3 pict "999999.999"
+@ kol,45 get blok4 pict "999999.999"
+@ kol,56 get blok5 pict "999999.999"
+@ kol,67 get blok6 pict "999999.999"
+read
+l = readkey()
+@ kol,12 say blok1 pict "999999.999"
+@ kol,23 say blok2 pict "999999.999"
+@ kol,34 say blok3 pict "999999.999"
+@ kol,45 say blok4 pict "999999.999"
+@ kol,56 say blok5 pict "999999.999"
+@ kol,67 say blok6 pict "999999.999"
+return
+procedure PEREKR12
+clear
+@ 0,1 say  "  ÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍËÍÍÍÍÍÍÍÍÍÍ»"
+@ 1,1 say  "    7 ‹Š  º  8 ‹Š  º  9 ‹Š  º 10 ‹Š  º 11 ‹Š  º 12 ‹Š  º  ‚‘…ƒ   º"
+@ 2,1 say  "  ÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍÎÍÍÍÍÍÍÍÍÍÍ¹"
+@ 23,1 say "  ÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍÊÍÍÍÍÍÍÍÍÍÍ¼"
+@ 24,0 say re pict ""
+@ 0,0 say chr(17)
+@ 2,0 say chr(17)
+@ 23,0 say chr(17)
+do while ! eof()
+set color to gr+//b
+@ kol,0 say nomer pict "99"
+set color to w+//b
+@ kol,3 say blok7 pict "999999.999"
+@ kol,13 say "º"
+@ kol,14 say blok8 pict "999999.999"
+@ kol,24 say "º"
+@ kol,25 say blok9 pict "999999.999"
+@ kol,35 say "º"
+@ kol,36 say blok10 pict "999999.999"
+@ kol,46 say "º"
+@ kol,47 say blok11 pict "999999.999"
+@ kol,57 say "º"
+@ kol,58 say blok12 pict "999999.999"
+@ kol,68 say "º"
+@ kol,69 say sblok pict "999999.999"
+@ kol,79 say "º"
+kol = kol + 1
+skip
+enddo
+do while kol<23
+@ kol,13 say "º"
+@ kol,24 say "º"
+@ kol,35 say "º"
+@ kol,46 say "º"
+@ kol,57 say "º"
+@ kol,68 say "º"
+@ kol,79 say "º"
+kol=kol+1
+enddo
+return
+procedure PERGET12
+@ kol,3 get blok7 pict "999999.999"
+@ kol,14 get blok8 pict "999999.999"
+@ kol,25 get blok9 pict "999999.999"
+@ kol,36 get blok10 pict "999999.999"
+@ kol,47 get blok11 pict "999999.999"
+@ kol,58 get blok12 pict "999999.999"
+@ kol,69 get sblok pict "999999.999"
+read
+l = readkey()
+@ kol,3 say blok7 pict "999999.999"
+@ kol,14 say blok8 pict "999999.999"
+@ kol,25 say blok9 pict "999999.999"
+@ kol,36 say blok10 pict "999999.999"
+@ kol,47 say blok11 pict "999999.999"
+@ kol,58 say blok12 pict "999999.999"
+@ kol,69 say sblok pict "999999.999"
+return
+procedure PEREPET3
+@ 00,0 say "ÚÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄ„€’› €‘—…’‚ ……†ƒ‚ÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄ¿"
+@ 01,0 say "³                                                                              ³"
+@ 02,0 say "³                                                                              ³"
+@ 03,0 say "³                                                                              ³"
+@ 04,0 say "³                                                                              ³"
+@ 05,0 say "³                                                                              ³"
+@ 06,0 say "³                                                                              ³"
+@ 07,0 say "³                                                                              ³"
+@ 08,0 say "ÃÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄ´"
+@ 09,0 say "³                                                                              ³"
+@ 10,0 say "³                                                                              ³"
+@ 11,0 say "³                                                                              ³"
+@ 12,0 say "³                                                                              ³"
+@ 13,0 say "³                                                                              ³"
+@ 14,0 say "³                                                                              ³"
+@ 15,0 say "³                                                                              ³"
+@ 16,0 say "ÃÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄ´"
+@ 17,0 say "³                                                                              ³"
+@ 18,0 say "³                                                                              ³"
+@ 19,0 say "³                                                                              ³"
+@ 20,0 say "³                                                                              ³"
+@ 21,0 say "³                                                                              ³"
+@ 22,0 say "³                                                                              ³"
+@ 23,0 say "³                                                                              ³"
+@ 24,0 say "ÀÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÁÄÄÄ ¦¬¨â¥ «î¡ãî ª« ¢¨èã...ÄÙ"
+select 3
+use pere3
+go top
+select 2
+go top
+do while ! eof()
+gg=int(nomer/10000)
+dd=nomer-gg*10000
+mm=int(dd/100)
+dd=dd-mm*100
+select 3
+st=strok
+pz=pozic
+skip
+select 2
+@ st,pz say dd pict "99"
+if dd<10
+@ st,pz say "0"
+endif
+@ st,pz+2 say "."
+@ st,pz+3 say mm pict "99"
+if mm<10
+@ st,pz+3 say "0"
+endif
+@ st,pz+5 say "."
+
+*@ st,pz+6 say gg pict "99"
+
+* ¢ á¢ï§¨ á 2000 £®¤®¬:
+@ st,pz+6 say gg-int(gg/100)*100 pict "99"
+
+if pz<71
+@ st,pz+9 say "³"
+endif
+skip
+enddo
+@ 24,76 say "."
+l=inkey(0)
+return
+procedure PEREPET1
+select 2
+go top
+n=gg*10000+mm*100+dd
+seek n
+if ! found()
+set color to gr+*//b
+@ 24,11 say "„ ­­ë¥ §  íâ® ç¨á«® ®âáãâáâ¢ãîâ.  ¦¬¨â¥ «î¡ãî ª« ¢¨èã..."
+l=inkey(0)
+set color to w+//b
+return
+endif
+a(1)=a01
+a(2)=a02
+a(3)=a03
+a(4)=a04
+a(5)=a05
+a(6)=a06
+a(7)=a07
+a(8)=a08
+a(9)=a09
+a(10)=a10
+a(11)=a11
+a(12)=a12
+b(1)=b01
+b(2)=b02
+b(3)=b03
+b(4)=b04
+b(5)=b05
+b(6)=b06
+b(7)=b07
+b(8)=b08
+b(9)=b09
+b(10)=b10
+b(11)=b11
+b(12)=b12
+c(1)=c01
+c(2)=c02
+c(3)=c03
+c(4)=c04
+c(5)=c05
+c(6)=c06
+c(7)=c07
+c(8)=c08
+c(9)=c09
+c(10)=c10
+c(11)=c11
+c(12)=c12
+d(1)=d01
+d(2)=d02
+d(3)=d03
+d(4)=d04
+d(5)=d05
+d(6)=d06
+d(7)=d07
+d(8)=d08
+d(9)=d09
+d(10)=d10
+d(11)=d11
+d(12)=d12
+e(1)=e01
+e(2)=e02
+e(3)=e03
+e(4)=e04
+e(5)=e05
+e(6)=e06
+e(7)=e07
+e(8)=e08
+e(9)=e09
+e(10)=e10
+e(11)=e11
+e(12)=e12
+g(1)=g01
+g(2)=g02
+g(3)=g03
+g(4)=g04
+g(5)=g05
+g(6)=g06
+g(7)=g07
+g(8)=g08
+g(9)=g09
+g(10)=g10
+g(11)=g11
+g(12)=g12
+a(13)=0
+b(13)=0
+c(13)=0
+d(13)=0
+e(13)=0
+g(13)=0
+i=1
+do while i<13
+a(13)=a(13)+a(i)
+b(13)=b(13)+b(i)
+c(13)=c(13)+c(i)
+d(13)=d(13)+d(i)
+e(13)=e(13)+e(i)
+g(13)=g(13)+g(i)
+sss(i)=a(i)+b(i)+c(i)+d(i)+e(i)+g(i)
+i=i+1
+enddo
+sss(13)=sss(1)+sss(2)+sss(3)+sss(4)+sss(5)+sss(6)+sss(7)+sss(8)+sss(9)+sss(10)+sss(11)+sss(12)+fff
+kolek=1
+@ 24,21 say " Š®«¨ç¥áâ¢® íª§¥¬¯«ïà®¢ ¯¥ç â¨ ?   "
+@ 24,55 get kolek pict "99"
+read
+l=readkey()
+if l=12.or.kolek<1
+return
+endif
+*set device to print
+set printer to perejeg.pec     && 04102005
+set device to print
+kolpe=0
+do while kolpe<kolek
+kolpe=kolpe+1
+str=prow()+2
+@ str,25 say "   €‘—…’ ‘“’—ƒ €‘•„€ ’‹ˆ‚€  ’®è „ˆ‘  ˆ €‹ˆ—ˆˆ ˆ‡Œ……ˆ‰"
+str=str+1
+@ str,25 say "‚ ‘’“Š’“… ’…‹‚‰ ‘•…Œ›, ‘‘’€‚… ˆ …†ˆŒ… €’€™…ƒ “„‚€ˆŸ ‹Š‚"
+str=str+1
+@ str,50 say "‡€"
+@ str,55 say dd pict "99"
+@ str,57 say "."
+@ str,58 say mm pict "99"
+@ str,60 say "."
+@ str,61 say gg pict "9999"
+str=str+1
+@ str,0 say "--------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say ":                      :                                     Œ …     ‹  Š €                                      :  ®   :"
+str=str+1
+@ str,0 say ":    ’¨¯ ®âª«®­¥­¨ï    :-----------------------------------------------------------------------------------------------: áâ ­- :"
+str=str+1
+@ str,0 say ":                      :   1   :   2   :   3   :   4   :   5   :   6   :   7   :   8   :   9   :  10   :  11   :  12   :  æ¨¨  :"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ":   âª«îç¥­¨¥ 1 ‚‚   :"
+pz=24
+i=1
+do while i<14
+if a(i)<>0
+@ str,pz say a(i) pict "9999999"
+endif
+pz=pz+8
+i=i+1
+enddo
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ":      ¡®â  1 –      :"
+pz=24
+i=1
+do while i<14
+if b(i)<>0
+@ str,pz say b(i) pict "9999999"
+endif
+pz=pz+8
+i=i+1
+enddo
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ":âª«îç¥­¨¥ £àã¯¯ë ‚„ :"
+pz=24
+i=1
+do while i<14
+if c(i)<>0
+@ str,pz say c(i) pict "9999999"
+endif
+pz=pz+8
+i=i+1
+enddo
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ": ¡®â  ¡¥§ ®¡®¨å ‘„:"
+pz=24
+i=1
+do while i<14
+if d(i)<>0
+@ str,pz say d(i) pict "9999999"
+endif
+pz=pz+8
+i=i+1
+enddo
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ": ‚ª«îç¥­¨¥ ¢â®à®£®  :"
+pz=24
+i=1
+do while i<14
+if e(i)<>0
+@ str,pz say e(i) pict "9999999"
+endif
+pz=pz+8
+i=i+1
+enddo
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ":¥à¥¢.á¥â.¯®¤®£.­  “:"
+if fff<>0
+@ str,120 say fff pict "9999999"
+endif
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ":    ¡®â   ¢ à ¢¯à    :"
+pz=24
+i=1
+do while i<14
+if g(i)<>0
+@ str,pz say g(i) pict "9999999"
+endif
+pz=pz+8
+i=i+1
+enddo
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ":    ˆâ®£®, ª£ ã.â.    :"
+pz=24
+i=1
+do while i<14
+if sss(i)<>0
+@ str,pz say sss(i) pict "9999999"
+endif
+pz=pz+8
+i=i+1
+enddo
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ":    ˆâ®£®, £/ª‚â.ç.   :"
+if hhh<>0
+@ str,120 say hhh pict "9999.99"
+endif
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say "--------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say " "
+str=str+1
+enddo
+set device to screen
+set print to
+ ! type perejeg.pec > prn
+return
+procedure PEREPET2
+select 2
+go top
+n=gg*10000+mm*100+dd
+
+in=igg*10000+imm*100+idd
+
+set filter to nomer>=n.and.nomer<=in
+go top
+count to l
+go top
+if l<1
+set color to gr+*//b
+@ 24,10 say "„ ­­ë¥ §  íâ®â ¯¥à¨®¤ ®âáãâáâ¢ãîâ.  ¦¬¨â¥ «î¡ãî ª« ¢¨èã..."
+l=inkey(0)
+set color to w+//b
+set filter to
+return
+endif
+a=0
+b=0
+c=0
+d=0
+e=0
+g=0
+sfff=0
+ei=0
+do while ! eof()
+sfff=sfff+fff
+ei=ei+ej
+a(1)=a(1)+a01
+a(2)=a(2)+a02
+a(3)=a(3)+a03
+a(4)=a(4)+a04
+a(5)=a(5)+a05
+a(6)=a(6)+a06
+a(7)=a(7)+a07
+a(8)=a(8)+a08
+a(9)=a(9)+a09
+a(10)=a(10)+a10
+a(11)=a(11)+a11
+a(12)=a(12)+a12
+b(1)=b(1)+b01
+b(2)=b(2)+b02
+b(3)=b(3)+b03
+b(4)=b(4)+b04
+b(5)=b(5)+b05
+b(6)=b(6)+b06
+b(7)=b(7)+b07
+b(8)=b(8)+b08
+b(9)=b(9)+b09
+b(10)=b(10)+b10
+b(11)=b(11)+b11
+b(12)=b(12)+b12
+c(1)=c(1)+c01
+c(2)=c(2)+c02
+c(3)=c(3)+c03
+c(4)=c(4)+c04
+c(5)=c(5)+c05
+c(6)=c(6)+c06
+c(7)=c(7)+c07
+c(8)=c(8)+c08
+c(9)=c(9)+c09
+c(10)=c(10)+c10
+c(11)=c(11)+c11
+c(12)=c(12)+c12
+d(1)=d(1)+d01
+d(2)=d(2)+d02
+d(3)=d(3)+d03
+d(4)=d(4)+d04
+d(5)=d(5)+d05
+d(6)=d(6)+d06
+d(7)=d(7)+d07
+d(8)=d(8)+d08
+d(9)=d(9)+d09
+d(10)=d(10)+d10
+d(11)=d(11)+d11
+d(12)=d(12)+d12
+e(1)=e(1)+e01
+e(2)=e(2)+e02
+e(3)=e(3)+e03
+e(4)=e(4)+e04
+e(5)=e(5)+e05
+e(6)=e(6)+e06
+e(7)=e(7)+e07
+e(8)=e(8)+e08
+e(9)=e(9)+e09
+e(10)=e(10)+e10
+e(11)=e(11)+e11
+e(12)=e(12)+e12
+g(1)=g(1)+g01
+g(2)=g(2)+g02
+g(3)=g(3)+g03
+g(4)=g(4)+g04
+g(5)=g(5)+g05
+g(6)=g(6)+g06
+g(7)=g(7)+g07
+g(8)=g(8)+g08
+g(9)=g(9)+g09
+g(10)=g(10)+g10
+g(11)=g(11)+g11
+g(12)=g(12)+g12
+skip
+enddo
+i=1
+do while i<13
+a(13)=a(13)+a(i)
+b(13)=b(13)+b(i)
+c(13)=c(13)+c(i)
+d(13)=d(13)+d(i)
+e(13)=e(13)+e(i)
+g(13)=g(13)+g(i)
+sss(i)=a(i)+b(i)+c(i)+d(i)+e(i)+g(i)
+i=i+1
+enddo
+sss(13)=sss(1)+sss(2)+sss(3)+sss(4)+sss(5)+sss(6)+sss(7)+sss(8)+sss(9)+sss(10)+sss(11)+sss(12)+sfff
+shhh=sss(13)/ei/1000
+kolek=1
+@ 24,21 say " Š®«¨ç¥áâ¢® íª§¥¬¯«ïà®¢ ¯¥ç â¨ ?   "
+@ 24,55 get kolek pict "99"
+read
+l=readkey()
+if l=12.or.kolek<1
+set filter to
+return
+endif
+set printer to perejeg2.pec
+set device to print
+kolpe=0
+do while kolpe<kolek
+kolpe=kolpe+1
+str=prow()+2
+@ str,25 say "  €‘—…’ €‘•„€ ’‹ˆ‚€ ’ è’‘ €€‘’€™ˆŒ ˆ’ƒŒ ˆ €‹ˆ—ˆˆ ˆ‡Œ……ˆ‰"
+str=str+1
+@ str,25 say "‚ ‘’“Š’“… ’…‹‚‰ ‘•…Œ›, ‘‘’€‚… ˆ …†ˆŒ… €’€™…ƒ “„‚€ˆŸ ‹Š‚"
+str=str+1
+@ str,42 say "‘"
+@ str,46 say dd pict "99"
+@ str,48 say "."
+@ str,49 say mm pict "99"
+@ str,51 say "."
+@ str,52 say gg pict "9999"
+@ str,58 say ""
+@ str,62 say idd pict "99"
+@ str,64 say "."
+@ str,65 say imm pict "99"
+@ str,67 say "."
+@ str,68 say igg pict "9999"
+str=str+1
+@ str,0 say "--------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say ":                      :                                     Œ …     ‹  Š €                                       :  ®   :"
+str=str+1
+@ str,0 say ":    ’¨¯ ®âª«®­¥­¨ï    :-----------------------------------------------------------------------------------------------: áâ ­- :"
+str=str+1
+@ str,0 say ":                      :   1   :   2   :   3   :   4   :   5   :   6   :   7   :   8   :   9   :  10   :  11   :  12   :  æ¨¨  :"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ":   âª«îç¥­¨¥ 1 ‚‚   :"
+pz=24
+i=1
+do while i<14
+if a(i)<>0
+prim=int((a(i)+500)/1000)
+@ str,pz say prim pict "9999999"
+endif
+pz=pz+8
+i=i+1
+enddo
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ":      ¡®â  1 –H      :"
+pz=24
+i=1
+do while i<14
+if b(i)<>0
+prim=int((b(i)+500)/1000)
+@ str,pz say prim pict "9999999"
+endif
+pz=pz+8
+i=i+1
+enddo
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ":âª«îç¥­¨¥ £àã¯¯ë ‚„ :"
+pz=24
+i=1
+do while i<14
+if c(i)<>0
+prim=int((c(i)+500)/1000)
+@ str,pz say prim pict "9999999"
+endif
+pz=pz+8
+i=i+1
+enddo
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ": ¡®â  ¡¥§ ®¡®¨å ‘„  :"
+pz=24
+i=1
+do while i<14
+if d(i)<>0
+prim=int((d(i)+500)/1000)
+@ str,pz say prim pict "9999999"
+endif
+pz=pz+8
+i=i+1
+enddo
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ": ‚ª«îç¥­¨¥ ¢â®à®£®  :"
+pz=24
+i=1
+do while i<14
+if e(i)<>0
+prim=int((e(i)+500)/1000)
+@ str,pz say prim pict "9999999"
+endif
+pz=pz+8
+i=i+1
+enddo
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ":¥à¥¢.á¥â.¯®¤®£.­  “:"
+if sfff<>0
+prim=int((sfff+500)/1000)
+@ str,120 say prim pict "9999999"
+endif
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ":    ¡®â   ¢ à ¢¯àëáª :"
+pz=24
+i=1
+do while i<14
+if g(i)<>0
+prim=int((g(i)+500)/1000)
+@ str,pz say prim pict "9999999"
+endif
+pz=pz+8
+i=i+1
+enddo
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ":    ˆâ®£®, â ã.â.     :"
+pz=24
+i=1
+do while i<14
+if sss(i)<>0
+prim=int((sss(i)+500)/1000)
+@ str,pz say prim pict "9999999"
+endif
+pz=pz+8
+i=i+1
+enddo
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say ":------------------------------------------------------------------------------------------------------------------------------:"
+str=str+1
+@ str,0 say ":    ˆâ®£®, £/ª‚â.ç.   :"
+if shhh<>0
+@ str,120 say shhh pict "9999.99"
+endif
+@ str,119 say ":"
+@ str,127 say ":"
+str=str+1
+@ str,0 say "--------------------------------------------------------------------------------------------------------------------------------"
+str=str+1
+@ str,0 say " "
+str=str+1
+enddo
+set device to screen
+set print to
+set filter to
+!type perejeg2.pec > prn
+return
+procedure PERERAS
+clear
+@ 10,20 say "ˆ„…’ €’Š€ ˆ”Œ€–ˆˆ"
+@ 12,28 say "†„ˆ’…..."
+dimension ni(7,13),ti(7,13),dt(13)
+select 1
+go top
+n=gg*10000+mm*100+dd
+set filter to nome=n
+go top
+i=1
+do while i<8
+ni(i,1)=blok1
+ni(i,2)=blok2
+ni(i,3)=blok3
+ni(i,4)=blok4
+ni(i,5)=blok5
+ni(i,6)=blok6
+ni(i,7)=blok7
+ni(i,8)=blok8
+ni(i,9)=blok9
+ni(i,10)=blok10
+ni(i,11)=blok11
+ni(i,12)=blok12
+ni(i,13)=sblok
+skip
+i=i+1
+enddo
+i=1
+do while i<8
+ti(i,1)=blok1
+ti(i,2)=blok2
+ti(i,3)=blok3
+ti(i,4)=blok4
+ti(i,5)=blok5
+ti(i,6)=blok6
+ti(i,7)=blok7
+ti(i,8)=blok8
+ti(i,9)=blok9
+ti(i,10)=blok10
+ti(i,11)=blok11
+ti(i,12)=blok12
+ti(i,13)=sblok
+skip
+i=i+1
+enddo
+dt(1)=blok1
+dt(2)=blok2
+dt(3)=blok3
+dt(4)=blok4
+dt(5)=blok5
+dt(6)=blok6
+dt(7)=blok7
+dt(8)=blok8
+dt(9)=blok9
+dt(10)=blok10
+dt(11)=blok11
+dt(12)=blok12
+dt(13)=sblok
+skip
+ei=sblok
+n=gg*10000+mm*100+dd
+set filter to
+select 2
+seek n
+if ! found()
+append blank
+repl nomer with n
+endif
+a1=10.6*ni(1,1)*ti(1,1)
+a2=10.6*ni(1,2)*ti(1,2)
+a3=10.6*ni(1,3)*ti(1,3)
+a4=10.6*ni(1,4)*ti(1,4)
+a5=10.6*ni(1,5)*ti(1,5)
+a6=10.6*ni(1,6)*ti(1,6)
+a7=10.6*ni(1,7)*ti(1,7)
+a8=10.6*ni(1,8)*ti(1,8)
+a9=10.6*ni(1,9)*ti(1,9)
+a010=10.6*ni(1,10)*ti(1,10)
+a011=10.6*ni(1,11)*ti(1,11)
+a012=10.6*ni(1,12)*ti(1,12)
+b1=7.1*ni(2,1)*ti(2,1)
+b2=7.1*ni(2,2)*ti(2,2)
+b3=7.1*ni(2,3)*ti(2,3)
+b4=7.1*ni(2,4)*ti(2,4)
+b5=7.1*ni(2,5)*ti(2,5)
+b6=7.1*ni(2,6)*ti(2,6)
+b7=7.1*ni(2,7)*ti(2,7)
+b8=7.1*ni(2,8)*ti(2,8)
+b9=7.1*ni(2,9)*ti(2,9)
+b010=7.1*ni(2,10)*ti(2,10)
+b011=7.1*ni(2,11)*ti(2,11)
+b012=7.1*ni(2,12)*ti(2,12)
+c1=6.0*ni(3,1)*ti(3,1)
+c2=6.0*ni(3,2)*ti(3,2)
+c3=6.0*ni(3,3)*ti(3,3)
+c4=6.0*ni(3,4)*ti(3,4)
+c5=6.0*ni(3,5)*ti(3,5)
+c6=6.0*ni(3,6)*ti(3,6)
+c7=6.0*ni(3,7)*ti(3,7)
+c8=6.0*ni(3,8)*ti(3,8)
+c9=6.0*ni(3,9)*ti(3,9)
+c010=6.0*ni(3,10)*ti(3,10)
+c011=6.0*ni(3,11)*ti(3,11)
+c012=6.0*ni(3,12)*ti(3,12)
+d1=1.9*ni(4,1)*ti(4,1)
+d2=1.9*ni(4,2)*ti(4,2)
+d3=1.9*ni(4,3)*ti(4,3)
+d4=1.9*ni(4,4)*ti(4,4)
+d5=1.9*ni(4,5)*ti(4,5)
+d6=1.9*ni(4,6)*ti(4,6)
+d7=1.9*ni(4,7)*ti(4,7)
+d8=1.9*ni(4,8)*ti(4,8)
+d9=1.9*ni(4,9)*ti(4,9)
+d010=1.9*ni(4,10)*ti(4,10)
+d011=1.9*ni(4,11)*ti(4,11)
+d012=1.9*ni(4,12)*ti(4,12)
+e1=0.7*ni(5,1)*ti(5,1)
+e2=0.7*ni(5,2)*ti(5,2)
+e3=0.7*ni(5,3)*ti(5,3)
+e4=0.7*ni(5,4)*ti(5,4)
+e5=0.7*ni(5,5)*ti(5,5)
+e6=0.7*ni(5,6)*ti(5,6)
+e7=0.7*ni(5,7)*ti(5,7)
+e8=0.7*ni(5,8)*ti(5,8)
+e9=0.7*ni(5,9)*ti(5,9)
+e010=0.7*ni(5,10)*ti(5,10)
+e011=0.7*ni(5,11)*ti(5,11)
+e012=0.7*ni(5,12)*ti(5,12)
+fff0=20.0*ni(6,13)*ti(6,13)
+g1=444.0*ni(7,1)*ti(7,1)*dt(1)/10000
+g2=444.0*ni(7,2)*ti(7,2)*dt(2)/10000
+g3=444.0*ni(7,3)*ti(7,3)*dt(3)/10000
+g4=444.0*ni(7,4)*ti(7,4)*dt(4)/10000
+g5=444.0*ni(7,5)*ti(7,5)*dt(5)/10000
+g6=444.0*ni(7,6)*ti(7,6)*dt(6)/10000
+g7=444.0*ni(7,7)*ti(7,7)*dt(7)/10000
+g8=444.0*ni(7,8)*ti(7,8)*dt(8)/10000
+g9=444.0*ni(7,9)*ti(7,9)*dt(9)/10000
+g010=444.0*ni(7,10)*ti(7,10)*dt(10)/10000
+g011=444.0*ni(7,11)*ti(7,11)*dt(11)/10000
+g012=444.0*ni(7,12)*ti(7,12)*dt(12)/10000
+hhh0=fff0
+hhh0=hhh0+a1+a2+a3+a4+a5+a6+a7+a8+a9+a010+a011+a012
+hhh0=hhh0+b1+b2+b3+b4+b5+b6+b7+b8+b9+b010+b011+b012
+hhh0=hhh0+c1+c2+c3+c4+c5+c6+c7+c8+c9+c010+c011+c012
+hhh0=hhh0+d1+d2+d3+d4+d5+d6+d7+d8+d9+d010+d011+d012
+hhh0=hhh0+e1+e2+e3+e4+e5+e6+e7+e8+e9+e010+e011+e012
+hhh0=hhh0+g1+g2+g3+g4+g5+g6+g7+g8+g9+g010+g011+g012
+hhh0=hhh0/ei/1000
+repl a01 with a1
+repl a02 with a2
+repl a03 with a3
+repl a04 with a4
+repl a05 with a5
+repl a06 with a6
+repl a07 with a7
+repl a08 with a8
+repl a09 with a9
+repl a10 with a010
+repl a11 with a011
+repl a12 with a012
+repl b01 with b1
+repl b02 with b2
+repl b03 with b3
+repl b04 with b4
+repl b05 with b5
+repl b06 with b6
+repl b07 with b7
+repl b08 with b8
+repl b09 with b9
+repl b10 with b010
+repl b11 with b011
+repl b12 with b012
+repl c01 with c1
+repl c02 with c2
+repl c03 with c3
+repl c04 with c4
+repl c05 with c5
+repl c06 with c6
+repl c07 with c7
+repl c08 with c8
+repl c09 with c9
+repl c10 with c010
+repl c11 with c011
+repl c12 with c012
+repl d01 with d1
+repl d02 with d2
+repl d03 with d3
+repl d04 with d4
+repl d05 with d5
+repl d06 with d6
+repl d07 with d7
+repl d08 with d8
+repl d09 with d9
+repl d10 with d010
+repl d11 with d011
+repl d12 with d012
+repl e01 with e1
+repl e02 with e2
+repl e03 with e3
+repl e04 with e4
+repl e05 with e5
+repl e06 with e6
+repl e07 with e7
+repl e08 with e8
+repl e09 with e9
+repl e10 with e010
+repl e11 with e011
+repl e12 with e012
+repl g01 with g1
+repl g02 with g2
+repl g03 with g3
+repl g04 with g4
+repl g05 with g5
+repl g06 with g6
+repl g07 with g7
+repl g08 with g8
+repl g09 with g9
+repl g10 with g010
+repl g11 with g011
+repl g12 with g012
+repl fff with fff0
+repl hhh with hhh0
+repl ej with ei
+return
+procedure PEREPET4
+set device to print
+strok=prow()+1
+@ strok,0 say "                                          « ­ª ¨áå®¤­ëå ¤ ­­ëå §                           £."
+strok=strok+1
+@ strok,0 say "                   „«ï à áç¥â  ¯¥à¥¦®£®¢ â®¯«¨¢  ¯à¨ ­ «¨ç¨¨ â¨¯®¢ëå ®âª«®­¥­¨© ®â ­®à¬ë ¢ áâàãªâãà¥ â¥¯«®¢®© áå¥¬ë,"
+strok=strok+1
+@ strok,0 say "                                            á®áâ ¢¥ ¨ à¥¦¨¬¥ à ¡®â îé¥£® ®¡®àã¤®¢ ­¨ï ¡«®ª®¢"
+strok=strok+2
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ":   : ¡®§­ ç¥­¨¥ :                                         Š€‡€’…‹ˆ  ‹Š€Œ                                              : ¡é¥áâ :"
+strok=strok+1
+@ strok,0 say ": N : ¯®ª § â¥«ï, :-----------------------------------------------------------------------------------------------------------:  ¯®ª   :"
+strok=strok+1
+@ strok,0 say ":   : à §¬¥à­®áâ¨ :    1   :    2   :    3   :    4   :    5   :    6   :    7   :    8   :    9   :   10   :   11   :   12   : § â¥«¨ :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 1 : N à¢¢, ¬Bâ  :        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 2 : N æ­,  ¬‚â  :        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 3 : N ¯¢¤, ¬‚â  :        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 4 : Ná­ ¯­¤,¬‚â :        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 5 : N ®í,  ¬‚â  :        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 6 : Ná¥â¥¢,¬‚â  :        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 7 : N ¢ à, ¬‚â  :        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 8 : T à¢¢, ç á  :        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 9 : T æ­,  ç á  :        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 10: T ¯¢¤, ç á  :        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 11: Tá­ ¯­¤,ç á :        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 12: T ®í,  ç á  :        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 13: Tá¥â¥¢,ç á  :        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 14: T ¢ à, ç á  :        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 15: DT ¢ à, £à ¤:        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say ": 16:®â¯,¬«­ª‚â.ç:        :        :        :        :        :        :        :        :        :        :        :        :        :"
+strok=strok+1
+@ strok,0 say ":--------------------------------------------------------------------------------------------------------------------------------------:"
+strok=strok+1
+@ strok,0 say " "
+set device to screen
+return
+
+procedure COPDATA
+@ 18,40,20,50 box win1+ " "
+@ 19,42 prompt " A "
+@ 19,46 prompt " B "
+menu to p2
+if p2=0
+return
+endif
+set color to gr+*//b
+@ 24,17 say "“áâ ­®¢¨â¥ ¤¨áª¥âã.  ¦¬¨â¥ «î¡ãî ª« ¢¨èã..."
+set color to w+//b
+l=inkey(0)
+if l=27
+return
+endif
+do case
+case p2=1
+*! copy akt*.dbf a:
+*! copy grp*.dbf a:
+*! copy grp*.idx a:
+*! copy wyr*.dbf a:
+*! copy wyr*.idx a:
+*! copy sel*.dbf a:
+*! copy sel*.idx a:
+*! copy maz*.dbf a:
+*! copy maz*.idx a:
+*! copy baxta*.dbf a:
+*! copy baxta*.idx a:
+*! copy pere*.* a:
+! copy *.dbf a:
+*! copy *.idx a:
+case p2=2
+*! copy akt*.dbf b:
+*! copy grp*.dbf b:
+*! copy grp*.idx b:
+*! copy wyr*.dbf b:
+*! copy wyr*.idx b:
+*! copy sel*.dbf b:
+*! copy sel*.idx b:
+*! copy baxta*.dbf b:
+*! copy baxta*.idx b:
+*! copy maz*.dbf b:
+*! copy maz*.idx b:
+*! copy pere*.* b:
+! copy *.dbf b:
+*! copy *.idx b:
+endcase
+return
+procedure HELP
+save screen to ww
+clear
+@ 0,0,22,79 box +" "
+@ 1,1 say "F1+n - ¯®á«¥¤®¢ â¥«ì­®¥ ­ ¦ â¨¥ ª« ¢¨è F1, ª ª®£®-«¨¡® ­®¬¥à  ¨ Enter - ãáâ -"
+@ 2,1 say "       ¢«¨¢ ¥â ãª § â¥«ì ­  íªà ­¥ ­  § ¯¨áì á íâ¨¬ ­®¬¥à®¬."
+@ 3,1 say "áâ   - áâà¥«ª  ¢­¨§  - ¯¥à¥¬¥é¥­¨¥ ãª § â¥«ï ­  íªà ­¥ ­  ¯®«¥ (áâà®ªã) ¢­¨§."
+@ 4,1 say "à¥   - áâà¥«ª  ¢¢¥àå - ¯¥à¥¬¥é¥­¨¥ ãª § â¥«ï ­  íªà ­¥ ­  áâà®ªã ¢¢¥àå."
+@ 5,1 say "«    - áâà¥«ª  ¢¯à ¢® - ¯¥à¥¬¥é¥­¨¥ ªãàá®à  ¢ ¯®«¥ ­  ¯®§¨æ¨î ¢¯à ¢®."
+@ 6,1 say "ª¨   - áâà¥«ª  ¢«¥¢®  - ¯¥à¥¬¥é¥­¨¥ ªãàá®à  ¢ ¯®«¥ ­  ¯®§¨æ¨î ¢«¥¢®."
+@ 7,1 say "ESC  - ­ ¦ â¨¥ ESC - ¯à¥ªà é¥­¨¥ ¢ë¯®«­¥­¨ï ®¯¥à æ¨¨, ¢¢®¤ , à ¡®âë ¯à®£à ¬¬ë."
+@ 8,1 say "PgUp - ­ ¦ â¨¥ ª« ¢¨è¨ PgUp - ¯à®á¬®âà ¯à¥¤ë¤ãé¥£® íªà ­ ."
+@ 9,1 say "PgDn - ­ ¦ â¨¥ ª« ¢¨è¨ PgDn - ¯à®á¬®âà á«¥¤ãîé¥£® íªà ­ ."
+@ 10,1 say"Enter- ­ ¦ â¨¥ ª« ¢¨è¨ Enter - § ¢¥àè¥­¨¥ ¢¢®¤  ¤ ­­ëå ¢ ¯®«¥."
+@ 11,1 say"^End - ­ ¦ â¨¥ Ctrl+End - ¢ª«îç¥­¨¥ à¥¦¨¬  ¤®¡ ¢«¥­¨ï § ¯¨á¨."
+@ 12,1 say"^PgUp- ­ ¦ â¨¥ Ctrl+PgUp - ãáâ ­®¢ª  ãª § â¥«ï ­  ¯¥à¢ãî § ¯¨áì."
+@ 13,1 say"^PgDn- ­ ¦ â¨¥ Ctrl+PgDn - ãáâ ­®¢ª  ãª § â¥«ï ­  ¯®á«¥¤­îî § ¯¨áì."
+@ 14,1 say"Home - ­ ¦ â¨¥ ª« ¢¨è¨ Home - ãáâ ­®¢ª  ªãàá®à  ¢ ­ ç «® ¯®«ï ¢¢®¤  ¤ ­­ëå."
+@ 15,1 say"End  - ­ ¦ â¨¥ ª« ¢¨è¨ End  - ãáâ ­®¢ª  ªãàá®à  ¢ ª®­¥æ  ¯®«ï ¢¢®¤  ¤ ­­ëå."
+@ 16,1 say"Ins  - ­ ¦ â¨¥ ª« ¢¨è¨ Ins  - ¢ª«îç¥­¨¥ à¥¦¨¬  ¢áâ ¢ª¨ á¨¬¢®«®¢ ¢ ¯®«¥ ¢¢®¤ ."
+@ 17,1 say"Del  - ­ ¦ â¨¥ ª« ¢¨è¨ Del  - ã¤ «¥­¨¥ ®¤­®£® á¨¬¢®«  á¯à ¢  ®â ªãàá®à ."
+@ 18,1 say"^Home- ­ ¦ â¨¥ Ctrl+Home - ã¤ «¥­¨¥ â¥ªãé¥© § ¯¨á¨. “ª § â¥«ì ãáâ ­ ¢«¨¢ ¥âáï"
+@ 19,1 say"       ­  ¯á«¥¤ãîéãî § ¯¨áì."
+@ 20,1 say"^Y   - ­ ¦ â¨¥ Ctrl+Y - ã¤ «¥­¨¥ á¨¬¢®«®¢ ¯®«ï ¢¢®¤  ®â ªãàá®à  ¤® ª®­æ  ¯®«ï."
+@ 21,1 say"Bcks - ­ ¦ â¨¥ BackSpace - ã¤ «¥­¨¥ ®¤­®£® á¨¬¢®«  á«¥¢  ®â ªãàá®à ."
+@ 23,0 say re pict ""
+@ 24,0 say te pict ""
+l=inkey(0)
+restore screen from ww
+return
+procedure STARRING
+starr=0
+set console on
+set color to r/w
+*@ 21,13 say "                                                     "
+i=1
+k=0
+do while .t.
+k=k+1
+if k=71
+k=1
+endif
+do case
+case k>0.and.k<11
+*set color to BG+
+case k>10.and.k<21
+*set color to R+
+case k>20.and.k<31
+*set color to GR+
+case k>30.and.k<41
+*set color to G+
+case k>40.and.k<51
+*set color to B+
+case k>50.and.k<61
+*set color to W+
+case k>60.and.k<71
+*set color to RB+
+endcase
+if starr=200
+exit
+endif
+*@ 21,14 say star(i) pict ""
+set color to X
+*@ 21,13 say " "
+*@ 21,65 say " "
+i=i+1
+if i>51
+i=1
+endif
+j=1
+
+do while j<370
+j=j+1
+l=inkey()
+if l # 0
+exit
+endif
+enddo
+
+if l # 0
+exit
+endif
+starr=starr+1
+enddo
+return
+procedure STARR
+star(1)= "  €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ€. "
+star(2)= " €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ€.  "
+star(3)= "€‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   "
+star(4)= "€‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   "
+star(5)= "‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €"
+star(6)= "€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡"
+star(7)= "€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡"
+star(8)= "’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€"
+star(9)= "’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€"
+star(10)="’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€"
+star(11)="€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’"
+star(12)="‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€"
+star(13)="ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹"
+star(14)=":   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ"
+star(15)="   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:"
+star(16)="  Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ: "
+star(17)=" Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:  "
+star(18)="Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   "
+star(19)="€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š"
+star(20)="“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€"
+star(21)="“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€"
+star(22)="‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“"
+star(23)="’ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘"
+star(24)="ˆ .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’"
+star(25)=" .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ"
+star(26)=" .   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ"
+star(27)=".   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ"
+star(28)=".   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ"
+star(29)="   Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ ."
+star(30)="  Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ . "
+star(31)=" Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .  "
+star(32)="Œ“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   "
+star(33)="“ ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ"
+star(34)=" ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“"
+star(35)=" ….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“"
+star(36)="….   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ "
+star(37)=".   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ …"
+star(38)="   ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ …."
+star(39)="  ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ …. "
+star(40)=" ˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….  "
+star(41)="˜“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   "
+star(42)="“‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜"
+star(43)="‹œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“"
+star(44)="œƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹"
+star(45)="ƒˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œ"
+star(46)="ˆ €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒ"
+star(47)=" €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ"
+star(48)=" €.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ"
+star(49)="€.   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ "
+star(50)=".   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €"
+star(51)="   €‡€’€‹ˆ:   Š€“‘’ˆ .   Œ“ ….   ˜“‹œƒˆ €."
+return
+procedure FLAG2
+st=2
+set color to R
+do while st<23
+@ st,2,st,77 box "Û"
+st=st+1
+enddo
+set color to GR+
+@ 2,25 say "Û"
+@ 3,26 say "Û"
+@ 4,25 say "Û"
+@ 5,24 say "ÛÛ"
+@ 6,23 say "ÛÛ"
+@ 7,22 say "ÛÛ"
+@ 8,18 say "ÛÛÛÛÛ"
+@ 9,8,9,21 box "Û"
+@ 10,10 say "ÛÛÛÛÛÛÛÛÛ"
+@ 8,7 say "ÛÛÛÛ"
+@ 5,3 say "ÛÛÛ"
+@ 6,2 say "ÛÛÛÛÛ"
+@ 7,3 say "ÛÛÛÛÛ"
+@ 8,3 say "ÛÛÛ"
+@ 9,3 say "ÛÛÛ"
+@ 10,3 say "ÛÛÛ"
+@ 4,10 say "ÛÛÛÛÛÛÛÛ"
+@ 5,10 say "ÛÛÛÛÛÛÛÛÛ"
+@ 6,13 say "ÛÛÛ"
+@ 7,13 say "ÛÛÛ"
+@ 8,13 say "ÛÛÛ"
+@ 11,13 say "ÛÛÛ"
+@ 12,13 say "ÛÛÛ"
+@ 13,13 say "ÛÛÛ"
+return
+procedure SKY
+clear
+do case
+case sta=1
+set color to BG+
+@ 0,10 say ".       ."
+@ 2,10 say "."
+@ 2,55 say "."
+@ 3,17 say "."
+@ 4,44 say "."
+@ 6,22 say ".   ."
+@ 7,25 say "."
+@ 8,33 say "."
+@ 9,20 say "..              ."
+@ 10,57 say "."
+@ 11,58 say "."
+@ 12,4 say "."
+@ 12,50 say "."
+@ 13,40 say "."
+@ 15,33 say ".       ."
+@ 16,30 say "."
+@ 16,75 say "."
+@ 17,72 say "."
+@ 18,68 say ".     ."
+@ 19,3 say ".             ."
+@ 22,15 say ". ."
+@ 23,20 say ".     ."
+set color to BG+*
+@ 1,15 say ". .          ."
+@ 14,35 say "."
+@ 20,8 say ".     ."
+@ 21,12 say ".  ."
+@ 24,25 say "."
+@ 0,71 say " "
+case sta=2
+set color to R+
+@ 0,15 say ".     ."
+@ 2,55 say ".  ."
+@ 3,67 say "."
+@ 4,74 say ".  ."
+@ 6,22 say ".   .         ."
+@ 7,25 say ".."
+@ 8,13 say "..         . ."
+@ 9,10 say "..              ."
+@ 10,7 say "."
+@ 11,8 say "."
+@ 12,4 say "."
+@ 12,50 say "."
+@ 13,45 say "."
+@ 14,55 say "."
+@ 16,78 say "."
+@ 17,70 say "."
+@ 18,18 say ".     ."
+@ 19,3 say ".             ."
+@ 20,8 say ".     ."
+@ 21,10 say ".       ."
+@ 22,25 say ". ."
+@ 23,30 say ".     .      .  .."
+set color to R+*
+@ 1,25 say ".    . ."
+@ 16,30 say "."
+@ 15,33 say ".       ."
+@ 2,35 say "."
+@ 24,35 say ".    ."
+@ 0,71 say " "
+case sta=3
+set color to GR+
+@ 0,2 say ".       ."
+@ 1,5 say ".    .         ."
+@ 2,15 say "."
+@ 3,27 say "."
+@ 4,34 say "."
+@ 6,32 say ".   ."
+@ 7,35 say "."
+@ 9,20 say "..      .        ."
+@ 10,57 say "."
+@ 11,58 say "."
+@ 12,30 say "."
+@ 13,40 say "."
+@ 14,35 say "."
+@ 15,33 say ".  ..     ."
+@ 16,30 say "."
+@ 16,75 say "."
+@ 18,58 say ".     ."
+@ 20,28 say ".     ."
+@ 21,32 say ".  ."
+@ 22,35 say ". ."
+@ 23,40 say ".     "
+@ 24,55 say "."
+set color to GR+*
+@ 2,10 say ".."
+@ 8,33 say "."
+@ 12,44 say "."
+@ 17,62 say "."
+@ 19,23 say ".             ."
+@ 0,71 say " "
+case sta=4
+set color to G+
+@ 0,10 say ".    ."
+@ 1,15 say ".    .          ."
+@ 2,10 say "."
+@ 3,17 say "."
+@ 4,44 say "."
+@ 6,22 say ".        ."
+@ 7,25 say "."
+@ 8,33 say "."
+@ 10,57 say "."
+@ 11,58 say "."
+@ 12,50 say "."
+@ 13,40 say "."
+@ 14,35 say "."
+@ 16,30 say "."
+@ 16,75 say "."
+@ 17,72 say "."
+@ 18,68 say ".   ."
+@ 19,3 say ".    ."
+@ 20,8 say ".    ."
+@ 22,15 say ".  ."
+@ 23,20 say ".   ."
+@ 24,75 say "."
+set color to G+*
+@ 2,55 say "."
+@ 9,20 say ".  .          ."
+@ 12,4 say "..   ."
+@ 15,33 say ".    .       ."
+@ 21,12 say ". .       ."
+@ 0,71 say " "
+case sta=5
+set color to B+
+@ 1,15 say ". .        ."
+@ 2,10 say ". ."
+@ 2,55 say ".    ."
+@ 3,17 say ".         ."
+@ 4,44 say "."
+@ 6,22 say ".     ..      ."
+@ 7,25 say "."
+@ 8,33 say "."
+@ 9,20 say "..        ."
+@ 10,57 say "."
+@ 12,4 say "."
+@ 12,50 say "."
+@ 13,40 say "."
+@ 14,35 say "."
+@ 15,33 say ".   ."
+@ 16,75 say "."
+@ 17,72 say "."
+@ 18,68 say ".           ."
+@ 19,3 say ".                    ."
+@ 20,8 say ".     ."
+@ 21,12 say ".        ."
+@ 23,20 say ".            .."
+set color to B+*
+@ 0,10 say ".  ..     ."
+@ 11,58 say "."
+@ 24,5 say "."
+@ 16,30 say "."
+@ 22,15 say ".     ."
+@ 0,71 say " "
+case sta=6
+set color to W+
+@ 0,10 say ".       ."
+@ 1,15 say ". .          ."
+@ 3,17 say "."
+@ 4,44 say "."
+@ 6,22 say ".   ."
+@ 7,25 say "."
+@ 8,33 say "."
+@ 9,20 say "..              ."
+@ 10,57 say "."
+@ 11,58 say "."
+@ 12,4 say "."
+@ 15,33 say ".       ."
+@ 16,30 say "."
+@ 7,75 say "."
+@ 17,72 say "."
+@ 18,68 say ".     ."
+@ 19,3 say ".             ."
+@ 20,8 say ".     ."
+@ 21,12 say ".  ."
+@ 22,15 say ". ."
+@ 23,20 say ".     "
+@ 24,25 say "."
+set color to W+*
+@ 0,50 say "."
+@ 13,40 say "."
+@ 14,35 say "."
+@ 2,10 say "."
+@ 22,55 say "."
+@ 0,71 say " "
+case sta=7
+set color to RB+
+@ 0,15 say ".       ."
+@ 2,15 say "."
+@ 2,55 say "."
+@ 3,15 say "."
+@ 4,45 say "."
+@ 7,25 say "."
+@ 8,35 say "."
+@ 10,55 say "."
+@ 11,55 say "."
+@ 12,45 say "."
+@ 12,55 say "."
+@ 13,45 say "."
+@ 14,35 say "."
+@ 16,35 say "."
+@ 16,75 say "."
+@ 17,75 say "."
+@ 18,65 say ".     ."
+@ 20,75 say ".     ."
+@ 21,15 say ".  ."
+@ 22,15 say ". ."
+@ 23,25 say ".     "
+@ 24,25 say "."
+set color to RB+*
+@ 1,15 say ". .          ."
+@ 6,25 say ".   ."
+@ 9,25 say "..              ."
+@ 15,35 say ".       ."
+@ 19,35 say ".             ."
+@ 0,71 say " "
+endcase
+l=inkey(0)
+return
+
+
+proc WYR4SEL
+* ¤ ­­ë¥ ¤«ï á¥«¥ªâ®à  ¨  ªâ  ¨§ ¯à®£à ¬¬ë WYRABOTKA
+* 07.11.2000
+
+
+*@ 10,20 say "‡€Œˆ’œ „€›… „‹Ÿ ‘…‹…Š’€ ?"
+*otz=1
+*@ 11,26 say " …’    „€ ?"
+*@ 11,26 prompt " …’ "
+*@ 11,33 prompt " „€ "
+*menu to otz
+*if otz=0 .or. otz=1
+*   restore screen from ww
+*   use
+*   close all
+*   return
+*endif
+*@ 12,20 say "‚› ‘„…‹€‹ˆ `SEMES` „‹Ÿ ‘…‹…Š’€ ?"
+*otz=2
+*@ 13,26 say " …’    „€ ?"
+*@ 13,26 prompt "…’ "
+*@ 13,33 prompt " „€ "
+*menu to otz
+*if otz = 2
+
+set console on
+*wait 'wyrsel'
+   select 3
+   use wyrab3
+   select 4
+   use wyrab4.dbf
+   go top
+   dele all
+   pack
+   select 1
+   use wyrab1 index wyrab1 
+   go top
+   select 2
+   use wyrab2 index wyrab2
+   i=1
+   do while i<13
+      select 1
+      sum1=timk+tim
+      sum2=pkw
+      sum3=pks
+*      sum3=round(sum3,0)
+      skip
+      select 4
+      go bott
+      append blank
+      repl ego1 with sum1
+      repl ego2 with sum2
+      repl ego3 with sum3
+      do HRAN
+      i=i+12
+      do HRAN
+      i=i-12
+      i=i+1
+   enddo
+   i=0
+   j=188          && âà ­áä®à¬ â®àë
+   select 4
+   go top
+   select 1
+   go top
+   do while i<4
+      sum1=trks
+      select 4
+      repl ego4 with sum1
+      i=i+j
+      do HRAN
+      select 4
+      i=i-j
+      skip
+      select 1
+      skip
+      i=i+1
+   enddo
+*endif
+restore screen from ww
+close all
+use
+*wait 'wyrsel quit'
+return
+ÿÿÿÿÿÿÿÿÿÿÿÿ 

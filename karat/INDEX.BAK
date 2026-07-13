@@ -1,0 +1,148 @@
+*index
+  set talk on
+*  @ 21,5 say 'Будет произведена переиндексация файлов'
+*  @ 22,20 say 'Продолжить?'
+* inmnu0=0
+*  @ 22,33 prom 'ДА'
+*  @ 22,38 prom 'НЕТ' 
+*  menu to inmnu0
+
+*  if inmnu0=0.or.inmnu0=2
+*     RETURN
+*  endif
+* if inmnu0=1
+close all
+  if file ('baxta1.idx')
+     delete file baxta1.idx
+  endif 
+
+
+
+  use baxta1
+*browse
+
+  index on nomer to baxta1
+  USE
+  
+  if file ('baxta2.idx')
+     delete file baxta2.idx
+  endif
+
+  use baxta2
+  index on nome to baxta2
+  USE
+
+  if file ('baxta3.idx')
+     delete file baxta3.idx
+  endif
+  
+  use baxta3
+  index on nomer to baxta3
+  USE
+
+  if file ('baxta50.idx')
+     delete file baxta50.idx
+  endif
+  
+  use baxta50
+  index on str(tnn)+str(nbb) to baxta50
+  USE
+
+  if file ('baxta51.idx')
+     delete file baxta51.idx
+  endif
+
+  use baxta50
+  index on mmdds to baxta51
+  USE
+
+
+  if file ('pere1.idx')
+     delete file pere1.idx
+  endif
+  
+   use pere1
+  index on nome to pere1
+  USE
+
+  if file ('pere2.idx')
+     dele file pere2.idx
+  endif
+  
+  use pere2
+  index on nomer to pere2
+  USE
+
+  if file ('pere5.idx')
+     dele file pere5.idx
+  endif
+  USE
+
+  use pere5
+  index on nomer to pere5
+  USE  
+  
+  if file ('wyrab1.idx')
+     dele file wyrab1.idx
+  endif
+
+
+  USE WYRAB1
+  INDEX ON NOMER TO WYRAB1
+  USE
+
+
+  if file ('wyrab2.idx')
+     dele file wyrab2.idx
+  endif
+
+  USE WYRAB2
+  INDEX ON NOMS TO WYRAB2
+  USE 
+
+
+  if file ('sel12.idx')
+     dele file sel12.idx
+  endif
+
+  use sel1
+  index on ns to sel12
+  use
+
+  if file ('sel1.idx')
+     dele file sel1.idx
+  endif
+
+  use sel1
+  index on abc to sel1
+  use 
+
+  if file ('sel2.idx')
+     dele file sel2.idx
+  endif
+
+  use sel2
+  index on zap to sel2
+  use 
+
+  if file ('sel3.idx')
+     dele file sel3.idx
+  endif
+
+  use sel3
+  index on abcd to sel3
+  use 
+close all
+
+ * endif
+ @ 21,0 
+ @ 22,0 
+ @ 21,5 say 'Переиндексация файлов завершена '
+ wait 'Нажмите любую клавишу ...'
+ @ 21,0
+
+ @ 21,0 clear to 22,78
+ 
+ set talk off
+return
+

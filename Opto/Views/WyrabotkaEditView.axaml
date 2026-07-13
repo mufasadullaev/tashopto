@@ -1,0 +1,150 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Opto.ViewModels"
+             xmlns:models="using:Opto.Models"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="1180" d:DesignHeight="720"
+             x:Class="Opto.Views.WyrabotkaEditView"
+             x:DataType="vm:WyrabotkaEditViewModel">
+
+    <Design.DataContext>
+        <vm:WyrabotkaEditViewModel />
+    </Design.DataContext>
+
+    <Border Background="#F4F8FA">
+        <DockPanel Margin="20">
+            <StackPanel DockPanel.Dock="Top" Spacing="2" Margin="0,0,0,16">
+                <TextBlock Classes="brand-sm" Text="ОПТО" />
+                <TextBlock Classes="module-title" Text="{Binding Title}" TextWrapping="Wrap" />
+                <TextBlock Classes="subtitle"
+                           Text="12 блоков: выработка и СН (КФЦ, ПН, ПК) и общие часы. Ниже — 4 трансформатора (КФЦ, ПН, ПК)." />
+            </StackPanel>
+
+            <DockPanel DockPanel.Dock="Bottom" Margin="0,16,0,0">
+                <Button Classes="exit"
+                        Content="← Назад"
+                        Command="{Binding CancelCommand}"
+                        DockPanel.Dock="Left"
+                        MinWidth="120" />
+                <StackPanel DockPanel.Dock="Right"
+                            Orientation="Horizontal"
+                            Spacing="10"
+                            HorizontalAlignment="Right">
+                    <TextBlock Classes="hint"
+                               Text="{Binding StatusMessage}"
+                               VerticalAlignment="Center"
+                               Margin="0,0,8,0" />
+                    <Button Classes="exit"
+                            Content="Сохранить"
+                            Command="{Binding SaveCommand}"
+                            MinWidth="120" />
+                    <Button Classes="primary"
+                            Content="Расчёт"
+                            Command="{Binding CalculateCommand}"
+                            MinWidth="140" />
+                </StackPanel>
+            </DockPanel>
+
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <StackPanel Spacing="22">
+
+                    <Border Classes="table-panel">
+                        <StackPanel>
+                            <Grid ColumnDefinitions="40,256,256,70" ColumnSpacing="6" Margin="0,0,0,2">
+                                <TextBlock Grid.Column="1" Classes="section" Text="Выработка" HorizontalAlignment="Center" />
+                                <TextBlock Grid.Column="2" Classes="section" Text="СН" HorizontalAlignment="Center" />
+                                <TextBlock Grid.Column="3" Classes="section" Text="" />
+                            </Grid>
+
+                            <Grid Classes="table-header"
+                                  ColumnDefinitions="40,70,90,90,70,90,90,70"
+                                  ColumnSpacing="6"
+                                  Margin="0,0,0,4">
+                                <TextBlock Grid.Column="0" Classes="col-header" Text="№" />
+                                <TextBlock Grid.Column="1" Classes="col-header" Text="КФЦ" />
+                                <TextBlock Grid.Column="2" Classes="col-header" Text="ПН" />
+                                <TextBlock Grid.Column="3" Classes="col-header" Text="ПК" />
+                                <TextBlock Grid.Column="4" Classes="col-header" Text="КФЦ" />
+                                <TextBlock Grid.Column="5" Classes="col-header" Text="ПН" />
+                                <TextBlock Grid.Column="6" Classes="col-header" Text="ПК" />
+                                <TextBlock Grid.Column="7" Classes="col-header" Text="Часы" />
+                            </Grid>
+
+                            <ItemsControl ItemsSource="{Binding Blocks}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="models:BlockMeterRow">
+                                        <Border Classes="table-row">
+                                            <Grid ColumnDefinitions="40,70,90,90,70,90,90,70" ColumnSpacing="6">
+                                                <TextBlock Grid.Column="0"
+                                                           Classes="row-num"
+                                                           Text="{Binding Number}"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Center" />
+                                                <TextBlock Grid.Column="1"
+                                                           Classes="cell-text"
+                                                           Text="{Binding GenerationCoefficient}"
+                                                           VerticalAlignment="Center" />
+                                                <TextBox Grid.Column="2" Classes="cell"
+                                                         Text="{Binding GenerationStart}" />
+                                                <TextBox Grid.Column="3" Classes="cell"
+                                                         Text="{Binding GenerationEnd}" />
+                                                <TextBlock Grid.Column="4"
+                                                           Classes="cell-text"
+                                                           Text="{Binding OwnNeedsCoefficient}"
+                                                           VerticalAlignment="Center" />
+                                                <TextBox Grid.Column="5" Classes="cell"
+                                                         Text="{Binding OwnNeedsStart}" />
+                                                <TextBox Grid.Column="6" Classes="cell"
+                                                         Text="{Binding OwnNeedsEnd}" />
+                                                <TextBox Grid.Column="7" Classes="cell"
+                                                         Text="{Binding Hours}" />
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Classes="table-panel">
+                        <StackPanel>
+                            <TextBlock Classes="section" Text="Трансформаторы" Margin="0,0,0,10" />
+
+                            <Grid ColumnDefinitions="90,70,110,110" ColumnSpacing="6" Margin="0,0,0,4">
+                                <TextBlock Grid.Column="0" Classes="col-header" Text="Счётчик" />
+                                <TextBlock Grid.Column="1" Classes="col-header" Text="КФЦ" />
+                                <TextBlock Grid.Column="2" Classes="col-header" Text="ПН" />
+                                <TextBlock Grid.Column="3" Classes="col-header" Text="ПК" />
+                            </Grid>
+
+                            <ItemsControl ItemsSource="{Binding Transformers}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="models:TransformerMeterRow">
+                                        <Border Classes="table-row">
+                                            <Grid ColumnDefinitions="90,70,110,110" ColumnSpacing="6">
+                                                <TextBlock Grid.Column="0"
+                                                           Classes="row-num"
+                                                           Text="{Binding Name}"
+                                                           VerticalAlignment="Center" />
+                                                <TextBlock Grid.Column="1"
+                                                           Classes="cell-text"
+                                                           Text="{Binding Coefficient}"
+                                                           VerticalAlignment="Center" />
+                                                <TextBox Grid.Column="2" Classes="cell"
+                                                         Text="{Binding Start}" />
+                                                <TextBox Grid.Column="3" Classes="cell"
+                                                         Text="{Binding End}" />
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </DockPanel>
+    </Border>
+</UserControl>

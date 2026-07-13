@@ -1,0 +1,6 @@
+@ echo on
+karat_m optonw91
+karat_m copyr
+Call copyr.bat
+Call c:\karat\deloldarh.exe
+

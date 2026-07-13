@@ -1,0 +1,74 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Opto.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="440" d:DesignHeight="360"
+        x:Class="Opto.Views.WyrabotkaStartWindow"
+        x:DataType="vm:WyrabotkaStartViewModel"
+        Title="Выработка электроэнергии"
+        Width="440" Height="360"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        Background="#F4F8FA">
+
+    <Design.DataContext>
+        <vm:WyrabotkaStartViewModel />
+    </Design.DataContext>
+
+    <Border Padding="28">
+        <StackPanel Spacing="18">
+            <StackPanel Spacing="4">
+                <TextBlock Classes="brand-sm" Text="ОПТО" />
+                <TextBlock Classes="module-title" Text="Выработка электроэнергии" />
+                <TextBlock Classes="subtitle" Text="Укажите дату и режим расчёта" />
+            </StackPanel>
+
+            <StackPanel Spacing="6">
+                <TextBlock Classes="section" Text="Дата" />
+                <CalendarDatePicker SelectedDate="{Binding SelectedDate}"
+                                    Watermark="ДД.ММ.ГГГГ"
+                                    HorizontalAlignment="Stretch" />
+            </StackPanel>
+
+            <StackPanel Spacing="8">
+                <TextBlock Classes="section" Text="Режим расчёта" />
+                <StackPanel Orientation="Horizontal" Spacing="16">
+                    <RadioButton x:Name="CalculationRadio"
+                                 Classes="mode"
+                                 GroupName="WyrabotkaMode"
+                                 Content="Расчёт"
+                                 IsChecked="False"
+                                 Click="OnCalculationClick" />
+                    <RadioButton x:Name="RecalculationRadio"
+                                 Classes="mode"
+                                 GroupName="WyrabotkaMode"
+                                 Content="Перерасчёт"
+                                 IsChecked="False"
+                                 Click="OnRecalculationClick" />
+                </StackPanel>
+                <TextBlock Classes="hint" Text="Обязательно выберите один из режимов" />
+            </StackPanel>
+
+            <TextBlock Classes="validation"
+                       Text="{Binding ValidationMessage}"
+                       IsVisible="{Binding ValidationMessage, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                       TextWrapping="Wrap" />
+
+            <DockPanel Margin="0,8,0,0">
+                <Button Classes="exit"
+                        Content="Отмена"
+                        Command="{Binding CancelCommand}"
+                        DockPanel.Dock="Left"
+                        MinWidth="110" />
+                <Button Classes="primary"
+                        Content="Продолжить"
+                        Command="{Binding ContinueCommand}"
+                        DockPanel.Dock="Right"
+                        HorizontalAlignment="Right"
+                        MinWidth="130" />
+            </DockPanel>
+        </StackPanel>
+    </Border>
+</Window>

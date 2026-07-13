@@ -1,0 +1,58 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Opto.ViewModels"
+             xmlns:models="using:Opto.Models"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="920" d:DesignHeight="720"
+             x:Class="Opto.Views.MainMenuView"
+             x:DataType="vm:MainMenuViewModel">
+
+    <Grid Margin="28" RowDefinitions="Auto,*,Auto">
+        <StackPanel Grid.Row="0" Spacing="4" Margin="0,0,0,20">
+            <TextBlock Classes="brand" Text="ОПТО" />
+            <TextBlock Classes="station" Text="ТашТЭС · оперативные задачи" />
+            <TextBlock Classes="subtitle"
+                       Text="Комплекс учёта топлива, вахт и выработки электроэнергии"
+                       Margin="0,8,0,0" />
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
+            <ItemsControl ItemsSource="{Binding Sections}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="models:MenuSection">
+                        <StackPanel Margin="0,0,0,22" Spacing="8">
+                            <TextBlock Classes="section" Text="{Binding Title}" />
+                            <ItemsControl ItemsSource="{Binding Items}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="models:MenuAction">
+                                        <Button Classes="menu"
+                                                Classes.emphasized="{Binding IsEmphasized}"
+                                                Content="{Binding Title}"
+                                                Command="{Binding Command}"
+                                                CommandParameter="{Binding}"
+                                                Margin="0,0,0,6"
+                                                HorizontalAlignment="Stretch"
+                                                HorizontalContentAlignment="Left" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <DockPanel Grid.Row="2" Margin="0,16,0,0">
+            <Button Classes="exit"
+                    Content="Выход"
+                    Command="{Binding ExitCommand}"
+                    DockPanel.Dock="Right"
+                    MinWidth="120" />
+            <TextBlock Classes="hint"
+                       Text="Выберите режим работы"
+                       VerticalAlignment="Center" />
+        </DockPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,8 @@
+files =30
+buffers=20
+mvarsiz=30
+status=ON
+F10='quit;'
+f5='modi comm'
+f6='browse'
+*tedit =me.exe

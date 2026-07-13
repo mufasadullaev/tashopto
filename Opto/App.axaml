@@ -1,0 +1,218 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Opto.App"
+             xmlns:local="using:Opto"
+             RequestedThemeVariant="Light">
+
+    <Application.DataTemplates>
+        <local:ViewLocator />
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <FluentTheme />
+
+        <Style Selector="TextBlock.brand">
+            <Setter Property="FontFamily" Value="Palatino Linotype, Palatino, Book Antiqua, Georgia, serif" />
+            <Setter Property="FontSize" Value="48" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="#0F3D4A" />
+            <Setter Property="LetterSpacing" Value="4" />
+        </Style>
+
+        <Style Selector="TextBlock.brand-sm">
+            <Setter Property="FontFamily" Value="Palatino Linotype, Palatino, Book Antiqua, Georgia, serif" />
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="#0F3D4A" />
+            <Setter Property="LetterSpacing" Value="3" />
+        </Style>
+
+        <Style Selector="TextBlock.station">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="#1F5A6B" />
+        </Style>
+
+        <Style Selector="TextBlock.subtitle">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="#3A5560" />
+        </Style>
+
+        <Style Selector="TextBlock.section">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Foreground" Value="#6B4E16" />
+            <Setter Property="LetterSpacing" Value="1.2" />
+        </Style>
+
+        <Style Selector="TextBlock.module-title">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="#0F3D4A" />
+        </Style>
+
+        <Style Selector="TextBlock.hint">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Foreground" Value="#4A6570" />
+        </Style>
+
+        <Style Selector="Button.menu">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Padding" Value="16,12" />
+            <Setter Property="Background" Value="#F2F7F9" />
+            <Setter Property="Foreground" Value="#123844" />
+            <Setter Property="BorderBrush" Value="#7A93A3" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="2" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+
+        <Style Selector="Button.menu:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#E3EEF3" />
+            <Setter Property="BorderBrush" Value="#0F3D4A" />
+        </Style>
+
+        <Style Selector="Button.menu:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="#C9DCE4" />
+        </Style>
+
+        <Style Selector="Button.menu.emphasized">
+            <Setter Property="Background" Value="#0F3D4A" />
+            <Setter Property="Foreground" Value="#F4F8FA" />
+            <Setter Property="BorderBrush" Value="#0A2C35" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+
+        <Style Selector="Button.menu.emphasized:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#1A5566" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
+        </Style>
+
+        <Style Selector="Button.exit">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="18,10" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="#0F3D4A" />
+            <Setter Property="BorderBrush" Value="#0F3D4A" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="2" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+
+        <Style Selector="Button.exit:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#0F3D4A" />
+            <Setter Property="Foreground" Value="#F4F8FA" />
+        </Style>
+
+        <Style Selector="Button.primary">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Padding" Value="18,10" />
+            <Setter Property="Background" Value="#0F3D4A" />
+            <Setter Property="Foreground" Value="#F4F8FA" />
+            <Setter Property="BorderBrush" Value="#0A2C35" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="2" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+
+        <Style Selector="Button.primary:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="#1A5566" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
+        </Style>
+
+        <Style Selector="Button.primary:disabled /template/ ContentPresenter">
+            <Setter Property="Background" Value="#9EB4C2" />
+            <Setter Property="Foreground" Value="#E8F0F4" />
+            <Setter Property="BorderBrush" Value="#8AA3B2" />
+        </Style>
+
+        <Style Selector="RadioButton.mode">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Foreground" Value="#123844" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+
+        <Style Selector="TextBlock.validation">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Foreground" Value="#8B2E1F" />
+        </Style>
+
+        <Style Selector="Border.table-panel">
+            <Setter Property="Background" Value="#EEF4F7" />
+            <Setter Property="BorderBrush" Value="#7A93A3" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="2" />
+            <Setter Property="Padding" Value="14" />
+        </Style>
+
+        <Style Selector="Border.table-row">
+            <Setter Property="Padding" Value="0,3" />
+            <Setter Property="BorderBrush" Value="#C5D4DC" />
+            <Setter Property="BorderThickness" Value="0,0,0,1" />
+        </Style>
+
+        <Style Selector="TextBlock.col-header">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="#3A5560" />
+        </Style>
+
+        <Style Selector="TextBlock.row-num">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="#0F3D4A" />
+        </Style>
+
+        <Style Selector="TextBox.cell">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Padding" Value="6,4" />
+            <Setter Property="MinHeight" Value="28" />
+            <Setter Property="Background" Value="#FFFFFF" />
+            <Setter Property="BorderBrush" Value="#7A93A3" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="2" />
+        </Style>
+
+        <Style Selector="TextBlock.cell-text">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Foreground" Value="#3A5560" />
+            <Setter Property="Padding" Value="6,4" />
+            <Setter Property="Background" Value="#E4EBF0" />
+        </Style>
+
+        <Style Selector="TextBlock.report-cell">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Foreground" Value="#3A5560" />
+            <Setter Property="Padding" Value="2,3" />
+        </Style>
+
+        <Style Selector="TextBlock.report-value">
+            <Setter Property="FontFamily" Value="Segoe UI, Helvetica Neue, Arial, sans-serif" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="#0F3D4A" />
+            <Setter Property="Padding" Value="2,3" />
+        </Style>
+
+        <Style Selector="Border.summary">
+            <Setter Property="Background" Value="#D7E8EF" />
+            <Setter Property="CornerRadius" Value="2" />
+        </Style>
+    </Application.Styles>
+</Application>
