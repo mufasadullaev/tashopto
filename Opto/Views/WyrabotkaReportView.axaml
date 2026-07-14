@@ -31,208 +31,158 @@
                 <StackPanel Spacing="2">
                     <TextBlock Classes="brand-sm" Text="ОПТО" />
                     <TextBlock Classes="module-title" Text="{Binding Title}" />
-                    <TextBlock Classes="subtitle" Text="{Binding Subtitle}" />
                 </StackPanel>
             </DockPanel>
 
-            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-                <StackPanel Spacing="18" MaxWidth="920" HorizontalAlignment="Left">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <StackPanel Spacing="22" HorizontalAlignment="Left">
 
-                    <!-- Blocks -->
-                    <Border Classes="table-panel">
-                        <StackPanel Spacing="4">
-                            <TextBlock Classes="section" Text="Блоки" Margin="0,0,0,4" />
+                    <!-- Blocks: one shared column grid -->
+                    <StackPanel>
+                        <TextBlock Classes="section" Text="Блоки" Margin="0,0,0,8" />
 
-                            <!-- Group titles -->
-                            <Grid ColumnDefinitions="40,56,264,264,64" ColumnSpacing="8">
-                                <TextBlock />
-                                <TextBlock />
-                                <Border Grid.Column="2" Background="#D7E8EF" Padding="4,3" CornerRadius="2">
-                                    <TextBlock Classes="section" Text="Выработка" HorizontalAlignment="Center" />
-                                </Border>
-                                <Border Grid.Column="3" Background="#D7E8EF" Padding="4,3" CornerRadius="2">
-                                    <TextBlock Classes="section" Text="СН" HorizontalAlignment="Center" />
-                                </Border>
-                                <TextBlock />
-                            </Grid>
+                        <Grid ColumnDefinitions="36,48,56,88,72,56,88,72,52" ColumnSpacing="6">
+                            <TextBlock Grid.Column="2" Grid.ColumnSpan="3"
+                                       Classes="section"
+                                       Text="Выработка"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,4" />
+                            <TextBlock Grid.Column="5" Grid.ColumnSpan="3"
+                                       Classes="section"
+                                       Text="СН"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,4" />
+                        </Grid>
 
-                            <!-- Column headers -->
-                            <Grid ColumnDefinitions="40,56,64,100,90,64,100,90,64" ColumnSpacing="8" Margin="0,2,0,4">
-                                <TextBlock Classes="col-header" Text="№" HorizontalAlignment="Center" />
-                                <TextBlock Grid.Column="1" Classes="col-header" Text="Часы" HorizontalAlignment="Center" />
-                                <TextBlock Grid.Column="2" Classes="col-header" Text="КФЦ" HorizontalAlignment="Center" />
-                                <TextBlock Grid.Column="3" Classes="col-header" Text="тыс. кВт·ч" HorizontalAlignment="Right" />
-                                <TextBlock Grid.Column="4" Classes="col-header" Text="МВт" HorizontalAlignment="Right" />
-                                <TextBlock Grid.Column="5" Classes="col-header" Text="КФЦ" HorizontalAlignment="Center" />
-                                <TextBlock Grid.Column="6" Classes="col-header" Text="тыс. кВт·ч" HorizontalAlignment="Right" />
-                                <TextBlock Grid.Column="7" Classes="col-header" Text="МВт" HorizontalAlignment="Right" />
-                                <TextBlock Grid.Column="8" Classes="col-header" Text="%" HorizontalAlignment="Right" />
-                            </Grid>
+                        <Grid ColumnDefinitions="36,48,56,88,72,56,88,72,52" ColumnSpacing="6" Margin="0,0,0,2">
+                            <TextBlock Classes="col-header" Text="№" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="1" Classes="col-header" Text="Час" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Classes="col-header" Text="КФЦ" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="3" Classes="col-header" Text="тыс.кВт·ч" HorizontalAlignment="Right" />
+                            <TextBlock Grid.Column="4" Classes="col-header" Text="МВт" HorizontalAlignment="Right" />
+                            <TextBlock Grid.Column="5" Classes="col-header" Text="КФЦ" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="6" Classes="col-header" Text="тыс.кВт·ч" HorizontalAlignment="Right" />
+                            <TextBlock Grid.Column="7" Classes="col-header" Text="МВт" HorizontalAlignment="Right" />
+                            <TextBlock Grid.Column="8" Classes="col-header" Text="%" HorizontalAlignment="Right" />
+                        </Grid>
 
-                            <ItemsControl ItemsSource="{Binding BlockRows}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate x:DataType="models:WyrabotkaReportRow">
-                                        <Border Classes="table-row" Padding="0,5">
-                                            <Grid ColumnDefinitions="40,56,64,100,90,64,100,90,64" ColumnSpacing="8">
-                                                <TextBlock Classes="row-num"
-                                                           Text="{Binding Label}"
-                                                           HorizontalAlignment="Center"
-                                                           VerticalAlignment="Center" />
-                                                <TextBlock Grid.Column="1" Classes="report-value"
-                                                           Text="{Binding Hours}"
-                                                           HorizontalAlignment="Center"
-                                                           VerticalAlignment="Center" />
-                                                <TextBlock Grid.Column="2" Classes="report-cell"
-                                                           Text="{Binding CoefficientGeneration}"
-                                                           HorizontalAlignment="Center"
-                                                           VerticalAlignment="Center" />
-                                                <TextBlock Grid.Column="3" Classes="report-value"
-                                                           Text="{Binding GenerationThousandKwh}"
-                                                           HorizontalAlignment="Right"
-                                                           VerticalAlignment="Center" />
-                                                <TextBlock Grid.Column="4" Classes="report-value"
-                                                           Text="{Binding GenerationMw}"
-                                                           HorizontalAlignment="Right"
-                                                           VerticalAlignment="Center" />
-                                                <TextBlock Grid.Column="5" Classes="report-cell"
-                                                           Text="{Binding CoefficientOwnNeeds}"
-                                                           HorizontalAlignment="Center"
-                                                           VerticalAlignment="Center" />
-                                                <TextBlock Grid.Column="6" Classes="report-value"
-                                                           Text="{Binding OwnNeedsThousandKwh}"
-                                                           HorizontalAlignment="Right"
-                                                           VerticalAlignment="Center" />
-                                                <TextBlock Grid.Column="7" Classes="report-value"
-                                                           Text="{Binding OwnNeedsMw}"
-                                                           HorizontalAlignment="Right"
-                                                           VerticalAlignment="Center" />
-                                                <TextBlock Grid.Column="8" Classes="report-value"
-                                                           Text="{Binding Percent}"
-                                                           HorizontalAlignment="Right"
-                                                           VerticalAlignment="Center" />
-                                            </Grid>
-                                        </Border>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </StackPanel>
-                    </Border>
+                        <Border Height="1" Background="#9EB4C2" Margin="0,0,0,2" />
+
+                        <ItemsControl ItemsSource="{Binding BlockRows}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:WyrabotkaReportRow">
+                                    <Grid ColumnDefinitions="36,48,56,88,72,56,88,72,52"
+                                          ColumnSpacing="6"
+                                          Margin="0,3">
+                                        <TextBlock Classes="row-num" Text="{Binding Label}"
+                                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="1" Classes="report-value" Text="{Binding Hours}"
+                                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="2" Classes="report-cell" Text="{Binding CoefficientGeneration}"
+                                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="3" Classes="report-value" Text="{Binding GenerationThousandKwh}"
+                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="4" Classes="report-value" Text="{Binding GenerationMw}"
+                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="5" Classes="report-cell" Text="{Binding CoefficientOwnNeeds}"
+                                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="6" Classes="report-value" Text="{Binding OwnNeedsThousandKwh}"
+                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="7" Classes="report-value" Text="{Binding OwnNeedsMw}"
+                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="8" Classes="report-value" Text="{Binding Percent}"
+                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
 
                     <!-- Transformers -->
-                    <Border Classes="table-panel">
-                        <StackPanel Spacing="8">
-                            <TextBlock Classes="section" Text="Трансформаторы" />
+                    <StackPanel>
+                        <TextBlock Classes="section" Text="Трансформаторы" Margin="0,0,0,8" />
 
-                            <Grid ColumnDefinitions="120,70,160" ColumnSpacing="8">
-                                <TextBlock Classes="col-header" Text="Счётчик" />
-                                <TextBlock Grid.Column="1" Classes="col-header" Text="КФЦ" HorizontalAlignment="Center" />
-                                <TextBlock Grid.Column="2" Classes="col-header" Text="тыс. кВт·ч" HorizontalAlignment="Right" />
-                            </Grid>
+                        <Grid ColumnDefinitions="100,56,100" ColumnSpacing="6" Margin="0,0,0,2">
+                            <TextBlock Classes="col-header" Text="Счётчик" />
+                            <TextBlock Grid.Column="1" Classes="col-header" Text="КФЦ" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Classes="col-header" Text="тыс.кВт·ч" HorizontalAlignment="Right" />
+                        </Grid>
+                        <Border Height="1" Background="#9EB4C2" Margin="0,0,0,2" />
 
-                            <ItemsControl ItemsSource="{Binding TransformerRows}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate x:DataType="models:WyrabotkaReportRow">
-                                        <Border Classes="table-row" Padding="0,5">
-                                            <Grid ColumnDefinitions="120,70,160" ColumnSpacing="8">
-                                                <TextBlock Classes="row-num"
-                                                           Text="{Binding Label}"
-                                                           VerticalAlignment="Center" />
-                                                <TextBlock Grid.Column="1" Classes="report-cell"
-                                                           Text="{Binding CoefficientOwnNeeds}"
-                                                           HorizontalAlignment="Center"
-                                                           VerticalAlignment="Center" />
-                                                <TextBlock Grid.Column="2" Classes="report-value"
-                                                           Text="{Binding OwnNeedsThousandKwh}"
-                                                           HorizontalAlignment="Right"
-                                                           VerticalAlignment="Center" />
-                                            </Grid>
-                                        </Border>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </StackPanel>
-                    </Border>
+                        <ItemsControl ItemsSource="{Binding TransformerRows}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:WyrabotkaReportRow">
+                                    <Grid ColumnDefinitions="100,56,100" ColumnSpacing="6" Margin="0,3">
+                                        <TextBlock Classes="row-num" Text="{Binding Label}" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="1" Classes="report-cell" Text="{Binding CoefficientOwnNeeds}"
+                                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="2" Classes="report-value" Text="{Binding OwnNeedsThousandKwh}"
+                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
 
                     <!-- Totals -->
-                    <Border Classes="table-panel">
-                        <StackPanel Spacing="10">
-                            <TextBlock Classes="section" Text="Итоги" />
+                    <StackPanel>
+                        <TextBlock Classes="section" Text="Итоги" Margin="0,0,0,8" />
 
-                            <Grid ColumnDefinitions="160,72,120,100,120,100,80" ColumnSpacing="8">
-                                <TextBlock Classes="col-header" Text="" />
-                                <TextBlock Grid.Column="1" Classes="col-header" Text="Часы" HorizontalAlignment="Center" />
-                                <TextBlock Grid.Column="2" Classes="col-header" Text="Выр., тыс. кВт·ч" HorizontalAlignment="Right" />
-                                <TextBlock Grid.Column="3" Classes="col-header" Text="Выр., МВт" HorizontalAlignment="Right" />
-                                <TextBlock Grid.Column="4" Classes="col-header" Text="СН+тр., тыс." HorizontalAlignment="Right" />
-                                <TextBlock Grid.Column="5" Classes="col-header" Text="СН, МВт" HorizontalAlignment="Right" />
-                                <TextBlock Grid.Column="6" Classes="col-header" Text="%" HorizontalAlignment="Right" />
-                            </Grid>
+                        <Grid ColumnDefinitions="140,48,88,72,88,72,52" ColumnSpacing="6" Margin="0,0,0,2">
+                            <TextBlock />
+                            <TextBlock Grid.Column="1" Classes="col-header" Text="Час" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Classes="col-header" Text="Выр." HorizontalAlignment="Right" />
+                            <TextBlock Grid.Column="3" Classes="col-header" Text="МВт" HorizontalAlignment="Right" />
+                            <TextBlock Grid.Column="4" Classes="col-header" Text="СН+тр." HorizontalAlignment="Right" />
+                            <TextBlock Grid.Column="5" Classes="col-header" Text="СН МВт" HorizontalAlignment="Right" />
+                            <TextBlock Grid.Column="6" Classes="col-header" Text="%" HorizontalAlignment="Right" />
+                        </Grid>
+                        <Border Height="1" Background="#9EB4C2" Margin="0,0,0,2" />
 
-                            <Border Classes="summary" Padding="8,8" Margin="0,2,0,0">
-                                <StackPanel Spacing="8">
-                                    <Grid ColumnDefinitions="160,72,120,100,120,100,80" ColumnSpacing="8">
-                                        <TextBlock Classes="row-num" Text="{Binding DayTotal.Label}" VerticalAlignment="Center" />
-                                        <TextBlock Grid.Column="1" Classes="report-value"
-                                                   Text="{Binding DayTotal.Hours}"
-                                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        <TextBlock Grid.Column="2" Classes="report-value"
-                                                   Text="{Binding DayTotal.GenerationThousandKwh}"
-                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                        <TextBlock Grid.Column="3" Classes="report-value"
-                                                   Text="{Binding DayTotal.GenerationMw}"
-                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                        <TextBlock Grid.Column="4" Classes="report-value"
-                                                   Text="{Binding DayTotal.OwnNeedsThousandKwh}"
-                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                        <TextBlock Grid.Column="5" Classes="report-value"
-                                                   Text="{Binding DayTotal.OwnNeedsMw}"
-                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                        <TextBlock Grid.Column="6" Classes="report-value"
-                                                   Text="{Binding DayTotal.Percent}"
-                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                    </Grid>
-                                    <Grid ColumnDefinitions="160,72,120,100,120,100,80" ColumnSpacing="8">
-                                        <TextBlock Classes="row-num" Text="Отпуск" VerticalAlignment="Center" />
-                                        <TextBlock Grid.Column="2" Classes="report-value"
-                                                   Text="{Binding DayReleaseText}"
-                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                    </Grid>
-                                </StackPanel>
-                            </Border>
+                        <Grid ColumnDefinitions="140,48,88,72,88,72,52" ColumnSpacing="6" Margin="0,4">
+                            <TextBlock Classes="row-num" Text="{Binding DayTotal.Label}" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="1" Classes="report-value" Text="{Binding DayTotal.Hours}"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Classes="report-value" Text="{Binding DayTotal.GenerationThousandKwh}"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="3" Classes="report-value" Text="{Binding DayTotal.GenerationMw}"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="4" Classes="report-value" Text="{Binding DayTotal.OwnNeedsThousandKwh}"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="5" Classes="report-value" Text="{Binding DayTotal.OwnNeedsMw}"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="6" Classes="report-value" Text="{Binding DayTotal.Percent}"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                        </Grid>
+                        <Grid ColumnDefinitions="140,48,88,72,88,72,52" ColumnSpacing="6" Margin="0,2">
+                            <TextBlock Classes="row-num" Text="Отпуск" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Classes="report-value" Text="{Binding DayReleaseText}"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                        </Grid>
 
-                            <Border Classes="summary" Padding="8,8">
-                                <StackPanel Spacing="8">
-                                    <Grid ColumnDefinitions="160,72,120,100,120,100,80" ColumnSpacing="8">
-                                        <TextBlock Classes="row-num" Text="{Binding MonthTotal.Label}" VerticalAlignment="Center" />
-                                        <TextBlock Grid.Column="1" Classes="report-value"
-                                                   Text="{Binding MonthTotal.Hours}"
-                                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                        <TextBlock Grid.Column="2" Classes="report-value"
-                                                   Text="{Binding MonthTotal.GenerationThousandKwh}"
-                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                        <TextBlock Grid.Column="3" Classes="report-value"
-                                                   Text="{Binding MonthTotal.GenerationMw}"
-                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                        <TextBlock Grid.Column="4" Classes="report-value"
-                                                   Text="{Binding MonthTotal.OwnNeedsThousandKwh}"
-                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                        <TextBlock Grid.Column="5" Classes="report-value"
-                                                   Text="{Binding MonthTotal.OwnNeedsMw}"
-                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                        <TextBlock Grid.Column="6" Classes="report-value"
-                                                   Text="{Binding MonthTotal.Percent}"
-                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                    </Grid>
-                                    <Grid ColumnDefinitions="160,72,120,100,120,100,80" ColumnSpacing="8">
-                                        <TextBlock Classes="row-num" Text="Отпуск" VerticalAlignment="Center" />
-                                        <TextBlock Grid.Column="2" Classes="report-value"
-                                                   Text="{Binding MonthReleaseText}"
-                                                   HorizontalAlignment="Right" VerticalAlignment="Center" />
-                                    </Grid>
-                                </StackPanel>
-                            </Border>
-                        </StackPanel>
-                    </Border>
+                        <Border Height="1" Background="#C5D4DC" Margin="0,8" />
+
+                        <Grid ColumnDefinitions="140,48,88,72,88,72,52" ColumnSpacing="6" Margin="0,2">
+                            <TextBlock Classes="row-num" Text="{Binding MonthTotal.Label}" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="1" Classes="report-value" Text="{Binding MonthTotal.Hours}"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Classes="report-value" Text="{Binding MonthTotal.GenerationThousandKwh}"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="3" Classes="report-value" Text="{Binding MonthTotal.GenerationMw}"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="4" Classes="report-value" Text="{Binding MonthTotal.OwnNeedsThousandKwh}"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="5" Classes="report-value" Text="{Binding MonthTotal.OwnNeedsMw}"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="6" Classes="report-value" Text="{Binding MonthTotal.Percent}"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                        </Grid>
+                        <Grid ColumnDefinitions="140,48,88,72,88,72,52" ColumnSpacing="6" Margin="0,2">
+                            <TextBlock Classes="row-num" Text="Отпуск" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="2" Classes="report-value" Text="{Binding MonthReleaseText}"
+                                       HorizontalAlignment="Right" VerticalAlignment="Center" />
+                        </Grid>
+                    </StackPanel>
 
                 </StackPanel>
             </ScrollViewer>

@@ -2,11 +2,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="Opto.App"
              xmlns:local="using:Opto"
+             xmlns:conv="using:Opto.Converters"
              RequestedThemeVariant="Light">
 
     <Application.DataTemplates>
         <local:ViewLocator />
     </Application.DataTemplates>
+
+    <Application.Resources>
+        <conv:SafeDecimalConverter x:Key="SafeDecimal" />
+        <conv:SafeIntConverter x:Key="SafeInt" />
+    </Application.Resources>
 
     <Application.Styles>
         <FluentTheme />

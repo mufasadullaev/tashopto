@@ -10,7 +10,7 @@ namespace Opto.Services;
 
 public static class WyrabotkaPrintService
 {
-    private static readonly CultureInfo Culture = CultureInfo.GetCultureInfo("ru-RU");
+    private static readonly CultureInfo Culture = OptoCulture.Current;
 
     public static void Print(WyrabotkaReport report)
     {

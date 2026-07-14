@@ -1,4 +1,4 @@
-﻿using Avalonia;
+using Avalonia;
 using System;
 using System.Globalization;
 using System.Threading;
@@ -10,11 +10,10 @@ sealed class Program
     [STAThread]
     public static void Main(string[] args)
     {
-        var culture = CultureInfo.GetCultureInfo("ru-RU");
-        CultureInfo.DefaultThreadCurrentCulture = culture;
-        CultureInfo.DefaultThreadCurrentUICulture = culture;
-        Thread.CurrentThread.CurrentCulture = culture;
-        Thread.CurrentThread.CurrentUICulture = culture;
+        CultureInfo.DefaultThreadCurrentCulture = OptoCulture.Current;
+        CultureInfo.DefaultThreadCurrentUICulture = OptoCulture.Current;
+        Thread.CurrentThread.CurrentCulture = OptoCulture.Current;
+        Thread.CurrentThread.CurrentUICulture = OptoCulture.Current;
 
         BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
     }

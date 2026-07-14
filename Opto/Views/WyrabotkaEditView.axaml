@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="using:Opto.ViewModels"
              xmlns:models="using:Opto.Models"
+             xmlns:views="using:Opto.Views"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
@@ -18,8 +19,6 @@
             <StackPanel DockPanel.Dock="Top" Spacing="2" Margin="0,0,0,16">
                 <TextBlock Classes="brand-sm" Text="ОПТО" />
                 <TextBlock Classes="module-title" Text="{Binding Title}" TextWrapping="Wrap" />
-                <TextBlock Classes="subtitle"
-                           Text="12 блоков: выработка и СН (КФЦ, ПН, ПК) и общие часы. Ниже — 4 трансформатора (КФЦ, ПН, ПК)." />
             </StackPanel>
 
             <DockPanel DockPanel.Dock="Bottom" Margin="0,16,0,0">
@@ -32,10 +31,12 @@
                             Orientation="Horizontal"
                             Spacing="10"
                             HorizontalAlignment="Right">
-                    <TextBlock Classes="hint"
+                    <TextBlock Classes="validation"
                                Text="{Binding StatusMessage}"
                                VerticalAlignment="Center"
-                               Margin="0,0,8,0" />
+                               Margin="0,0,8,0"
+                               MaxWidth="420"
+                               TextWrapping="Wrap" />
                     <Button Classes="exit"
                             Content="Сохранить"
                             Command="{Binding SaveCommand}"
@@ -86,20 +87,25 @@
                                                            Classes="cell-text"
                                                            Text="{Binding GenerationCoefficient}"
                                                            VerticalAlignment="Center" />
-                                                <TextBox Grid.Column="2" Classes="cell"
-                                                         Text="{Binding GenerationStart}" />
-                                                <TextBox Grid.Column="3" Classes="cell"
-                                                         Text="{Binding GenerationEnd}" />
+                                                <views:NumericTextBox Grid.Column="2" Classes="cell"
+                                                                      InputMode="decimal"
+                                                                      Text="{Binding GenerationStart, Converter={StaticResource SafeDecimal}}" />
+                                                <views:NumericTextBox Grid.Column="3" Classes="cell"
+                                                                      InputMode="decimal"
+                                                                      Text="{Binding GenerationEnd, Converter={StaticResource SafeDecimal}}" />
                                                 <TextBlock Grid.Column="4"
                                                            Classes="cell-text"
                                                            Text="{Binding OwnNeedsCoefficient}"
                                                            VerticalAlignment="Center" />
-                                                <TextBox Grid.Column="5" Classes="cell"
-                                                         Text="{Binding OwnNeedsStart}" />
-                                                <TextBox Grid.Column="6" Classes="cell"
-                                                         Text="{Binding OwnNeedsEnd}" />
-                                                <TextBox Grid.Column="7" Classes="cell"
-                                                         Text="{Binding Hours}" />
+                                                <views:NumericTextBox Grid.Column="5" Classes="cell"
+                                                                      InputMode="decimal"
+                                                                      Text="{Binding OwnNeedsStart, Converter={StaticResource SafeDecimal}}" />
+                                                <views:NumericTextBox Grid.Column="6" Classes="cell"
+                                                                      InputMode="decimal"
+                                                                      Text="{Binding OwnNeedsEnd, Converter={StaticResource SafeDecimal}}" />
+                                                <views:NumericTextBox Grid.Column="7" Classes="cell"
+                                                                      InputMode="integer"
+                                                                      Text="{Binding Hours, Converter={StaticResource SafeInt}}" />
                                             </Grid>
                                         </Border>
                                     </DataTemplate>
@@ -132,10 +138,12 @@
                                                            Classes="cell-text"
                                                            Text="{Binding Coefficient}"
                                                            VerticalAlignment="Center" />
-                                                <TextBox Grid.Column="2" Classes="cell"
-                                                         Text="{Binding Start}" />
-                                                <TextBox Grid.Column="3" Classes="cell"
-                                                         Text="{Binding End}" />
+                                                <views:NumericTextBox Grid.Column="2" Classes="cell"
+                                                                      InputMode="decimal"
+                                                                      Text="{Binding Start, Converter={StaticResource SafeDecimal}}" />
+                                                <views:NumericTextBox Grid.Column="3" Classes="cell"
+                                                                      InputMode="decimal"
+                                                                      Text="{Binding End, Converter={StaticResource SafeDecimal}}" />
                                             </Grid>
                                         </Border>
                                     </DataTemplate>

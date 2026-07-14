@@ -92,6 +92,12 @@ public partial class WyrabotkaEditViewModel : ViewModelBase
 
     private void Save()
     {
+        if (!WyrabotkaInputValidator.Validate(Blocks, Transformers, out var error))
+        {
+            StatusMessage = error;
+            return;
+        }
+
         var snapshot = WyrabotkaEditSnapshot.FromRows(Blocks, Transformers);
         WyrabotkaDraftStore.Save(Date, Mode, snapshot);
         StatusMessage = $"Сохранено · {DateTime.Now:HH:mm:ss}";
@@ -99,7 +105,15 @@ public partial class WyrabotkaEditViewModel : ViewModelBase
 
     private void Calculate()
     {
-        Save();
+        if (!WyrabotkaInputValidator.Validate(Blocks, Transformers, out var error))
+        {
+            StatusMessage = error;
+            return;
+        }
+
+        var snapshot = WyrabotkaEditSnapshot.FromRows(Blocks, Transformers);
+        WyrabotkaDraftStore.Save(Date, Mode, snapshot);
+
         var report = WyrabotkaCalculator.Calculate(Date, Mode, Blocks, Transformers);
         _navigate(new WyrabotkaReportViewModel(report, () => _navigate(this)));
     }

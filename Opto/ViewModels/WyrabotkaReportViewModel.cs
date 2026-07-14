@@ -13,7 +13,6 @@ public partial class WyrabotkaReportViewModel : ViewModelBase
     private readonly WyrabotkaReport _report;
 
     public string Title { get; }
-    public string Subtitle { get; }
 
     public ObservableCollection<WyrabotkaReportRow> BlockRows { get; }
     public ObservableCollection<WyrabotkaReportRow> TransformerRows { get; }
@@ -33,16 +32,14 @@ public partial class WyrabotkaReportViewModel : ViewModelBase
     public WyrabotkaReportViewModel(WyrabotkaReport report, Action goBack)
     {
         _report = report;
-        var mode = report.Mode == WyrabotkaMode.Calculation ? "Расчёт" : "Перерасчёт";
         Title = $"Результаты расчёта · {report.Date:dd.MM.yyyy}";
-        Subtitle = $"{mode} · выработка и собственные нужды";
 
         BlockRows = new ObservableCollection<WyrabotkaReportRow>(report.BlockRows);
         TransformerRows = new ObservableCollection<WyrabotkaReportRow>(report.TransformerRows);
         DayTotal = report.DayTotal;
         MonthTotal = report.MonthTotal;
-        DayReleaseText = report.DayRelease.ToString("0.00");
-        MonthReleaseText = report.MonthRelease.ToString("0.00");
+        DayReleaseText = report.DayRelease.ToString("0.00", OptoCulture.Current);
+        MonthReleaseText = report.MonthRelease.ToString("0.00", OptoCulture.Current);
         GoBackCommand = new RelayCommand(goBack);
         PrintCommand = new RelayCommand(Print);
     }
