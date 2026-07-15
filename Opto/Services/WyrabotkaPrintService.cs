@@ -30,7 +30,6 @@ public static class WyrabotkaPrintService
 
     private static string BuildHtml(WyrabotkaReport report)
     {
-        var mode = report.Mode == WyrabotkaMode.Calculation ? "Расчёт" : "Перерасчёт";
         var trSum = report.TransformerRows.Sum(r => r.OwnNeedsThousandKwh);
         var sb = new StringBuilder();
 
@@ -54,52 +53,9 @@ public static class WyrabotkaPrintService
               -webkit-print-color-adjust: exact;
               print-color-adjust: exact;
             }
-
-            .toolbar {
-              display: flex;
-              gap: 10px;
-              align-items: center;
-              margin-bottom: 12px;
-            }
-            .toolbar button {
-              border: 1px solid #222;
-              background: #222;
-              color: #fff;
-              padding: 6px 12px;
-              font: 600 12px/1 "Segoe UI", sans-serif;
-              cursor: pointer;
-            }
-            .toolbar span { color: #666; font-size: 11px; }
-
-            .head {
-              display: flex;
-              justify-content: space-between;
-              align-items: baseline;
-              gap: 12px;
-              padding-bottom: 6px;
-              border-bottom: 1px solid #222;
-              margin-bottom: 10px;
-            }
-            .head h1 {
-              margin: 0;
-              font-size: 13px;
-              font-weight: 700;
-              letter-spacing: 0.02em;
-            }
-            .head .meta {
-              margin: 0;
-              font-size: 11px;
-              color: #444;
-              white-space: nowrap;
-            }
-
-            .grid {
-              display: grid;
-              grid-template-columns: 1.55fr 1fr;
-              gap: 14px;
-              align-items: start;
-            }
-
+            """);
+        sb.AppendLine(OptoPrintChrome.SharedStyles);
+        sb.AppendLine("""
             h2 {
               margin: 0 0 4px;
               font-size: 10px;
@@ -142,10 +98,10 @@ public static class WyrabotkaPrintService
               color: #333;
             }
 
-            .w-n { width: 28px; }
-            .w-k { width: 48px; }
-            .w-h { width: 40px; }
-            .w-p { width: 44px; }
+            .w-n { width: 32px; }
+            .w-k { width: 52px; }
+            .w-h { width: 44px; }
+            .w-p { width: 48px; }
 
             tr.tot td {
               border-top: 1px solid #222;
@@ -158,8 +114,16 @@ public static class WyrabotkaPrintService
               font-weight: 700;
             }
 
+            .bottom {
+              display: grid;
+              grid-template-columns: 1fr 1.4fr;
+              gap: 18px;
+              margin-top: 14px;
+              align-items: start;
+            }
+
             .foot {
-              margin-top: 8px;
+              margin-top: 10px;
               padding-top: 4px;
               border-top: 1px solid #ddd;
               display: flex;
@@ -170,26 +134,21 @@ public static class WyrabotkaPrintService
 
             @media print {
               body { padding: 0; }
-              .toolbar { display: none !important; }
             }
             """);
         sb.AppendLine("</style>");
         sb.AppendLine("</head>");
         sb.AppendLine("<body onload=\"setTimeout(() => window.print(), 200)\">");
 
-        sb.AppendLine("<div class=\"toolbar\">");
-        sb.AppendLine("<button type=\"button\" onclick=\"window.print()\">Печать</button>");
-        sb.AppendLine("<span>A4 · альбомная ориентация</span>");
-        sb.AppendLine("</div>");
+        OptoPrintChrome.AppendToolbar(sb);
+        OptoPrintChrome.AppendHeader(
+            sb,
+            "РАСЧЁТ ВЫРАБОТКИ ЭЛЕКТРОЭНЕРГИИ И ПОТРЕБЛЕНИЯ ЕЕ НА СОБСТВЕННЫЕ НУЖДЫ",
+            report.Date,
+            report.Mode,
+            "Выработка электроэнергии");
 
-        sb.AppendLine("<div class=\"head\">");
-        sb.AppendLine("<h1>ОПТО · ТашТЭС — выработка электроэнергии и СН</h1>");
-        sb.AppendLine($"<p class=\"meta\">{report.Date:dd.MM.yyyy} · {Esc(mode)}</p>");
-        sb.AppendLine("</div>");
-
-        sb.AppendLine("<div class=\"grid\">");
-
-        // Blocks
+        // Blocks — full width
         sb.AppendLine("<section>");
         sb.AppendLine("<h2>Блоки</h2>");
         sb.AppendLine("<table>");
@@ -225,7 +184,9 @@ public static class WyrabotkaPrintService
         sb.AppendLine("</tbody></table>");
         sb.AppendLine("</section>");
 
-        // Right column
+        // Transformers + totals — new row below
+        sb.AppendLine("<div class=\"bottom\">");
+
         sb.AppendLine("<section>");
         sb.AppendLine("<h2>Трансформаторы</h2>");
         sb.AppendLine("<table>");
@@ -245,8 +206,10 @@ public static class WyrabotkaPrintService
         sb.AppendLine($"<td>{N1(trSum)}</td>");
         sb.AppendLine("</tr>");
         sb.AppendLine("</tbody></table>");
+        sb.AppendLine("</section>");
 
-        sb.AppendLine("<h2 style=\"margin-top:12px\">Итоги</h2>");
+        sb.AppendLine("<section>");
+        sb.AppendLine("<h2>Итоги</h2>");
         sb.AppendLine("<table>");
         sb.AppendLine("<thead><tr>");
         sb.AppendLine("<th class=\"l\"></th>");

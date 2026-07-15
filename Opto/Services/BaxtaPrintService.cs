@@ -28,7 +28,6 @@ public static class BaxtaPrintService
 
     private static string BuildHtml(BaxtaReport report)
     {
-        var mode = report.Mode == WyrabotkaMode.Calculation ? "Расчёт" : "Перерасчёт";
         var sb = new StringBuilder();
 
         sb.AppendLine("<!DOCTYPE html><html lang=\"ru\"><head><meta charset=\"utf-8\" />");
@@ -37,21 +36,23 @@ public static class BaxtaPrintService
         sb.AppendLine("""
             @page { size: A4 landscape; margin: 8mm 10mm; }
             body { margin:0; padding:10px 12px; font:9px/1.25 "Segoe UI",Arial,sans-serif; color:#111; }
-            .toolbar { margin-bottom:10px; }
-            .toolbar button { padding:6px 12px; background:#222; color:#fff; border:0; cursor:pointer; }
-            h1 { margin:0 0 4px; font-size:12px; }
-            .meta { color:#444; margin-bottom:8px; }
+            """);
+        sb.AppendLine(OptoPrintChrome.SharedStyles);
+        sb.AppendLine("""
             table { width:100%; border-collapse:collapse; margin-bottom:14px; table-layout:fixed; }
             th, td { border-bottom:1px solid #ddd; padding:2px 3px; text-align:right; }
             th:first-child, td:first-child { text-align:left; }
             .section { font-weight:700; background:#f3f6f8; }
             .footer { margin-top:8px; font-size:10px; }
-            @media print { .toolbar { display:none; } }
             """);
         sb.AppendLine("</style></head><body>");
-        sb.AppendLine("<div class=\"toolbar\"><button onclick=\"window.print()\">Печать</button></div>");
-        sb.AppendLine($"<h1>ИТОГИ РАСХОДА ТОПЛИВА (в кг у.т.) по сменам, вахтам и блокам · {report.Date:dd.MM.yyyy} · {mode}</h1>");
-        sb.AppendLine("<p class=\"meta\">ОПТО · Ежедневный расчёт по вахтам</p>");
+        OptoPrintChrome.AppendToolbar(sb);
+        OptoPrintChrome.AppendHeader(
+            sb,
+            "ИТОГИ РАСХОДА ТОПЛИВА (в кг у.т.) по сменам, вахтам и блокам",
+            report.Date,
+            report.Mode,
+            "Ежедневный расчёт по вахтам");
 
         foreach (var section in report.Sections)
         {
