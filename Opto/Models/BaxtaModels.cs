@@ -67,7 +67,7 @@ public partial class BaxtaThermoRow : ObservableObject
     public string ShiftLabel { get; init; } = "";
 
     [ObservableProperty]
-    private int _hours = 8;
+    private int _hours;
 
     [ObservableProperty]
     private int _dro;
@@ -79,25 +79,25 @@ public partial class BaxtaThermoRow : ObservableObject
     private decimal _tpw;
 
     [ObservableProperty]
-    private decimal _tk = 540m;
+    private decimal _tk;
 
     [ObservableProperty]
-    private decimal _top = 540m;
+    private decimal _top;
 
     [ObservableProperty]
-    private decimal _tpp = 540m;
+    private decimal _tpp;
 
     [ObservableProperty]
-    private decimal _pop = 120m;
+    private decimal _pop;
 
     [ObservableProperty]
-    private decimal _tug = 15m;
+    private decimal _tug;
 
     [ObservableProperty]
-    private decimal _thw = 15m;
+    private decimal _thw;
 
     [ObservableProperty]
-    private decimal _o2 = 3.5m;
+    private decimal _o2;
 
     [ObservableProperty]
     private int _tn;
@@ -106,19 +106,19 @@ public partial class BaxtaThermoRow : ObservableObject
 public partial class BaxtaPlantParamsRow : ObservableObject
 {
     [ObservableProperty]
-    private decimal _urp = 324.90m;
+    private decimal _urp;
 
     [ObservableProperty]
-    private decimal _urm = 452.40m;
+    private decimal _urm;
 
     [ObservableProperty]
-    private decimal _tcb1 = 10.8m;
+    private decimal _tcb1;
 
     [ObservableProperty]
-    private decimal _tcb2 = 11.0m;
+    private decimal _tcb2;
 
     [ObservableProperty]
-    private decimal _tcb3 = 11.5m;
+    private decimal _tcb3;
 
     [ObservableProperty]
     private int _wrmn11;
@@ -186,7 +186,7 @@ public partial class BaxtaPlantParamsRow : ObservableObject
     [ObservableProperty]
     private int _setn5N;
 
-    public int[] Prises { get; } = [43, 56, 53, 58, 53, 53, 46, 53, 52, 52, 49, 46];
+    public int[] Prises { get; } = new int[12];
 }
 
 public partial class BaxtaPrisRow : ObservableObject
@@ -194,5 +194,5 @@ public partial class BaxtaPrisRow : ObservableObject
     public int BlockNumber { get; init; }
 
     [ObservableProperty]
-    private int _value = 43;
+    private int _value;
 }

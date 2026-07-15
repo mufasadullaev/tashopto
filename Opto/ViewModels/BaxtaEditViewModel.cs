@@ -86,8 +86,6 @@ public partial class BaxtaEditViewModel : ViewModelBase
                 Number = i,
                 Kl1 = 1.7m,
                 Kl2 = 5.3m,
-                Kf1 = 0.001m,
-                Kf2 = 0.001m,
             });
 
             Prises.Add(new BaxtaPrisRow { BlockNumber = i, Value = Plant.Prises[i - 1] });
@@ -99,7 +97,6 @@ public partial class BaxtaEditViewModel : ViewModelBase
                     BlockNumber = i,
                     ShiftIndex = shift,
                     ShiftLabel = ShiftLabels[shift - 1],
-                    Hours = 8,
                 });
             }
         }
