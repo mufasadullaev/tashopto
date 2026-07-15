@@ -45,7 +45,7 @@ public static class WyrabotkaCalculator
         WyrabotkaMode mode,
         IEnumerable<BlockMeterRow> blocks,
         IEnumerable<TransformerMeterRow> transformers,
-        WyrabotkaReport? previousMonth = null)
+        WyrabotkaMonthTotals? monthBefore = null)
     {
         var blockRows = new List<WyrabotkaReportRow>();
         decimal sumHours = 0;
@@ -124,16 +124,13 @@ public static class WyrabotkaCalculator
             IsSummary = true,
         };
 
-        // Пока нет архива месяца — нарастающий итог = сутки.
-        // После подключения хранения сюда добавятся накопленные значения.
-        var monthHours = sumHours + (previousMonth?.MonthTotal.Hours ?? 0);
-        var monthGeneration = sumGeneration + (previousMonth?.MonthTotal.GenerationThousandKwh ?? 0);
-        // Month totals in karat store raw before rounding; for UI use rounded day + previous displayed.
-        // Simpler: accumulate raw day values only for now.
-        var monthSnPlusTr = snPlusTr;
-        var monthRelease = dayRelease;
+        var monthBeforeTotals = monthBefore ?? new WyrabotkaMonthTotals();
+        var monthHours = sumHours + monthBeforeTotals.Hours;
+        var monthGeneration = sumGeneration + monthBeforeTotals.GenerationThousandKwh;
+        var monthSnPlusTr = snPlusTr + monthBeforeTotals.OwnNeedsThousandKwh;
+        var monthRelease = dayRelease + monthBeforeTotals.ReleaseThousandKwh;
         var monthGenMw = monthHours > 0 ? monthGeneration / monthHours : 0m;
-        var monthSnMw = monthHours > 0 ? sumOwnNeeds / monthHours : 0m;
+        var monthSnMw = monthHours > 0 ? monthSnPlusTr / monthHours : 0m;
         var monthPercent = monthGeneration != 0 ? monthSnPlusTr / monthGeneration * 100m : 0m;
 
         var monthTotal = new WyrabotkaReportRow

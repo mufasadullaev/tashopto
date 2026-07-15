@@ -42,6 +42,12 @@ public partial class MainViewModel : ViewModelBase
             return;
         }
 
+        if (action.Id == "baxta")
+        {
+            await OpenBaxtaAsync();
+            return;
+        }
+
         NavigateTo(new PlaceholderViewModel(action.Title, GoToMenu));
     }
 
@@ -59,6 +65,22 @@ public partial class MainViewModel : ViewModelBase
             return;
 
         NavigateTo(new WyrabotkaEditViewModel(result, GoToMenu, NavigateTo));
+    }
+
+    private async Task OpenBaxtaAsync()
+    {
+        var owner = GetMainWindow();
+        if (owner is null)
+            return;
+
+        var startVm = new BaxtaStartViewModel();
+        var dialog = new BaxtaStartWindow(startVm);
+        var result = await dialog.ShowDialog<BaxtaStartResult?>(owner);
+
+        if (result is null)
+            return;
+
+        NavigateTo(new BaxtaEditViewModel(result, GoToMenu, NavigateTo));
     }
 
     private static Window? GetMainWindow()

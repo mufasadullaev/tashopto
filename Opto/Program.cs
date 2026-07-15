@@ -15,6 +15,8 @@ sealed class Program
         Thread.CurrentThread.CurrentCulture = OptoCulture.Current;
         Thread.CurrentThread.CurrentUICulture = OptoCulture.Current;
 
+        Opto.Services.Database.OptoDatabase.Initialize();
+
         BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
     }
 

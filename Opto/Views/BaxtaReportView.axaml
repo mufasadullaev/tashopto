@@ -1,0 +1,95 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Opto.ViewModels"
+             xmlns:models="using:Opto.Models"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="1100" d:DesignHeight="760"
+             x:Class="Opto.Views.BaxtaReportView"
+             x:DataType="vm:BaxtaReportViewModel">
+
+    <Design.DataContext>
+        <vm:BaxtaReportViewModel />
+    </Design.DataContext>
+
+    <Border Background="#F4F8FA">
+        <DockPanel Margin="20">
+            <DockPanel DockPanel.Dock="Top" Margin="0,0,0,16">
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Spacing="10" VerticalAlignment="Top">
+                    <TextBlock Classes="hint" Text="{Binding StatusMessage}" VerticalAlignment="Center" />
+                    <Button Classes="primary" Content="Печать" Command="{Binding PrintCommand}" MinWidth="120" />
+                    <Button Classes="exit" Content="← К вводу данных" Command="{Binding GoBackCommand}" MinWidth="150" />
+                </StackPanel>
+                <StackPanel Spacing="2">
+                    <TextBlock Classes="brand-sm" Text="ОПТО" />
+                    <TextBlock Classes="module-title" Text="{Binding Title}" />
+                    <TextBlock Classes="subtitle" Text="Расход топлива по сменам и блокам" />
+                </StackPanel>
+            </DockPanel>
+
+            <StackPanel DockPanel.Dock="Bottom" Spacing="4" Margin="0,16,0,0">
+                <TextBlock Classes="hint" Text="{Binding UrpText, StringFormat=План на месяц — {0} г/кВт·ч}" />
+                <TextBlock Classes="hint" Text="{Binding UrmText, StringFormat=Факт с начала месяца — {0} г/кВт·ч}" />
+            </StackPanel>
+
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding Sections}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="models:BaxtaShiftSection">
+                            <StackPanel Spacing="6" Margin="0,0,0,20">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <TextBlock Classes="section" Text="{Binding Title}" />
+                                    <TextBlock Classes="hint" Text="{Binding Watch, StringFormat=вахта {0}}"
+                                               IsVisible="{Binding Watch, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                                </StackPanel>
+
+                                <Grid ColumnDefinitions="88,52,52,52,52,52,52,52,52,52,52,52,52,64" ColumnSpacing="4">
+                                    <TextBlock Classes="col-header" Text="" />
+                                    <TextBlock Grid.Column="1" Classes="col-header" Text="1" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Column="2" Classes="col-header" Text="2" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Column="3" Classes="col-header" Text="3" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Column="4" Classes="col-header" Text="4" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Column="5" Classes="col-header" Text="5" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Column="6" Classes="col-header" Text="6" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Column="7" Classes="col-header" Text="7" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Column="8" Classes="col-header" Text="8" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Column="9" Classes="col-header" Text="9" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Column="10" Classes="col-header" Text="10" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Column="11" Classes="col-header" Text="11" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Column="12" Classes="col-header" Text="12" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Column="13" Classes="col-header" Text="Σ" HorizontalAlignment="Center" />
+                                </Grid>
+                                <Border Height="1" Background="#9EB4C2" />
+
+                                <ItemsControl ItemsSource="{Binding Rows}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate x:DataType="models:BaxtaFuelRow">
+                                            <Grid ColumnDefinitions="88,52,52,52,52,52,52,52,52,52,52,52,52,64"
+                                                  ColumnSpacing="4" Margin="0,3">
+                                                <TextBlock Classes="row-num" Text="{Binding Label}" VerticalAlignment="Center" />
+                                                <TextBlock Grid.Column="1" Classes="report-value" Text="{Binding Col1}" HorizontalAlignment="Right" />
+                                                <TextBlock Grid.Column="2" Classes="report-value" Text="{Binding Col2}" HorizontalAlignment="Right" />
+                                                <TextBlock Grid.Column="3" Classes="report-value" Text="{Binding Col3}" HorizontalAlignment="Right" />
+                                                <TextBlock Grid.Column="4" Classes="report-value" Text="{Binding Col4}" HorizontalAlignment="Right" />
+                                                <TextBlock Grid.Column="5" Classes="report-value" Text="{Binding Col5}" HorizontalAlignment="Right" />
+                                                <TextBlock Grid.Column="6" Classes="report-value" Text="{Binding Col6}" HorizontalAlignment="Right" />
+                                                <TextBlock Grid.Column="7" Classes="report-value" Text="{Binding Col7}" HorizontalAlignment="Right" />
+                                                <TextBlock Grid.Column="8" Classes="report-value" Text="{Binding Col8}" HorizontalAlignment="Right" />
+                                                <TextBlock Grid.Column="9" Classes="report-value" Text="{Binding Col9}" HorizontalAlignment="Right" />
+                                                <TextBlock Grid.Column="10" Classes="report-value" Text="{Binding Col10}" HorizontalAlignment="Right" />
+                                                <TextBlock Grid.Column="11" Classes="report-value" Text="{Binding Col11}" HorizontalAlignment="Right" />
+                                                <TextBlock Grid.Column="12" Classes="report-value" Text="{Binding Col12}" HorizontalAlignment="Right" />
+                                                <TextBlock Grid.Column="13" Classes="report-value" Text="{Binding TotalText}" FontWeight="SemiBold" HorizontalAlignment="Right" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </DockPanel>
+    </Border>
+</UserControl>

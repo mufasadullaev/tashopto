@@ -82,8 +82,8 @@ public partial class WyrabotkaEditViewModel : ViewModelBase
             });
         }
 
-        var draft = WyrabotkaDraftStore.TryLoad(Date);
-        draft?.ApplyTo(Blocks, Transformers);
+        var saved = WyrabotkaStore.TryLoad(Date);
+        saved?.ApplyTo(Blocks, Transformers);
 
         CancelCommand = new RelayCommand(goBack);
         SaveCommand = new RelayCommand(Save);
@@ -99,7 +99,7 @@ public partial class WyrabotkaEditViewModel : ViewModelBase
         }
 
         var snapshot = WyrabotkaEditSnapshot.FromRows(Blocks, Transformers);
-        WyrabotkaDraftStore.Save(Date, Mode, snapshot);
+        WyrabotkaStore.Save(Date, Mode, snapshot);
         StatusMessage = $"Сохранено · {DateTime.Now:HH:mm:ss}";
     }
 
@@ -112,9 +112,11 @@ public partial class WyrabotkaEditViewModel : ViewModelBase
         }
 
         var snapshot = WyrabotkaEditSnapshot.FromRows(Blocks, Transformers);
-        WyrabotkaDraftStore.Save(Date, Mode, snapshot);
+        WyrabotkaStore.Save(Date, Mode, snapshot);
 
-        var report = WyrabotkaCalculator.Calculate(Date, Mode, Blocks, Transformers);
+        var monthBefore = WyrabotkaStore.GetMonthTotalsBefore(Date);
+        var report = WyrabotkaCalculator.Calculate(Date, Mode, Blocks, Transformers, monthBefore);
+        WyrabotkaStore.SaveResult(Date, report);
         _navigate(new WyrabotkaReportViewModel(report, () => _navigate(this)));
     }
 }

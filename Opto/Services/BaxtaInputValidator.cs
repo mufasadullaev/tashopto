@@ -8,11 +8,11 @@ public static class BaxtaInputValidator
 {
     public const int MaxHours = 8;
     public const decimal MaxGenerationReading = 999_999.9m;
-    public const decimal MaxOwnNeedsReading = 999_999.99m;
+    public const decimal MaxOwnNeedsReading = 9_999.99m;
 
     public static bool Validate(
         IEnumerable<BaxtaMeterBlockRow> meters,
-        BaxtaPlantParams plant,
+        BaxtaPlantParamsRow plant,
         IEnumerable<BaxtaThermoRow> thermo,
         out string error)
     {
@@ -41,13 +41,13 @@ public static class BaxtaInputValidator
         {
             if (t.Hours < 0 || t.Hours > MaxHours)
             {
-                error = $"Блок {t.BlockNumber}, смена {t.ShiftLabel}: часы 0…{MaxHours}.";
+                error = $"Блок {t.BlockNumber}, {t.ShiftLabel}: часы 0…{MaxHours}.";
                 return false;
             }
 
             if (t.Pwd is not (0 or 1))
             {
-                error = $"Блок {t.BlockNumber}, смена {t.ShiftLabel}: ПВД — 0 или 1.";
+                error = $"Блок {t.BlockNumber}, {t.ShiftLabel}: ПВД — 0 или 1.";
                 return false;
             }
         }
@@ -56,6 +56,48 @@ public static class BaxtaInputValidator
         {
             error = "Удельный расход топлива не может быть отрицательным.";
             return false;
+        }
+
+        if (!ValidatePlantPumpHours(plant, out error))
+            return false;
+
+        foreach (var pris in plant.Prises)
+        {
+            if (pris < 0 || pris > 99)
+            {
+                error = "Присоски: значение от 0 до 99.";
+                return false;
+            }
+        }
+
+        if (plant.Tcb1 is < 0 or > 99.9m || plant.Tcb2 is < 0 or > 99.9m || plant.Tcb3 is < 0 or > 99.9m)
+        {
+            error = "Температура циркулирующей воды: от 0 до 99.9.";
+            return false;
+        }
+
+        error = "";
+        return true;
+    }
+
+    private static bool OkPumpHours(int value) => value is >= 0 and <= 9;
+
+    public static bool ValidatePlantPumpHours(BaxtaPlantParamsRow plant, out string error)
+    {
+        var fields = new (string Name, int Value)[]
+        {
+            ("N4 смена 1", plant.Wrmn11), ("N5 смена 1", plant.Wrmn21), ("N6 смена 1", plant.Wrmn31), ("N7 смена 1", plant.Wrmn14),
+            ("N4 смена 2", plant.Wrmn12), ("N5 смена 2", plant.Wrmn22), ("N6 смена 2", plant.Wrmn32), ("N7 смена 2", plant.Wrmn24),
+            ("N4 смена 3", plant.Wrmn13), ("N5 смена 3", plant.Wrmn23), ("N6 смена 3", plant.Wrmn33), ("N7 смена 3", plant.Wrmn34),
+        };
+
+        foreach (var (name, value) in fields)
+        {
+            if (!OkPumpHours(value))
+            {
+                error = $"Мазутные насосы ({name}): часы 0…9.";
+                return false;
+            }
         }
 
         error = "";
