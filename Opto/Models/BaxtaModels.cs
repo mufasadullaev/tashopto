@@ -156,36 +156,6 @@ public partial class BaxtaPlantParamsRow : ObservableObject
     [ObservableProperty]
     private int _wrmn34;
 
-    [ObservableProperty]
-    private int _setn1K;
-
-    [ObservableProperty]
-    private int _setn1N;
-
-    [ObservableProperty]
-    private int _setn2K;
-
-    [ObservableProperty]
-    private int _setn2N;
-
-    [ObservableProperty]
-    private int _setn3K;
-
-    [ObservableProperty]
-    private int _setn3N;
-
-    [ObservableProperty]
-    private int _setn4K;
-
-    [ObservableProperty]
-    private int _setn4N;
-
-    [ObservableProperty]
-    private int _setn5K;
-
-    [ObservableProperty]
-    private int _setn5N;
-
     public int[] Prises { get; } = new int[12];
 }
 

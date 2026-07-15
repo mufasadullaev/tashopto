@@ -141,55 +141,33 @@
                                 </Grid>
                             </StackPanel>
 
-                            <StackPanel Spacing="8">
-                                <TextBlock Classes="hint" Text="Потребление эл.энергии сетевыми насосами (ПК / ПН)" />
-                                <Grid ColumnDefinitions="80,90,90" ColumnSpacing="8"
-                                      RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="6">
-                                    <TextBlock Grid.Row="1" Grid.Column="1" Classes="col-header" Text="ПК" HorizontalAlignment="Center" />
-                                    <TextBlock Grid.Row="1" Grid.Column="2" Classes="col-header" Text="ПН" HorizontalAlignment="Center" />
-                                    <TextBlock Grid.Row="2" Grid.Column="0" Classes="row-num" Text="ТС-1" VerticalAlignment="Center" />
-                                    <views:NumericTextBox Grid.Row="2" Grid.Column="1" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn1K, Converter={StaticResource SafeInt}}" />
-                                    <views:NumericTextBox Grid.Row="2" Grid.Column="2" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn1N, Converter={StaticResource SafeInt}}" />
-                                    <TextBlock Grid.Row="3" Grid.Column="0" Classes="row-num" Text="ТС-2" VerticalAlignment="Center" />
-                                    <views:NumericTextBox Grid.Row="3" Grid.Column="1" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn2K, Converter={StaticResource SafeInt}}" />
-                                    <views:NumericTextBox Grid.Row="3" Grid.Column="2" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn2N, Converter={StaticResource SafeInt}}" />
-                                    <TextBlock Grid.Row="4" Grid.Column="0" Classes="row-num" Text="ТС-3" VerticalAlignment="Center" />
-                                    <views:NumericTextBox Grid.Row="4" Grid.Column="1" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn3K, Converter={StaticResource SafeInt}}" />
-                                    <views:NumericTextBox Grid.Row="4" Grid.Column="2" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn3N, Converter={StaticResource SafeInt}}" />
-                                    <TextBlock Grid.Row="5" Grid.Column="0" Classes="row-num" Text="ТС-4" VerticalAlignment="Center" />
-                                    <views:NumericTextBox Grid.Row="5" Grid.Column="1" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn4K, Converter={StaticResource SafeInt}}" />
-                                    <views:NumericTextBox Grid.Row="5" Grid.Column="2" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn4N, Converter={StaticResource SafeInt}}" />
-                                    <TextBlock Grid.Row="6" Grid.Column="0" Classes="row-num" Text="ТС-5" VerticalAlignment="Center" />
-                                    <views:NumericTextBox Grid.Row="6" Grid.Column="1" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn5K, Converter={StaticResource SafeInt}}" />
-                                    <views:NumericTextBox Grid.Row="6" Grid.Column="2" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn5N, Converter={StaticResource SafeInt}}" />
-                                </Grid>
-                            </StackPanel>
                         </StackPanel>
                     </Border>
 
                     <Border Classes="table-panel">
                         <StackPanel Spacing="8">
                             <TextBlock Classes="section" Text="Теплотехника" />
-                            <Grid ColumnDefinitions="36,36,56,44,36,56,56,56,56,56,44,44,56" ColumnSpacing="4" Margin="0,0,0,4">
-                                <TextBlock Classes="col-header" Text="Бл" HorizontalAlignment="Center" />
-                                <TextBlock Grid.Column="1" Classes="col-header" Text="См" HorizontalAlignment="Center" />
+                            <Grid ColumnDefinitions="48,50,56,50,50,56,56,56,56,56,50,50,44,64" ColumnSpacing="4" Margin="0,0,0,4">
+                                <TextBlock Classes="col-header" Text="N БЛ" HorizontalAlignment="Center" />
+                                <TextBlock Grid.Column="1" Classes="col-header" Text="СМЕНА" HorizontalAlignment="Center" />
                                 <TextBlock Grid.Column="2" Classes="col-header" Text="Ч" HorizontalAlignment="Center" />
-                                <TextBlock Grid.Column="3" Classes="col-header" Text="ДР" HorizontalAlignment="Center" />
-                                <TextBlock Grid.Column="4" Classes="col-header" Text="ПВ" HorizontalAlignment="Center" />
+                                <TextBlock Grid.Column="3" Classes="col-header" Text="ДРО" HorizontalAlignment="Center" />
+                                <TextBlock Grid.Column="4" Classes="col-header" Text="ПВД" HorizontalAlignment="Center" />
                                 <TextBlock Grid.Column="5" Classes="col-header" Text="ТПВ" HorizontalAlignment="Center" />
                                 <TextBlock Grid.Column="6" Classes="col-header" Text="ТК" HorizontalAlignment="Center" />
                                 <TextBlock Grid.Column="7" Classes="col-header" Text="ТОП" HorizontalAlignment="Center" />
-                                <TextBlock Grid.Column="8" Classes="col-header" Text="ТПП" HorizontalAlignment="Center" />
+                                <TextBlock Grid.Column="8" Classes="col-header" Text="ТКЛ" HorizontalAlignment="Center" />
                                 <TextBlock Grid.Column="9" Classes="col-header" Text="РОП" HorizontalAlignment="Center" />
                                 <TextBlock Grid.Column="10" Classes="col-header" Text="ТУГ" HorizontalAlignment="Center" />
-                                <TextBlock Grid.Column="11" Classes="col-header" Text="O2" HorizontalAlignment="Center" />
-                                <TextBlock Grid.Column="12" Classes="col-header" Text="ТН" HorizontalAlignment="Center" />
+                                <TextBlock Grid.Column="11" Classes="col-header" Text="ТХВ" HorizontalAlignment="Center" />
+                                <TextBlock Grid.Column="12" Classes="col-header" Text="O2" HorizontalAlignment="Center" />
+                                <TextBlock Grid.Column="13" Classes="col-header" Text="ТАБ.N" HorizontalAlignment="Center" />
                             </Grid>
                             <ItemsControl ItemsSource="{Binding Thermo}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate x:DataType="models:BaxtaThermoRow">
                                         <Border Classes="table-row">
-                                            <Grid ColumnDefinitions="36,36,56,44,36,56,56,56,56,56,44,44,56" ColumnSpacing="4">
+                                            <Grid ColumnDefinitions="48,50,56,50,50,56,56,56,56,56,50,50,44,64" ColumnSpacing="4">
                                                 <TextBlock Classes="row-num" Text="{Binding BlockNumber}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                                 <TextBlock Grid.Column="1" Classes="cell-text" Text="{Binding ShiftIndex}" HorizontalAlignment="Center" VerticalAlignment="Center" />
                                                 <views:NumericTextBox Grid.Column="2" Classes="cell" InputMode="integer" Text="{Binding Hours, Converter={StaticResource SafeInt}}" />
@@ -201,8 +179,9 @@
                                                 <views:NumericTextBox Grid.Column="8" Classes="cell" InputMode="decimal" Text="{Binding Tpp, Converter={StaticResource SafeDecimal}}" />
                                                 <views:NumericTextBox Grid.Column="9" Classes="cell" InputMode="decimal" Text="{Binding Pop, Converter={StaticResource SafeDecimal}}" />
                                                 <views:NumericTextBox Grid.Column="10" Classes="cell" InputMode="decimal" Text="{Binding Tug, Converter={StaticResource SafeDecimal}}" />
-                                                <views:NumericTextBox Grid.Column="11" Classes="cell" InputMode="decimal" Text="{Binding O2, Converter={StaticResource SafeDecimal}}" />
-                                                <views:NumericTextBox Grid.Column="12" Classes="cell" InputMode="integer" Text="{Binding Tn, Converter={StaticResource SafeInt}}" />
+                                                <views:NumericTextBox Grid.Column="11" Classes="cell" InputMode="decimal" Text="{Binding Thw, Converter={StaticResource SafeDecimal}}" />
+                                                <views:NumericTextBox Grid.Column="12" Classes="cell" InputMode="decimal" Text="{Binding O2, Converter={StaticResource SafeDecimal}}" />
+                                                <views:NumericTextBox Grid.Column="13" Classes="cell" InputMode="integer" Text="{Binding Tn, Converter={StaticResource SafeInt}}" />
                                             </Grid>
                                         </Border>
                                     </DataTemplate>

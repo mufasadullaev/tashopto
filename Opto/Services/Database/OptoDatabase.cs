@@ -174,16 +174,6 @@ public static class OptoDatabase
                 wrmn14 INTEGER NOT NULL,
                 wrmn24 INTEGER NOT NULL,
                 wrmn34 INTEGER NOT NULL,
-                setn1k INTEGER NOT NULL,
-                setn1n INTEGER NOT NULL,
-                setn2k INTEGER NOT NULL,
-                setn2n INTEGER NOT NULL,
-                setn3k INTEGER NOT NULL,
-                setn3n INTEGER NOT NULL,
-                setn4k INTEGER NOT NULL,
-                setn4n INTEGER NOT NULL,
-                setn5k INTEGER NOT NULL,
-                setn5n INTEGER NOT NULL,
                 prises_json TEXT NOT NULL,
                 FOREIGN KEY (date) REFERENCES baxta_day(date) ON DELETE CASCADE
             );

@@ -129,14 +129,12 @@ public static class BaxtaStore
                 date, urp, urm, tcb1, tcb2, tcb3,
                 wrmn11, wrmn12, wrmn13, wrmn21, wrmn22, wrmn23,
                 wrmn31, wrmn32, wrmn33, wrmn14, wrmn24, wrmn34,
-                setn1k, setn1n, setn2k, setn2n, setn3k, setn3n,
-                setn4k, setn4n, setn5k, setn5n, prises_json)
+                prises_json)
             VALUES (
                 @date, @urp, @urm, @tcb1, @tcb2, @tcb3,
                 @wrmn11, @wrmn12, @wrmn13, @wrmn21, @wrmn22, @wrmn23,
                 @wrmn31, @wrmn32, @wrmn33, @wrmn14, @wrmn24, @wrmn34,
-                @setn1k, @setn1n, @setn2k, @setn2n, @setn3k, @setn3n,
-                @setn4k, @setn4n, @setn5k, @setn5n, @prisesJson);
+                @prisesJson);
             """,
             ("@date", dateKey),
             ("@urp", plant.Urp),
@@ -156,16 +154,6 @@ public static class BaxtaStore
             ("@wrmn14", plant.Wrmn14),
             ("@wrmn24", plant.Wrmn24),
             ("@wrmn34", plant.Wrmn34),
-            ("@setn1k", plant.Setn1K),
-            ("@setn1n", plant.Setn1N),
-            ("@setn2k", plant.Setn2K),
-            ("@setn2n", plant.Setn2N),
-            ("@setn3k", plant.Setn3K),
-            ("@setn3n", plant.Setn3N),
-            ("@setn4k", plant.Setn4K),
-            ("@setn4n", plant.Setn4N),
-            ("@setn5k", plant.Setn5K),
-            ("@setn5n", plant.Setn5N),
             ("@prisesJson", JsonSerializer.Serialize(plant.Prises, JsonOptions)));
 
         transaction.Commit();
@@ -287,8 +275,7 @@ public static class BaxtaStore
                 SELECT urp, urm, tcb1, tcb2, tcb3,
                        wrmn11, wrmn12, wrmn13, wrmn21, wrmn22, wrmn23,
                        wrmn31, wrmn32, wrmn33, wrmn14, wrmn24, wrmn34,
-                       setn1k, setn1n, setn2k, setn2n, setn3k, setn3n,
-                       setn4k, setn4n, setn5k, setn5n, prises_json
+                       prises_json
                 FROM baxta_plant
                 WHERE date = @date;
                 """;
@@ -315,17 +302,7 @@ public static class BaxtaStore
                     Wrmn14 = reader.GetInt32(14),
                     Wrmn24 = reader.GetInt32(15),
                     Wrmn34 = reader.GetInt32(16),
-                    Setn1K = reader.GetInt32(17),
-                    Setn1N = reader.GetInt32(18),
-                    Setn2K = reader.GetInt32(19),
-                    Setn2N = reader.GetInt32(20),
-                    Setn3K = reader.GetInt32(21),
-                    Setn3N = reader.GetInt32(22),
-                    Setn4K = reader.GetInt32(23),
-                    Setn4N = reader.GetInt32(24),
-                    Setn5K = reader.GetInt32(25),
-                    Setn5N = reader.GetInt32(26),
-                    Prises = JsonSerializer.Deserialize<int[]>(reader.GetString(27), JsonOptions) ?? new int[12],
+                    Prises = JsonSerializer.Deserialize<int[]>(reader.GetString(17), JsonOptions) ?? new int[12],
                 };
             }
         }

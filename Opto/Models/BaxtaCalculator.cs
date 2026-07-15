@@ -79,7 +79,6 @@ public static class BaxtaCalculator
         var wyr = new decimal[12, 3];
         var esn = new decimal[12, 3];
         ComputeDeltas(meterList, wyr, esn);
-        ApplyNetworkCorrections(plant, esn);
 
         var cif = new decimal[12, 11, 4];
         var mtcb = new[] { plant.Tcb1, plant.Tcb2, plant.Tcb3 };
@@ -275,27 +274,6 @@ public static class BaxtaCalculator
                 esn[i, shift] = m.OwnNeedsCoefficient * 0.001m * sDelta;
             }
         }
-    }
-
-    private static void ApplyNetworkCorrections(BaxtaPlantParamsRow plant, decimal[,] esn)
-    {
-        var kf = new decimal[5];
-        kf[0] = 2880m;
-        kf[1] = 2880m;
-        kf[2] = 2880m;
-        kf[3] = 2880m;
-        kf[4] = 2880m;
-
-        if (plant.Setn5K != plant.Setn5N)
-            esn[8, 2] -= (plant.Setn5K - plant.Setn5N) * kf[4] * 0.001m / 3m;
-        if (plant.Setn1K != plant.Setn1N)
-            esn[10, 2] -= (plant.Setn1K - plant.Setn1N) * kf[0] * 0.001m / 3m;
-
-        var set234 =
-            (plant.Setn2K - plant.Setn2N) * kf[1] +
-            (plant.Setn3K - plant.Setn3N) * kf[2] +
-            (plant.Setn4K - plant.Setn4N) * kf[3];
-        esn[11, 2] -= set234 * 0.001m / 3m;
     }
 
     private static decimal GetRegimeAddend(int block, int shift, BaxtaPlantParamsRow plant) =>

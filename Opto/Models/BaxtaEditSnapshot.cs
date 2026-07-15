@@ -191,16 +191,6 @@ public sealed class BaxtaPlantData
     public int Wrmn14 { get; set; }
     public int Wrmn24 { get; set; }
     public int Wrmn34 { get; set; }
-    public int Setn1K { get; set; }
-    public int Setn1N { get; set; }
-    public int Setn2K { get; set; }
-    public int Setn2N { get; set; }
-    public int Setn3K { get; set; }
-    public int Setn3N { get; set; }
-    public int Setn4K { get; set; }
-    public int Setn4N { get; set; }
-    public int Setn5K { get; set; }
-    public int Setn5N { get; set; }
     public int[] Prises { get; set; } = new int[12];
 
     public static BaxtaPlantData FromRow(BaxtaPlantParamsRow plant) =>
@@ -223,16 +213,6 @@ public sealed class BaxtaPlantData
             Wrmn14 = plant.Wrmn14,
             Wrmn24 = plant.Wrmn24,
             Wrmn34 = plant.Wrmn34,
-            Setn1K = plant.Setn1K,
-            Setn1N = plant.Setn1N,
-            Setn2K = plant.Setn2K,
-            Setn2N = plant.Setn2N,
-            Setn3K = plant.Setn3K,
-            Setn3N = plant.Setn3N,
-            Setn4K = plant.Setn4K,
-            Setn4N = plant.Setn4N,
-            Setn5K = plant.Setn5K,
-            Setn5N = plant.Setn5N,
             Prises = plant.Prises.ToArray(),
         };
 
@@ -255,16 +235,6 @@ public sealed class BaxtaPlantData
         plant.Wrmn14 = Wrmn14;
         plant.Wrmn24 = Wrmn24;
         plant.Wrmn34 = Wrmn34;
-        plant.Setn1K = Setn1K;
-        plant.Setn1N = Setn1N;
-        plant.Setn2K = Setn2K;
-        plant.Setn2N = Setn2N;
-        plant.Setn3K = Setn3K;
-        plant.Setn3N = Setn3N;
-        plant.Setn4K = Setn4K;
-        plant.Setn4N = Setn4N;
-        plant.Setn5K = Setn5K;
-        plant.Setn5N = Setn5N;
 
         for (var i = 0; i < Math.Min(Prises.Length, plant.Prises.Length); i++)
             plant.Prises[i] = Prises[i];
