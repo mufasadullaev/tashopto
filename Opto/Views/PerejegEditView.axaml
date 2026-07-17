@@ -1,0 +1,92 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Opto.ViewModels"
+             xmlns:models="using:Opto.Models"
+             xmlns:views="using:Opto.Views"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="1280" d:DesignHeight="760"
+             x:Class="Opto.Views.PerejegEditView"
+             x:DataType="vm:PerejegEditViewModel">
+
+    <Design.DataContext>
+        <vm:PerejegEditViewModel />
+    </Design.DataContext>
+
+    <Border Background="#F4F8FA">
+        <DockPanel Margin="20">
+            <StackPanel DockPanel.Dock="Top" Spacing="2" Margin="0,0,0,12">
+                <TextBlock Classes="brand-sm" Text="ОПТО" />
+                <TextBlock Classes="module-title" Text="{Binding Title}" TextWrapping="Wrap" />
+                <TextBlock Classes="hint"
+                           Text="Исходные данные: мощность N, время T, перепад DT и отпуск э/э за сутки"
+                           TextWrapping="Wrap" />
+            </StackPanel>
+
+            <DockPanel DockPanel.Dock="Bottom" Margin="0,16,0,0">
+                <Button Classes="exit" Content="← Назад" Command="{Binding CancelCommand}" DockPanel.Dock="Left" MinWidth="120" />
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Spacing="10" HorizontalAlignment="Right">
+                    <TextBlock Classes="validation" Text="{Binding StatusMessage}" VerticalAlignment="Center" MaxWidth="420" TextWrapping="Wrap" />
+                    <Button Classes="exit" Content="Сохранить" Command="{Binding SaveCommand}" MinWidth="120" />
+                    <Button Classes="primary" Content="Расчёт" Command="{Binding CalculateCommand}" MinWidth="140" />
+                </StackPanel>
+            </DockPanel>
+
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Border Classes="table-panel">
+                    <StackPanel Spacing="8" HorizontalAlignment="Left">
+                        <TextBlock Classes="section" Text="Исходные данные" />
+
+                        <Grid ColumnDefinitions="28,132,64,64,64,64,64,64,64,64,64,64,64,64,72"
+                              ColumnSpacing="4"
+                              Margin="0,0,0,4">
+                            <TextBlock Classes="col-header" Text="№" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="1" Classes="col-header" Text="Показатель" />
+                            <TextBlock Grid.Column="2" Classes="col-header" Text="1" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="3" Classes="col-header" Text="2" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="4" Classes="col-header" Text="3" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="5" Classes="col-header" Text="4" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="6" Classes="col-header" Text="5" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="7" Classes="col-header" Text="6" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="8" Classes="col-header" Text="7" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="9" Classes="col-header" Text="8" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="10" Classes="col-header" Text="9" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="11" Classes="col-header" Text="10" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="12" Classes="col-header" Text="11" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="13" Classes="col-header" Text="12" HorizontalAlignment="Center" />
+                            <TextBlock Grid.Column="14" Classes="col-header" Text="Общие" HorizontalAlignment="Center" />
+                        </Grid>
+
+                        <ItemsControl ItemsSource="{Binding Rows}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:PerejegInputRow">
+                                    <Border Classes="table-row">
+                                        <Grid ColumnDefinitions="28,132,64,64,64,64,64,64,64,64,64,64,64,64,72"
+                                              ColumnSpacing="4">
+                                            <TextBlock Classes="row-num" Text="{Binding Index}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <TextBlock Grid.Column="1" Classes="hint" Text="{Binding Label}" VerticalAlignment="Center" TextWrapping="Wrap" />
+                                            <views:NumericTextBox Grid.Column="2" Classes="cell" InputMode="decimal" Text="{Binding Block1, Converter={StaticResource SafeDecimal}}" />
+                                            <views:NumericTextBox Grid.Column="3" Classes="cell" InputMode="decimal" Text="{Binding Block2, Converter={StaticResource SafeDecimal}}" />
+                                            <views:NumericTextBox Grid.Column="4" Classes="cell" InputMode="decimal" Text="{Binding Block3, Converter={StaticResource SafeDecimal}}" />
+                                            <views:NumericTextBox Grid.Column="5" Classes="cell" InputMode="decimal" Text="{Binding Block4, Converter={StaticResource SafeDecimal}}" />
+                                            <views:NumericTextBox Grid.Column="6" Classes="cell" InputMode="decimal" Text="{Binding Block5, Converter={StaticResource SafeDecimal}}" />
+                                            <views:NumericTextBox Grid.Column="7" Classes="cell" InputMode="decimal" Text="{Binding Block6, Converter={StaticResource SafeDecimal}}" />
+                                            <views:NumericTextBox Grid.Column="8" Classes="cell" InputMode="decimal" Text="{Binding Block7, Converter={StaticResource SafeDecimal}}" />
+                                            <views:NumericTextBox Grid.Column="9" Classes="cell" InputMode="decimal" Text="{Binding Block8, Converter={StaticResource SafeDecimal}}" />
+                                            <views:NumericTextBox Grid.Column="10" Classes="cell" InputMode="decimal" Text="{Binding Block9, Converter={StaticResource SafeDecimal}}" />
+                                            <views:NumericTextBox Grid.Column="11" Classes="cell" InputMode="decimal" Text="{Binding Block10, Converter={StaticResource SafeDecimal}}" />
+                                            <views:NumericTextBox Grid.Column="12" Classes="cell" InputMode="decimal" Text="{Binding Block11, Converter={StaticResource SafeDecimal}}" />
+                                            <views:NumericTextBox Grid.Column="13" Classes="cell" InputMode="decimal" Text="{Binding Block12, Converter={StaticResource SafeDecimal}}" />
+                                            <views:NumericTextBox Grid.Column="14" Classes="cell" InputMode="decimal" Text="{Binding Station, Converter={StaticResource SafeDecimal}}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+            </ScrollViewer>
+        </DockPanel>
+    </Border>
+</UserControl>

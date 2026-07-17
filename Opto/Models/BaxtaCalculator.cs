@@ -56,12 +56,12 @@ public sealed class BaxtaReport
 
 public static class BaxtaCalculator
 {
-    private const decimal GenerationOverflow = 100_000m;
-    private const decimal OwnNeedsOverflow = 1_000_000m;
+    private const double GenerationOverflow = 100_000;
+    private const double OwnNeedsOverflow = 1_000_000;
     private static readonly string[] WatchLetters = ["А", "Б", "В", "Г"];
     private static readonly string[] RowLabels =
     [
-        "ЛБ", "НАГРУЗКА", "ПУГ", "ВАК", "ДОП", "ТОП", "ТПП", "СН", "ТПВ", "ВСЕГО", "г/кВт·ч",
+        "МБ", "НАГРУЗКА", "ПУГ", "ВАК", "ДОП", "ТОП", "ТПП", "СН", "ТПВ", "ВСЕГО", "г/кВт·ч",
     ];
 
     public static BaxtaReport Calculate(
@@ -76,12 +76,19 @@ public static class BaxtaCalculator
         var thermoList = thermo.OrderBy(t => t.BlockNumber).ThenBy(t => t.ShiftIndex).ToArray();
         var coeffList = coeffs.OrderBy(c => c.Number).ToArray();
 
-        var wyr = new decimal[12, 3];
-        var esn = new decimal[12, 3];
+        var wyr = new double[12, 3];
+        var esn = new double[12, 3];
         ComputeDeltas(meterList, wyr, esn);
+        ApplyNetworkPumpCorrections(plant, esn);
 
-        var cif = new decimal[12, 11, 4];
-        var mtcb = new[] { plant.Tcb1, plant.Tcb2, plant.Tcb3 };
+        // cif[block, row, shift]: shift 0..2 = смены, 3 = сутки (как karat cif(*,*,4))
+        var cif = new double[12, 11, 4];
+        var mtcb = new[] { (double)plant.Tcb1, (double)plant.Tcb2, (double)plant.Tcb3 };
+
+        // karat: суточные суммы копят точные eksut*, потом один round
+        var dayRaw = new double[12, 9]; // rows 0..8: tn unused, load raw, eksut1..7
+        var dayLoadProm = new double[12];
+        var dayLoadKol = new int[12];
 
         for (var shift = 1; shift <= 3; shift++)
         {
@@ -92,23 +99,23 @@ public static class BaxtaCalculator
                 if (thermoRow is null || thermoRow.Hours == 0)
                     continue;
 
-                var wy = wyr[block - 1, shift - 1];
-                var sn = esn[block - 1, shift - 1];
+                var b = block - 1;
+                var s = shift - 1;
+                var wy = wyr[b, s];
+                var sn = esn[b, s];
                 var load = wy / thermoRow.Hours;
-                var coeff = coeffList[block - 1];
-                var pris = plant.Prises[block - 1];
+                var coeff = coeffList[b];
+                var pris = plant.Prises[b];
                 var regime = GetRegimeAddend(block, shift, plant);
 
                 ComputeFuel(
-                    block,
-                    shift,
                     wy,
                     sn,
                     load,
                     thermoRow,
                     coeff,
                     pris,
-                    mtcb[shift - 1],
+                    mtcb[s],
                     regime,
                     out var eksut1,
                     out var eksut2,
@@ -118,37 +125,52 @@ public static class BaxtaCalculator
                     out var eksut6,
                     out var eksut7);
 
-                cif[block - 1, 0, shift - 1] = thermoRow.Tn;
-                cif[block - 1, 1, shift - 1] = Round0(load);
-                cif[block - 1, 2, shift - 1] = Round0(eksut1);
-                cif[block - 1, 3, shift - 1] = Round0(eksut2);
-                cif[block - 1, 4, shift - 1] = Round0(eksut3);
-                cif[block - 1, 5, shift - 1] = Round0(eksut4);
-                cif[block - 1, 6, shift - 1] = Round0(eksut5);
-                cif[block - 1, 7, shift - 1] = Round0(eksut6);
-                cif[block - 1, 8, shift - 1] = Round0(eksut7);
+                cif[b, 0, s] = thermoRow.Tn;
+                cif[b, 1, s] = FoxRound0(load);
+                cif[b, 2, s] = FoxRound0(eksut1);
+                cif[b, 3, s] = FoxRound0(eksut2);
+                cif[b, 4, s] = FoxRound0(eksut3);
+                cif[b, 5, s] = FoxRound0(eksut4);
+                cif[b, 6, s] = FoxRound0(eksut5);
+                cif[b, 7, s] = FoxRound0(eksut6);
+                cif[b, 8, s] = FoxRound0(eksut7);
 
-                for (var row = 2; row <= 8; row++)
-                    cif[block - 1, row, 3] += cif[block - 1, row, shift - 1];
+                dayLoadProm[b] += load;
+                dayLoadKol[b]++;
+                dayRaw[b, 2] += eksut1;
+                dayRaw[b, 3] += eksut2;
+                dayRaw[b, 4] += eksut3;
+                dayRaw[b, 5] += eksut4;
+                dayRaw[b, 6] += eksut5;
+                dayRaw[b, 7] += eksut6;
+                dayRaw[b, 8] += eksut7;
             }
+        }
+
+        for (var b = 0; b < 12; b++)
+        {
+            cif[b, 1, 3] = dayLoadKol[b] > 0
+                ? FoxRound0(dayLoadProm[b] / dayLoadKol[b])
+                : 0;
+            for (var row = 2; row <= 8; row++)
+                cif[b, row, 3] = FoxRound0(dayRaw[b, row]);
         }
 
         for (var block = 0; block < 12; block++)
         {
             for (var shift = 0; shift < 4; shift++)
             {
-                var sum = 0m;
+                var sum = 0.0;
                 for (var row = 2; row <= 8; row++)
                     sum += cif[block, row, shift];
                 cif[block, 9, shift] = sum;
             }
         }
 
-        var gkbt = new decimal[13, 4];
+        var gkbt = new double[13, 4];
         for (var shift = 0; shift < 3; shift++)
         {
-            var loadSum = 0m;
-            var gkSum = 0m;
+            var gkSum = 0.0;
             var count = 0;
             for (var block = 0; block < 12; block++)
             {
@@ -156,18 +178,18 @@ public static class BaxtaCalculator
                 if (cif[block, 1, shift] == 0)
                     continue;
 
-                gkbt[block, shift] = wy != 0 ? Round2(cif[block, 9, shift] / wy) : 0;
-                loadSum += cif[block, 1, shift];
+                // karat: gkbt = cif(10)/wyr; pict только при выводе
+                gkbt[block, shift] = wy != 0 ? cif[block, 9, shift] / wy : 0;
                 gkSum += gkbt[block, shift];
                 count++;
             }
 
-            gkbt[12, shift] = count > 0 ? Round2(gkSum / count) : 0;
+            gkbt[12, shift] = count > 0 ? gkSum / count : 0;
         }
 
         for (var block = 0; block < 13; block++)
         {
-            var sum = 0m;
+            var sum = 0.0;
             var count = 0;
             for (var shift = 0; shift < 3; shift++)
             {
@@ -177,18 +199,16 @@ public static class BaxtaCalculator
                 count++;
             }
 
-            gkbt[block, 3] = count > 0 ? Round2(sum / count) : 0;
+            gkbt[block, 3] = count > 0 ? sum / count : 0;
         }
 
         for (var block = 0; block < 12; block++)
+        {
             cif[block, 10, 0] = gkbt[block, 0];
-        for (var block = 0; block < 12; block++)
             cif[block, 10, 1] = gkbt[block, 1];
-        for (var block = 0; block < 12; block++)
             cif[block, 10, 2] = gkbt[block, 2];
-        for (var block = 0; block < 12; block++)
             cif[block, 10, 3] = gkbt[block, 3];
-        gkbt[12, 3] = gkbt[12, 3];
+        }
 
         var sections = new List<BaxtaShiftSection>();
         for (var shift = 1; shift <= 4; shift++)
@@ -198,7 +218,7 @@ public static class BaxtaCalculator
             {
                 Title = shift == 4 ? "ЗА СУТКИ" : $"{shift}-СМЕНА",
                 Watch = shift <= 3 ? WatchLetters[shift - 1] : null,
-                Rows = BuildRows(cif, shiftIdx, wyr, gkbt),
+                Rows = BuildRows(cif, shiftIdx, gkbt),
             });
         }
 
@@ -213,186 +233,227 @@ public static class BaxtaCalculator
     }
 
     private static IReadOnlyList<BaxtaFuelRow> BuildRows(
-        decimal[,,] cif,
+        double[,,] cif,
         int shiftIdx,
-        decimal[,] wyr,
-        decimal[,] gkbt)
+        double[,] gkbt)
     {
         var rows = new List<BaxtaFuelRow>();
         for (var row = 0; row < 11; row++)
         {
-            var values = new decimal[12];
+            var values = new double[12];
             for (var block = 0; block < 12; block++)
                 values[block] = row == 10 ? gkbt[block, shiftIdx] : cif[block, row, shiftIdx];
 
-            var total = row switch
+            var kind = (BaxtaFuelRowKind)row;
+            var totalText = row switch
             {
-                1 => AverageNonZero(values),
-                10 => gkbt[12, shiftIdx],
-                _ => values.Sum(),
+                0 => string.Empty, // karat procedure MB: no «ПО СТАНЦИИ» column
+                1 => FormatValue(kind, AverageNonZero(values)),
+                10 => FormatValue(kind, gkbt[12, shiftIdx]),
+                _ => FormatValue(kind, values.Sum()),
             };
 
             rows.Add(new BaxtaFuelRow
             {
-                Kind = (BaxtaFuelRowKind)row,
+                Kind = kind,
                 Label = RowLabels[row],
-                Col1 = FormatValue((BaxtaFuelRowKind)row, values[0]),
-                Col2 = FormatValue((BaxtaFuelRowKind)row, values[1]),
-                Col3 = FormatValue((BaxtaFuelRowKind)row, values[2]),
-                Col4 = FormatValue((BaxtaFuelRowKind)row, values[3]),
-                Col5 = FormatValue((BaxtaFuelRowKind)row, values[4]),
-                Col6 = FormatValue((BaxtaFuelRowKind)row, values[5]),
-                Col7 = FormatValue((BaxtaFuelRowKind)row, values[6]),
-                Col8 = FormatValue((BaxtaFuelRowKind)row, values[7]),
-                Col9 = FormatValue((BaxtaFuelRowKind)row, values[8]),
-                Col10 = FormatValue((BaxtaFuelRowKind)row, values[9]),
-                Col11 = FormatValue((BaxtaFuelRowKind)row, values[10]),
-                Col12 = FormatValue((BaxtaFuelRowKind)row, values[11]),
-                TotalText = FormatValue((BaxtaFuelRowKind)row, total),
+                Col1 = FormatValue(kind, values[0]),
+                Col2 = FormatValue(kind, values[1]),
+                Col3 = FormatValue(kind, values[2]),
+                Col4 = FormatValue(kind, values[3]),
+                Col5 = FormatValue(kind, values[4]),
+                Col6 = FormatValue(kind, values[5]),
+                Col7 = FormatValue(kind, values[6]),
+                Col8 = FormatValue(kind, values[7]),
+                Col9 = FormatValue(kind, values[8]),
+                Col10 = FormatValue(kind, values[9]),
+                Col11 = FormatValue(kind, values[10]),
+                Col12 = FormatValue(kind, values[11]),
+                TotalText = totalText,
             });
         }
 
         return rows;
     }
 
+    /// <summary>
+    /// karat: SET*SM = (ПК − ПН) × KF × 0.001 / 3; коррекция СН блоков 9, 11, 12 на все 3 смены.
+    /// KF из wyrab2 (записи 185, 186, 187, 193, 194) — пока константы как в karat.
+    /// </summary>
+    private static void ApplyNetworkPumpCorrections(BaxtaPlantParamsRow plant, double[,] esn)
+    {
+        var kf = new[] { 2880.0, 2880.0, 2880.0, 2880.0, 2880.0 };
+
+        var set1 = NetworkPumpShiftShare(plant.Setn1K, plant.Setn1N, kf[0]);
+        var set2 = NetworkPumpShiftShare(plant.Setn2K, plant.Setn2N, kf[1]);
+        var set3 = NetworkPumpShiftShare(plant.Setn3K, plant.Setn3N, kf[2]);
+        var set4 = NetworkPumpShiftShare(plant.Setn4K, plant.Setn4N, kf[3]);
+        var set5 = NetworkPumpShiftShare(plant.Setn5K, plant.Setn5N, kf[4]);
+
+        for (var shift = 0; shift < 3; shift++)
+        {
+            esn[8, shift] -= set5; // блок 9
+            esn[10, shift] -= set1; // блок 11
+            esn[11, shift] -= set2 + set3 + set4; // блок 12
+        }
+    }
+
+    private static double NetworkPumpShiftShare(int end, int start, double coefficient) =>
+        (end - start) * coefficient * 0.001 / 3.0;
+
     private static void ComputeDeltas(
         BaxtaMeterBlockRow[] meters,
-        decimal[,] wyr,
-        decimal[,] esn)
+        double[,] wyr,
+        double[,] esn)
     {
         for (var i = 0; i < meters.Length; i++)
         {
             var m = meters[i];
-            var gen = new[] { m.GenerationAt0, m.GenerationAt8, m.GenerationAt16, m.GenerationAt24 };
-            var sn = new[] { m.OwnNeedsAt0, m.OwnNeedsAt8, m.OwnNeedsAt16, m.OwnNeedsAt24 };
+            var gen = new[]
+            {
+                (double)m.GenerationAt0,
+                (double)m.GenerationAt8,
+                (double)m.GenerationAt16,
+                (double)m.GenerationAt24,
+            };
+            var sn = new[]
+            {
+                (double)m.OwnNeedsAt0,
+                (double)m.OwnNeedsAt8,
+                (double)m.OwnNeedsAt16,
+                (double)m.OwnNeedsAt24,
+            };
 
             for (var shift = 0; shift < 3; shift++)
             {
                 var gDelta = Delta(gen[shift + 1], gen[shift], GenerationOverflow);
                 var sDelta = Delta(sn[shift + 1], sn[shift], OwnNeedsOverflow);
-                wyr[i, shift] = m.GenerationCoefficient * 0.001m * gDelta;
-                esn[i, shift] = m.OwnNeedsCoefficient * 0.001m * sDelta;
+                wyr[i, shift] = (double)m.GenerationCoefficient * 0.001 * gDelta;
+                esn[i, shift] = (double)m.OwnNeedsCoefficient * 0.001 * sDelta;
             }
         }
     }
 
-    private static decimal GetRegimeAddend(int block, int shift, BaxtaPlantParamsRow plant) =>
+    private static double GetRegimeAddend(int block, int shift, BaxtaPlantParamsRow plant) =>
         block switch
         {
-            8 => 0.5m * shift switch
+            8 => 0.5 * shift switch
             {
                 1 => plant.Wrmn11,
                 2 => plant.Wrmn12,
                 _ => plant.Wrmn13,
             },
-            9 => 0.5m * shift switch
+            9 => 0.5 * shift switch
             {
                 1 => plant.Wrmn21,
                 2 => plant.Wrmn22,
                 _ => plant.Wrmn23,
             },
-            10 => 0.5m * shift switch
+            10 => 0.5 * shift switch
             {
                 1 => plant.Wrmn31,
                 2 => plant.Wrmn32,
                 _ => plant.Wrmn33,
             },
-            11 or 12 => 0.5m * shift switch
+            11 or 12 => 0.5 * shift switch
             {
                 1 => plant.Wrmn14,
                 2 => plant.Wrmn24,
                 _ => plant.Wrmn34,
             },
-            _ => 0m,
+            _ => 0,
         };
 
     private static void ComputeFuel(
-        int block,
-        int shift,
-        decimal wy,
-        decimal sn,
-        decimal load,
+        double wy,
+        double sn,
+        double load,
         BaxtaThermoRow thermo,
         BaxtaBlockCoeffsRow coeff,
         int pris,
-        decimal tcb,
-        decimal regimeAddend,
-        out decimal eksut1,
-        out decimal eksut2,
-        out decimal eksut3,
-        out decimal eksut4,
-        out decimal eksut5,
-        out decimal eksut6,
-        out decimal eksut7)
+        double tcb,
+        double regimeAddend,
+        out double eksut1,
+        out double eksut2,
+        out double eksut3,
+        out double eksut4,
+        out double eksut5,
+        out double eksut6,
+        out double eksut7)
     {
         var na = load;
-        var rrn = 5.15m + 0.0083m * na + 0.022m * (15.0m - thermo.Thw);
-        var rrf = 0m;
+        var rrn = 5.15 + 0.0083 * na + 0.022 * (15.0 - (double)thermo.Thw);
+        var rrf = 0.0;
         if (na != 0)
-            rrf = pris * 0.01m * (decimal)Math.Sqrt((double)(160.0m / na));
+            rrf = pris * 0.01 * Math.Sqrt(160.0 / na);
 
-        rrf += (21.0m - 0.1m * thermo.O2) / (21.0m - thermo.O2);
-        rrf = (rrf * 3.5m + 0.6m) * (thermo.Tug - thermo.Thw) * 0.01m;
-        eksut1 = 3.5m * (rrf - rrn) * wy;
+        rrf += (21.0 - 0.1 * (double)thermo.O2) / (21.0 - (double)thermo.O2);
+        rrf = (rrf * 3.5 + 0.6) * ((double)thermo.Tug - (double)thermo.Thw) * 0.01;
+        eksut1 = 3.5 * (rrf - rrn) * wy;
 
-        var rr = tcb + 0.07m * na + (20m + na) / (tcb + 17m);
-        eksut2 = 0.68m * wy * (thermo.Tk - rr);
+        var rr = tcb + 0.07 * na + (20 + na) / (tcb + 17);
+        eksut2 = 0.68 * wy * ((double)thermo.Tk - rr);
 
-        eksut3 = 0m;
-        if (thermo.Pop < 126m)
+        eksut3 = 0.0;
+        if ((double)thermo.Pop < 126.0)
         {
-            if (na is >= 80m and <= 117m)
-                eksut3 = 0.148m * (na - 80m) * wy;
-            else if (na is > 117m and <= 160m)
-                eksut3 = 0.127m * (160m - na) * wy;
+            if (na is >= 80.0 and <= 117.0)
+                eksut3 = 0.148 * (na - 80.0) * wy;
+            else if (na is > 117.0 and <= 160.0)
+                eksut3 = 0.127 * (160.0 - na) * wy;
         }
 
-        eksut4 = -0.07m * wy * (thermo.Top - 540m);
+        eksut4 = -0.07 * wy * ((double)thermo.Top - 540.0);
 
         var rrTpp = na switch
         {
-            >= 70m and < 115m => 530m + 0.429m * (na - 80m),
-            >= 115m => 540m,
-            _ => 530m,
+            >= 70.0 and < 115.0 => 530.0 + 0.429 * (na - 80.0),
+            >= 115.0 => 540.0,
+            _ => 530.0,
         };
-        eksut5 = thermo.Tpp < 540m ? -0.056m * wy * (thermo.Tpp - rrTpp) : 0m;
+        eksut5 = (double)thermo.Tpp < 540.0
+            ? -0.056 * wy * ((double)thermo.Tpp - rrTpp)
+            : 0.0;
 
-        var rrSn = coeff.Kf1 * thermo.Hours + coeff.Kf2 * wy + regimeAddend;
-        eksut6 = (sn - rrSn) * 350m;
+        var rrSn = (double)coeff.Kf1 * thermo.Hours + (double)coeff.Kf2 * wy + regimeAddend;
+        eksut6 = (sn - rrSn) * 350.0;
 
         if (thermo.Pwd == 0)
-            eksut7 = (2.98m + 0.0276m * (na - 80m)) * wy;
+            eksut7 = (2.98 + 0.0276 * (na - 80.0)) * wy;
         else
         {
-            var rrTpw = na < 150m
-                ? 170m + coeff.Kl1 * na
-                : coeff.Kl2 + 3m + 0.2m * (na - 150m);
-            if (na >= 160m)
-                rrTpw = coeff.Kl2 + 3m + 0.2m * (na - 150m);
-            eksut7 = -0.066m * (thermo.Tpw - rrTpw + 0.05m * thermo.Dro) * wy;
+            var rrTpw = (double)coeff.Kl2 + 0.3 * (na - 150.0);
+            if (na < 150.0)
+                rrTpw = 170.0 + (double)coeff.Kl1 * na;
+            if (na >= 160.0)
+                rrTpw = (double)coeff.Kl2 + 3.0 + 0.2 * (na - 150.0);
+
+            eksut7 = -0.066 * ((double)thermo.Tpw - rrTpw + 0.05 * thermo.Dro) * wy;
         }
     }
 
-    private static decimal Delta(decimal end, decimal start, decimal overflow)
+    private static double Delta(double end, double start, double overflow)
     {
         var delta = end - start;
         return delta < 0 ? delta + overflow : delta;
     }
 
-    private static decimal AverageNonZero(decimal[] values)
+    private static double AverageNonZero(double[] values)
     {
         var nonZero = values.Where(v => v != 0).ToArray();
-        return nonZero.Length == 0 ? 0 : Round0(nonZero.Average());
+        return nonZero.Length == 0 ? 0 : FoxRound0(nonZero.Average());
     }
 
-    private static decimal Round0(decimal value) =>
+    /// <summary>karat ROUND(x, 0).</summary>
+    private static double FoxRound0(double value) =>
         Math.Round(value, 0, MidpointRounding.AwayFromZero);
 
-    private static decimal Round2(decimal value) =>
-        Math.Round(value, 2, MidpointRounding.AwayFromZero);
+    /// <summary>karat SAY … pict "999.99".</summary>
+    private static double RoundFoxPict99(double value) =>
+        Math.Round(value, 2, MidpointRounding.ToEven);
 
-    private static string FormatValue(BaxtaFuelRowKind kind, decimal value) =>
+    private static string FormatValue(BaxtaFuelRowKind kind, double value) =>
         kind == BaxtaFuelRowKind.Gkwh
-            ? Round2(value).ToString("0.00", OptoCulture.Current)
-            : Round0(value).ToString("0", OptoCulture.Current);
+            ? RoundFoxPict99(value).ToString("0.00", OptoCulture.Current)
+            : FoxRound0(value).ToString("0", OptoCulture.Current);
 }

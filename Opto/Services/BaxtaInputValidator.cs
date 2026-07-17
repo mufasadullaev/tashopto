@@ -76,6 +76,34 @@ public static class BaxtaInputValidator
             return false;
         }
 
+        if (!ValidateNetworkPumpReadings(plant, out error))
+            return false;
+
+        error = "";
+        return true;
+    }
+
+    private static bool ValidateNetworkPumpReadings(BaxtaPlantParamsRow plant, out string error)
+    {
+        const int max = 9_999_999;
+        var fields = new (string Name, int Value)[]
+        {
+            ("ТС-1 ПК", plant.Setn1K), ("ТС-1 ПН", plant.Setn1N),
+            ("ТС-2 ПК", plant.Setn2K), ("ТС-2 ПН", plant.Setn2N),
+            ("ТС-3 ПК", plant.Setn3K), ("ТС-3 ПН", plant.Setn3N),
+            ("ТС-4 ПК", plant.Setn4K), ("ТС-4 ПН", plant.Setn4N),
+            ("ТС-5 ПК", plant.Setn5K), ("ТС-5 ПН", plant.Setn5N),
+        };
+
+        foreach (var (name, value) in fields)
+        {
+            if (value is < 0 or > max)
+            {
+                error = $"Сетевые насосы ({name}): от 0 до {max}.";
+                return false;
+            }
+        }
+
         error = "";
         return true;
     }

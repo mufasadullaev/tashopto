@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Opto.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="480" d:DesignHeight="360"
+        x:Class="Opto.Views.PerejegRangeWindow"
+        x:DataType="vm:PerejegRangeViewModel"
+        Title="Печать нарастающего итога"
+        Width="480"
+        MinWidth="420"
+        SizeToContent="Height"
+        MaxHeight="640"
+        CanResize="True"
+        WindowStartupLocation="CenterOwner"
+        Background="#F4F8FA">
+
+    <DockPanel Margin="28">
+        <DockPanel DockPanel.Dock="Bottom" Margin="0,20,0,8">
+            <Button Classes="exit" Content="Отмена" Command="{Binding CancelCommand}"
+                    DockPanel.Dock="Left" MinWidth="110" />
+            <Button Classes="primary" Content="Печать" Command="{Binding ContinueCommand}"
+                    DockPanel.Dock="Right" HorizontalAlignment="Right" MinWidth="130" />
+        </DockPanel>
+
+        <StackPanel Spacing="16">
+            <TextBlock Classes="module-title" Text="Печать нарастающего итога" />
+            <TextBlock Classes="hint" Text="Укажите период: с какого числа по какое"
+                       TextWrapping="Wrap" />
+            <StackPanel Spacing="8">
+                <TextBlock Classes="section" Text="С" />
+                <CalendarDatePicker SelectedDate="{Binding FromDate}"
+                                    Watermark="ДД.ММ.ГГГГ"
+                                    HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <StackPanel Spacing="8">
+                <TextBlock Classes="section" Text="По" />
+                <CalendarDatePicker SelectedDate="{Binding ToDate}"
+                                    Watermark="ДД.ММ.ГГГГ"
+                                    HorizontalAlignment="Stretch" />
+            </StackPanel>
+            <TextBlock Classes="validation"
+                       Text="{Binding ValidationMessage}"
+                       IsVisible="{Binding ValidationMessage, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                       TextWrapping="Wrap" />
+        </StackPanel>
+    </DockPanel>
+</Window>

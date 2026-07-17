@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Opto.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="420" d:DesignHeight="480"
+        x:Class="Opto.Views.PerejegDatesWindow"
+        x:DataType="vm:PerejegDatesViewModel"
+        Title="Даты расчётов пережогов"
+        Width="420"
+        MinWidth="380"
+        Height="480"
+        MinHeight="320"
+        CanResize="True"
+        WindowStartupLocation="CenterOwner"
+        Background="#F4F8FA">
+
+    <DockPanel Margin="28">
+        <StackPanel DockPanel.Dock="Top" Spacing="4" Margin="0,0,0,16">
+            <TextBlock Classes="module-title" Text="Расчётные даты" />
+            <TextBlock Classes="hint" Text="Даты, для которых выполнен расчёт пережогов"
+                       TextWrapping="Wrap" />
+        </StackPanel>
+
+        <DockPanel DockPanel.Dock="Bottom" Margin="0,16,0,8">
+            <Button Classes="exit" Content="Закрыть" Command="{Binding CloseCommand}"
+                    HorizontalAlignment="Right" MinWidth="110" />
+        </DockPanel>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Panel MinHeight="120">
+                <TextBlock Classes="hint"
+                           Text="Расчётных дат пока нет"
+                           IsVisible="{Binding !Dates.Count}"
+                           Margin="0,8,0,0" />
+                <ItemsControl ItemsSource="{Binding Dates}" IsVisible="{Binding !!Dates.Count}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="vm:PerejegCalculatedDateRow">
+                            <Border Padding="8,6" BorderBrush="#C5D4DC" BorderThickness="0,0,0,1">
+                                <TextBlock Classes="row-num" Text="{Binding DateText}" />
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Panel>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

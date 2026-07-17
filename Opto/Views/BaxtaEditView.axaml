@@ -68,18 +68,28 @@
                     </Border>
 
                     <Border Classes="table-panel">
-                        <StackPanel Spacing="14">
+                        <StackPanel Spacing="14" HorizontalAlignment="Left">
                             <TextBlock Classes="section" Text="Параметры станции" />
 
-                            <StackPanel Spacing="6">
-                                <TextBlock Classes="hint" Text="Удельный расход топлива (план на месяц), г/кВт·ч" />
-                                <views:NumericTextBox Width="120" Classes="cell" InputMode="decimal"
+                            <StackPanel Orientation="Horizontal" Spacing="12">
+                                <TextBlock Classes="hint"
+                                           Text="Удельный расход топлива (план на месяц), г/кВт·ч"
+                                           VerticalAlignment="Center" />
+                                <views:NumericTextBox Width="120"
+                                                      Classes="cell"
+                                                      InputMode="decimal"
+                                                      VerticalAlignment="Center"
                                                       Text="{Binding Plant.Urp, Converter={StaticResource SafeDecimal}}" />
                             </StackPanel>
 
-                            <StackPanel Spacing="6">
-                                <TextBlock Classes="hint" Text="Удельный расход топлива (с начала месяца), г/кВт·ч" />
-                                <views:NumericTextBox Width="120" Classes="cell" InputMode="decimal"
+                            <StackPanel Orientation="Horizontal" Spacing="12">
+                                <TextBlock Classes="hint"
+                                           Text="Удельный расход топлива (с начала месяца), г/кВт·ч"
+                                           VerticalAlignment="Center" />
+                                <views:NumericTextBox Width="120"
+                                                      Classes="cell"
+                                                      InputMode="decimal"
+                                                      VerticalAlignment="Center"
                                                       Text="{Binding Plant.Urm, Converter={StaticResource SafeDecimal}}" />
                             </StackPanel>
 
@@ -141,6 +151,29 @@
                                 </Grid>
                             </StackPanel>
 
+                            <StackPanel Spacing="8">
+                                <TextBlock Classes="hint" Text="Потребление эл.энергии сетевыми насосами (ПК / ПН)" />
+                                <Grid ColumnDefinitions="80,90,90" ColumnSpacing="8"
+                                      RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="6">
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Classes="col-header" Text="ПК" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Row="1" Grid.Column="2" Classes="col-header" Text="ПН" HorizontalAlignment="Center" />
+                                    <TextBlock Grid.Row="2" Grid.Column="0" Classes="row-num" Text="ТС-1" VerticalAlignment="Center" />
+                                    <views:NumericTextBox Grid.Row="2" Grid.Column="1" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn1K, Converter={StaticResource SafeInt}}" />
+                                    <views:NumericTextBox Grid.Row="2" Grid.Column="2" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn1N, Converter={StaticResource SafeInt}}" />
+                                    <TextBlock Grid.Row="3" Grid.Column="0" Classes="row-num" Text="ТС-2" VerticalAlignment="Center" />
+                                    <views:NumericTextBox Grid.Row="3" Grid.Column="1" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn2K, Converter={StaticResource SafeInt}}" />
+                                    <views:NumericTextBox Grid.Row="3" Grid.Column="2" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn2N, Converter={StaticResource SafeInt}}" />
+                                    <TextBlock Grid.Row="4" Grid.Column="0" Classes="row-num" Text="ТС-3" VerticalAlignment="Center" />
+                                    <views:NumericTextBox Grid.Row="4" Grid.Column="1" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn3K, Converter={StaticResource SafeInt}}" />
+                                    <views:NumericTextBox Grid.Row="4" Grid.Column="2" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn3N, Converter={StaticResource SafeInt}}" />
+                                    <TextBlock Grid.Row="5" Grid.Column="0" Classes="row-num" Text="ТС-4" VerticalAlignment="Center" />
+                                    <views:NumericTextBox Grid.Row="5" Grid.Column="1" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn4K, Converter={StaticResource SafeInt}}" />
+                                    <views:NumericTextBox Grid.Row="5" Grid.Column="2" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn4N, Converter={StaticResource SafeInt}}" />
+                                    <TextBlock Grid.Row="6" Grid.Column="0" Classes="row-num" Text="ТС-5" VerticalAlignment="Center" />
+                                    <views:NumericTextBox Grid.Row="6" Grid.Column="1" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn5K, Converter={StaticResource SafeInt}}" />
+                                    <views:NumericTextBox Grid.Row="6" Grid.Column="2" Classes="cell" InputMode="integer" Text="{Binding Plant.Setn5N, Converter={StaticResource SafeInt}}" />
+                                </Grid>
+                            </StackPanel>
                         </StackPanel>
                     </Border>
 
