@@ -17,6 +17,18 @@ sealed class Program
 
         Opto.Services.Database.OptoDatabase.Initialize();
 
+        if (Array.Exists(args, a => a.Equals("--seed", StringComparison.OrdinalIgnoreCase) || a.Equals("--seed-3days", StringComparison.OrdinalIgnoreCase)))
+        {
+            Opto.Services.OptoDataSeeder.ClearAndSeed3Days();
+            return;
+        }
+
+        if (Array.Exists(args, a => a.Equals("--test", StringComparison.OrdinalIgnoreCase) || a.Equals("--test-all", StringComparison.OrdinalIgnoreCase)))
+        {
+            Opto.Services.OptoTestRunner.RunAllTests();
+            return;
+        }
+
         BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
     }
 

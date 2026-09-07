@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:Opto.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="640" d:DesignHeight="420"
+             x:Class="Opto.Views.NewMonthView"
+             x:DataType="vm:NewMonthViewModel">
+
+    <Border Background="#F4F8FA">
+        <DockPanel Margin="28">
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Spacing="10" Margin="0,20,0,0">
+                <TextBlock Classes="hint" Text="{Binding StatusMessage}" VerticalAlignment="Center" />
+                <Button Classes="primary" Content="Выполнить переход" Command="{Binding ExecuteCommand}" MinWidth="170" />
+                <Button Classes="exit" Content="← В главное меню" Command="{Binding GoBackCommand}" MinWidth="150" />
+            </StackPanel>
+
+            <StackPanel Spacing="16" MaxWidth="560">
+                <StackPanel Spacing="4">
+                    <TextBlock Classes="brand-sm" Text="ОПТО" />
+                    <TextBlock Classes="module-title" Text="Переход на новый месяц" />
+                    <TextBlock Classes="subtitle" TextWrapping="Wrap"
+                               Text="Подготовка к работе с 1-го числа: обнуление часов блоков в последней записи выработки, перенос показаний трансформаторов и (опционально) сброс графика вахт." />
+                </StackPanel>
+
+                <CheckBox Content="Сбросить график вахт (BAXTA0)"
+                          IsChecked="{Binding ResetWatchSchedule}" />
+            </StackPanel>
+        </DockPanel>
+    </Border>
+</UserControl>

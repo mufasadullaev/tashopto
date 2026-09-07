@@ -270,3 +270,61 @@ public sealed class BaxtaPlantData
             plant.Prises[i] = Prises[i];
     }
 }
+
+public static class BaxtaEditSnapshotExtensions
+{
+    public static List<BaxtaMeterBlockRow> ToMeterRows(this BaxtaEditSnapshot snapshot) =>
+        snapshot.Meters.Select(m => new BaxtaMeterBlockRow
+        {
+            Number = m.Number,
+            GenerationCoefficient = m.GenerationCoefficient,
+            GenerationAt0 = m.GenerationAt0,
+            GenerationAt8 = m.GenerationAt8,
+            GenerationAt16 = m.GenerationAt16,
+            GenerationAt24 = m.GenerationAt24,
+            OwnNeedsCoefficient = m.OwnNeedsCoefficient,
+            OwnNeedsAt0 = m.OwnNeedsAt0,
+            OwnNeedsAt8 = m.OwnNeedsAt8,
+            OwnNeedsAt16 = m.OwnNeedsAt16,
+            OwnNeedsAt24 = m.OwnNeedsAt24,
+        }).ToList();
+
+    public static List<BaxtaBlockCoeffsRow> ToCoeffRows(this BaxtaEditSnapshot snapshot) =>
+        snapshot.Coeffs.Select(c => new BaxtaBlockCoeffsRow
+        {
+            Number = c.Number,
+            Kl1 = c.Kl1,
+            Kl2 = c.Kl2,
+            Kf1 = c.Kf1,
+            Kf2 = c.Kf2,
+            Kf3 = c.Kf3,
+            Kf4 = c.Kf4,
+        }).ToList();
+
+    public static List<BaxtaThermoRow> ToThermoRows(this BaxtaEditSnapshot snapshot) =>
+        snapshot.Thermo.Select(t => new BaxtaThermoRow
+        {
+            BlockNumber = t.BlockNumber,
+            ShiftIndex = t.ShiftIndex,
+            ShiftLabel = t.ShiftLabel,
+            Hours = t.Hours,
+            Dro = t.Dro,
+            Pwd = t.Pwd,
+            Tpw = t.Tpw,
+            Tk = t.Tk,
+            Top = t.Top,
+            Tpp = t.Tpp,
+            Pop = t.Pop,
+            Tug = t.Tug,
+            Thw = t.Thw,
+            O2 = t.O2,
+            Tn = t.Tn,
+        }).ToList();
+
+    public static BaxtaPlantParamsRow ToPlantRow(this BaxtaEditSnapshot snapshot)
+    {
+        var plant = new BaxtaPlantParamsRow();
+        snapshot.Plant.ApplyTo(plant);
+        return plant;
+    }
+}

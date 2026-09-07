@@ -19,6 +19,8 @@ public partial class BaxtaEditViewModel : ViewModelBase
     private static readonly string[] ShiftLabels = ["0–8 ч", "8–16 ч", "16–24 ч"];
 
     private readonly Action<ViewModelBase> _navigate;
+    private readonly Action _goBackToSubmenu;
+    private readonly int[] _watchByShift;
 
     public DateTime Date { get; }
     public WyrabotkaMode Mode { get; }
@@ -50,23 +52,33 @@ public partial class BaxtaEditViewModel : ViewModelBase
 
     public BaxtaEditViewModel(
         BaxtaStartResult start,
-        Action goBack,
+        Action goBackToSubmenu,
         Action<ViewModelBase> navigate)
     {
         Date = start.Date;
         Mode = start.Mode;
         _navigate = navigate;
+        _goBackToSubmenu = goBackToSubmenu;
+        _watchByShift = BaxtaWatchStore.ResolveWatches(Date, Mode);
         Title =
             $"Ежедневный расчёт по вахтам · {Date:dd.MM.yyyy} · {(Mode == WyrabotkaMode.Calculation ? "Расчёт" : "Перерасчёт")}";
 
         SeedDefaults();
 
         var saved = BaxtaStore.TryLoad(Date);
-        saved?.ApplyTo(Meters, Coeffs, Thermo, Plant);
+        var templateSource = saved is null ? BaxtaStore.TryLoadTemplateSnapshot(Date) : null;
+        (saved ?? templateSource)?.ApplyTo(Meters, Coeffs, Thermo, Plant);
+        if (saved is null && templateSource is not null)
+        {
+            var templateDate = BaxtaStore.GetEarliestDay();
+            StatusMessage = templateDate is null
+                ? null
+                : $"Шаблон скопирован с {templateDate.Value:dd.MM.yyyy}";
+        }
         EnsureKaratCoefficients();
         SyncPrisesFromPlant();
 
-        CancelCommand = new RelayCommand(goBack);
+        CancelCommand = new RelayCommand(goBackToSubmenu);
         SaveCommand = new RelayCommand(Save);
         CalculateCommand = new RelayCommand(Calculate);
     }
@@ -187,8 +199,14 @@ public partial class BaxtaEditViewModel : ViewModelBase
         var snapshot = BaxtaEditSnapshot.FromRows(Meters, Coeffs, Thermo, Plant);
         BaxtaStore.Save(Date, Mode, snapshot);
 
-        var report = BaxtaCalculator.Calculate(Date, Mode, Meters, Thermo, Plant, Coeffs);
-        BaxtaStore.SaveResult(Date, report);
-        _navigate(new BaxtaReportViewModel(report, () => _navigate(this)));
+        var (report, details) = BaxtaCalculator.CalculateWithDetails(
+            Date, Mode, Meters, Thermo, Plant, Coeffs, _watchByShift);
+        BaxtaStore.SaveCalculationResult(Date, report, details);
+        if (Mode == WyrabotkaMode.Calculation)
+            BaxtaWatchStore.AdvanceAfterCalculation(Date);
+        _navigate(new BaxtaReportViewModel(
+            report,
+            _goBackToSubmenu,
+            backButtonText: "← В подменю"));
     }
 }

@@ -58,7 +58,6 @@ public static class BaxtaCalculator
 {
     private const double GenerationOverflow = 100_000;
     private const double OwnNeedsOverflow = 1_000_000;
-    private static readonly string[] WatchLetters = ["А", "Б", "В", "Г"];
     private static readonly string[] RowLabels =
     [
         "МБ", "НАГРУЗКА", "ПУГ", "ВАК", "ДОП", "ТОП", "ТПП", "СН", "ТПВ", "ВСЕГО", "г/кВт·ч",
@@ -70,7 +69,51 @@ public static class BaxtaCalculator
         IEnumerable<BaxtaMeterBlockRow> meters,
         IEnumerable<BaxtaThermoRow> thermo,
         BaxtaPlantParamsRow plant,
-        IEnumerable<BaxtaBlockCoeffsRow> coeffs)
+        IEnumerable<BaxtaBlockCoeffsRow> coeffs,
+        int[] watchByShift) =>
+        CalculateCore(date, mode, meters, thermo, plant, coeffs, watchByShift).Report;
+
+    public static (BaxtaReport Report, IReadOnlyList<BaxtaShiftDetail> Details) CalculateWithDetails(
+        DateTime date,
+        WyrabotkaMode mode,
+        IEnumerable<BaxtaMeterBlockRow> meters,
+        IEnumerable<BaxtaThermoRow> thermo,
+        BaxtaPlantParamsRow plant,
+        IEnumerable<BaxtaBlockCoeffsRow> coeffs,
+        int[] watchByShift) =>
+        CalculateCore(date, mode, meters, thermo, plant, coeffs, watchByShift);
+
+    public static IReadOnlyList<BaxtaShiftDetail> CalculateShiftDetails(
+        DateTime date,
+        BaxtaEditSnapshot snapshot,
+        int[] watchByShift) =>
+        CalculateShiftDetails(
+            snapshot.ToMeterRows(),
+            snapshot.ToThermoRows(),
+            snapshot.ToPlantRow(),
+            snapshot.ToCoeffRows(),
+            date,
+            watchByShift);
+
+    public static BaxtaReport Calculate(
+        DateTime date,
+        WyrabotkaMode mode,
+        IEnumerable<BaxtaMeterBlockRow> meters,
+        IEnumerable<BaxtaThermoRow> thermo,
+        BaxtaPlantParamsRow plant,
+        IEnumerable<BaxtaBlockCoeffsRow> coeffs) =>
+        Calculate(date, mode, meters, thermo, plant, coeffs, DefaultWatchByShift);
+
+    private static int[] DefaultWatchByShift => [1, 2, 3];
+
+    private static (BaxtaReport Report, IReadOnlyList<BaxtaShiftDetail> Details) CalculateCore(
+        DateTime date,
+        WyrabotkaMode mode,
+        IEnumerable<BaxtaMeterBlockRow> meters,
+        IEnumerable<BaxtaThermoRow> thermo,
+        BaxtaPlantParamsRow plant,
+        IEnumerable<BaxtaBlockCoeffsRow> coeffs,
+        int[] watchByShift)
     {
         var meterList = meters.OrderBy(m => m.Number).ToArray();
         var thermoList = thermo.OrderBy(t => t.BlockNumber).ThenBy(t => t.ShiftIndex).ToArray();
@@ -89,6 +132,8 @@ public static class BaxtaCalculator
         var dayRaw = new double[12, 9]; // rows 0..8: tn unused, load raw, eksut1..7
         var dayLoadProm = new double[12];
         var dayLoadKol = new int[12];
+
+        var shiftFuels = new Dictionary<(int Block, int Shift), (double Load, double Pug, double Wak, double Dop, double Top, double Tpp, double Sn, double Tpw)>();
 
         for (var shift = 1; shift <= 3; shift++)
         {
@@ -124,6 +169,8 @@ public static class BaxtaCalculator
                     out var eksut5,
                     out var eksut6,
                     out var eksut7);
+
+                shiftFuels[(block, shift)] = (load, eksut1, eksut2, eksut3, eksut4, eksut5, eksut6, eksut7);
 
                 cif[b, 0, s] = thermoRow.Tn;
                 cif[b, 1, s] = FoxRound0(load);
@@ -217,12 +264,35 @@ public static class BaxtaCalculator
             sections.Add(new BaxtaShiftSection
             {
                 Title = shift == 4 ? "ЗА СУТКИ" : $"{shift}-СМЕНА",
-                Watch = shift <= 3 ? WatchLetters[shift - 1] : null,
+                Watch = shift <= 3 ? BaxtaWatchLetters.FromNumber(watchByShift[shiftIdx]) : null,
                 Rows = BuildRows(cif, shiftIdx, gkbt),
             });
         }
 
-        return new BaxtaReport
+        var details = new List<BaxtaShiftDetail>();
+        foreach (var (key, fuel) in shiftFuels)
+        {
+            var thermoRow = thermoList.First(t =>
+                t.BlockNumber == key.Block && t.ShiftIndex == key.Shift);
+            details.Add(new BaxtaShiftDetail
+            {
+                Date = date.Date,
+                BlockNumber = key.Block,
+                ShiftIndex = key.Shift,
+                WatchIndex = watchByShift[key.Shift - 1],
+                OperatorTn = thermoRow.Tn,
+                Load = fuel.Load,
+                Pug = fuel.Pug,
+                Wak = fuel.Wak,
+                Dop = fuel.Dop,
+                Top = fuel.Top,
+                Tpp = fuel.Tpp,
+                Sn = fuel.Sn,
+                Tpw = fuel.Tpw,
+            });
+        }
+
+        var report = new BaxtaReport
         {
             Date = date,
             Mode = mode,
@@ -230,7 +300,23 @@ public static class BaxtaCalculator
             Urp = plant.Urp,
             Urm = plant.Urm,
         };
+
+        return (report, details);
     }
+
+    public static IReadOnlyList<BaxtaShiftDetail> CalculateShiftDetails(
+        IEnumerable<BaxtaMeterBlockRow> meters,
+        IEnumerable<BaxtaThermoRow> thermo,
+        BaxtaPlantParamsRow plant,
+        IEnumerable<BaxtaBlockCoeffsRow> coeffs,
+        DateTime date,
+        int[] watchByShift) =>
+        CalculateCore(date, WyrabotkaMode.Calculation, meters, thermo, plant, coeffs, watchByShift).Details;
+
+    public static IReadOnlyList<BaxtaShiftDetail> CalculateShiftDetails(
+        DateTime date,
+        BaxtaEditSnapshot snapshot) =>
+        CalculateShiftDetails(date, snapshot, DefaultWatchByShift);
 
     private static IReadOnlyList<BaxtaFuelRow> BuildRows(
         double[,,] cif,
@@ -278,11 +364,11 @@ public static class BaxtaCalculator
 
     /// <summary>
     /// karat: SET*SM = (ПК − ПН) × KF × 0.001 / 3; коррекция СН блоков 9, 11, 12 на все 3 смены.
-    /// KF из wyrab2 (записи 185, 186, 187, 193, 194) — пока константы как в karat.
+    /// KF из wyrab2 (записи 185, 186, 187, 193, 194) — <see cref="NetworkPumpCoefficients.KaratWyrab2Defaults"/>.
     /// </summary>
     private static void ApplyNetworkPumpCorrections(BaxtaPlantParamsRow plant, double[,] esn)
     {
-        var kf = new[] { 2880.0, 2880.0, 2880.0, 2880.0, 2880.0 };
+        var kf = (double[])NetworkPumpCoefficients.KaratWyrab2Defaults.Clone();
 
         var set1 = NetworkPumpShiftShare(plant.Setn1K, plant.Setn1N, kf[0]);
         var set2 = NetworkPumpShiftShare(plant.Setn2K, plant.Setn2N, kf[1]);
@@ -387,11 +473,16 @@ public static class BaxtaCalculator
         if (na != 0)
             rrf = pris * 0.01 * Math.Sqrt(160.0 / na);
 
-        rrf += (21.0 - 0.1 * (double)thermo.O2) / (21.0 - (double)thermo.O2);
+        var denomO2 = 21.0 - (double)thermo.O2;
+        if (Math.Abs(denomO2) < 0.0001) denomO2 = 0.0001;
+        rrf += (21.0 - 0.1 * (double)thermo.O2) / denomO2;
+
         rrf = (rrf * 3.5 + 0.6) * ((double)thermo.Tug - (double)thermo.Thw) * 0.01;
         eksut1 = 3.5 * (rrf - rrn) * wy;
 
-        var rr = tcb + 0.07 * na + (20 + na) / (tcb + 17);
+        var denomTcb = tcb + 17.0;
+        if (Math.Abs(denomTcb) < 0.0001) denomTcb = 0.0001;
+        var rr = tcb + 0.07 * na + (20.0 + na) / denomTcb;
         eksut2 = 0.68 * wy * ((double)thermo.Tk - rr);
 
         eksut3 = 0.0;

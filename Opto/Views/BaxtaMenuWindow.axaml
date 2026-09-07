@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Opto.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="520" d:DesignHeight="360"
+        x:Class="Opto.Views.BaxtaMenuWindow"
+        x:DataType="vm:BaxtaMenuViewModel"
+        Title="Ежедневный расчёт по вахтам"
+        Width="520"
+        MinWidth="480"
+        SizeToContent="Height"
+        MaxHeight="720"
+        CanResize="True"
+        WindowStartupLocation="CenterOwner"
+        Background="#F4F8FA">
+
+    <DockPanel Margin="28">
+        <DockPanel DockPanel.Dock="Bottom" Margin="0,20,0,8">
+            <Button Classes="exit" Content="Назад" Command="{Binding CancelCommand}"
+                    HorizontalAlignment="Left" MinWidth="110" />
+        </DockPanel>
+
+        <StackPanel Spacing="16">
+            <StackPanel Spacing="4">
+                <TextBlock Classes="brand-sm" Text="ОПТО" />
+                <TextBlock Classes="module-title" Text="Ежедневный расчёт по вахтам" />
+                <TextBlock Classes="subtitle" Text="Выберите режим работы" />
+            </StackPanel>
+
+            <StackPanel Spacing="6">
+                <Button Classes="menu" Content="Смотреть график вахт"
+                        Command="{Binding SelectViewWatchScheduleCommand}"
+                        HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" />
+                <Button Classes="menu" Content="Редактировать исходные данные"
+                        Command="{Binding SelectEditDataCommand}"
+                        HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" />
+                <Button Classes="menu" Content="Печать выводных форм"
+                        Command="{Binding SelectPrintFormsCommand}"
+                        HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" />
+                <Button Classes="menu" Content="Просмотр расчётных дат"
+                        Command="{Binding SelectViewDatesCommand}"
+                        HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" />
+                <Button Classes="menu" Content="Копирование данных"
+                        Command="{Binding SelectCopyDataCommand}"
+                        HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" />
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+</Window>

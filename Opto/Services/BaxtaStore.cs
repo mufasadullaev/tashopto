@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json;
 using Microsoft.Data.Sqlite;
 using Opto.Models;
@@ -22,10 +23,247 @@ public static class BaxtaStore
         return TryLoad(connection, date);
     }
 
+    public static WyrabotkaMode? TryLoadMode(DateTime date)
+    {
+        using var connection = OptoDatabase.OpenConnection();
+        var dateKey = OptoDatabase.DateKey(date);
+        using var command = connection.CreateCommand();
+        command.CommandText = "SELECT mode FROM baxta_day WHERE date = @date LIMIT 1;";
+        OptoDatabase.AddParameter(command, "@date", dateKey);
+        var result = command.ExecuteScalar();
+        return result is long mode ? (WyrabotkaMode)mode : null;
+    }
+
+    public static bool HasResult(DateTime date)
+    {
+        using var connection = OptoDatabase.OpenConnection();
+        var dateKey = OptoDatabase.DateKey(date);
+        using var command = connection.CreateCommand();
+        command.CommandText = "SELECT 1 FROM baxta_result WHERE date = @date LIMIT 1;";
+        OptoDatabase.AddParameter(command, "@date", dateKey);
+        return command.ExecuteScalar() is not null;
+    }
+
     public static void SaveResult(DateTime date, BaxtaReport report)
     {
         using var connection = OptoDatabase.OpenConnection();
         SaveResult(connection, date, report);
+    }
+
+    public static BaxtaReport? TryBuildReport(DateTime date)
+    {
+        if (!HasResult(date))
+            return null;
+
+        var snapshot = TryLoad(date);
+        if (snapshot is null)
+            return null;
+
+        var mode = TryLoadMode(date) ?? WyrabotkaMode.Calculation;
+        var watches = BaxtaWatchStore.ResolveWatches(date, mode);
+        return BaxtaCalculator.Calculate(
+            date,
+            mode,
+            snapshot.ToMeterRows(),
+            snapshot.ToThermoRows(),
+            snapshot.ToPlantRow(),
+            snapshot.ToCoeffRows(),
+            watches);
+    }
+
+    public static IReadOnlyList<DateTime> ListCalculatedDates()
+    {
+        using var connection = OptoDatabase.OpenConnection();
+        using var command = connection.CreateCommand();
+        command.CommandText = "SELECT date FROM baxta_result ORDER BY date;";
+
+        var dates = new List<DateTime>();
+        using var reader = command.ExecuteReader();
+        while (reader.Read())
+            dates.Add(DateTime.Parse(reader.GetString(0)));
+
+        return dates;
+    }
+
+    public static bool HasDay(DateTime date)
+    {
+        using var connection = OptoDatabase.OpenConnection();
+        return Exists(connection, OptoDatabase.DateKey(date));
+    }
+
+    public static string? TryCopyDay(DateTime sourceDate, DateTime targetDate)
+    {
+        if (sourceDate.Date == targetDate.Date)
+            return "Укажите разные даты.";
+
+        var snapshot = TryLoad(sourceDate);
+        if (snapshot is null)
+            return "Исходные данные за эту дату отсутствуют.";
+
+        if (HasDay(targetDate))
+            return "За целевую дату уже есть данные. Удалите их или выберите другую дату.";
+
+        var mode = TryLoadMode(sourceDate) ?? WyrabotkaMode.Calculation;
+        Save(targetDate, mode, snapshot);
+        return null;
+    }
+
+    public static DateTime? GetEarliestDay()
+    {
+        using var connection = OptoDatabase.OpenConnection();
+        using var command = connection.CreateCommand();
+        command.CommandText = "SELECT date FROM baxta_day ORDER BY date LIMIT 1;";
+        var value = command.ExecuteScalar();
+        return value is string text ? DateTime.Parse(text) : null;
+    }
+
+    public static DateTime? GetLatestDay()
+    {
+        using var connection = OptoDatabase.OpenConnection();
+        using var command = connection.CreateCommand();
+        command.CommandText = "SELECT date FROM baxta_day ORDER BY date DESC LIMIT 1;";
+        var value = command.ExecuteScalar();
+        return value is string text ? DateTime.Parse(text) : null;
+    }
+
+    public static DateTime? GetLatestDayBefore(DateTime date)
+    {
+        using var connection = OptoDatabase.OpenConnection();
+        using var command = connection.CreateCommand();
+        command.CommandText = "SELECT date FROM baxta_day WHERE date < @date ORDER BY date DESC LIMIT 1;";
+        OptoDatabase.AddParameter(command, "@date", OptoDatabase.DateKey(date));
+        var value = command.ExecuteScalar();
+        return value is string text ? DateTime.Parse(text) : null;
+    }
+
+    public static BaxtaEditSnapshot? TryLoadTemplateSnapshot(DateTime date)
+    {
+        if (HasDay(date))
+            return null;
+
+        var prevDate = GetLatestDayBefore(date) ?? GetEarliestDay();
+        if (prevDate is null)
+            return null;
+
+        var source = TryLoad(prevDate.Value);
+        if (source is null)
+            return null;
+
+        var clone = CloneSnapshot(source);
+        foreach (var m in clone.Meters)
+        {
+            var gen24 = m.GenerationAt24;
+            var sn24 = m.OwnNeedsAt24;
+
+            m.GenerationAt0 = gen24;
+            m.GenerationAt8 = 0;
+            m.GenerationAt16 = 0;
+            m.GenerationAt24 = 0;
+
+            m.OwnNeedsAt0 = sn24;
+            m.OwnNeedsAt8 = 0;
+            m.OwnNeedsAt16 = 0;
+            m.OwnNeedsAt24 = 0;
+        }
+
+        return clone;
+    }
+
+    public static void SaveCalculationResult(
+        DateTime date,
+        BaxtaReport report,
+        IReadOnlyList<BaxtaShiftDetail> details)
+    {
+        using var connection = OptoDatabase.OpenConnection();
+        using var transaction = connection.BeginTransaction();
+        SaveResult(connection, date, report);
+        SaveShiftDetails(connection, date, details);
+        transaction.Commit();
+    }
+
+    public static IReadOnlyList<BaxtaShiftDetail> TryLoadShiftDetails(DateTime date)
+    {
+        using var connection = OptoDatabase.OpenConnection();
+        return LoadShiftDetails(connection, date);
+    }
+
+    private static BaxtaEditSnapshot CloneSnapshot(BaxtaEditSnapshot source) =>
+        JsonSerializer.Deserialize<BaxtaEditSnapshot>(
+            JsonSerializer.Serialize(source, JsonOptions),
+            JsonOptions)!;
+
+    private static void SaveShiftDetails(
+        SqliteConnection connection,
+        DateTime date,
+        IReadOnlyList<BaxtaShiftDetail> details)
+    {
+        var dateKey = OptoDatabase.DateKey(date);
+        OptoDatabase.ExecuteNonQuery(connection,
+            "DELETE FROM baxta_shift_detail WHERE date = @date;",
+            ("@date", dateKey));
+
+        foreach (var detail in details)
+        {
+            OptoDatabase.ExecuteNonQuery(connection, """
+                INSERT INTO baxta_shift_detail (
+                    date, block_number, shift_index, watch_index, operator_tn,
+                    load, pug, wak, dop, top, tpp, sn, tpw)
+                VALUES (
+                    @date, @block, @shift, @watch, @tn,
+                    @load, @pug, @wak, @dop, @top, @tpp, @sn, @tpw);
+                """,
+                ("@date", dateKey),
+                ("@block", detail.BlockNumber),
+                ("@shift", detail.ShiftIndex),
+                ("@watch", detail.WatchIndex),
+                ("@tn", detail.OperatorTn),
+                ("@load", detail.Load),
+                ("@pug", detail.Pug),
+                ("@wak", detail.Wak),
+                ("@dop", detail.Dop),
+                ("@top", detail.Top),
+                ("@tpp", detail.Tpp),
+                ("@sn", detail.Sn),
+                ("@tpw", detail.Tpw));
+        }
+    }
+
+    private static List<BaxtaShiftDetail> LoadShiftDetails(SqliteConnection connection, DateTime date)
+    {
+        var dateKey = OptoDatabase.DateKey(date);
+        using var command = connection.CreateCommand();
+        command.CommandText = """
+            SELECT block_number, shift_index, watch_index, operator_tn,
+                   load, pug, wak, dop, top, tpp, sn, tpw
+            FROM baxta_shift_detail
+            WHERE date = @date
+            ORDER BY block_number, shift_index;
+            """;
+        OptoDatabase.AddParameter(command, "@date", dateKey);
+
+        var details = new List<BaxtaShiftDetail>();
+        using var reader = command.ExecuteReader();
+        while (reader.Read())
+        {
+            details.Add(new BaxtaShiftDetail
+            {
+                Date = date.Date,
+                BlockNumber = reader.GetInt32(0),
+                ShiftIndex = reader.GetInt32(1),
+                WatchIndex = reader.GetInt32(2),
+                OperatorTn = reader.GetInt32(3),
+                Load = reader.GetDouble(4),
+                Pug = reader.GetDouble(5),
+                Wak = reader.GetDouble(6),
+                Dop = reader.GetDouble(7),
+                Top = reader.GetDouble(8),
+                Tpp = reader.GetDouble(9),
+                Sn = reader.GetDouble(10),
+                Tpw = reader.GetDouble(11),
+            });
+        }
+
+        return details;
     }
 
     internal static bool Exists(SqliteConnection connection, string dateKey)

@@ -18,8 +18,9 @@
             <DockPanel DockPanel.Dock="Top" Margin="0,0,0,16">
                 <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Spacing="10" VerticalAlignment="Top">
                     <TextBlock Classes="hint" Text="{Binding StatusMessage}" VerticalAlignment="Center" />
-                    <Button Classes="primary" Content="Печать" Command="{Binding PrintCommand}" MinWidth="120" />
-                    <Button Classes="exit" Content="← К вводу данных" Command="{Binding GoBackCommand}" MinWidth="150" />
+                    <Button Classes="accent" Content="Экспорт в Excel/CSV" Command="{Binding ExportCsvCommand}" MinWidth="140" />
+                    <Button Classes="primary" Content="{Binding PrintButtonText}" Command="{Binding PrintCommand}" MinWidth="120" />
+                    <Button Classes="exit" Content="{Binding BackButtonText}" Command="{Binding GoBackCommand}" MinWidth="150" />
                 </StackPanel>
                 <StackPanel Spacing="2">
                     <TextBlock Classes="brand-sm" Text="ОПТО" />

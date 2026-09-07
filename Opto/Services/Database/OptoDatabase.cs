@@ -7,7 +7,7 @@ namespace Opto.Services.Database;
 
 public static class OptoDatabase
 {
-    public const int SchemaVersion = 4;
+    public const int SchemaVersion = 6;
 
     public static string DatabasePath =>
         Path.Combine(
@@ -53,6 +53,54 @@ public static class OptoDatabase
             AddSetnToBaxtaPlant(connection);
         if (fromVersion < 4)
             CreatePerejegSchema(connection);
+        if (fromVersion < 5)
+            CreateBaxtaWatchScheduleSchema(connection);
+        if (fromVersion < 6)
+            CreateBaxtaShiftDetailSchema(connection);
+    }
+
+    private static void CreateBaxtaShiftDetailSchema(SqliteConnection connection)
+    {
+        if (TableExists(connection, "baxta_shift_detail"))
+            return;
+
+        ExecuteNonQuery(connection, """
+            CREATE TABLE baxta_shift_detail (
+                date TEXT NOT NULL,
+                block_number INTEGER NOT NULL,
+                shift_index INTEGER NOT NULL,
+                watch_index INTEGER NOT NULL,
+                operator_tn INTEGER NOT NULL,
+                load REAL NOT NULL,
+                pug REAL NOT NULL,
+                wak REAL NOT NULL,
+                dop REAL NOT NULL,
+                top REAL NOT NULL,
+                tpp REAL NOT NULL,
+                sn REAL NOT NULL,
+                tpw REAL NOT NULL,
+                PRIMARY KEY (date, block_number, shift_index),
+                FOREIGN KEY (date) REFERENCES baxta_day(date) ON DELETE CASCADE
+            );
+            """);
+    }
+
+    private static void CreateBaxtaWatchScheduleSchema(SqliteConnection connection)
+    {
+        if (TableExists(connection, "baxta_watch_schedule"))
+            return;
+
+        ExecuteNonQuery(connection, """
+            CREATE TABLE baxta_watch_schedule (
+                row_index INTEGER PRIMARY KEY,
+                shift1_watch INTEGER NOT NULL,
+                shift2_watch INTEGER NOT NULL,
+                shift3_watch INTEGER NOT NULL,
+                resting_watch INTEGER NOT NULL,
+                is_next INTEGER NOT NULL,
+                last_date_mmdd INTEGER NOT NULL
+            );
+            """);
     }
 
     private static void CreatePerejegSchema(SqliteConnection connection)
@@ -189,7 +237,14 @@ public static class OptoDatabase
 
     public static SqliteConnection OpenConnection()
     {
-        var connection = new SqliteConnection($"Data Source={DatabasePath}");
+        var connectionString = new SqliteConnectionStringBuilder
+        {
+            DataSource = DatabasePath,
+            Mode = SqliteOpenMode.ReadWriteCreate,
+            Cache = SqliteCacheMode.Shared
+        }.ToString();
+
+        var connection = new SqliteConnection(connectionString);
         connection.Open();
         ExecuteNonQuery(connection, "PRAGMA foreign_keys = ON;");
         return connection;
@@ -378,6 +433,34 @@ public static class OptoDatabase
                 result_json TEXT NOT NULL,
                 FOREIGN KEY (date) REFERENCES perejeg_day(date) ON DELETE CASCADE
             );
+
+            CREATE TABLE baxta_watch_schedule (
+                row_index INTEGER PRIMARY KEY,
+                shift1_watch INTEGER NOT NULL,
+                shift2_watch INTEGER NOT NULL,
+                shift3_watch INTEGER NOT NULL,
+                resting_watch INTEGER NOT NULL,
+                is_next INTEGER NOT NULL,
+                last_date_mmdd INTEGER NOT NULL
+            );
+
+            CREATE TABLE baxta_shift_detail (
+                date TEXT NOT NULL,
+                block_number INTEGER NOT NULL,
+                shift_index INTEGER NOT NULL,
+                watch_index INTEGER NOT NULL,
+                operator_tn INTEGER NOT NULL,
+                load REAL NOT NULL,
+                pug REAL NOT NULL,
+                wak REAL NOT NULL,
+                dop REAL NOT NULL,
+                top REAL NOT NULL,
+                tpp REAL NOT NULL,
+                sn REAL NOT NULL,
+                tpw REAL NOT NULL,
+                PRIMARY KEY (date, block_number, shift_index),
+                FOREIGN KEY (date) REFERENCES baxta_day(date) ON DELETE CASCADE
+            );
             """);
 
         ExecuteNonQuery(connection, "PRAGMA foreign_keys = ON;");
@@ -405,6 +488,11 @@ public static class OptoDatabase
 
     internal static void AddParameter(SqliteCommand command, string name, object? value)
     {
+        if (value is double d && (double.IsNaN(d) || double.IsInfinity(d)))
+            value = 0.0;
+        else if (value is float f && (float.IsNaN(f) || float.IsInfinity(f)))
+            value = 0.0f;
+
         command.Parameters.AddWithValue(name, value ?? DBNull.Value);
     }
 

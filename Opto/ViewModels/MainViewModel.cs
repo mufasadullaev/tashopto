@@ -17,6 +17,7 @@ namespace Opto.ViewModels;
 public partial class MainViewModel : ViewModelBase
 {
     private readonly MainMenuViewModel _menuPage;
+    private TaskCompletionSource? _baxtaFlowCompletion;
 
     [ObservableProperty]
     private ViewModelBase _currentPage = null!;
@@ -58,6 +59,48 @@ public partial class MainViewModel : ViewModelBase
             return;
         }
 
+        if (action.Id == "o2gol")
+        {
+            await OpenO2GolAsync();
+            return;
+        }
+
+        if (action.Id == "akt")
+        {
+            NavigateTo(new AktViewModel(GoToMenu, NavigateTo));
+            return;
+        }
+
+        if (action.Id == "selektor")
+        {
+            NavigateTo(new SelektorViewModel(GoToMenu));
+            return;
+        }
+
+        if (action.Id == "backup")
+        {
+            NavigateTo(new BackupViewModel(GoToMenu));
+            return;
+        }
+
+        if (action.Id == "manual")
+        {
+            NavigateTo(new ManualViewModel(GoToMenu));
+            return;
+        }
+
+        if (action.Id == "service")
+        {
+            NavigateTo(new ServiceViewModel(GoToMenu));
+            return;
+        }
+
+        if (action.Id == "help")
+        {
+            NavigateTo(new HelpViewModel(GoToMenu));
+            return;
+        }
+
         NavigateTo(new PlaceholderViewModel(action.Title, GoToMenu));
     }
 
@@ -83,14 +126,141 @@ public partial class MainViewModel : ViewModelBase
         if (owner is null)
             return;
 
+        while (true)
+        {
+            var menuVm = new BaxtaMenuViewModel();
+            var menu = new BaxtaMenuWindow(menuVm);
+            var action = await menu.ShowDialog<BaxtaMenuAction?>(owner);
+            if (action is null)
+                return;
+
+            switch (action.Value)
+            {
+                case BaxtaMenuAction.ViewWatchSchedule:
+                {
+                    var scheduleVm = new BaxtaWatchScheduleViewModel();
+                    var scheduleWindow = new BaxtaWatchScheduleWindow(scheduleVm);
+                    await scheduleWindow.ShowDialog(owner);
+                    break;
+                }
+
+                case BaxtaMenuAction.EditData:
+                    if (await TryOpenBaxtaEditAsync(owner))
+                        await WaitForBaxtaFlowAsync();
+                    break;
+
+                case BaxtaMenuAction.PrintForms:
+                    if (await TryShowBaxtaPrintReportAsync(owner))
+                        await WaitForBaxtaFlowAsync();
+                    break;
+
+                case BaxtaMenuAction.ViewDates:
+                    await ShowBaxtaDatesAsync(owner);
+                    break;
+
+                case BaxtaMenuAction.CopyData:
+                    await CopyBaxtaDataAsync(owner);
+                    break;
+            }
+        }
+    }
+
+    private void ResumeBaxtaSubmenu()
+    {
+        GoToMenu();
+        _baxtaFlowCompletion?.TrySetResult();
+    }
+
+    private async Task WaitForBaxtaFlowAsync()
+    {
+        _baxtaFlowCompletion = new TaskCompletionSource();
+        await _baxtaFlowCompletion.Task;
+        _baxtaFlowCompletion = null;
+    }
+
+    private async Task<bool> TryOpenBaxtaEditAsync(Window owner)
+    {
         var startVm = new BaxtaStartViewModel();
         var dialog = new BaxtaStartWindow(startVm);
         var result = await dialog.ShowDialog<BaxtaStartResult?>(owner);
-
         if (result is null)
+            return false;
+
+        if (result.Mode == WyrabotkaMode.Calculation && result.Date.Day == 1)
+        {
+            var changeMonth = await ShowConfirmAsync(
+                owner,
+                "Менять месяц?",
+                "Первое число месяца. Сбросить график вахт для нового месяца?");
+            if (changeMonth == true)
+                BaxtaWatchStore.ResetForNewMonth();
+        }
+
+        NavigateTo(new BaxtaEditViewModel(result, ResumeBaxtaSubmenu, NavigateTo));
+        return true;
+    }
+
+    private async Task<bool> TryShowBaxtaPrintReportAsync(Window owner)
+    {
+        var dateVm = new PerejegDateViewModel(
+            "Печать выводных форм",
+            "Укажите дату расчёта");
+        var dateDialog = new PerejegDateWindow(dateVm);
+        var date = await dateDialog.ShowDialog<DateTime?>(owner);
+        if (date is null)
+            return false;
+
+        var report = BaxtaStore.TryBuildReport(date.Value);
+        if (report is null)
+        {
+            await ShowMessageAsync(owner, "Данные за это число отсутствуют.");
+            return false;
+        }
+
+        NavigateTo(new BaxtaReportViewModel(
+            report,
+            ResumeBaxtaSubmenu,
+            backButtonText: "← В подменю",
+            printCopies: 5));
+        return true;
+    }
+
+    private static async Task ShowBaxtaDatesAsync(Window owner)
+    {
+        var datesVm = new BaxtaDatesViewModel();
+        var datesWindow = new BaxtaDatesWindow(datesVm);
+        await datesWindow.ShowDialog(owner);
+    }
+
+    private static async Task CopyBaxtaDataAsync(Window owner)
+    {
+        var copyVm = new BaxtaCopyViewModel();
+        var copyWindow = new BaxtaCopyWindow(copyVm);
+        var copied = await copyWindow.ShowDialog<bool>(owner);
+        if (copied)
+            await ShowMessageAsync(owner, "Данные скопированы.");
+    }
+
+    private async Task OpenO2GolAsync()
+    {
+        var owner = GetMainWindow();
+        if (owner is null)
             return;
 
-        NavigateTo(new BaxtaEditViewModel(result, GoToMenu, NavigateTo));
+        var rangeVm = new O2GolRangeViewModel();
+        var rangeDialog = new O2GolRangeWindow(rangeVm);
+        var range = await rangeDialog.ShowDialog<(DateTime From, DateTime To)?>(owner);
+        if (range is null)
+            return;
+
+        var report = O2GolStore.TryBuildReport(range.Value.From, range.Value.To);
+        if (report is null)
+        {
+            await ShowMessageAsync(owner, "Данные за этот период отсутствуют. Нужны рассчитанные суточные отчёты по вахтам.");
+            return;
+        }
+
+        NavigateTo(new O2GolReportViewModel(report, GoToMenu));
     }
 
     private async Task OpenPerejegAsync()
@@ -114,11 +284,13 @@ public partial class MainViewModel : ViewModelBase
                     return;
 
                 case PerejegMenuAction.PrintDaily:
-                    await PrintPerejegDailyAsync(owner);
+                    if (await TryShowPerejegDailyReportAsync(owner))
+                        return;
                     break;
 
                 case PerejegMenuAction.PrintCumulative:
-                    await PrintPerejegCumulativeAsync(owner);
+                    if (await TryShowPerejegCumulativeReportAsync(owner))
+                        return;
                     break;
 
                 case PerejegMenuAction.ViewDates:
@@ -145,7 +317,7 @@ public partial class MainViewModel : ViewModelBase
             main.NavigateTo(new PerejegEditViewModel(result, main.GoToMenu, main.NavigateTo));
     }
 
-    private static async Task PrintPerejegDailyAsync(Window owner)
+    private static async Task<bool> TryShowPerejegDailyReportAsync(Window owner)
     {
         var dateVm = new PerejegDateViewModel(
             "Печать суточных пережогов",
@@ -153,34 +325,48 @@ public partial class MainViewModel : ViewModelBase
         var dateDialog = new PerejegDateWindow(dateVm);
         var date = await dateDialog.ShowDialog<DateTime?>(owner);
         if (date is null)
-            return;
+            return false;
 
         var report = PerejegStore.TryLoadReport(date.Value);
         if (report is null)
         {
             await ShowMessageAsync(owner, "Данные за это число отсутствуют.");
-            return;
+            return false;
         }
 
-        PerejegPrintService.Print(report);
+        if (owner.DataContext is not MainViewModel main)
+            return false;
+
+        main.NavigateTo(new PerejegReportViewModel(
+            report,
+            main.GoToMenu,
+            backButtonText: "← В меню"));
+        return true;
     }
 
-    private static async Task PrintPerejegCumulativeAsync(Window owner)
+    private static async Task<bool> TryShowPerejegCumulativeReportAsync(Window owner)
     {
         var rangeVm = new PerejegRangeViewModel();
         var rangeDialog = new PerejegRangeWindow(rangeVm);
         var range = await rangeDialog.ShowDialog<(DateTime From, DateTime To)?>(owner);
         if (range is null)
-            return;
+            return false;
 
         var report = PerejegStore.TryBuildCumulativeReport(range.Value.From, range.Value.To);
         if (report is null)
         {
             await ShowMessageAsync(owner, "Данные за этот период отсутствуют.");
-            return;
+            return false;
         }
 
-        PerejegPrintService.Print(report);
+        if (owner.DataContext is not MainViewModel main)
+            return false;
+
+        main.NavigateTo(new PerejegReportViewModel(
+            report,
+            main.GoToMenu,
+            backButtonText: "← В меню"));
+        return true;
     }
 
     private static async Task ShowPerejegDatesAsync(Window owner)
@@ -194,6 +380,72 @@ public partial class MainViewModel : ViewModelBase
     {
         PerejegPrintService.PrintBlankForm();
         return Task.CompletedTask;
+    }
+
+    private static async Task<bool?> ShowConfirmAsync(Window owner, string title, string message)
+    {
+        var dialog = new Window
+        {
+            Title = title,
+            Width = 420,
+            Height = 180,
+            CanResize = false,
+            WindowStartupLocation = WindowStartupLocation.CenterOwner,
+            Background = new SolidColorBrush(Color.Parse("#F4F8FA")),
+        };
+
+        bool? result = null;
+
+        var text = new TextBlock
+        {
+            Text = message,
+            TextWrapping = TextWrapping.Wrap,
+            VerticalAlignment = VerticalAlignment.Center,
+            Margin = new Thickness(0, 0, 0, 16),
+        };
+
+        var yes = new Button
+        {
+            Content = "Да",
+            Classes = { "primary" },
+            MinWidth = 90,
+            Margin = new Thickness(0, 0, 8, 0),
+        };
+        yes.Click += (_, _) =>
+        {
+            result = true;
+            dialog.Close();
+        };
+
+        var no = new Button
+        {
+            Content = "Нет",
+            Classes = { "exit" },
+            MinWidth = 90,
+        };
+        no.Click += (_, _) =>
+        {
+            result = false;
+            dialog.Close();
+        };
+
+        var buttons = new StackPanel
+        {
+            Orientation = Orientation.Horizontal,
+            HorizontalAlignment = HorizontalAlignment.Right,
+            Spacing = 8,
+        };
+        buttons.Children.Add(yes);
+        buttons.Children.Add(no);
+
+        var panel = new DockPanel { Margin = new Thickness(24) };
+        DockPanel.SetDock(buttons, Dock.Bottom);
+        panel.Children.Add(buttons);
+        panel.Children.Add(text);
+        dialog.Content = panel;
+
+        await dialog.ShowDialog(owner);
+        return result;
     }
 
     private static async Task ShowMessageAsync(Window owner, string message)

@@ -19,6 +19,10 @@
                     <TextBlock Classes="hint"
                                Text="{Binding StatusMessage}"
                                VerticalAlignment="Center" />
+                    <Button Classes="accent"
+                            Content="Экспорт в Excel/CSV"
+                            Command="{Binding ExportCsvCommand}"
+                            MinWidth="140" />
                     <Button Classes="primary"
                             Content="Печать"
                             Command="{Binding PrintCommand}"

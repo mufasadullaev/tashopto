@@ -3,6 +3,7 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Opto.Models;
+using Opto.Services;
 
 namespace Opto.ViewModels;
 
@@ -43,6 +44,26 @@ public partial class BaxtaStartViewModel : ViewModelBase
         if (SelectedDate is null || SelectedMode is null)
         {
             ValidationMessage = "Укажите дату и выберите режим: Расчёт или Перерасчёт.";
+            return;
+        }
+
+        var watchError = BaxtaWatchStore.TryValidate(SelectedDate.Value.Date, SelectedMode.Value);
+        if (watchError is not null)
+        {
+            ValidationMessage = watchError;
+            return;
+        }
+
+        var earliest = BaxtaStore.GetEarliestDay();
+        if (earliest is not null && SelectedDate.Value.Date < earliest.Value.Date)
+        {
+            ValidationMessage = "Исходные данные за этот период отсутствуют.";
+            return;
+        }
+
+        if (SelectedMode == WyrabotkaMode.Recalculation && !BaxtaStore.HasDay(SelectedDate.Value.Date))
+        {
+            ValidationMessage = "За эту дату нет сохранённых данных. Выберите «Расчёт».";
             return;
         }
 

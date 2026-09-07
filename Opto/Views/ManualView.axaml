@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Opto.ViewModels"
+             x:Class="Opto.Views.ManualView"
+             x:DataType="vm:ManualViewModel">
+    <DockPanel Margin="16">
+        <Border DockPanel.Dock="Top" Background="#F4F6F8" Padding="12" CornerRadius="6" Margin="0,0,0,16">
+            <Button Command="{Binding BackCommand}" Content="← Назад в меню" Classes="secondary" />
+        </Border>
+
+        <ScrollViewer>
+            <StackPanel Spacing="16" MaxWidth="800" HorizontalAlignment="Center">
+                <TextBlock Text="Технологическая инструкция" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" />
+
+                <Border Background="#FAFAFA" BorderBrush="#E0E0E0" BorderThickness="1" CornerRadius="6" Padding="20">
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="1. Порядок работы с модулем «Вахта»" FontWeight="Bold" FontSize="16" />
+                        <TextBlock Text="• Снимите показания генерации и СН в 4 временных точках: 0:00, 8:00, 16:00, 24:00." TextWrapping="Wrap" />
+                        <TextBlock Text="• Заполните параметры теплотехники по 3 сменам для работающих блоков." TextWrapping="Wrap" />
+                        <TextBlock Text="• Нажмите кнопку «Расчёт» для сохранения и вычисления потерь топлива." TextWrapping="Wrap" />
+
+                        <TextBlock Text="2. Порядок работы с модулем «Выработка»" FontWeight="Bold" FontSize="16" Margin="0,12,0,0" />
+                        <TextBlock Text="• Заполните начальные и конечные показания счётчиков блоков и трансформаторов СН." TextWrapping="Wrap" />
+                        <TextBlock Text="• Перекрутка счётчиков учитывается автоматически (+1 000 000 / +100 000)." TextWrapping="Wrap" />
+
+                        <TextBlock Text="3. Расчёт пережогов топлива" FontWeight="Bold" FontSize="16" Margin="0,12,0,0" />
+                        <TextBlock Text="• Введите данные по 16 строкам технологических отклонений (N, T, DT)." TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

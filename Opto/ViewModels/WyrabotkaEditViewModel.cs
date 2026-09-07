@@ -82,7 +82,7 @@ public partial class WyrabotkaEditViewModel : ViewModelBase
             });
         }
 
-        var saved = WyrabotkaStore.TryLoad(Date);
+        var saved = WyrabotkaStore.TryLoad(Date) ?? WyrabotkaStore.TryLoadTemplateSnapshot(Date);
         saved?.ApplyTo(Blocks, Transformers);
 
         CancelCommand = new RelayCommand(goBack);

@@ -1,0 +1,53 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Opto.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="420" d:DesignHeight="420"
+        x:Class="Opto.Views.BaxtaCopyWindow"
+        x:DataType="vm:BaxtaCopyViewModel"
+        Title="Копирование данных"
+        Width="420"
+        MinWidth="380"
+        SizeToContent="Height"
+        MaxHeight="560"
+        CanResize="True"
+        WindowStartupLocation="CenterOwner"
+        Background="#F4F8FA">
+
+    <DockPanel Margin="28">
+        <DockPanel DockPanel.Dock="Bottom" Margin="0,20,0,8">
+            <Button Classes="exit" Content="Отмена" Command="{Binding CancelCommand}"
+                    DockPanel.Dock="Left" MinWidth="110" />
+            <Button Classes="primary" Content="Копировать" Command="{Binding CopyCommand}"
+                    DockPanel.Dock="Right" HorizontalAlignment="Right" MinWidth="130" />
+        </DockPanel>
+
+        <StackPanel Spacing="16">
+            <TextBlock Classes="module-title" Text="Копирование исходных данных" />
+            <TextBlock Classes="hint"
+                       Text="Скопировать введённые данные с одной даты на другую (без результатов расчёта)."
+                       TextWrapping="Wrap" />
+
+            <StackPanel Spacing="6">
+                <TextBlock Classes="field-label" Text="Исходная дата" />
+                <CalendarDatePicker SelectedDate="{Binding SourceDate}"
+                                    Watermark="ДД.ММ.ГГГГ"
+                                    HorizontalAlignment="Stretch" />
+            </StackPanel>
+
+            <StackPanel Spacing="6">
+                <TextBlock Classes="field-label" Text="Целевая дата" />
+                <CalendarDatePicker SelectedDate="{Binding TargetDate}"
+                                    Watermark="ДД.ММ.ГГГГ"
+                                    HorizontalAlignment="Stretch" />
+            </StackPanel>
+
+            <TextBlock Classes="validation"
+                       Text="{Binding ValidationMessage}"
+                       IsVisible="{Binding ValidationMessage, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                       TextWrapping="Wrap" />
+        </StackPanel>
+    </DockPanel>
+</Window>

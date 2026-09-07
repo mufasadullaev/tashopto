@@ -68,6 +68,25 @@ public class NumericTextBox : TextBox
         base.OnTextInput(e);
     }
 
+    protected override void OnGotFocus(GotFocusEventArgs e)
+    {
+        base.OnGotFocus(e);
+        SelectAll();
+    }
+
+    protected override void OnKeyDown(KeyEventArgs e)
+    {
+        if (e.Key == Key.Enter || e.Key == Key.Return)
+        {
+            e.Handled = true;
+            var next = KeyboardNavigationHandler.GetNext(this, NavigationDirection.Next);
+            next?.Focus();
+            return;
+        }
+
+        base.OnKeyDown(e);
+    }
+
     protected override void OnLostFocus(RoutedEventArgs e)
     {
         base.OnLostFocus(e);

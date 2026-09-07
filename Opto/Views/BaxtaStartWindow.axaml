@@ -4,12 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        d:DesignWidth="460" d:DesignHeight="360"
+        d:DesignWidth="460" d:DesignHeight="380"
         x:Class="Opto.Views.BaxtaStartWindow"
         x:DataType="vm:BaxtaStartViewModel"
         Title="Ежедневный расчёт по вахтам"
-        Width="460" Height="360"
-        CanResize="False"
+        Width="460"
+        MinWidth="420"
+        SizeToContent="Height"
+        MaxHeight="640"
+        CanResize="True"
         WindowStartupLocation="CenterOwner"
         Background="#F4F8FA">
 
@@ -17,7 +20,21 @@
         <vm:BaxtaStartViewModel />
     </Design.DataContext>
 
-    <Border Padding="28">
+    <DockPanel Margin="28">
+        <DockPanel DockPanel.Dock="Bottom" Margin="0,20,0,8">
+            <Button Classes="exit"
+                    Content="Отмена"
+                    Command="{Binding CancelCommand}"
+                    DockPanel.Dock="Left"
+                    MinWidth="110" />
+            <Button Classes="primary"
+                    Content="Продолжить"
+                    Command="{Binding ContinueCommand}"
+                    DockPanel.Dock="Right"
+                    HorizontalAlignment="Right"
+                    MinWidth="130" />
+        </DockPanel>
+
         <StackPanel Spacing="18">
             <StackPanel Spacing="4">
                 <TextBlock Classes="brand-sm" Text="ОПТО" />
@@ -53,20 +70,6 @@
                        Text="{Binding ValidationMessage}"
                        IsVisible="{Binding ValidationMessage, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
                        TextWrapping="Wrap" />
-
-            <DockPanel Margin="0,8,0,0">
-                <Button Classes="exit"
-                        Content="Отмена"
-                        Command="{Binding CancelCommand}"
-                        DockPanel.Dock="Left"
-                        MinWidth="110" />
-                <Button Classes="primary"
-                        Content="Продолжить"
-                        Command="{Binding ContinueCommand}"
-                        DockPanel.Dock="Right"
-                        HorizontalAlignment="Right"
-                        MinWidth="130" />
-            </DockPanel>
         </StackPanel>
-    </Border>
+    </DockPanel>
 </Window>

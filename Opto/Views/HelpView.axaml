@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Opto.ViewModels"
+             x:Class="Opto.Views.HelpView"
+             x:DataType="vm:HelpViewModel">
+    <DockPanel Margin="16">
+        <Border DockPanel.Dock="Top" Background="#F4F6F8" Padding="12" CornerRadius="6" Margin="0,0,0,16">
+            <Button Command="{Binding BackCommand}" Content="← Назад в меню" Classes="secondary" />
+        </Border>
+
+        <StackPanel Spacing="16" MaxWidth="600" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="О программе Opto" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" />
+            <TextBlock Text="Система учёта выработки, сменных расчётов и расхода топлива ТашТЭС / ТашГРЭС." TextWrapping="Wrap" HorizontalAlignment="Center" />
+
+            <Border Background="#FAFAFA" BorderBrush="#E0E0E0" BorderThickness="1" CornerRadius="6" Padding="20">
+                <StackPanel Spacing="8">
+                    <TextBlock Text="Версия: 2.0 (Avalonia .NET 9)" FontWeight="Bold" />
+                    <TextBlock Text="Замена легаси-системы karat (FoxPro)." />
+                    <TextBlock Text="База данных: SQLite embedded." />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </DockPanel>
+</UserControl>

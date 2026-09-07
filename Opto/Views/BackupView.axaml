@@ -1,0 +1,20 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Opto.ViewModels"
+             x:Class="Opto.Views.BackupView"
+             x:DataType="vm:BackupViewModel">
+    <DockPanel Margin="16">
+        <Border DockPanel.Dock="Top" Background="#F4F6F8" Padding="12" CornerRadius="6" Margin="0,0,0,16">
+            <Button Command="{Binding BackCommand}" Content="← Назад в меню" Classes="secondary" />
+        </Border>
+
+        <StackPanel Spacing="16" MaxWidth="600" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Резервное копирование данных" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" />
+            <TextBlock Text="Создайте резервную копию базы данных SQLite в папку Opto_Backups на рабочем столе." TextWrapping="Wrap" HorizontalAlignment="Center" />
+            
+            <Button Command="{Binding ExportBackupCommand}" Content="Создать резервную копию" Classes="accent" HorizontalAlignment="Center" Padding="16,10" />
+            
+            <TextBlock Text="{Binding StatusMessage}" Foreground="#2E7D32" FontWeight="Bold" HorizontalAlignment="Center" TextWrapping="Wrap" />
+        </StackPanel>
+    </DockPanel>
+</UserControl>

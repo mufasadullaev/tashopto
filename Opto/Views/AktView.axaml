@@ -1,0 +1,70 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Opto.ViewModels"
+             xmlns:views="clr-namespace:Opto.Views"
+             x:Class="Opto.Views.AktView"
+             x:DataType="vm:AktViewModel">
+    <DockPanel Margin="16">
+        <!-- Top Toolbar -->
+        <Border DockPanel.Dock="Top" Background="#F4F6F8" Padding="12" CornerRadius="6" Margin="0,0,0,16">
+            <DockPanel>
+                <Button DockPanel.Dock="Left" Command="{Binding BackCommand}" Content="← Назад в меню" Classes="secondary" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="12">
+                    <CalendarDatePicker SelectedDate="{Binding Date}" Watermark="ДД.ММ.ГГГГ" VerticalAlignment="Center" Width="160" />
+                    <Button Command="{Binding CalculateCommand}" Content="Расчёт" Classes="accent" />
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <!-- Content Grid -->
+        <ScrollViewer>
+            <StackPanel Spacing="16" MaxWidth="800" HorizontalAlignment="Center">
+                <TextBlock Text="Акт по выработке электроэнергии" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" />
+
+                <!-- Input section -->
+                <Border Background="#FFFFFF" BorderBrush="#E0E0E0" BorderThickness="1" CornerRadius="6" Padding="16">
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="Дополнительные статьи собственных нужд (тыс. кВт·ч):" FontWeight="Bold" />
+                        
+                        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto">
+                            <StackPanel Grid.Row="0" Grid.Column="0" Margin="4">
+                                <TextBlock Text="Резервный возбудитель:" Margin="0,0,0,4" />
+                                <views:NumericTextBox Text="{Binding ReserveExciterKwh}" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="0" Grid.Column="1" Margin="4">
+                                <TextBlock Text="Потери:" Margin="0,0,0,4" />
+                                <views:NumericTextBox Text="{Binding LossesKwh}" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Margin="4">
+                                <TextBlock Text="Хозяйственные нужды:" Margin="0,0,0,4" />
+                                <views:NumericTextBox Text="{Binding PlantFacilitiesKwh}" />
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Margin="4">
+                                <TextBlock Text="Профилакторий:" Margin="0,0,0,4" />
+                                <views:NumericTextBox Text="{Binding PreventoriumKwh}" />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- Results summary -->
+                <Border Background="#FAFAFA" BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="6" Padding="16">
+                    <StackPanel Spacing="10" DataContext="{Binding Report}">
+                        <TextBlock Text="Результаты акта выработки за месяц" FontWeight="Bold" FontSize="16" />
+                        <Separator />
+                        <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto">
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Выработка брутто (тыс. кВт·ч):" FontSize="14" />
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding GrossGenerationKwh}" FontWeight="Bold" FontSize="14" />
+
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Собственные нужды (тыс. кВт·ч):" FontSize="14" Margin="0,8,0,0" />
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding TotalOwnNeedsKwh}" FontWeight="Bold" FontSize="14" Margin="0,8,0,0" />
+
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Полезный отпуск в сеть (тыс. кВт·ч):" FontSize="15" FontWeight="Bold" Foreground="#1976D2" Margin="0,12,0,0" />
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding NetReleaseKwh}" FontSize="15" FontWeight="Bold" Foreground="#1976D2" Margin="0,12,0,0" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

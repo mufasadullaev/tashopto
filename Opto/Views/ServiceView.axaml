@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Opto.ViewModels"
+             x:Class="Opto.Views.ServiceView"
+             x:DataType="vm:ServiceViewModel">
+    <DockPanel Margin="16">
+        <Border DockPanel.Dock="Top" Background="#F4F6F8" Padding="12" CornerRadius="6" Margin="0,0,0,16">
+            <Button Command="{Binding BackCommand}" Content="← Назад в меню" Classes="secondary" />
+        </Border>
+
+        <StackPanel Spacing="16" MaxWidth="600" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Служебные функции базы данных" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" />
+
+            <StackPanel Orientation="Horizontal" Spacing="16" HorizontalAlignment="Center">
+                <Button Command="{Binding VacuumCommand}" Content="Оптимизация БД (VACUUM)" Classes="accent" />
+                <Button Command="{Binding IntegrityCheckCommand}" Content="Проверка целостности" Classes="secondary" />
+            </StackPanel>
+
+            <TextBlock Text="{Binding StatusMessage}" Foreground="#1976D2" FontWeight="Bold" HorizontalAlignment="Center" TextWrapping="Wrap" />
+        </StackPanel>
+    </DockPanel>
+</UserControl>

@@ -65,6 +65,28 @@ public sealed class WyrabotkaEditSnapshot
             row.End = item.End;
         }
     }
+
+    public List<BlockMeterRow> ToBlockRows() =>
+        Blocks.Select(b => new BlockMeterRow
+        {
+            Number = b.Number,
+            GenerationCoefficient = b.GenerationCoefficient,
+            GenerationStart = b.GenerationStart,
+            GenerationEnd = b.GenerationEnd,
+            OwnNeedsCoefficient = b.OwnNeedsCoefficient,
+            OwnNeedsStart = b.OwnNeedsStart,
+            OwnNeedsEnd = b.OwnNeedsEnd,
+            Hours = b.Hours,
+        }).ToList();
+
+    public List<TransformerMeterRow> ToTransformerRows() =>
+        Transformers.Select(t => new TransformerMeterRow
+        {
+            Name = t.Name,
+            Coefficient = t.Coefficient,
+            Start = t.Start,
+            End = t.End,
+        }).ToList();
 }
 
 public sealed class WyrabotkaBlockData

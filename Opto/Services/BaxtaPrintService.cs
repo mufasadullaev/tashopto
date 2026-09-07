@@ -10,9 +10,9 @@ namespace Opto.Services;
 
 public static class BaxtaPrintService
 {
-    public static void Print(BaxtaReport report)
+    public static void Print(BaxtaReport report, int copies = 1)
     {
-        var html = BuildHtml(report);
+        var html = BuildHtml(report, copies);
         var path = Path.Combine(
             Path.GetTempPath(),
             $"opto-baxta-{report.Date:yyyyMMdd}-{DateTime.Now:HHmmss}.html");
@@ -26,8 +26,9 @@ public static class BaxtaPrintService
         });
     }
 
-    private static string BuildHtml(BaxtaReport report)
+    private static string BuildHtml(BaxtaReport report, int copies)
     {
+        copies = Math.Clamp(copies, 1, 10);
         var sb = new StringBuilder();
 
         sb.AppendLine("<!DOCTYPE html><html lang=\"ru\"><head><meta charset=\"utf-8\" />");
@@ -44,15 +45,32 @@ public static class BaxtaPrintService
             th:first-child, td:first-child { text-align:left; }
             .section { font-weight:700; background:#f3f6f8; }
             .footer { margin-top:8px; font-size:10px; }
+            .copy { page-break-after: always; }
+            .copy:last-child { page-break-after: auto; }
             """);
         sb.AppendLine("</style></head><body>");
         OptoPrintChrome.AppendToolbar(sb);
+
+        for (var copy = 1; copy <= copies; copy++)
+        {
+            sb.AppendLine("<div class=\"copy\">");
+            AppendReportBody(sb, report, copy, copies);
+            sb.AppendLine("</div>");
+        }
+
+        sb.AppendLine("<script>window.addEventListener('load',()=>setTimeout(()=>window.print(),200));</script>");
+        sb.AppendLine("</body></html>");
+        return sb.ToString();
+    }
+
+    private static void AppendReportBody(StringBuilder sb, BaxtaReport report, int copy, int copies)
+    {
         OptoPrintChrome.AppendHeader(
             sb,
             "ИТОГИ РАСХОДА ТОПЛИВА (в кг у.т.) по сменам, вахтам и блокам",
             report.Date,
             report.Mode,
-            "Ежедневный расчёт по вахтам");
+            copies > 1 ? $"Ежедневный расчёт по вахтам · экз. {copy}/{copies}" : "Ежедневный расчёт по вахтам");
 
         foreach (var section in report.Sections)
         {
@@ -63,14 +81,14 @@ public static class BaxtaPrintService
                 sb.AppendLine($"<th>{i}</th>");
             sb.AppendLine("<th>ПО СТАНЦИИ</th></tr></thead><tbody>");
 
-        foreach (var row in section.Rows)
-        {
-            sb.AppendLine($"<tr><td>{WebUtility.HtmlEncode(row.Label)}</td>");
-            sb.AppendLine($"<td>{row.Col1}</td><td>{row.Col2}</td><td>{row.Col3}</td><td>{row.Col4}</td>");
-            sb.AppendLine($"<td>{row.Col5}</td><td>{row.Col6}</td><td>{row.Col7}</td><td>{row.Col8}</td>");
-            sb.AppendLine($"<td>{row.Col9}</td><td>{row.Col10}</td><td>{row.Col11}</td><td>{row.Col12}</td>");
-            sb.AppendLine($"<td><strong>{row.TotalText}</strong></td></tr>");
-        }
+            foreach (var row in section.Rows)
+            {
+                sb.AppendLine($"<tr><td>{WebUtility.HtmlEncode(row.Label)}</td>");
+                sb.AppendLine($"<td>{row.Col1}</td><td>{row.Col2}</td><td>{row.Col3}</td><td>{row.Col4}</td>");
+                sb.AppendLine($"<td>{row.Col5}</td><td>{row.Col6}</td><td>{row.Col7}</td><td>{row.Col8}</td>");
+                sb.AppendLine($"<td>{row.Col9}</td><td>{row.Col10}</td><td>{row.Col11}</td><td>{row.Col12}</td>");
+                sb.AppendLine($"<td><strong>{row.TotalText}</strong></td></tr>");
+            }
 
             sb.AppendLine("</tbody></table>");
         }
@@ -79,8 +97,5 @@ public static class BaxtaPrintService
         sb.AppendLine($"Справка по удельному расходу топлива: план на МЕСЯЦ — {report.Urp:N2} г/кВт·ч; ");
         sb.AppendLine($"факт с начала МЕСЯЦА — {report.Urm:N2} г/кВт·ч · ОПЕРАТОР НТЦ");
         sb.AppendLine("</div>");
-        sb.AppendLine("<script>window.addEventListener('load',()=>setTimeout(()=>window.print(),200));</script>");
-        sb.AppendLine("</body></html>");
-        return sb.ToString();
     }
 }

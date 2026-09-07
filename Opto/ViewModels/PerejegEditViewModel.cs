@@ -93,6 +93,9 @@ public partial class PerejegEditViewModel : ViewModelBase
 
         var report = PerejegCalculator.Calculate(Date, Mode, Rows);
         PerejegStore.SaveResult(Date, report);
-        _navigate(new PerejegReportViewModel(report, () => _navigate(this)));
+        _navigate(new PerejegReportViewModel(
+            report,
+            () => _navigate(this),
+            backButtonText: "← К вводу данных"));
     }
 }

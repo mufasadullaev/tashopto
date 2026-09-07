@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Microsoft.Data.Sqlite;
 using Opto.Models;
 using Opto.Services.Database;
@@ -7,6 +8,37 @@ namespace Opto.Services;
 
 public static class WyrabotkaStore
 {
+    public static WyrabotkaReport? TryLoadResult(DateTime date)
+    {
+        using var connection = OptoDatabase.OpenConnection();
+        var snapshot = TryLoad(connection, date);
+        if (snapshot is null)
+            return null;
+
+        var mode = TryLoadMode(date) ?? WyrabotkaMode.Calculation;
+        var monthBefore = GetMonthTotalsBefore(connection, date);
+        return WyrabotkaCalculator.Calculate(date, mode, snapshot.ToBlockRows(), snapshot.ToTransformerRows(), monthBefore);
+    }
+    public static WyrabotkaMode? TryLoadMode(DateTime date)
+    {
+        using var connection = OptoDatabase.OpenConnection();
+        var dateKey = OptoDatabase.DateKey(date);
+        using var command = connection.CreateCommand();
+        command.CommandText = "SELECT mode FROM wyrabotka_day WHERE date = @date LIMIT 1;";
+        OptoDatabase.AddParameter(command, "@date", dateKey);
+        var result = command.ExecuteScalar();
+        return result is long mode ? (WyrabotkaMode)mode : null;
+    }
+
+    public static DateTime? GetLatestDay()
+    {
+        using var connection = OptoDatabase.OpenConnection();
+        using var command = connection.CreateCommand();
+        command.CommandText = "SELECT date FROM wyrabotka_day ORDER BY date DESC LIMIT 1;";
+        var value = command.ExecuteScalar();
+        return value is string text ? DateTime.Parse(text) : null;
+    }
+
     public static void Save(DateTime date, WyrabotkaMode mode, WyrabotkaEditSnapshot snapshot)
     {
         using var connection = OptoDatabase.OpenConnection();
@@ -211,5 +243,54 @@ public static class WyrabotkaStore
             OwnNeedsThousandKwh = reader.GetDecimal(2),
             ReleaseThousandKwh = reader.GetDecimal(3),
         };
+    }
+
+    public static DateTime? GetLatestDayBefore(DateTime date)
+    {
+        using var connection = OptoDatabase.OpenConnection();
+        using var command = connection.CreateCommand();
+        command.CommandText = "SELECT date FROM wyrabotka_day WHERE date < @date ORDER BY date DESC LIMIT 1;";
+        OptoDatabase.AddParameter(command, "@date", OptoDatabase.DateKey(date));
+        var value = command.ExecuteScalar();
+        return value is string text ? DateTime.Parse(text) : null;
+    }
+
+    public static WyrabotkaEditSnapshot? TryLoadTemplateSnapshot(DateTime date)
+    {
+        using var connection = OptoDatabase.OpenConnection();
+        if (TryLoad(connection, date) is not null)
+            return null;
+
+        var prevDate = GetLatestDayBefore(date);
+        if (prevDate is null)
+            return null;
+
+        var source = TryLoad(connection, prevDate.Value);
+        if (source is null)
+            return null;
+
+        var clone = new WyrabotkaEditSnapshot
+        {
+            Blocks = source.Blocks.Select(b => new WyrabotkaBlockData
+            {
+                Number = b.Number,
+                GenerationCoefficient = b.GenerationCoefficient,
+                GenerationStart = b.GenerationEnd,
+                GenerationEnd = 0,
+                OwnNeedsCoefficient = b.OwnNeedsCoefficient,
+                OwnNeedsStart = b.OwnNeedsEnd,
+                OwnNeedsEnd = 0,
+                Hours = b.Hours,
+            }).ToArray(),
+            Transformers = source.Transformers.Select(t => new WyrabotkaTransformerData
+            {
+                Name = t.Name,
+                Coefficient = t.Coefficient,
+                Start = t.End,
+                End = 0,
+            }).ToArray(),
+        };
+
+        return clone;
     }
 }
